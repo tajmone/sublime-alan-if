@@ -11,6 +11,7 @@ Pending tasks and bugs list.
 
 - [TODOs](#todos)
 - [Bugs](#bugs)
+- [Fixed Bugs](#fixed-bugs)
 
 <!-- /MarkdownTOC -->
 
@@ -20,7 +21,9 @@ Pending tasks and bugs list.
 
 List of planned tasks and features:
 
-- [x] Add [syntax test files][ST3Docs syntax test] to [`/tests/`][tests]:
+- [ ] Alan Syntax:
+    + [ ] Cleanup __quoted identifiers__ code, along the lines of Strings, and make sure it can handle `'..''''..'`
+- [ ] Add [syntax test files][ST3Docs syntax test] to [`/tests/`][tests]:
     + [x] __Strings__:
         * [`syntax_test_Strings.alan`][test_Strings]
     + [ ] __Comments__
@@ -35,7 +38,10 @@ List of planned tasks and features:
 
 Known bugs which need fixing:
 
-- [ ] __Strings__: two consecutive escaped DQs in the middle of a string prematurely end the string:
+
+# Fixed Bugs
+
+- [x] __Strings__: two consecutive escaped DQs in the middle of a string prematurely end the string:
 
       ```
       "Enclose in double quotes ("""") what you want to say.".
@@ -43,11 +49,6 @@ Known bugs which need fixing:
 
       ... strings ends at `("""` and `") what` is treated as normal text.
 
-      Currently the test file [`syntax_test_Strings.alan`][test_Strings] fails with:
+      __*Fixed*__ (`2018-04-14:3`)
 
-      ```
-      Packages/Alan/tests/syntax_test_strings.alan:32:36: [string.quoted.double.alan] does not match scope [source.alan]
-      Packages/Alan/tests/syntax_test_strings.alan:32:37: [string.quoted.double.alan] does not match scope [source.alan]
-      Packages/Alan/tests/syntax_test_strings.alan:32:38: [string.quoted.double.alan] does not match scope [source.alan]
-      FAILED: 3 of 94 assertions in 1 files failed
-      ```
+      Now the test file [`syntax_test_Strings.alan`][test_Strings] succeeds.

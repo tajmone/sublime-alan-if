@@ -16,7 +16,7 @@
   "".
 --^  punctuation.definition.string.begin.alan
 -- ^ punctuation.definition.string.end.alan
---^^ string.quoted.double.alan
+--^^ string.quoted.double.empty.alan
 ---------------------------------
 -- Test DQ Escaping inside string
 ---------------------------------
@@ -32,4 +32,4 @@
   "Strings are enclosed in DQs ("""")!"
 -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.double.alan
 --^ punctuation.definition.string.begin.alan
---                                    ^ punctuation.definition.string.begin.alan
+--                                    ^ punctuation.definition.string.end.alan
