@@ -1,0 +1,233 @@
+%YAML 1.2
+---
+# "Alan.sublime-syntax" v0.0.4 (2018-04-14) | Alan v3 beta5
+# ==============================================================================
+#                                  Alan Syntax                                  
+# ==============================================================================
+# Syntax definition for Alan IF Adventure Language:
+# -- https://www.alanif.se
+# ------------------------------------------------------------------------------
+# Copyright (c) Tristano Ajmone, 2018. MIT License.
+# -- https://github.com/tajmone/sublime-alan
+# ------------------------------------------------------------------------------
+name:    Alan
+comment: Alan IF Adventure Language
+file_extensions:
+  - alan
+  - i
+scope: source.alan
+
+variables:
+  ID: '[A-Z][A-Za-z0-9_]*'
+  SQ_StrDel: "(?<!')'(?!')"
+  DQ_StrDel: '(?<!")"(?!")'
+
+contexts:
+  
+  prototype:
+    - include: comments
+    - include: keywords
+    - include: numbers
+    - include: operators
+    - include: quoted_identifiers
+
+  main:
+    - include: import   # IMPORT '<filename>'.
+    - include: strings
+
+
+  ##############################################################################
+  #                                                                            #
+  #                        ALAN SYNTAX-SPECIFIC CONTEXTS                       #
+  #                                                                            #
+  ##############################################################################
+
+  ######################
+  # IMPORT '<filename>'.
+  ######################
+  # import = 'import' quoted_identifier '.'
+  import:
+    - match: (?i)\bimport\b
+      scope: keyword.control.import.include.alan
+      push:
+        - meta_scope: meta.preprocessor.include.alan
+        # - include: quoted_identifier
+        - match: '\.'
+          scope: punctuation.terminator.alan
+          pop: true
+
+  ##############################################################################
+  #                                                                            #
+  #                       REUSABLE ALAN SYNTAX CONTEXTS                        #
+  #                                                                            #
+  ##############################################################################
+
+  ###################
+  # quoted_identifier
+  ###################
+  # This is still very rough: I haven't worked out all the uses cases of quoted
+  # identifiers, and I still must decide which additional scope to assing to it.
+  # Whatever the additional scopes, quoted identifiers will be also treated as
+  # strings, for they are strings to the editor (even if they are not strings
+  # in the Alan syntax).
+  quoted_identifiers:
+    # ====================================
+    # Quoted Identifier Beginning with ''' (Delimter + Escpaed ')
+    # ====================================
+    # Even if unlikely to actually occur, it's syntactically possible; so the
+    # syntax definition should be able to handle it without breaking.
+    # -------------------------------------------------
+    - match: "'(?='')"
+      scope: punctuation.definition.string.begin.alan
+      push: inside_quoted_identifier
+    # =======================
+    # Empty Quoted Identifier
+    # =======================
+    - match: "(')(')"
+      scope: string.single.single.alan
+      captures:
+        1: punctuation.definition.string.begin.alan
+        2: punctuation.definition.string.end.alan
+    # =================
+    # Quoted Identifier (neither starting by ''' nor empty)
+    # =================
+    - match: "{{SQ_StrDel}}"
+      scope: punctuation.definition.string.begin.alan
+      push: inside_quoted_identifier
+
+  # =================================================
+  # Common context once inside a double quoted string
+  # =================================================
+  inside_quoted_identifier:
+    - meta_scope: string.quoted.single.alan
+    - meta_include_prototype: false
+    - match: "''(')" # <= Escaped '+ Str End Edlimiter
+      captures:
+        1: punctuation.definition.string.end.alan
+      pop: true
+    - match: "{{SQ_StrDel}}"
+      scope: punctuation.definition.string.end.alan
+      pop: true
+
+
+  ##############################################################################
+  #                                                                            #
+  #                              PROTOTYPE CONTEXTS                            #
+  #                                                                            #
+  ##############################################################################
+
+
+  ##########
+  # COMMENTS
+  ##########
+  comments:
+    - meta_include_prototype: false
+    - match: '(--)(.*)$\n?'
+      scope: comment.line.alan
+      captures:
+        1: punctuation.definition.comment.alan
+
+  ######################
+  # SPECIAL STRING CHARS
+  ######################
+  # Q: Are they case sensitive???
+  # Q: Do they occure only inside strings?
+  # Q: Do they occur in single-quoted strings?
+  # -------------------------------------------------------------
+  # Character combinations with special meaning for the printout:
+  #   $p  => New paragraph (usually one empty line)
+  #   $n  => New line
+  #   $i  => Indent on a new line
+  #   $t  => Insert a tabulation
+  #   $$  => Do not insert a space
+  #   $a  => The name of the actor that is executing
+  #   $l  => The name of the current location
+  #   $v  => The verb the player used (the first word)
+  #   $   => Print a dollar sign
+  #
+  # These refer to parameters while executing a verb:
+  #   $<n>   => The parameter <n> (<n> is a digit > 0, e.g. “$1”)
+  #   $+<n>  => Definite form of parameter <n>
+  #   $0<n>  => Indefinite form of parameter <n>
+  #   $-<n>  => Negative form of parameter <n>
+  #   $!<n>  => Pronoun for the parameter <n>
+  #   $o     => The current object (first parameter) *DEPRECATED*
+  # -------------------------------------------------------------
+  special_chars:
+    - match: '\$([pnit$alv]|[+\-!0]?[1-9])'
+      scope: constant.character.escape.alan # What else?
+    - match: '\$o'
+      scope: constant.character.escape.alan
+             invalid.deprecated
+
+  ######################
+  # KEWYWORDS
+  ######################
+  # Currently all keywords are stored here, waiting to be moved in better scope...
+  # REMOVED: import
+  keywords:
+    - include: kwd_conditional
+    - match: (?i)\b(actor|add|after|an|and|are|article|at|attributes|before|between|by|can|cancel|character|characters|check|container|contains|count|current|decrease|definite|depend|depending|describe|description|directly|do|does|each|empty|end|entered|event|every|exclude|exit|extract|first|for|form|from|has|header|here|in|include|increase|indefinite|initialize|into|is|isa|it|last|limits|list|locate|location|look|make|max|mentioned|message|min|name|near|nearby|negative|no|not|of|off|on|only|opaque|option|options|or|play|prompt|pronoun|quit|random|restart|restore|save|say|schedule|score|script|set|show|start|step|stop|strip|style|sum|synonyms|syntax|system|taking|the|this|to|transcript|until|use|verb|visits|wait|when|where|with|word|words)\b
+      scope: keyword.other.alan # Temporary
+
+  kwd_conditional:
+    - match: (?i)\b(if|else|elsif|then)\b
+      scope: keyword.control.conditional.alan
+
+  #########
+  # NUMBERS
+  #########
+  numbers:
+    - match: \b\d+\b
+      scope: constant.numeric.alan
+
+  ###########
+  # OPERATORS
+  ###########
+  operators:
+    - match: \+|\-|\*|/
+      scope: keyword.operator.arithmetic.alan
+    - match: <\=?|>\=?|\=\=?
+      scope: keyword.operator.comparison.alan
+
+  #########
+  # STRINGS
+  #########
+  # Strings in Alan are only double quoted (single quoted strings are considered
+  # quoted identifiers).
+  strings:
+    # =========================
+    # String Beginning with """ (Delimter + Escpaed ")
+    # =========================
+    - match: '"(?="")'
+      scope: punctuation.definition.string.begin.alan
+      push: inside_DQString
+    # =============
+    # Empty Strings
+    # =============
+    - match: '(")(")'
+      scope: string.quoted.double.alan
+      captures:
+        1: punctuation.definition.string.begin.alan
+        2: punctuation.definition.string.end.alan
+    # ====================
+    # Double Quoted String
+    # ====================
+    - match: "{{DQ_StrDel}}"
+      scope: punctuation.definition.string.begin.alan
+      push: inside_DQString
+
+  # -------------------------------------------------
+  # Common context once inside a double quoted string
+  # -------------------------------------------------
+  inside_DQString:
+    - meta_scope: string.quoted.double.alan
+    - meta_include_prototype: false
+    - include: special_chars
+    - match: '""(")' # <= Escaped " + Str End Edlimiter
+      captures:
+        1: punctuation.definition.string.end.alan
+      pop: true
+    - match: "{{DQ_StrDel}}"
+      scope: punctuation.definition.string.end.alan
+      pop: true
