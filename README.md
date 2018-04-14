@@ -83,17 +83,16 @@ SOFTWARE.
 
 # Links
 
+Alan IF links:
+
 - [Alan website]
 - [IFWiki » Alan page]
-- [Alan-IF discussion group at Yahoo]
-
-
-
+- [Alan-IF mailing list and discussion group at Yahoo]
 
 
 [Alan website]: https://www.alanif.se/ "Visit Alan official website"
 
-[Alan-IF discussion group at Yahoo]: https://groups.yahoo.com/neo/groups/alan-if/info "Visit Alan-IF discussion group main page at Yahoo Groups"
+[Alan-IF mailing list and discussion group at Yahoo]: https://groups.yahoo.com/neo/groups/alan-if/info "Visit Alan-IF discussion group main page at Yahoo Groups"
 
 [IFWiki » Alan page]: http://www.ifwiki.org/index.php/Alan "View Alan entry at IFWiki"
 
