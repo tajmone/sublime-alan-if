@@ -10,6 +10,8 @@ Pending tasks and bugs list.
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
 - [TODOs](#todos)
+    - [Alan Syntax:](#alan-syntax)
+    - [Syntax Test Files](#syntax-test-files)
 - [Bugs](#bugs)
 - [Fixed Bugs](#fixed-bugs)
 
@@ -21,15 +23,38 @@ Pending tasks and bugs list.
 
 List of planned tasks and features:
 
-- [x] Alan Syntax:
-    + [x] Cleanup __quoted identifiers__ code, along the lines of Strings, and make sure it can handle `'..''''..'`
-- [ ] Add [syntax test files][ST3Docs syntax test] to [`/tests/`][tests]:
-    + [x] __Strings__:
-        * [`syntax_test_Strings.alan`][test_Strings] (__OK!__)
-    + [x] __Quoted Identifiers__:
-        * [`syntax_test_QuotedIdentifiers.alan`][test_QuotedIdentifiers] (__OK!__)
-    + [ ] __Comments__
-    + [ ] __Keywords__
+- [ ] Add some snippets
+- [ ] Create dedicate Alan color scheme (light)
+- [ ] Create color scheme for testing Alan syntax (color everything)
+- [ ] Implement indexing for Goto funcionality
+- [ ] Implement autocompletion
+
+## Alan Syntax:
+
++ [ ] __Quoted Identifiers__:
+    * [ ] Add `empty` scope to empty identifiers
+    * [ ] Decide semantic scope for identifiers
+    * [x] Cleanup __quoted identifiers__ code, along the lines of Strings, and make sure it can handle `'..''''..'`
++ [ ] __Special $ Characters__:
+    * [ ] The parameters $ Chars (`$1`, etc.) should be scoped as _placeholders_:
+
+        ```
+        constant.other.placeholder
+        ```
+
+        (they resemble more the ` %s` in `sprintf()` rather than escape sequences)
+
+## Syntax Test Files
+
+Add [syntax test files][ST3Docs syntax test] to [`/tests/`][tests]:
+
++ [x] __Strings__:
+    * [`syntax_test_Strings.alan`][test_Strings] (__OK!__)
++ [x] __Quoted Identifiers__:
+    * [`syntax_test_QuotedIdentifiers.alan`][test_QuotedIdentifiers] (__OK!__)
++ [ ] __Comments__
++ [ ] __Keywords__
++ [ ] __Special $ Characters__
 
 
 [ST3Docs syntax test]: https://www.sublimetext.com/docs/3/syntax.html#testing
