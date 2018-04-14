@@ -21,18 +21,22 @@ Pending tasks and bugs list.
 
 List of planned tasks and features:
 
-- [ ] Alan Syntax:
-    + [ ] Cleanup __quoted identifiers__ code, along the lines of Strings, and make sure it can handle `'..''''..'`
+- [x] Alan Syntax:
+    + [x] Cleanup __quoted identifiers__ code, along the lines of Strings, and make sure it can handle `'..''''..'`
 - [ ] Add [syntax test files][ST3Docs syntax test] to [`/tests/`][tests]:
     + [x] __Strings__:
-        * [`syntax_test_Strings.alan`][test_Strings]
+        * [`syntax_test_Strings.alan`][test_Strings] (__OK!__)
+    + [x] __Quoted Identifiers__:
+        * [`syntax_test_QuotedIdentifiers.alan`][test_QuotedIdentifiers] (__OK!__)
     + [ ] __Comments__
     + [ ] __Keywords__
+
 
 [ST3Docs syntax test]: https://www.sublimetext.com/docs/3/syntax.html#testing
 
 [tests]: ./tests/ "See 'tests' folder"
 [test_Strings]: ./tests/syntax_test_Strings.alan "Open file..."
+[test_QuotedIdentifiers]: ./tests/syntax_test_QuotedIdentifiers.alan "Open file..."
 
 # Bugs
 

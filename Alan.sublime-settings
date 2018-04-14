@@ -1,5 +1,5 @@
 // ------------------------------------------------------------------------------
-// Sublime-Alan: Testing Settings                        
+// Sublime-Alan: Testing Settings v0.0.2 (2018-04-14) | Alan v3 beta5                       
 // ------------------------------------------------------------------------------
 // Packages shouldn't fiddle with ST settings unless stricly required!
 // But because this is an Alpha project I'll be imposing some settings at the
@@ -32,7 +32,7 @@
     // I still need to experiment with the various indentation settings...
     // -------------------------------------------------------------------------
     "tab_size": 2, // Tabs 2 is a reasonable setting
-    // "translate_tabs_to_spaces": true,
+    "translate_tabs_to_spaces": true,
     // "detect_indentation": false,
     // "use_tab_stops": true,
     // "auto_indent": true,

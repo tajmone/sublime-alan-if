@@ -1,5 +1,13 @@
 # CHANGELOG
 
+### 2018-04-14:4
+
+- `Alan.sublime-syntax` v0.0.5:
+    + Cleaned Up __Quoted Identifiers__: smaller code; now can handle  2 consecuitve escaped SQ (`''''`) in the middle without prematurely ending.
+- Added to [`/tests/`][tests]:
+    + [`syntax_test_QuotedIdentifiers.alan`][test_QuotedIdentifiers]
+
+
 ### 2018-04-14:3
 
 - `Alan.sublime-syntax` v0.0.5:
@@ -19,10 +27,13 @@
     + [`syntax_test_Strings.alan`][test_Strings] (_**fails!!!**_)
 
 
-[tests]: ./tests/ "See 'tests' folder"
-[test_Strings]: ./tests/syntax_test_Strings.alan "Open file..."
-
 ### 2018-04-14:1
 
 - First commit on GitHub
 - `Alan.sublime-syntax` v0.0.4
+
+
+[tests]: ./tests/ "See 'tests' folder"
+[test_Strings]: ./tests/syntax_test_Strings.alan "Open file..."
+[test_QuotedIdentifiers]: ./tests/syntax_test_QuotedIdentifiers.alan "Open file..."
+

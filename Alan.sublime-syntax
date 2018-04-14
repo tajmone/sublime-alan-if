@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# "Alan.sublime-syntax" v0.0.5 (2018-04-14) | Alan v3 beta5
+# "Alan.sublime-syntax" v0.0.6 (2018-04-14) | Alan v3 beta5
 # ==============================================================================
 #                                  Alan Syntax                                  
 # ==============================================================================
@@ -19,7 +19,6 @@ scope: source.alan
 
 variables:
   ID: '[A-Z][A-Za-z0-9_]*'
-  SQ_StrDel: "(?<!')'(?!')"
 
 contexts:
   
@@ -90,7 +89,7 @@ contexts:
     # =================
     # Quoted Identifier (neither starting by ''' nor empty)
     # =================
-    - match: "{{SQ_StrDel}}"
+    - match: "'"
       scope: punctuation.definition.string.begin.alan
       push: inside_quoted_identifier
 
@@ -100,11 +99,9 @@ contexts:
   inside_quoted_identifier:
     - meta_scope: string.quoted.single.alan
     - meta_include_prototype: false
-    - match: "''(')" # <= Escaped '+ Str End Edlimiter
-      captures:
-        1: punctuation.definition.string.end.alan
-      pop: true
-    - match: "{{SQ_StrDel}}"
+    - match: "('')+" # <= Escaped '
+      scope: string.quoted.single.alan
+    - match: "'"
       scope: punctuation.definition.string.end.alan
       pop: true
 

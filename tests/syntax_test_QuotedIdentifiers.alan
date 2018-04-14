@@ -1,0 +1,35 @@
+-- SYNTAX TEST "Packages/Alan/Alan.sublime-syntax"
+
+-- ====================
+-- Test strings scoping
+-- ====================
+
+"Hello!".
+-- <- string.quoted.double.alan punctuation.definition.string.begin.alan
+--^^^^^ string.quoted.double.alan
+--     ^ string.quoted.double.alan punctuation.definition.string.end.alan
+
+---------------------------------
+-- Test Empty strings
+---------------------------------
+
+  "".
+--^  punctuation.definition.string.begin.alan
+-- ^ punctuation.definition.string.end.alan
+--^^ string.quoted.double.empty.alan
+---------------------------------
+-- Test DQ Escaping inside string
+---------------------------------
+  """How are You?"" asks Bob.".
+--^ string.quoted.double.alan punctuation.definition.string.begin.alan
+-- ^^^^^^^^^^^^^^^^^^^^^^^^^^
+--                           ^ string.quoted.double.alan punctuation.definition.string.end.alan
+  """How are you?""".
+--^ string.quoted.double.alan punctuation.definition.string.begin.alan
+-- ^^^^^^^^^^^^^^^^ string.quoted.double.alan
+--                 ^ string.quoted.double.alan punctuation.definition.string.end.alan
+
+  "Strings are enclosed in DQs ("""")!"
+-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.double.alan
+--^ punctuation.definition.string.begin.alan
+--                                    ^ punctuation.definition.string.end.alan

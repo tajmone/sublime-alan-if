@@ -1,35 +1,42 @@
 -- SYNTAX TEST "Packages/Alan/Alan.sublime-syntax"
 
--- ====================
--- Test strings scoping
--- ====================
+-- =======================
+-- Test Quoted Identifiers
+-- =======================
+-- NOTE: Currently treated just as SQ String!
+--       Still have to decide a meta-scope for identifiers
 
-"Hello!".
--- <- string.quoted.double.alan punctuation.definition.string.begin.alan
---^^^^^ string.quoted.double.alan
---     ^ string.quoted.double.alan punctuation.definition.string.end.alan
+  'look'
+--^ string.quoted.single.alan punctuation.definition.string.begin.alan
+-- ^^^^ string.quoted.single.alan
+--     ^ string.quoted.single.alan punctuation.definition.string.end.alan
 
 ---------------------------------
--- Test Empty strings
+-- Test Empty Quoted Identifiers
+---------------------------------
+  ''
+--^ string.single.single.alan punctuation.definition.string.begin.alan
+-- ^ string.single.single.alan punctuation.definition.string.end.alan
+
+---------------------------------
+-- Test SQ Escaping
 ---------------------------------
 
-  "".
---^  punctuation.definition.string.begin.alan
--- ^ punctuation.definition.string.end.alan
---^^ string.quoted.double.empty.alan
----------------------------------
--- Test DQ Escaping inside string
----------------------------------
-  """How are You?"" asks Bob.".
---^ string.quoted.double.alan punctuation.definition.string.begin.alan
--- ^^^^^^^^^^^^^^^^^^^^^^^^^^
---                           ^ string.quoted.double.alan punctuation.definition.string.end.alan
-  """How are you?""".
---^ string.quoted.double.alan punctuation.definition.string.begin.alan
--- ^^^^^^^^^^^^^^^^ string.quoted.double.alan
---                 ^ string.quoted.double.alan punctuation.definition.string.end.alan
+  'Bob''s House'
+-- ^^^^^^^^^^^^ string.quoted.single.alan
 
-  "Strings are enclosed in DQs ("""")!"
--- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.double.alan
+  '''60s Era'
+-- ^^^^^^^^^ string.quoted.single.alan
+
+  '''How are you?'' asks Bob'
+-- ^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.single.alan
+--                          ^ punctuation.definition.string.end.alan
+  '''How are you?'''
+-- ^^^^^^^^^^^^^^^^ string.quoted.single.alan
+--                 ^ punctuation.definition.string.end.alan
+
+  'Quoted identifiers are enclosed in SQs ('''')!'
 --^ punctuation.definition.string.begin.alan
---                                    ^ punctuation.definition.string.end.alan
+-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.single.alan
+--                                               ^ punctuation.definition.string.end.alan
+
