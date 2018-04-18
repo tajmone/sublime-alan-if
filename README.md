@@ -18,6 +18,9 @@ Alan IF v3.0 Beta 5
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
 - [About](#about)
+- [Features](#features)
+    - [Syntax Highlighting](#syntax-highlighting)
+    - [Build Systems](#build-systems)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [License](#license)
@@ -32,6 +35,24 @@ Alan IF v3.0 Beta 5
 I've created this Alan 3 syntax package just to add some support for Alan source files in Sublime Text, for my own personal use. I haven't really planned to make this a finished product to share on Package Control. Nevertheless, I've decided to share it publicly — just in case it might be useful to others too, or in the remote chance that someone else will join in the project and give me a hand to flesh it out. 
 
 I'll be polishing the sytnax and adding features as needs arise, and try to document changes. As a guideline, I'll be pushing to `master` only tested features, so you should be safe keeping the package synced to `master` branch. 
+
+# Features
+
+A brief presentation of the features so far implemented.
+
+## Syntax Highlighting
+
+Although the Alan syntax isn't yet fully implemented, it's already mature enough to provide some decent syntax highlighting.
+
+I still need to implement semantic scoping of syntax elements, so that proper indexing can be achieved (Goto functionality, etc.).
+
+## Build Systems
+
+Build functionality requires Alan binary compiler to be available on the system PATH!
+
+Currently there is only one build system, which compiles the open alan source file ("`*.alan`" files only) without extra options (except `-cc`, to allow capturing error reports).
+
+Additional Build systems will be added soon.
 
 # Requirements
 
@@ -87,10 +108,15 @@ Alan IF links:
 
 - [Alan website]
 - [IFWiki » Alan page]
+- [Alan sourcecode on Bitbucket]
+- [Alan Standard Library on Bitbucket]
 - [Alan-IF mailing list and discussion group at Yahoo]
 
 
 [Alan website]: https://www.alanif.se/ "Visit Alan official website"
+
+[Alan sourcecode on Bitbucket]: https://bitbucket.org/alanif/alan
+[Alan Standard Library on Bitbucket]: https://bitbucket.org/alanif/alanlib
 
 [Alan-IF mailing list and discussion group at Yahoo]: https://groups.yahoo.com/neo/groups/alan-if/info "Visit Alan-IF discussion group main page at Yahoo Groups"
 

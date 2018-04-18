@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# "Alan.sublime-syntax" v0.0.6 (2018-04-14) | Alan v3 beta5
+# "Alan.sublime-syntax" v0.0.7 (2018-04-18) | Alan v3 beta5
 # ==============================================================================
 #                                  Alan Syntax                                  
 # ==============================================================================
@@ -18,7 +18,7 @@ file_extensions:
 scope: source.alan
 
 variables:
-  ID: '[A-Z][A-Za-z0-9_]*'
+  ID: '[A-Z][A-Za-z0-9_]*' # TODO: Check actual eligible chars (might be more)
 
 contexts:
   
@@ -167,7 +167,7 @@ contexts:
       scope: keyword.other.alan # Temporary
 
   kwd_conditional:
-    - match: (?i)\b(if|else|elsif|then)\b
+    - match: (?i)\b(if|else|elsif|then|end if)\b
       scope: keyword.control.conditional.alan
 
   #########

@@ -1,0 +1,42 @@
+// "Alan.sublime-build" v.0.0.1 (2018-04-18) | Alan v3 beta5
+// =============================================================================
+//                               Alan Build Systems                             
+// =============================================================================
+{
+  "shell_cmd": "alan -cc \"$file\"",
+  "working_dir": "$file_path",
+  "selector": "source.alan",
+  "file_patterns": [ "*.alan" ],
+
+  // ===========================================================================
+  // Capture Errors and Warnings from Compiler Output for Results Navigation
+  // ===========================================================================
+  // Whith `-cc` option, Alan reports have this form:
+  //    "sourcefile.alan", line 5(24): 101 E : Error message.
+  //    "sourcefile.alan", line 8(13): 200 W : Warning message.
+  // ---------------------------------------------------------------------------
+  "file_regex":  "^\"([^\"]+)\", line (\\d+)\\((\\d+)\\): (.*)$",
+  // 
+  // The captured RegEx groups should be:
+  //   1. filename
+  //   2. line number
+  //   3. column number
+  //   4. message
+  // ---------------------------------------------------------------------------
+  // NOTES: tested only on Windows (should check if the reports differ on Linux)
+  // ===========================================================================
+
+  // ===========================================================================
+  //                           Build System Variants                            
+  // ===========================================================================
+  // Not done yet ...
+
+  // "variants":
+  // [
+  //   {
+  //     "name": "verbose",
+  //     "shell_cmd": "alan --verbose \"$file\"",
+
+  //   },
+  // ]
+}
