@@ -1,0 +1,75 @@
+%YAML 1.2
+---
+# "Alan Compiler Output.sublime-syntax" v0.0.1 (2018-04-20) | Alan v3 beta5
+# ==============================================================================
+# Alan Compiler Output Syntax                                  
+# ==============================================================================
+# Syntax definition for Alan IF Adventure Language:
+# -- https://www.alanif.se
+# ------------------------------------------------------------------------------
+# Copyright (c) Tristano Ajmone, 2018. MIT License.
+# -- https://github.com/tajmone/sublime-alan
+# ------------------------------------------------------------------------------
+name:    Alan Compiler Output
+comment: Colors Alan build sytems error report
+hidden: true
+scope: text.alancompiler
+
+contexts:
+  
+  main:
+    # ======================
+    # Alan Compiler Messages
+    # ======================
+    - match: '^(")([^"]+)("), '
+      captures:
+        1: punctuation.definition.string.begin.alancompiler
+        2: string.quoted.double.alancompiler
+        3: punctuation.definition.string.end.alancompiler
+    - include: err_line
+    - include: err_type
+
+  err_line:
+    - meta_content_scope: entity.errorline.alancompiler
+    - match: '(line )(\d+)\((\d+)\)'
+      captures:
+        0: meta.errorline.alancompiler
+        2: constant.numeric.alancompiler
+           entity.linenum.alancompiler
+        3: constant.numeric.alancompiler
+           entity.column.alancompiler
+      pop: true
+
+  err_type:
+    # ===========
+    # W - Warning
+    # ===========
+    - match: '(\d+ W) : (.*?)$'
+      captures:
+        1: entity.errortype.warning.alancompiler
+        2: entity.errordesc.warning.alancompiler
+      pop: true
+    # ==============
+    # E - Error
+    # ==============
+    - match: '(\d+ E) : (.*?)$'
+      captures:
+        1: entity.errortype.error.alancompiler
+        2: entity.errordesc.error.alancompiler
+      pop: true
+    # ==============
+    # F - File error
+    # ==============
+    - match: '(\d+ F) : (.*?)$'
+      captures:
+        1: entity.errortype.file_error.alancompiler
+        2: entity.errordesc.file_error.alancompiler
+      pop: true
+    # =========================
+    # ? - All other error types
+    # =========================
+    - match: '(\d+ [A-Z]) : (.*?)$'
+      captures:
+        1: entity.errortype.generic.alancompiler
+        2: entity.errordesc.generic.alancompiler
+      pop: true
