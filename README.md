@@ -47,6 +47,13 @@ Although the Alan syntax isn't yet fully implemented, it's already mature enough
 
 I still need to implement semantic scoping of syntax elements, so that proper indexing can be achieved (Goto functionality, etc.).
 
+For more info on the roadmap and wishlist, see:
+
+- [`TODO.md`][TODO]
+- [`CHANGELOG.md`][CHANGELOG]
+- [`WORK_NOTES.md`][WORK_NOTES]
+
+
 ## Color Schemes
 
 Sublime-Alan ships with the "__Alan DarkFluo__" color scheme:
@@ -62,11 +69,11 @@ The build system allows compiling alan source files directly from within th edit
 
 ![Screenshot of Build system errors navigation in the editor][Screenshot Build Editor]
 
-The full error log from the compiler will also be shown in Sublime Text's console. This package syntax highlighs the error log to improve visual navigations of the error messages:
+The full error log from the compiler will also be shown in Sublime Text's console. This package syntax highlights the error log to improve visual navigations of the different error types and messages:
 
 ![Screenshot of Build system errors report in Sublime Text console][Screenshot Build Console]
 
-Currently there is only one build system, which compiles the open alan source file ("`*.alan`" files only) without extra options (except `-cc`, to allow capturing error reports). Additional Build systems will be added soon.
+Currently there is only one build system, which compiles the current editor's alan source file  ("`*.alan`" files only) without extra options (except `-cc`, to allow capturing error reports). Additional Build systems will be added soon.
 
 > __NOTE__ — Build functionality requires Alan binary compiler to be available on the system PATH.
 
@@ -142,8 +149,14 @@ Alan IF links:
 
 [IFWiki]: http://www.ifwiki.org "Visit IFWiki.org, the Interactive Fiction Wiki"
 
+<!------- OTHER DOC FILES ------->
+
+[TODO]: ./TODO.md "View the TODOs-list file"
+[CHANGELOG]: ./CHANGELOG.md "View Sublime-Alan's CHANGELOG file"
+[WORK_NOTES]: ./WORK_NOTES.md "View my working notes file"
+
 <!--------- SCREENSHOTS --------->
 
-[Screenshot Build Console]: ./screenshots/Build_Errors_Console.png "Screenshot of Sublime-Alan build system errors navigation"
-[Screenshot Build Editor]:  ./screenshots/Build_Errors_Editor.png "Screenshot of Sublime-Alan build system errors navigation"
+[Screenshot Build Console]: ./screenshots/Build_Errors_Console.png "Screenshot of Sublime-Alan build system errors log in ST's console"
+[Screenshot Build Editor]:  ./screenshots/Build_Errors_Editor.png "Screenshot of Sublime-Alan build system errors navigation (using 'Monokai' color scheme)"
 [Screenshot Alan DarkFluo]:  ./screenshots/Alan_DarkFluo.png "Screenshot of 'Alan DarkFluo' color scheme"
