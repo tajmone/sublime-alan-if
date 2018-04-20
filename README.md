@@ -20,6 +20,7 @@ Alan IF v3.0 Beta 5
 - [About](#about)
 - [Features](#features)
     - [Syntax Highlighting](#syntax-highlighting)
+    - [Color Schemes](#color-schemes)
     - [Build Systems](#build-systems)
 - [Requirements](#requirements)
 - [Installation](#installation)
@@ -46,13 +47,30 @@ Although the Alan syntax isn't yet fully implemented, it's already mature enough
 
 I still need to implement semantic scoping of syntax elements, so that proper indexing can be achieved (Goto functionality, etc.).
 
+## Color Schemes
+
+Sublime-Alan ships with the "__Alan DarkFluo__" color scheme:
+
+![Screenshot of Alan DarkFluo color scheme][Screenshot Alan DarkFluo]
+
+This color scheme is still pretty much work-in-progress. The goal is to provide a palette which doesn't strain the eyes, and where the prose parts of the Alan source stand out from the rest of the code, allowing to easily switch focus between the adventure text and its code.
+
+
 ## Build Systems
 
-Build functionality requires Alan binary compiler to be available on the system PATH!
+The build system allows compiling alan source files directly from within th editor (<kbd>Ctrl</kbd><kbd>B</kbd>). Errors reported by Alan compiler will be overimposed in the sourcecode panel, and the user can navigate through the results via <kbd>F4</kbd> and <kbd>Ctrl</kbd><kbd>F4</kbd>:
 
-Currently there is only one build system, which compiles the open alan source file ("`*.alan`" files only) without extra options (except `-cc`, to allow capturing error reports).
+![Screenshot of Build system errors navigation in the editor][Screenshot Build Editor]
 
-Additional Build systems will be added soon.
+The full error log from the compiler will also be shown in Sublime Text's console. This package syntax highlighs the error log to improve visual navigations of the error messages:
+
+![Screenshot of Build system errors report in Sublime Text console][Screenshot Build Console]
+
+Currently there is only one build system, which compiles the open alan source file ("`*.alan`" files only) without extra options (except `-cc`, to allow capturing error reports). Additional Build systems will be added soon.
+
+> __NOTE__ — Build functionality requires Alan binary compiler to be available on the system PATH.
+
+
 
 # Requirements
 
@@ -123,3 +141,9 @@ Alan IF links:
 [IFWiki » Alan page]: http://www.ifwiki.org/index.php/Alan "View Alan entry at IFWiki"
 
 [IFWiki]: http://www.ifwiki.org "Visit IFWiki.org, the Interactive Fiction Wiki"
+
+<!--------- SCREENSHOTS --------->
+
+[Screenshot Build Console]: ./screenshots/Build_Errors_Console.png "Screenshot of Sublime-Alan build system errors navigation"
+[Screenshot Build Editor]:  ./screenshots/Build_Errors_Editor.png "Screenshot of Sublime-Alan build system errors navigation"
+[Screenshot Alan DarkFluo]:  ./screenshots/Alan_DarkFluo.png "Screenshot of 'Alan DarkFluo' color scheme"
