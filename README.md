@@ -22,6 +22,8 @@ Alan IF v3.0 Beta 5
     - [Syntax Highlighting](#syntax-highlighting)
     - [Color Schemes](#color-schemes)
     - [Build Systems](#build-systems)
+    - [Snippets](#snippets)
+        - [New Adventure Boilerplate](#new-adventure-boilerplate)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [License](#license)
@@ -76,6 +78,91 @@ The full error log from the compiler will also be shown in Sublime Text's consol
 Currently there is only one build system, which compiles the current editor's alan source file  ("`*.alan`" files only) without extra options (except `-cc`, to allow capturing error reports). Additional Build systems will be added soon.
 
 > __NOTE__ — Build functionality requires Alan binary compiler to be available on the system PATH.
+
+## Snippets
+
+Sublime-Alan ships with some useful snippets to simplify writing your adventures.
+
+### New Adventure Boilerplate
+
+The New Adventure Boilerplate snippet provides a quick template for starting a new adventure using Alan Standard Library v2.1:
+
+By typing "`newadv`"+<kbd>Tab</kbd> inside an Alan source file, you'll get:
+
+
+![Screenshot of "New Adventure Boilerplate" snippet in action][Screenshot Snippet New Adv]
+
+The snippet provides some presets and placeholder values, you can then edit each field and/or skip to the next one via the <kbd>Tab</kbd> key.
+
+#### Custom Variables Support
+
+The `newadv` snippets also supports custom environment variables as default values for some of its fields:
+
+![Screenshot of "New Adventure Boilerplate" snippet using custom variables][Screenshot Snippet New Adv Vars]
+
+The supported variables are:
+
+- `ALAN_AUTHOR`
+
+When this environment variable is defined, its value will automatically be used to fill the `author` field.
+
+To define these environment variables, create a "`Alan Env Vars.tmPreferences`" file (the actual filename doesn't really matter, only the extension) in "`Packages/User/`", and define them like this:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>name</key>
+    <string>Custom Alan env vars</string>
+    <key>scope</key>
+    <string>source.alan</string>
+    <key>settings</key>
+    <dict>
+        <key>shellVariables</key>
+        <array>
+            <dict>
+                <key>name</key>
+                <string>ALAN_AUTHOR</string>
+                <key>value</key>
+                <string>Tristano Ajmone</string>
+            </dict>
+        </array>
+    </dict>
+</dict>
+</plist>
+```
+
+After creating this file, the `newadv` snippet will automatically fill-in the `author` field with your custom variable:
+
+```alan
+
+--==============================================================================
+-- "Game Title" by Tristano Ajmone, 2018.
+--==============================================================================
+IMPORT 'library.i'. -- ALAN Standard Library v2.1
+
+
+THE my_game ISA DEFINITION_BLOCK
+
+  HAS title    "Game Title".   
+  HAS subtitle "".            
+  HAS author   "Tristano Ajmone".    
+  HAS year     2018.       
+  HAS version  "1".          
+
+END THE.
+
+
+THE start_loc ISA LOCATION
+  
+END THE start_loc.
+
+
+Start at start_loc.
+DESCRIBE banner.
+
+```
 
 
 
@@ -160,3 +247,5 @@ Alan IF links:
 [Screenshot Build Console]: ./screenshots/Build_Errors_Console.png "Screenshot of Sublime-Alan build system errors log in ST's console"
 [Screenshot Build Editor]:  ./screenshots/Build_Errors_Editor.png "Screenshot of Sublime-Alan build system errors navigation (using 'Monokai' color scheme)"
 [Screenshot Alan DarkFluo]:  ./screenshots/Alan_DarkFluo.png "Screenshot of 'Alan DarkFluo' color scheme"
+[Screenshot Snippet New Adv]:  ./screenshots/Snippet_New_Adventure.gif "Screenshot of 'New Adventure Boilerplate' snippet in action"
+[Screenshot Snippet New Adv Vars]:  ./screenshots/Snippet_New_Adventure_Custom_Vars.gif "Using custom variables with the 'New Adventure Boilerplate' snippet"

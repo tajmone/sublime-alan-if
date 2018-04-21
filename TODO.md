@@ -26,8 +26,10 @@ Pending tasks and bugs list.
 List of planned tasks and features:
 
 - [ ] Add some snippets
-- [ ] Create dedicate Alan color scheme (light)
-- [ ] Create color scheme for testing Alan syntax (color everything)
+- [ ] Create dedicate Alan color schemes:
+    + [x] A dark scheme: "__Alan DarkFluo__"
+    + [ ] A light scheme.
+    + [ ] Scheme for testing Alan syntax (color everything)
 - [ ] Implement indexing for Goto funcionality
 - [ ] Implement autocompletion
 
@@ -75,6 +77,7 @@ Add cross-platform [build systems][ST3Docs BuildSys] (alan compiler must be avai
     + [x] use options:
         * [x] `-cc`
     + [x] implement navigating results
+    + [x] color highlight compiler's output in ST's console
 
 [ST3Docs BuildSys]: http://www.sublimetext.com/docs/3/build_systems.html "See Sublime Text 3 official documentation for this topic"
 
@@ -82,7 +85,7 @@ Add cross-platform [build systems][ST3Docs BuildSys] (alan compiler must be avai
 
 Create some useful snippets. 
 
-Should these also cover to StdLib?
+- [x] New Adventure Boilerplate (StdLib).
 
 # Bugs
 

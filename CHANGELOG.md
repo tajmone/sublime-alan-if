@@ -1,5 +1,9 @@
 # CHANGELOG
 
+### 2018-04-21
+
+- "__New Adventure Boilerplate__" snippet ("`newadv`").
+
 ### 2018-04-20
 
 - New hidden syntax "__[Alan Compiler Output]__" — this syntax is used to syntax higlight Alan compiler's error log in Sublime Text's console during Buil operations (using the "__[Alan DarkFluo]__" color scheme).
