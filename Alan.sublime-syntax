@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# "Alan.sublime-syntax" v0.0.7 (2018-04-18) | Alan v3 beta5
+# "Alan.sublime-syntax" v0.0.8 (2018-04-23) | Alan v3 beta5
 # ==============================================================================
 #                                  Alan Syntax                                  
 # ==============================================================================
@@ -30,15 +30,36 @@ contexts:
     - include: quoted_identifiers
 
   main:
+    #=== TOP-LEVEL SYNTAX CONSTRUCTS ===========================================
+    # options
     - include: import   # IMPORT '<filename>'.
+    # class
+    # instance
+    # addition
+    # syntax
+    # verb
+    # rule
+    # synonyms
+    # event
+    # messages
+    # prompt
+    # start_section
+    #=== MISC GLOBALLY INCLUDED CONTEXTS =======================================
     - include: strings
-
 
   ##############################################################################
   #                                                                            #
   #                        ALAN SYNTAX-SPECIFIC CONTEXTS                       #
   #                                                                            #
   ##############################################################################
+
+  # ============================================================================
+  #                            TOP-LEVEL DEFINITIONS                            
+  # ============================================================================
+
+  ######################
+  # OPTIONS
+  ######################
 
   ######################
   # IMPORT '<filename>'.
@@ -119,9 +140,9 @@ contexts:
   comments:
     - meta_include_prototype: false
     - match: '(--)(.*)$\n?'
-      scope: comment.line.alan
+      scope: comment.line.double-dash.alan
       captures:
-        1: punctuation.definition.comment.alan
+        1: punctuation.definition.comment.line.double-dash.alan
 
   ######################
   # SPECIAL STRING CHARS

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+### 2018-04-23
+
+- `Alan.sublime-syntax` v0.0.8:
+    - added to comments scope delimiter character specification: `comment.line.double-dash`
+
 ### 2018-04-21
 
 - "__New Adventure Boilerplate__" snippet ("`newadv`").

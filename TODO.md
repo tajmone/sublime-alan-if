@@ -13,6 +13,7 @@ Pending tasks and bugs list.
     - [Alan Syntax:](#alan-syntax)
     - [Syntax Test Files](#syntax-test-files)
     - [Build Systems](#build-systems)
+    - [Build System Compiler Sytnax](#build-system-compiler-sytnax)
     - [Snippets](#snippets)
 - [Bugs](#bugs)
 - [Fixed Bugs](#fixed-bugs)
@@ -80,6 +81,13 @@ Add cross-platform [build systems][ST3Docs BuildSys] (alan compiler must be avai
     + [x] color highlight compiler's output in ST's console
 
 [ST3Docs BuildSys]: http://www.sublimetext.com/docs/3/build_systems.html "See Sublime Text 3 official documentation for this topic"
+
+## Build System Compiler Sytnax
+
+- [ ] Cover also these error types:
+- [ ] `I` — Information (not an error; so, blue BG?)
+- [ ] `F` — (fix it) the "F" doesn't stand for "File" but for "Fatal" (finx scope name in syntax and color scheme)
+- [ ] `S` — system.
 
 ## Snippets
 
