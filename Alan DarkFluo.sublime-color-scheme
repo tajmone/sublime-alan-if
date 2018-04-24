@@ -32,6 +32,7 @@
     {
         "foreground": "var(grey)",
         "background": "var(shade2)",
+// "background": "var(shade1)",
 
         "caret": "var(white)",
         "invisibles": "color(var(white) alpha(0.35))",
@@ -49,6 +50,7 @@
         // Selection
         "selection": "var(yellow)",
         "inactive_selection": "color(var(tint2) alpha(0.5))",
+// "selection_border": "var(blue)",
 
         // Find
         "highlight": "var(yellow)",
@@ -68,6 +70,7 @@
 
         // Tags
         "tags_options": "stippled_underline",
+// "tags_foreground": "var(pink)",
 
         // Shadows
         "shadow_width": "32" // max: 32
@@ -93,7 +96,7 @@
             "background": "var(blue)",
             // "font_style": "bold",
         },
-         {
+        {
             "name": "DQ String Delimiters",
             "scope": "punctuation.definition.string",
             "foreground": "var(orange)",
@@ -114,6 +117,14 @@
             "name": "String",
             "scope": "string.quoted.single",
             "foreground": "var(green)",
+        },
+        {
+            "name": "String Delimiters",
+            "scope": "punctuation.definition.string string.quoted.single",
+            "foreground": "var(orange)",
+            "background": "color(var(grey) a(0.0))",
+            "font_style": "",
+
         },
         // =====================================================================
         // KEYWORDS

@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# "Alan.sublime-syntax" v0.0.8 (2018-04-23) | Alan v3 beta5
+# "Alan.sublime-syntax" v0.0.9 (2018-04-23) | Alan v3 beta5
 # ==============================================================================
 #                                  Alan Syntax                                  
 # ==============================================================================
@@ -18,22 +18,20 @@ file_extensions:
 scope: source.alan
 
 variables:
-  ID: '[A-Z][A-Za-z0-9_]*' # TODO: Check actual eligible chars (might be more)
+  ID: '[A-Za-z][A-Za-z0-9_]*' # TODO: Check actual eligible chars (might be more)
 
 contexts:
   
   prototype:
     - include: comments
-    - include: keywords
     - include: numbers
     - include: operators
-    - include: quoted_identifiers
 
   main:
     #=== TOP-LEVEL SYNTAX CONSTRUCTS ===========================================
     # options
     - include: import   # IMPORT '<filename>'.
-    # class
+    - include: class    # EVERY <id> ... END EVERY
     # instance
     # addition
     # syntax
@@ -46,6 +44,8 @@ contexts:
     # start_section
     #=== MISC GLOBALLY INCLUDED CONTEXTS =======================================
     - include: strings
+    - include: keywords
+    - include: quoted_identifiers
 
   ##############################################################################
   #                                                                            #
@@ -66,14 +66,55 @@ contexts:
   ######################
   # import = 'import' quoted_identifier '.'
   import:
-    - match: (?i)\bimport\b
+    - match: (?i)\bIMPORT\b
       scope: keyword.control.import.include.alan
       push:
         - meta_scope: meta.preprocessor.include.alan
-        # - include: quoted_identifier
+        # Quoted ID (scoped as string here)
+        - match: "(')((?:''|[^'])*)(')"
+          captures:
+            1: punctuation.definition.string.begin.alan
+               string.quoted.single.alan
+            2: string.quoted.single.alan
+            3: punctuation.definition.string.end.alan
+               string.quoted.single.alan
         - match: '\.'
           scope: punctuation.terminator.alan
           pop: true
+
+  ######################
+  # CLASS DECLARATIONS
+  ######################
+  # class = 'EVERY' id
+  #             [inheritance] 
+  #             {property}
+  #         'END' 'EVERY' [id] ['.']
+  class:
+    - match: (?i)\bEVERY\b
+      scope: storage.type.class.alan
+      set: [class_body, class_identifier]
+  
+  class_body:
+        - meta_scope: meta.class.alan
+        - match: (?i)\bIsA\b
+          scope: storage.modifier.extends
+        # TODO: inheritance
+        - match: (?i)\bEND\s*EVERY\b
+          scope: keyword.control.alan
+          set:
+        # TODO: optional ID
+          - match: '\.|$' # <= FIXME: hugly workaround to implement optional terminator!!!
+            scope: punctuation.terminator.alan
+            pop: true
+
+  # TODO: Implement a reusable optional terminator:
+
+  # optional_terminator:
+  # - match: '\.'
+  #   scope: punctuation.terminator.alan
+  #   pop: true
+  # - match: '$'
+  #   pop: true
 
   ##############################################################################
   #                                                                            #
@@ -81,51 +122,66 @@ contexts:
   #                                                                            #
   ##############################################################################
 
-  ###################
-  # quoted_identifier
-  ###################
-  # This is still very rough: I haven't worked out all the uses cases of quoted
-  # identifiers, and I still must decide which additional scope to assing to it.
-  # Whatever the additional scopes, quoted identifiers will be also treated as
-  # strings, for they are strings to the editor (even if they are not strings
-  # in the Alan syntax).
-  quoted_identifiers:
-    # ====================================
-    # Quoted Identifier Beginning with ''' (Delimter + Escpaed ')
-    # ====================================
-    # Even if unlikely to actually occur, it's syntactically possible; so the
-    # syntax definition should be able to handle it without breaking.
-    # -------------------------------------------------
-    - match: "'(?='')"
-      scope: punctuation.definition.string.begin.alan
-      push: inside_quoted_identifier
-    # =======================
-    # Empty Quoted Identifier
-    # =======================
-    - match: "(')(')"
-      scope: string.single.single.alan
+  # ============================================================================
+  #                                 IDENTIFIERS                                 
+  # ============================================================================
+  # Identifiers can always be either unquoted or quoted.
+  # We need to create different identifiers contexts in order to scope them
+  # semantically (ie: class, inherited class, verb, etc.).
+
+  ##################
+  # class identifier
+  ##################
+  # Captures a class identifier, either quoted or unquoted.
+  class_identifier:
+    # Unquoted ID
+    - match: '{{ID}}'
+      scope: entity.name.class.alan
+      pop: true
+    # Quoted ID
+    - match: "(')((?:''|[^'])*)(')"
       captures:
         1: punctuation.definition.string.begin.alan
-        2: punctuation.definition.string.end.alan
-    # =================
-    # Quoted Identifier (neither starting by ''' nor empty)
-    # =================
-    - match: "'"
-      scope: punctuation.definition.string.begin.alan
-      push: inside_quoted_identifier
-
-  # =================================================
-  # Common context once inside a double quoted string
-  # =================================================
-  inside_quoted_identifier:
-    - meta_scope: string.quoted.single.alan
-    - meta_include_prototype: false
-    - match: "('')+" # <= Escaped '
-      scope: string.quoted.single.alan
-    - match: "'"
-      scope: punctuation.definition.string.end.alan
+        2: entity.name.class.alan
+        3: punctuation.definition.string.end.alan
       pop: true
 
+  #-----------------------------------------------------------------------------
+
+  ############################
+  # identifier without context (CURRENLTY UNUSED)
+  ############################
+  # This is intended for generic capturing of identifiers, outside syntax specific
+  # contexts, so it can't be determined if the entity is a class, inherited class,
+  # or whatever else ...
+  identifier:
+    # Unquoted ID
+    - match: '{{ID}}'
+      scope: entity.name.other
+      pop: true
+    # Quoted ID
+    - match: "(')((?:''|[^'])*)(')"
+      captures:
+        1: punctuation.definition.string.begin.alan
+           string.quoted.single.alan
+        2: entity.name.other.alan # <= temporary solution
+        3: punctuation.definition.string.end.alan
+           string.quoted.single.alan
+      pop: true
+
+  #########################
+  # Loose quoted identifier
+  #########################
+  # Until the syntax covers all constructs, this will capture quoted identifiers
+  # out of syntax defined contexts...
+  quoted_identifiers:
+    - match: "(')((?:''|[^'])*)(')"
+      captures:
+        1: punctuation.definition.string.begin.alan
+           string.quoted.single.alan
+        2: entity.name.other.alan # <= temporary solution
+        3: punctuation.definition.string.end.alan
+           string.quoted.single.alan
 
   ##############################################################################
   #                                                                            #
@@ -181,15 +237,20 @@ contexts:
   # KEWYWORDS
   ######################
   # Currently all keywords are stored here, waiting to be moved in better scope...
-  # REMOVED: import
+  # REMOVED: import|every|isa
   keywords:
     - include: kwd_conditional
-    - match: (?i)\b(actor|add|after|an|and|are|article|at|attributes|before|between|by|can|cancel|character|characters|check|container|contains|count|current|decrease|definite|depend|depending|describe|description|directly|do|does|each|empty|end|entered|event|every|exclude|exit|extract|first|for|form|from|has|header|here|in|include|increase|indefinite|initialize|into|is|isa|it|last|limits|list|locate|location|look|make|max|mentioned|message|min|name|near|nearby|negative|no|not|of|off|on|only|opaque|option|options|or|play|prompt|pronoun|quit|random|restart|restore|save|say|schedule|score|script|set|show|start|step|stop|strip|style|sum|synonyms|syntax|system|taking|the|this|to|transcript|until|use|verb|visits|wait|when|where|with|word|words)\b
+    - match: (?i)\b(actor|add|after|an|and|are|article|at|attributes|before|between|by|can|cancel|character|characters|check|container|contains|count|current|decrease|definite|depend|depending|describe|description|directly|do|does|each|empty|end|entered|event|exclude|exit|extract|first|for|form|from|has|header|here|in|include|increase|indefinite|initialize|into|is|it|last|limits|list|locate|location|look|make|max|mentioned|message|min|name|near|nearby|negative|no|not|of|off|on|only|opaque|option|options|or|play|prompt|pronoun|quit|random|restart|restore|save|say|schedule|score|script|set|show|start|step|stop|strip|style|sum|synonyms|syntax|system|taking|the|this|to|transcript|until|use|verb|visits|wait|when|where|with|word|words)\b
       scope: keyword.other.alan # Temporary
 
   kwd_conditional:
     - match: (?i)\b(if|else|elsif|then|end if)\b
       scope: keyword.control.conditional.alan
+
+  kwd_inheritable_classes: # <= NOT USED YET! 
+    - match: (?i)\b(entity|thing|object|actor|location)\b
+      scope: keyword.control.conditional.alan
+
 
   #########
   # NUMBERS

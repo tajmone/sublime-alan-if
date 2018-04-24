@@ -1,9 +1,20 @@
 # CHANGELOG
 
+### 2018-04-24
+
+- `Alan.sublime-syntax` v0.0.9:
+    + simplified the context for capturing __quoted identifiers__.
+    + new __class definition__ context (`EVERY ... END EVERY`) — still drafty, and contains a couple of hugly workarounds.
+- new [`Alan-GotoSymbol.tmPreferences`][GotoSymbol]:
+    + indexes class names (at their `EVERY` definition)
+
+[GotoSymbol]: ./Alan-GotoSymbol.tmPreferences "view GotoSymbol settings file"
+
 ### 2018-04-23
 
 - `Alan.sublime-syntax` v0.0.8:
     - added to comments scope delimiter character specification: `comment.line.double-dash`
+    - fixed identifiers base regex (`[A-Z][A-Za-z0-9_]*` => `[A-Za-z][A-Za-z0-9_]*`)
 
 ### 2018-04-21
 
