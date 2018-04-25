@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# "Alan.sublime-syntax" v0.0.9 (2018-04-23) | Alan v3 beta5
+# "Alan.sublime-syntax" v0.0.10 (2018-04-25) | Alan v3 beta5
 # ==============================================================================
 #                                  Alan Syntax                                  
 # ==============================================================================
@@ -18,7 +18,7 @@ file_extensions:
 scope: source.alan
 
 variables:
-  ID: '[A-Za-z][A-Za-z0-9_]*' # TODO: Check actual eligible chars (might be more)
+  ID: '[A-Za-z][A-Za-z0-9_]*' # TODO: Check actual eligible chars (are more)
 
 contexts:
   
@@ -30,6 +30,7 @@ contexts:
   main:
     #=== TOP-LEVEL SYNTAX CONSTRUCTS ===========================================
     # options
+    #---------------------------------------------------------------------------
     - include: import   # IMPORT '<filename>'.
     - include: class    # EVERY <id> ... END EVERY
     # instance
@@ -41,6 +42,7 @@ contexts:
     # event
     # messages
     # prompt
+    #---------------------------------------------------------------------------
     # start_section
     #=== MISC GLOBALLY INCLUDED CONTEXTS =======================================
     - include: strings
@@ -82,39 +84,49 @@ contexts:
           scope: punctuation.terminator.alan
           pop: true
 
-  ######################
+  ####################
   # CLASS DECLARATIONS
-  ######################
-  # class = 'EVERY' id
-  #             [inheritance] 
-  #             {property}
-  #         'END' 'EVERY' [id] ['.']
+  ####################----------------+
+  # class = 'EVERY' id                |
+  #             [inheritance]         | <= class_head
+  #             {property}            |
+  #         'END' 'EVERY' [id] ['.']  | <= class_tail
+  #-----------------------------------+
   class:
     - match: (?i)\bEVERY\b
       scope: storage.type.class.alan
       set: [class_body, class_identifier]
   
   class_body:
-        - meta_scope: meta.class.alan
-        - match: (?i)\bIsA\b
-          scope: storage.modifier.extends
-        # TODO: inheritance
-        - match: (?i)\bEND\s*EVERY\b
-          scope: keyword.control.alan
-          set:
-        # TODO: optional ID
-          - match: '\.|$' # <= FIXME: hugly workaround to implement optional terminator!!!
-            scope: punctuation.terminator.alan
-            pop: true
-
-  # TODO: Implement a reusable optional terminator:
-
-  # optional_terminator:
-  # - match: '\.'
-  #   scope: punctuation.terminator.alan
-  #   pop: true
-  # - match: '$'
-  #   pop: true
+    - meta_scope: meta.class.alan
+    - include: class_head
+    - include: class_tail
+  class_head:
+    - match: (?i)\bIsA\b
+      scope: storage.modifier.extends
+      push: inherited_class_identifier
+    # TODO: inheritance
+  class_tail:
+    # ===========================
+    # END EVERY => no ID & no `.`
+    # ===========================
+    # When END EVERY is not followed by neither ID or dot, we must capture it
+    # separately to avoid stray scopes after it...
+    - match: (?i)\b(END\s*EVERY)\b(?=\s*)$
+      captures:
+        1: keyword.control.alan
+      pop: true
+    # ==========================
+    # END EVERY => ID and/or `.`
+    # ==========================
+    - match: (?i)\b(END\s*EVERY)\b\s* # <= must consume all whitespace!
+      captures:
+        1: keyword.control.alan
+      set:
+        - meta_content_scope: meta.class.alan
+        - include: class_tail_identifier
+        - include: terminator
+        - include: force_POP
 
   ##############################################################################
   #                                                                            #
@@ -122,13 +134,15 @@ contexts:
   #                                                                            #
   ##############################################################################
 
-  # ============================================================================
+  #=============================================================================
   #                                 IDENTIFIERS                                 
-  # ============================================================================
+  #=============================================================================
   # Identifiers can always be either unquoted or quoted.
   # We need to create different identifiers contexts in order to scope them
   # semantically (ie: class, inherited class, verb, etc.).
-
+  #-----------------------------------------------------------------------------
+  # CLASS IDENTIFIERS
+  #-----------------------------------------------------------------------------
   ##################
   # class identifier
   ##################
@@ -141,10 +155,40 @@ contexts:
     # Quoted ID
     - match: "(')((?:''|[^'])*)(')"
       captures:
-        1: punctuation.definition.string.begin.alan
+        1: punctuation.definition.identifier.alan
         2: entity.name.class.alan
-        3: punctuation.definition.string.end.alan
+        3: punctuation.definition.identifier.alan
       pop: true
+  ############################
+  # inherited class identifier
+  ############################
+  # Captures a class identifier, either quoted or unquoted.
+  inherited_class_identifier:
+    # Unquoted ID
+    - match: '{{ID}}'
+      scope: entity.other.inherited-class.alan
+      pop: true
+    # Quoted ID
+    - match: "(')((?:''|[^'])*)(')"
+      captures:
+        1: punctuation.definition.identifier.alan
+        2: entity.other.inherited-class.alan
+        3: punctuation.definition.identifier.alan
+      pop: true
+  #######################
+  # class tail identifier
+  #######################
+  # Captures an optional class identifier in an END statement.
+  class_tail_identifier:
+    # Unquoted ID
+    - match: '{{ID}}'
+      scope: entity.name.class.tail.alan
+    # Quoted ID
+    - match: "(')((?:''|[^'])*)(')"
+      captures:
+        1: punctuation.definition.identifier.alan
+        2: entity.name.class.tail.alan
+        3: punctuation.definition.identifier.alan
 
   #-----------------------------------------------------------------------------
 
@@ -162,10 +206,10 @@ contexts:
     # Quoted ID
     - match: "(')((?:''|[^'])*)(')"
       captures:
-        1: punctuation.definition.string.begin.alan
+        1: punctuation.definition.identifier.alan
            string.quoted.single.alan
         2: entity.name.other.alan # <= temporary solution
-        3: punctuation.definition.string.end.alan
+        3: punctuation.definition.identifier.alan
            string.quoted.single.alan
       pop: true
 
@@ -177,10 +221,10 @@ contexts:
   quoted_identifiers:
     - match: "(')((?:''|[^'])*)(')"
       captures:
-        1: punctuation.definition.string.begin.alan
+        1: punctuation.definition.identifier.alan
            string.quoted.single.alan
         2: entity.name.other.alan # <= temporary solution
-        3: punctuation.definition.string.end.alan
+        3: punctuation.definition.identifier.alan
            string.quoted.single.alan
 
   ##############################################################################
@@ -305,5 +349,28 @@ contexts:
     - match: '("")+' # <= Escaped "
       scope: string.quoted.double.alan
     - match: '"'
-      scope: punctuation.definition.string.end.alan
+      scope: punctuation.definition.identifier.alan
+      pop: true
+
+  ##############################################################################
+  #                                                                            #
+  #                         GENERIC REUSABLE CONTEXTS                          #
+  #                                                                            #
+  ##############################################################################
+  terminator:
+    - match: '\.'
+      scope: punctuation.terminator.alan
+
+  optional_terminator:
+    - match: '\.'
+      scope: punctuation.terminator.alan
+      pop: true
+    - include: else_POP
+
+  else_POP:
+    - match: (?=\S)
+      pop: true
+
+  force_POP:
+    - match: ''
       pop: true

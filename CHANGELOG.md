@@ -1,5 +1,19 @@
 # CHANGELOG
 
+### 2018-04-25
+
+- `Alan.sublime-syntax` v0.0.10:
+    + __class definition__ context (`EVERY ... END EVERY`):
+        * now __inheritance__ is captured and scoped
+        * now optional ID and terminator after `END EVERY` are scoped
+        * improved overall handling of this syntax
+        * __NOTE__: some edge cases still not handled well!
+- Added to [`/tests/`][tests]:
+    + [`syntax_test_ClassDeclarations`][test_ClassDeclarations]
+
+[test_ClassDeclarations]: ./tests/syntax_test_ClassDeclarations.alan "Open file..."
+
+
 ### 2018-04-24
 
 - `Alan.sublime-syntax` v0.0.9:

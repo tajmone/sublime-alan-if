@@ -1,0 +1,41 @@
+-- SYNTAX TEST "Packages/Alan/Alan.sublime-syntax"
+
+-- ======================
+-- Test Class Definitions
+-- ======================
+
+-- with optional ID & terminator at END:
+EVERY cake IsA object -- comment
+-- ^^ meta.class.alan storage.type.class.alan
+--         ^^^ meta.class.alan storage.modifier.extends
+--             ^^^^^^ meta.class.alan entity.other.inherited-class.alan
+END EVERY cake.
+-- ^^^^^^^^^^^^ meta.class.alan
+--        ^^^^ entity.name.class.tail.alan
+--            ^ punctuation.terminator.alan
+
+
+-- without ID & terminator:
+EVERY car IsA object
+END EVERY
+-- ^^^^^^ meta.class.alan keyword.control.alan
+
+
+-- without ID at END:
+EVERY chip IsA object
+END EVERY.
+-- ^^^^^^ meta.class.alan keyword.control.alan
+--       ^ meta.class.alan punctuation.terminator.alan
+
+-- with ID at END:
+EVERY toy IsA object -- comment
+END EVERY toy.
+--        ^^^ meta.class.alan entity.name.class.tail.alan
+--           ^ meta.class.alan punctuation.terminator.alan
+
+
+-- without terminator:
+EVERY club IsA object
+END EVERY club
+-- ^^^^^^ meta.class.alan keyword.control.alan
+--        ^^^^ meta.class.alan entity.name.class.tail.alan
