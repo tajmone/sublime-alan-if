@@ -1,35 +1,38 @@
 -- SYNTAX TEST "Packages/Alan/Alan.sublime-syntax"
 
--- ====================
--- Test strings scoping
--- ====================
+-- =======================
+-- Test Quoted Identifiers
+-- =======================
+-- NOTE: These are curretly loose identifiers, out of any context.
 
-"Hello!".
--- <- string.quoted.double.alan punctuation.definition.string.begin.alan
---^^^^^ string.quoted.double.alan
---     ^ string.quoted.double.alan punctuation.definition.string.end.alan
+  'Hello!'.
+--^ punctuation.definition.identifier.alan 
+-- ^^^^^^ entity.name.other.alan
+--       ^ punctuation.definition.identifier.alan 
+
+---------------------------------------------
+-- Test SQ Escaping inside quoted identifiers
+---------------------------------------------
+  '''How are You?'' asks Bob.'.
+--^ punctuation.definition.identifier.alan
+-- ^^^^^^^^^^^^^^^^^^^^^^^^^^ entity.name.other.alan
+--                           ^ punctuation.definition.identifier.alan
+  '''How are you?'''. 
+--^  punctuation.definition.identifier.alan
+-- ^^^^^^^^^^^^^^^^ entity.name.other.alan
+--                 ^ punctuation.definition.identifier.alan
+
+  'Strings are enclosed in DQs ('''')!'
+-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ entity.name.other.alan
+--^ punctuation.definition.identifier.alan
+--                                    ^ punctuation.definition.identifier.alan
 
 ---------------------------------
--- Test Empty strings
+-- Test Empty quoted identifiers
 ---------------------------------
+-- This shouldn't occur in real use, but it's just for testing the syntax
+-- behavior in edge cases.
 
-  "".
---^  punctuation.definition.string.begin.alan
--- ^ punctuation.definition.string.end.alan
---^^ string.quoted.double.empty.alan
----------------------------------
--- Test DQ Escaping inside string
----------------------------------
-  """How are You?"" asks Bob.".
---^ string.quoted.double.alan punctuation.definition.string.begin.alan
--- ^^^^^^^^^^^^^^^^^^^^^^^^^^
---                           ^ string.quoted.double.alan punctuation.definition.string.end.alan
-  """How are you?""".
---^ string.quoted.double.alan punctuation.definition.string.begin.alan
--- ^^^^^^^^^^^^^^^^ string.quoted.double.alan
---                 ^ string.quoted.double.alan punctuation.definition.string.end.alan
+  ''.
+--^^ punctuation.definition.identifier.alan
 
-  "Strings are enclosed in DQs ("""")!"
--- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.double.alan
---^ punctuation.definition.string.begin.alan
---                                    ^ punctuation.definition.string.end.alan

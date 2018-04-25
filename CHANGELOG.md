@@ -1,6 +1,15 @@
 # CHANGELOG
 
-### 2018-04-25
+### 2018-04-25:2
+
+- `Alan.sublime-syntax` v0.0.11:
+    + Fixed scope of loose `quoted_identifiers`
+    + Fixed scope of out of context `identifier`
+- Updated [`/tests/`][tests] to pass with syntax v0.0.11:
+    + [`syntax_test_QuotedIdentifiers.alan`][test_QuotedIdentifiers]
+    + [`syntax_test_Strings.alan`][test_Strings]
+
+### 2018-04-25:1
 
 - `Alan.sublime-syntax` v0.0.10:
     + __class definition__ context (`EVERY ... END EVERY`):

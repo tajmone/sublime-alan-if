@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# "Alan.sublime-syntax" v0.0.10 (2018-04-25) | Alan v3 beta5
+# "Alan.sublime-syntax" v0.0.11 (2018-04-25) | Alan v3 beta5
 # ==============================================================================
 #                                  Alan Syntax                                  
 # ==============================================================================
@@ -207,10 +207,8 @@ contexts:
     - match: "(')((?:''|[^'])*)(')"
       captures:
         1: punctuation.definition.identifier.alan
-           string.quoted.single.alan
         2: entity.name.other.alan # <= temporary solution
         3: punctuation.definition.identifier.alan
-           string.quoted.single.alan
       pop: true
 
   #########################
@@ -222,10 +220,8 @@ contexts:
     - match: "(')((?:''|[^'])*)(')"
       captures:
         1: punctuation.definition.identifier.alan
-           string.quoted.single.alan
         2: entity.name.other.alan # <= temporary solution
         3: punctuation.definition.identifier.alan
-           string.quoted.single.alan
 
   ##############################################################################
   #                                                                            #
@@ -349,7 +345,7 @@ contexts:
     - match: '("")+' # <= Escaped "
       scope: string.quoted.double.alan
     - match: '"'
-      scope: punctuation.definition.identifier.alan
+      scope: punctuation.definition.string.end.alan
       pop: true
 
   ##############################################################################
