@@ -1,5 +1,10 @@
 # CHANGELOG
 
+### 2018-04-27
+
+- `Alan.sublime-syntax` v0.0.14:
+    + __IMPORT context__ — added bail-out failsafe when EOL is reached, to prevent context entrapment when dealing with malformed code.
+
 ### 2018-04-26:2
 
 - `Alan.sublime-syntax` v0.0.13:

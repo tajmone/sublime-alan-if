@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# "Alan.sublime-syntax" v0.0.13 (2018-04-26) | Alan v3 beta5
+# "Alan.sublime-syntax" v0.0.14 (2018-04-27) | Alan v3 beta5
 # ==============================================================================
 #                                  Alan Syntax                                  
 # ==============================================================================
@@ -26,6 +26,7 @@ contexts:
     - include: comments
     - include: numbers
     - include: operators
+    # - include: keywords
 
   main:
     #=== TOP-LEVEL SYNTAX CONSTRUCTS ===========================================
@@ -68,7 +69,6 @@ contexts:
   ######################--------------------+
   # import = 'import' quoted_identifier '.' |
   #-----------------------------------------+
-  # TODO: Add failsafe bail-out when EOL is reached
   import:
     - match: (?i)\bIMPORT\b
       scope: keyword.control.import.include.alan
@@ -84,6 +84,8 @@ contexts:
                string.quoted.single.alan
         - match: '\.'
           scope: punctuation.terminator.alan
+          pop: true
+        - match: '$' # <= If EOL is reached, bail-out!
           pop: true
 
   ###########
