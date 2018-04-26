@@ -2,6 +2,18 @@
 
 ### 2018-04-25:2
 
+- `Alan.sublime-syntax` v0.0.12:
+- __class definition__ context:
+    + push `class` context instead of setting it to the stack.
+    + added bail-out option to prevent partially valid syntax fragments (or even `ADD TO EVERY...`) to loop forever in the class context (effectively, breaking highlighting of all that follows).
+
+\[thanks to [__@djspiewak's__ guidelines]: "Stateful Chaining » Bail Outs"\]
+
+[__@djspiewak's__ guidelines]: https://github.com/sublimehq/Packages/issues/757#issuecomment-269031562 "View @djspiewak's notes on writing syntaxes"
+
+
+### 2018-04-25:2
+
 - `Alan.sublime-syntax` v0.0.11:
     + Fixed scope of loose `quoted_identifiers`
     + Fixed scope of out of context `identifier`
