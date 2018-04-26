@@ -1,6 +1,11 @@
 # CHANGELOG
 
-### 2018-04-25:2
+### 2018-04-26:2
+
+- `Alan.sublime-syntax` v0.0.13:
+    + added some comment-notes about upcoming contexts and work.
+
+### 2018-04-26:1
 
 - `Alan.sublime-syntax` v0.0.12:
 - __class definition__ context:

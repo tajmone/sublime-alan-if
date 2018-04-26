@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# "Alan.sublime-syntax" v0.0.12 (2018-04-26) | Alan v3 beta5
+# "Alan.sublime-syntax" v0.0.13 (2018-04-26) | Alan v3 beta5
 # ==============================================================================
 #                                  Alan Syntax                                  
 # ==============================================================================
@@ -32,7 +32,7 @@ contexts:
     # options
     #---------------------------------------------------------------------------
     - include: import   # IMPORT '<filename>'.
-    # addition          # ADD TO EVERY (should come before class!)
+    # addition          # ADD TO EVERY              <= should come before class!
     - include: class    # EVERY <id> ... END EVERY
     # instance
     # syntax
@@ -65,8 +65,10 @@ contexts:
 
   ######################
   # IMPORT '<filename>'.
-  ######################
-  # import = 'import' quoted_identifier '.'
+  ######################--------------------+
+  # import = 'import' quoted_identifier '.' |
+  #-----------------------------------------+
+  # TODO: Add failsafe bail-out when EOL is reached
   import:
     - match: (?i)\bIMPORT\b
       scope: keyword.control.import.include.alan
@@ -83,6 +85,15 @@ contexts:
         - match: '\.'
           scope: punctuation.terminator.alan
           pop: true
+
+  ###########
+  # ADDITIONS
+  ###########------------------------------+
+  # addition = 'ADD' 'TO' 'EVERY' id       |
+  #                 [inheritance]          |
+  #                 {property}             |
+  #            'END' 'ADD' ['TO'] [id] '.' |
+  #----------------------------------------+ 
 
   ####################
   # CLASS DECLARATIONS
@@ -102,11 +113,10 @@ contexts:
     - include: class_head
     - include: class_tail
     - include: else_POP # <= Bail out
-  class_head:
+  class_head: # <= RENAME TO 'class_inheritance' + add option terminator
     - match: (?i)\bIsA\b
       scope: storage.modifier.extends
       push: inherited_class_identifier
-    # TODO: inheritance
   class_tail:
     # ===========================
     # END EVERY => no ID & no `.`
@@ -129,6 +139,14 @@ contexts:
         - include: terminator
         - include: force_POP
 
+  ##########
+  # SYNONYMS
+  ##########-------------------------------------------+
+  # synonyms = 'SYNONYMS' {synonym_declaration}        |
+  #                                                    |
+  # synonym_declaration = word {',' word} '=' word '.' |
+  #----------------------------------------------------+ 
+
   ##############################################################################
   #                                                                            #
   #                       REUSABLE ALAN SYNTAX CONTEXTS                        #
@@ -141,6 +159,11 @@ contexts:
   # Identifiers can always be either unquoted or quoted.
   # We need to create different identifiers contexts in order to scope them
   # semantically (ie: class, inherited class, verb, etc.).
+  #
+  # NOTE: I should be able to reuse the same identifier context by using a:
+  # push/set:
+  #   - meta_sceope: <whatever the semantica scope>
+  #   - include: class_identifier
   #-----------------------------------------------------------------------------
   # CLASS IDENTIFIERS
   #-----------------------------------------------------------------------------
