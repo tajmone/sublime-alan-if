@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# "Alan.sublime-syntax" v0.0.14 (2018-04-27) | Alan v3 beta5
+# "Alan.sublime-syntax" v0.0.15 (2018-04-27) | Alan v3 beta5
 # ==============================================================================
 #                                  Alan Syntax                                  
 # ==============================================================================
@@ -34,7 +34,7 @@ contexts:
     #---------------------------------------------------------------------------
     - include: import   # IMPORT '<filename>'.
     # addition          # ADD TO EVERY              <= should come before class!
-    - include: class    # EVERY <id> ... END EVERY
+    - include: class_declaration    # EVERY <id> ... END EVERY
     # instance
     # syntax
     # verb
@@ -100,32 +100,44 @@ contexts:
   ####################
   # CLASS DECLARATIONS
   ####################----------------+
-  # class = 'EVERY' id                |
-  #             [inheritance]         | <= class_head
+  # class = 'EVERY' id                | <= class_decl_head
+  #             [inheritance]         | <=   ''     ''
   #             {property}            |
-  #         'END' 'EVERY' [id] ['.']  | <= class_tail
+  #         'END' 'EVERY' [id] ['.']  | <= class_decl_tail
   #-----------------------------------+
-  class:
-    - match: (?i)\bEVERY\b
+  class_declaration:
+    - match: (?i)(?=\bEVERY\b)
       scope: storage.type.class.alan
-      push: [class_body, class_identifier]
+      push: class_decl_context
   
-  class_body:
+  class_decl_context:
     - meta_scope: meta.class.alan
-    - include: class_head
-    - include: class_tail
+    - include: class_decl_head
+    # TODO: Include Class Body here...
+    - include: class_decl_tail
     - include: else_POP # <= Bail out
-  class_head: # <= RENAME TO 'class_inheritance' + add option terminator
-    - match: (?i)\bIsA\b
-      scope: storage.modifier.extends
-      push: inherited_class_identifier
-  class_tail:
+
+  class_decl_head:                  # `EVERY class_Id IsA class_inheritance_Id .`
+    - match: (?i)(\bEVERY\b)(\s*) # <= consume extra WS!
+      captures:
+        1: storage.type.class.alan
+      push:
+        - meta_include_prototype: false
+        - meta_content_scope: entity.name.class.alan
+        - match: (?i)(?=\bIsA\b) # <= Failsafe to handle mmissing class ID
+          pop: true
+        - include: generic_identifier
+        - include: force_POP
+    - include: class_inheritance
+
+  class_decl_tail:                                       # `END EVERY class_Id .`
     # ===========================
     # END EVERY => no ID & no `.`
     # ===========================
     # When END EVERY is not followed by neither ID or dot, we must capture it
     # separately to avoid stray scopes after it...
-    - match: (?i)\b(END\s*EVERY)\b(?=\s*)$
+    # Check if END EVERY is followed by WS* and either EOL or a comment:
+    - match: (?i)\b(END\s*EVERY)\b(?=\s*(--|$))
       captures:
         1: keyword.control.alan
       pop: true
@@ -136,10 +148,30 @@ contexts:
       captures:
         1: keyword.control.alan
       set:
+        - meta_include_prototype: false
         - meta_content_scope: meta.class.alan
-        - include: class_tail_identifier
-        - include: terminator
+        - include: class_tail_identifier # <= TODO: Try to use `generic_identifier`
+        - include: terminator2
         - include: force_POP
+
+  # ---> ReUsable Class SubContexts <-------------------------------------------
+  class_inheritance:
+    # `IsA class_inheritance_Id [.]`
+    - match: (?i)(\bIsA\b)(\s*)
+      captures:
+        1: storage.modifier.extends
+      push:
+        - include: inherited_class_identifier
+        - include: terminator2
+        - match: '$' # <= Filsafe: POP at EOL
+          pop: true
+
+  terminator2:
+    # This variant of terminator consumes all leading whitespace
+    # (PS: No, it has nothing to do with the "Terminator 2" movie!)
+    - match: '(\s*)(\.)'
+      captures:
+        2: punctuation.terminator.alan
 
   ##########
   # SYNONYMS
@@ -159,18 +191,29 @@ contexts:
   #                                 IDENTIFIERS                                 
   #=============================================================================
   # Identifiers can always be either unquoted or quoted.
-  # We need to create different identifiers contexts in order to scope them
-  # semantically (ie: class, inherited class, verb, etc.).
-  #
-  # NOTE: I should be able to reuse the same identifier context by using a:
-  # push/set:
-  #   - meta_sceope: <whatever the semantica scope>
-  #   - include: class_identifier
+  # Sometimes we need to create identifiers context variants in order to scope
+  # them semantically (ie: class, inherited class, verb, etc.). Other times we
+  # can use the `generic_identifier` and let the importing context set it scope.
+  #-----------------------------------------------------------------------------
+  ####################
+  # Generic identifier
+  ####################
+  # This is a scopeless identifier, reusable in context that can set its scope
+  # via inclusion. Ideally, the goal is to end up using only this one.
+  generic_identifier:
+    # Unquoted ID
+    - match: '{{ID}}'
+    # Quoted ID
+    - match: "(')((?:''|[^'])*)(')"
+      captures:
+        1: punctuation.definition.identifier.alan
+        3: punctuation.definition.identifier.alan
   #-----------------------------------------------------------------------------
   # CLASS IDENTIFIERS
   #-----------------------------------------------------------------------------
+
   ##################
-  # class identifier
+  # class identifier # <= Currently NOT USED (hopefully can do without it)
   ##################
   # Captures a class identifier, either quoted or unquoted.
   class_identifier:
@@ -193,14 +236,12 @@ contexts:
     # Unquoted ID
     - match: '{{ID}}'
       scope: entity.other.inherited-class.alan
-      pop: true
     # Quoted ID
     - match: "(')((?:''|[^'])*)(')"
       captures:
         1: punctuation.definition.identifier.alan
         2: entity.other.inherited-class.alan
         3: punctuation.definition.identifier.alan
-      pop: true
   #######################
   # class tail identifier
   #######################
@@ -379,6 +420,8 @@ contexts:
   #                         GENERIC REUSABLE CONTEXTS                          #
   #                                                                            #
   ##############################################################################
+
+
   terminator:
     - match: '\.'
       scope: punctuation.terminator.alan

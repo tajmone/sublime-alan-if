@@ -1,6 +1,18 @@
 # CHANGELOG
 
-### 2018-04-27
+### 2018-04-27:2
+
+- `Alan.sublime-syntax` v0.0.15:
+    + Major cleanup of the syntax following [__@djspiewak's__ guidelines].
+    + Now partially valid syntax fragments are handled better:
+        + omitted expected tokens are skipped, so tha the next expected token is caught.
+        + Failsafe bail-outs: partial/broken code doesn't trap the highlighter in a syntax context looping for ever.
+        + Scopes spillings fixed: now scopes don't eat up whitespace of neighbouring elements.
+- Syntax [`/tests/`][tests]:
+    + [`syntax_test_ClassDeclarations`][test_ClassDeclarations] — updated with new tests against context spilling and partial/broken code fragments.
+
+
+### 2018-04-27:1
 
 - `Alan.sublime-syntax` v0.0.14:
     + __IMPORT context__ — added bail-out failsafe when EOL is reached, to prevent context entrapment when dealing with malformed code.
