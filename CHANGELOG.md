@@ -1,5 +1,17 @@
 # CHANGELOG
 
+### 2018-04-27:3
+
+- Goto Symbols:
+    + quoted identifiers are transformed to remove the delimiting single-quotes, and transform double (escaped) single-quotes into a single one (eg: `'Denny''s Cat'` » `Denny's Cat`). This is the transformation rule:
+
+    ```
+    s/^'(.+)'$/$1/;
+    s/(')\1/$1/g;
+    ```
+
+> __NOTE__ — Currently, some class symbols quoted identifiers are scoped without the delimiting quotes (eg: `inherited_class_identifier`), while others include them. This is due to the reusable `generic_identifier` introduced lately, which leverages being included in a (optional) `set` context that uses `scope_meta` to scope it to the current need. The previous system of using context variants for each identifier, had the advantage of allowing to leave out the delimiting SQ symbols from the `entity.name`. It looks like I'll have to switch back to the old system at the cost of redundancy, having to create multiple identifiers, one for each specific scope (inherited class, class, class tail, and so on).
+
 ### 2018-04-27:2
 
 - `Alan.sublime-syntax` v0.0.15:

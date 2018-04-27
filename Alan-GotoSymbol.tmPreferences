@@ -4,13 +4,20 @@
 	<key>name</key>
 	<string>Alan Symbols List</string>
 	<key>scope</key>
-	<string>source.alan entity.name.class.alan</string>
+	<string>
+		source.alan entity.name.class.alan
+	</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>
 		<integer>1</integer>
 		<key>showInIndexedSymbolList</key>
 		<integer>0</integer>
+		<key>symbolTransformation</key>
+		<string>
+			s/^'(.+)'$/$1/;
+			s/(')\1/$1/g;
+		</string>
 	</dict>
 </dict>
 </plist>

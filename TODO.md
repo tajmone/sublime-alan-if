@@ -10,12 +10,13 @@ Pending tasks and bugs list.
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
 - [TODOs](#todos)
-    - [Alan Syntax:](#alan-syntax)
-    - [Syntax Test Files](#syntax-test-files)
-    - [Build Systems](#build-systems)
-    - [Build System Compiler Sytnax](#build-system-compiler-sytnax)
-    - [Snippets](#snippets)
+  - [Alan Syntax:](#alan-syntax)
+  - [Syntax Test Files](#syntax-test-files)
+  - [Build Systems](#build-systems)
+  - [Build System Compiler Sytnax](#build-system-compiler-sytnax)
+  - [Snippets](#snippets)
 - [Bugs](#bugs)
+  - [Syntax](#syntax)
 - [Fixed Bugs](#fixed-bugs)
 
 <!-- /MarkdownTOC -->
@@ -99,7 +100,11 @@ Create some useful snippets.
 
 Known bugs which need fixing:
 
+## Syntax
 
+- [ ] __Quoted identifiers scoping also sinqgle-quote delimiters__ — Currently, some class symbols quoted identifiers are scoped without the delimiting quotes (eg: `inherited_class_identifier`), while others include them. This is due to the reusable `generic_identifier` introduced lately, which leverages being included in a (optional) `set` context that uses `scope_meta` to scope it to the current need. The previous system of using context variants for each identifier, had the advantage of allowing to leave out the delimiting SQ symbols from the `entity.name`. It looks like I'll have to switch back to the old system at the cost of redundancy, having to create multiple identifiers, one for each specific scope (inherited class, class, class tail, and so on).
+
+ 
 # Fixed Bugs
 
 - [x] __Strings__: two consecutive escaped DQs in the middle of a string prematurely end the string:
