@@ -1,5 +1,11 @@
 # CHANGELOG
 
+### 2018-04-28
+
+- Color scheme "__[Alan DarkFluo]__" v0.2:
+    + Changed BG color to slightly less darker shade.
+    + Better color choices for selections.
+
 ### 2018-04-27:3
 
 - Goto Symbols:
@@ -92,7 +98,7 @@
 ### 2018-04-20
 
 - New hidden syntax "__[Alan Compiler Output]__" — this syntax is used to syntax higlight Alan compiler's error log in Sublime Text's console during Buil operations (using the "__[Alan DarkFluo]__" color scheme).
-- New cholor scheme "__[Alan DarkFluo]__"
+- New color scheme "__[Alan DarkFluo]__"
     + A darkish scheme with contrasting colors (still WIP).
     + Also defines colors targetting the "__[Alan Compiler Output]__" syntax.
 - __[Build System]__:

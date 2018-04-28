@@ -1,5 +1,5 @@
 // =============================================================================
-// Alan DarkFluo v0.1 (2018-04-20)
+// Alan DarkFluo v0.2 (2018-04-28)
 // =============================================================================
 // Copyright (c) Tristano Ajmone, 2018. MIT License.
 // -- https://github.com/tajmone/sublime-alan
@@ -16,10 +16,12 @@
         "base_hue":     "#3f4a54", // Base color
         "tint1":        "#4b5864", // Less dark
         "tint2":        "#566573", // Even less less dark
-        "tint3":        "#b1d0ec", // Midtone
 
-        "grey":         "#AAB0B7",
+        "tint3":        "#b1d0ec", // Midtone (complement 2 of 'base_hue')
+        "tint4":        "#d3e4f4", // between 'tint3' and 'white'
         "white":        "#f5f9fd", // Almost white
+        "grey":         "#b4b9be", // (matching Grey of 'tint3')
+        "grey2":        "#8d949b", // darker grey (blend 2/4 of 'grey' with 'base_hue')
 
         "blue":         "#5396d1", // Blue
         "green":        "#60cf55", // Green
@@ -30,27 +32,32 @@
     },
     "globals":
     {
-        "foreground": "var(grey)",
-        "background": "var(shade2)",
-// "background": "var(shade1)",
+        "foreground": "var(tint4)",
+        "background": "var(shade1)",
 
         "caret": "var(white)",
         "invisibles": "color(var(white) alpha(0.35))",
-        "line_highlight": "var(base_hue)",
+        "line_highlight": "var(tint1)",
 
         // Accents
         "misspelling": "color(var(red) alpha(0.5))",
         "minimap_border": "var(tint3)",
         "accent": "color(var(red) alpha(0.5))",
+        "fold_marker": "var(yellow)",
 
         // Gutter
-        "gutter": "var(shade2)",
-        "gutter_foreground": "var(tint2)",
+        "gutter": "var(shade1)",
+        "gutter_foreground": "var(grey2)",
 
         // Selection
-        "selection": "var(yellow)",
-        "inactive_selection": "color(var(tint2) alpha(0.5))",
-// "selection_border": "var(blue)",
+        "selection": "var(tint4)",
+        "selection_foreground": "var(black)",
+        "selection_border": "var(tint3)",
+        "selection_border_width": "1",
+        "selection_corner_style": "round",  // round | cut | square
+        "selection_corner_radius": "3.5",   // (only for round or cut)
+        "inactive_selection": "var(grey2)",
+        "inactive_selection_foreground": "var(black)",
 
         // Find
         "highlight": "var(yellow)",
@@ -70,10 +77,11 @@
 
         // Tags
         "tags_options": "stippled_underline",
-// "tags_foreground": "var(pink)",
+        // "tags_foreground": "var(grey)",
 
         // Shadows
-        "shadow_width": "32" // max: 32
+        "shadow": "var(black)",
+        "shadow_width": "32", // max: 32
     },
     "rules":
     [
@@ -83,7 +91,7 @@
         // =====================================================================
             "name": "Comment",
             "scope": "comment",
-            "foreground": "var(tint2)",
+            "foreground": "var(grey2)",
             "font_style": "italic"
         },
         // =====================================================================
