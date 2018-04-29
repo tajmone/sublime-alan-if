@@ -4,7 +4,7 @@
 
 Alan IF 3 syntax for Sublime Text 3.
 
-> __ALPHA STAGE__ — This project is still a WIP Alpha version!
+> __ALPHA STAGE__ — This project is still a WIP Alpha version! Most features are still experimental and subject to continuos changes. Screenshots and descriptions might not always accurately represent the latest changes.
 
 ```
 Sublime Text >= 3149 (DEV BUILD)
@@ -21,6 +21,7 @@ Alan IF v3.0 Beta 5
 - [Features](#features)
     - [Syntax Highlighting](#syntax-highlighting)
     - [Color Schemes](#color-schemes)
+    - [Goto Symbols](#goto-symbols)
     - [Build Systems](#build-systems)
     - [Snippets](#snippets)
         - [New Adventure Boilerplate](#new-adventure-boilerplate)
@@ -64,6 +65,15 @@ Sublime-Alan ships with the "__Alan DarkFluo__" color scheme:
 
 This color scheme is still pretty much work-in-progress. The goal is to provide a palette which doesn't strain the eyes, and where the prose parts of the Alan source stand out from the rest of the code, allowing to easily switch focus between the adventure text and its code.
 
+## Goto Symbols
+
+Amongst the goals of this package is that of providing good indexing functionality of Alan language's symbols in order to maximize Sublime Text's Goto Symbol functionality.
+
+Currently, the following syntax elements are captured and indexed:
+
+- Class declaration identifiers.
+
+Quoted identifiers are transformed before indexing: the delimiting quotes are removed, and any escaped single quotes inside the identifier are replaced with one single quote (eg: `'Tom''s Cat'` is indexed as `Tom's Cat`). This is intended to facilitate looking up identifiers in Goto Symbol functionality, by representing them sa they are seen in the Alan adventure world.
 
 ## Build Systems
 

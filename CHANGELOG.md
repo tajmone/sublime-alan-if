@@ -1,5 +1,23 @@
 # CHANGELOG
 
+### 2018-04-29
+
+- `Alan.sublime-syntax` v0.0.16:
+    + __identifiers__: tweaked the `ID` variable so that all valid characters are covered by identifiers's RegExs:
+
+        ```yaml
+        LETTER: 'a-zA-Zà-þ&&[^÷]'
+        ID: '(\b[{{LETTER}}][0-9_{{LETTER}}]*\b)'
+        ```
+
+        The definition of `LETTER` now includes also unicode points in the ranges `U+00E0..U+00F6` and `U+00F8..U+00FE` ([Latin-1 Supplement]). Thoroughly tested against Alan compiler (using default enconding options, [ISO-8859-1]).
+
+    + __quoted identifiers__: now the single-quote delimiters are always part of the identifier (same scope), they just get the additional `punctuation.definition.identifier.alan` scope. This simplifies reusable contexts; also, it seems appropriate. Of course, in the Goto Symbol functionality, all quoted identifiers are indexed without the delimiting quotes, and with all internal escaped quotes (ie `''`) shown as a single quote. This simplifies fuzzy search of the identifier, and is also how the identifier is actually rendered in the game world.
+- [`syntax_test_ClassDeclarations`][test_ClassDeclarations] — updated with new tests to check that the delimiting quotes of __quoted identifiers__ always get scoped as part of the identifier.
+
+[Latin-1 Supplement]: http://jrgraphix.net/r/Unicode/00A0-00FF
+[ISO-8859-1]: https://en.wikipedia.org/wiki/ISO/IEC_8859-1
+
 ### 2018-04-28
 
 - Color scheme "__[Alan DarkFluo]__" v0.2:

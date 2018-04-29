@@ -10,14 +10,14 @@ Pending tasks and bugs list.
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
 - [TODOs](#todos)
-  - [Alan Syntax:](#alan-syntax)
-  - [Syntax Test Files](#syntax-test-files)
-  - [Build Systems](#build-systems)
-  - [Build System Compiler Sytnax](#build-system-compiler-sytnax)
-  - [Snippets](#snippets)
+    - [Alan Syntax:](#alan-syntax)
+    - [Syntax Test Files](#syntax-test-files)
+    - [Build Systems](#build-systems)
+    - [Build System Compiler Sytnax](#build-system-compiler-sytnax)
+    - [Snippets](#snippets)
 - [Bugs](#bugs)
-  - [Syntax](#syntax)
 - [Fixed Bugs](#fixed-bugs)
+    - [Syntax](#syntax)
 
 <!-- /MarkdownTOC -->
 
@@ -32,14 +32,25 @@ List of planned tasks and features:
     + [x] A dark scheme: "__Alan DarkFluo__"
     + [ ] A light scheme.
     + [ ] Scheme for testing Alan syntax (color everything)
-- [ ] Implement indexing for Goto funcionality
+- [x] Implement indexing for Goto funcionality:
+    + [ ] Indexed elements:
+        * [x] Class names in class declarations
+        * [ ] Verbs
+        * [ ] Syntaxes
+        * [ ] Instances
+    + [x] __Quoted identifiers__ transformations:
+        * [x] strip single quote delimiters
+        * [x] replace double SQuote (escaped) qith single quote
 - [ ] Implement autocompletion
 
 ## Alan Syntax:
 
 + [ ] __Quoted Identifiers__:
-    * [ ] Add `empty` scope to empty identifiers
-    * [ ] Decide semantic scope for identifiers
+    * [ ] Add `empty` scope to empty identifiers?
+    * [ ] Decide semantic scope for identifiers:
+      - [x] Class: `entity.name.class`
+      - [x] Class name repeated after `END`: `entity.name.class.tail.alan`
+      - [x] Inherited Class: `entity.other.inherited-class`
     * [x] Cleanup __quoted identifiers__ code, along the lines of Strings, and make sure it can handle `'..''''..'`
 + [ ] __Special $ Characters__:
     * [ ] The parameters $ Chars (`$1`, etc.) should be scoped as _placeholders_:
@@ -86,9 +97,9 @@ Add cross-platform [build systems][ST3Docs BuildSys] (alan compiler must be avai
 ## Build System Compiler Sytnax
 
 - [ ] Cover also these error types:
-- [ ] `I` — Information (not an error; so, blue BG?)
-- [ ] `F` — (fix it) the "F" doesn't stand for "File" but for "Fatal" (finx scope name in syntax and color scheme)
-- [ ] `S` — system.
+    + [ ] `I` — Information (not an error; so, blue BG?)
+    + [ ] `F` — (fix it) the "F" doesn't stand for "File" but for "Fatal" (finx scope name in syntax and color scheme)
+    + [ ] `S` — system.
 
 ## Snippets
 
@@ -100,12 +111,17 @@ Create some useful snippets.
 
 Known bugs which need fixing:
 
+# Fixed Bugs
+
 ## Syntax
 
-- [ ] __Quoted identifiers scoping also sinqgle-quote delimiters__ — Currently, some class symbols quoted identifiers are scoped without the delimiting quotes (eg: `inherited_class_identifier`), while others include them. This is due to the reusable `generic_identifier` introduced lately, which leverages being included in a (optional) `set` context that uses `scope_meta` to scope it to the current need. The previous system of using context variants for each identifier, had the advantage of allowing to leave out the delimiting SQ symbols from the `entity.name`. It looks like I'll have to switch back to the old system at the cost of redundancy, having to create multiple identifiers, one for each specific scope (inherited class, class, class tail, and so on).
 
+- [x]  __Inconsistent scoping of Quoted identifiers sinqgle-quote delimiters__ — Some class symbols quoted identifiers are scoped without the delimiting quotes (eg: `inherited_class_identifier`), while others include them. This is due to the reusable `generic_identifier` introduced lately, which leverages being included in a (optional) `set` context that uses `scope_meta` to scope it to the current need. The previous system of using context variants for each identifier, had the advantage of allowing to leave out the delimiting SQ symbols from the `entity.name`. ~~It looks like I'll have to switch back to the old system at the cost of redundancy, having to create multiple identifiers, one for each specific scope (inherited class, class, class tail, and so on)~~.
+
+      __*Fixed*__ (`2018-04-29`)
+
+      Now delimiting quotes will always be scoped as part of the identifier; they just get the additional `punctuation.definition.identifier.alan` scope. This simplifies reusable contexts; also, it seems appropriate. Of course, in the Goto Symbol functionality, all quoted identifiers are indexed without the delimiting quotes, and with all internal escaped quotes (ie `''`) shown as a single quote. This simplifies fuzzy search of the identifier, and is also how the identifier is actually rendered in the game world.
  
-# Fixed Bugs
 
 - [x] __Strings__: two consecutive escaped DQs in the middle of a string prematurely end the string:
 

@@ -43,6 +43,22 @@ END EVERY club
 --        ^^^^ meta.class.alan entity.name.class.tail.alan
 
 ----------------------------------------
+-- With Quoted Identifiers
+----------------------------------------
+-- Make sure that quoted identifiers are handled well.
+-- NOTE: The single-quote delimiters are part of the identifier!
+
+EVERY 'Rock ''n'' Roll' IsA 'music genre'.
+--    ^^^^^^^^^^^^^^^^^                        entity.name.class.alan
+--                          ^^^^^^^^^^^^^      entity.other.inherited-class.alan
+--                    ^                   punctuation.definition.identifier.alan
+--                          ^             punctuation.definition.identifier.alan
+--                                      ^ punctuation.definition.identifier.alan
+END EVERY 'Rock ''n'' Roll'.
+--        ^^^^^^^^^^^^^^^^^                    entity.name.class.tail.alan
+--        ^                               punctuation.definition.identifier.alan
+--                        ^               punctuation.definition.identifier.alan
+----------------------------------------
 -- Extra WhiteSpace Tests
 ----------------------------------------
 -- Make sure extra spaces don't cause problems...

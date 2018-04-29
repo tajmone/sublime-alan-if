@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# "Alan.sublime-syntax" v0.0.15 (2018-04-27) | Alan v3 beta5
+# "Alan.sublime-syntax" v0.0.16 (2018-04-29) | Alan v3 beta5
 # ==============================================================================
 #                                  Alan Syntax                                  
 # ==============================================================================
@@ -18,7 +18,9 @@ file_extensions:
 scope: source.alan
 
 variables:
-  ID: '[A-Za-z][A-Za-z0-9_]*' # TODO: Check actual eligible chars (are more)
+  # Valid identifier letters are: 'a-z', 'A-Z' and 'U+00E0-U+00FE' ~'U+00F7' (÷)
+  LETTER: 'a-zA-Zà-þ&&[^÷]' # <= [a-zA-Z[\u00E0-\u00FE]&&[^\u00F7]]
+  ID: '(\b[{{LETTER}}][0-9_{{LETTER}}]*\b)'
 
 contexts:
   
@@ -225,8 +227,10 @@ contexts:
     - match: "(')((?:''|[^'])*)(')"
       captures:
         1: punctuation.definition.identifier.alan
+           entity.name.class.alan
         2: entity.name.class.alan
         3: punctuation.definition.identifier.alan
+           entity.name.class.alan
       pop: true
   ############################
   # inherited class identifier
@@ -240,8 +244,10 @@ contexts:
     - match: "(')((?:''|[^'])*)(')"
       captures:
         1: punctuation.definition.identifier.alan
+           entity.other.inherited-class.alan
         2: entity.other.inherited-class.alan
         3: punctuation.definition.identifier.alan
+           entity.other.inherited-class.alan
   #######################
   # class tail identifier
   #######################
@@ -254,8 +260,10 @@ contexts:
     - match: "(')((?:''|[^'])*)(')"
       captures:
         1: punctuation.definition.identifier.alan
+           entity.name.class.tail.alan
         2: entity.name.class.tail.alan
         3: punctuation.definition.identifier.alan
+           entity.name.class.tail.alan
 
   #-----------------------------------------------------------------------------
 
@@ -274,8 +282,10 @@ contexts:
     - match: "(')((?:''|[^'])*)(')"
       captures:
         1: punctuation.definition.identifier.alan
-        2: entity.name.other.alan # <= temporary solution
+           entity.name.other.alan
+        2: entity.name.other.alan                        # <= temporary solution
         3: punctuation.definition.identifier.alan
+           entity.name.other.alan
       pop: true
 
   #########################
@@ -287,8 +297,10 @@ contexts:
     - match: "(')((?:''|[^'])*)(')"
       captures:
         1: punctuation.definition.identifier.alan
-        2: entity.name.other.alan # <= temporary solution
+           entity.name.other.alan
+        2: entity.name.other.alan                        # <= temporary solution
         3: punctuation.definition.identifier.alan
+           entity.name.other.alan
 
   ##############################################################################
   #                                                                            #
