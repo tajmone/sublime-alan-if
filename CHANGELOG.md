@@ -1,5 +1,11 @@
 # CHANGELOG
 
+### 2018-05-02
+
+- "__[Alan Compiler Output]__" renamed to __[AlanLog]__:
+    + [`AlanLog.sublime-syntax`][AlanLog]
+    + [`AlanLog.sublime-settings`][AlanLog Settings]
+
 ### 2018-04-29
 
 - `Alan.sublime-syntax` v0.0.16:
@@ -122,8 +128,6 @@
 - __[Build System]__:
     + Added syntax highlighting of Alan compiler output.
 
-[Alan Compiler Output]: ./Alan%20Compiler%20Output.sublime-syntax "view syntax source file"
-[Alan DarkFluo]: ./Alan%20DarkFluo.sublime-color-scheme "view color scheme source file"
 
 ### 2018-04-18
 
@@ -134,7 +138,6 @@
 - `Alan.sublime-syntax` v0.0.7:
     + Now `END` in `END IF` is scoped as `keyword.control.conditional` too.
 
-[Build System]: ./Alan.sublime-build "view build system source file"
 
 ### 2018-04-14:4
 
@@ -173,3 +176,10 @@
 [test_Strings]: ./tests/syntax_test_Strings.alan "Open file..."
 [test_QuotedIdentifiers]: ./tests/syntax_test_QuotedIdentifiers.alan "Open file..."
 
+[Build System]: ./Alan.sublime-build "view build system source file"
+
+[Alan Compiler Output]: ./AlanLog.sublime-syntax "view syntax source file"
+[AlanLog]: ./AlanLog.sublime-syntax "view syntax source file"
+[AlanLog Settings]: ./AlanLog.sublime-settings "view settings source file"
+
+[Alan DarkFluo]: ./Alan%20DarkFluo.sublime-color-scheme "view color scheme source file"

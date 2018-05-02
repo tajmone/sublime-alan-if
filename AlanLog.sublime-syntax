@@ -1,19 +1,19 @@
 %YAML 1.2
 ---
-# "Alan Compiler Output.sublime-syntax" v0.0.1 (2018-04-20) | Alan v3 beta5
+# "AlanLog.sublime-syntax" v0.0.2 (2018-05-02) | Alan v3 beta5
 # ==============================================================================
-# Alan Compiler Output Syntax                                  
+# AlanLog Syntax (for Alan compiler output)                                 
 # ==============================================================================
-# Syntax definition for Alan IF Adventure Language:
+# Syntax definition for Alan IF Adventure Language's compiler log:
 # -- https://www.alanif.se
 # ------------------------------------------------------------------------------
 # Copyright (c) Tristano Ajmone, 2018. MIT License.
 # -- https://github.com/tajmone/sublime-alan
 # ------------------------------------------------------------------------------
-name:    Alan Compiler Output
-comment: Colors Alan build sytems error report
-hidden: true
-scope: text.alancompiler
+name:      AlanLog
+comment:   Colors Alan build sytems error report
+hidden:    true
+scope:     text.alancompiler
 
 contexts:
   

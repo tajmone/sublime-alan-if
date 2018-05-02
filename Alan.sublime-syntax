@@ -19,7 +19,7 @@ scope: source.alan
 
 variables:
   # Valid identifier letters are: 'a-z', 'A-Z' and 'U+00E0-U+00FE' ~'U+00F7' (÷)
-  LETTER: 'a-zA-Zà-þ&&[^÷]' # <= [a-zA-Z[\u00E0-\u00FE]&&[^\u00F7]]
+  LETTER: 'a-zA-Zà-þ&&[^÷]' # <= [a-zA-Z\x{00E0}-\x{00FE}&&[^\x{00F7}]]
   ID: '(\b[{{LETTER}}][0-9_{{LETTER}}]*\b)'
 
 contexts:

@@ -57,11 +57,10 @@ To simplify, the Unicode range can be described as the set `U+00E0`..`U+00FE` mi
 
 The valid letters can be represented via the following RegExs, in order of simplification:
 
-1. `[a-zA-Z\u00e0-\u00f6\u00f8-\u00fe]`
-2. `[a-zA-Z\u00e0-u00fe&&[^\u00f7]]]`
+1. `[a-zA-Z\x{00E0}-\x{00F6}\x{00F8}-\x{00FE}]`
+2. `[a-zA-Z\x{00E0}-\x{00FE}&&[^\x{00F7}]]`
 3. `[a-zA-Zà-þ&&[^÷]]`
 
-For some reason, RegExs __1__ and __2__ don't work in Sublime Text syntax files, while the third one does.
 
 The full `identifier` pattern is: `(\b['a-zA-Zà-þ&&[^÷]][0-9_'a-zA-Zà-þ&&[^÷]]*\b)`, which in the sytnax source is represent through variables:
 
