@@ -1,0 +1,95 @@
+# [PackageDev] target_format: plist, ext: hidden-tmTheme
+# ------------------------------------------------------------------------------
+# AlanLog Color Scheme v0.0.1 (2018-05-02)
+# ------------------------------------------------------------------------------
+# This file is the YAML source used for creating "AlanLog.hidden-tmTheme" via
+# PackageDev's build system "Convert to ... - Property List".
+# -- https://packagecontrol.io/packages/PackageDev
+# -- https://github.com/SublimeText/PackageDev/wiki/Serialized-Conversion
+# ------------------------------------------------------------------------------
+# NOTE: After rebuilding the tmTheme file, ST must be restarted for the changes
+#       to become effective.
+# ------------------------------------------------------------------------------
+name: AlanLog
+settings:
+- settings:
+    background: '#1b2024' # shade 2
+    caret: '#f5f9fd'      # white
+    findHighlight: '#f5f9fd'      # white
+    findHighlightForeground: '#1b2024' # shade 2
+    foreground: '#8d949b' #grey 2
+    inactiveSelection: '#B5D3E5' # ????
+    invisibles: '#E0E0E0' # ????
+    lineHighlight: '#D3D3D3' # ????
+    selection: '#C2E8FF' # ????
+    selectionBorder: '#AACBDF' # ????
+    shadow: '#808080' # ????
+    shadowWidth: '6' # ????
+# ========
+# STRINGS
+# ========
+- name: Strings
+  scope: string.quoted.double.alancompiler
+  settings:
+    foreground: '#b1d0ec'
+- name: String Delimiters
+  scope: punctuation.definition.string
+  settings:
+    foreground: '#ff9c54' # 15 orange
+# ===============
+# Error Line Info
+# ===============
+- name: Error Line (text)
+  scope: meta.errorline.alancompiler
+  settings:
+    foreground: '#d4d9de' # grey 1
+    fontStyle: 'bold'
+- name: Error Line Number
+  scope: entity.linenum.alancompiler
+  settings:
+    foreground: '#ffdc54' # 16 yellow
+    fontStyle: 'bold'
+- name: Error Column Number
+  scope: entity.column.alancompiler
+  settings:
+    foreground: '#5477ff' # 08 blue
+    fontStyle: 'bold'
+# ===============
+# Error Type Info
+# ===============
+- name: Error Type
+  scope: entity.errortype
+  settings:
+    foreground: '#ff548c' # 13 red
+    fontStyle: 'bold italic'
+# ==================
+# Error Descriptions
+# ==================
+- name: Error Description
+  scope: entity.errordesc
+  settings:
+    background: '#ff548c' # 13 red
+    foreground: '#f5f9fd' # white
+    fontStyle: 'bold'
+
+- name: (W) Warning
+  scope: entity.errordesc.warning
+  settings:
+    background: '#e2ff54' # 01 yellow
+    foreground: '#ff548c' # 13 red
+    fontStyle: 'bold'
+
+- name: (E) Error Description
+  scope: entity.errordesc.error
+  settings:
+    background: '#ff548c' # 13 red
+    foreground: '#1b2024' # shade 2
+    fontStyle: 'bold'
+
+- name: (F) File Error Description
+  scope: entity.errordesc.file_error
+  settings:
+    background: '#ff9c54' # 15 orange
+    foreground: '#1b2024' # shade 2
+    fontStyle: 'bold'
+

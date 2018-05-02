@@ -42,13 +42,25 @@ LICENSE        text
 ## ==================
 ## SUBLIME TEXT FILES
 ## ==================
+*.hidden-tmTheme        text eol=lf
 *.sublime-build         text
 *.sublime-color-scheme  text
+*.sublime-commands      text
+*.sublime-completions   text
+*.sublime-keymap        text
+*.sublime-macro         text
 *.sublime-menu          text
+*.sublime-mousemap      text
+*.sublime-project       text
 *.sublime-settings      text
 *.sublime-snippet       text
 *.sublime-syntax        text
+*.sublime-theme         text
+*.sublime-workspace     text
+*.sublime_metrics       text
+*.sublime_session       text
 *.tmPreferences         text
+*.YAML-propertyList     text
 
 # ==============================================================================
 #                                  Binary Files                                 
@@ -81,7 +93,8 @@ LICENSE        text
 ## ==============
 # New Sublime Text file formats not reckognized by Linguist:
 *.sublime-color-scheme      linguist-language=JSON
-
+*.hidden-tmTheme            linguist-language=XML
+*.YAML-propertyList         linguist-language=YAML
 ## =========
 ## Alan IF 3
 ## =========

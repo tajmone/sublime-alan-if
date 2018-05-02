@@ -1,6 +1,16 @@
 # CHANGELOG
 
-### 2018-05-02
+### 2018-05-02:2
+
+- __[AlanLog]__ now uses a dedicated hidden color scheme, instead of relying on "__[Alan DarkFluo]__":
+    + [`AlanLog.hidden-tmTheme`][AlanLog tmTheme] v0.0.1 — hidden color scheme for __AlanLog__ syntax. Build from YAML source:
+    + [`AlanLog.YAML-propertyList`][AlanLog tmTheme YAML] — YAML source used for creating `AlanLog.hidden-tmTheme` via [PackageDev]'s build system "[Convert to ... - Property List]".
+- "__[Alan DarkFluo]__" v0.3 — removed end-section targetting __AlanLog__ syntax coloring.
+
+> __NOTES__ — The new __AlanLog__ color scheme uses a temporary color palette which needs to be fixed. Also, all the scope names in the syntax need to be redefined.
+
+
+### 2018-05-02:1
 
 - "__[Alan Compiler Output]__" renamed to __[AlanLog]__:
     + [`AlanLog.sublime-syntax`][AlanLog]
@@ -21,8 +31,6 @@
     + __quoted identifiers__: now the single-quote delimiters are always part of the identifier (same scope), they just get the additional `punctuation.definition.identifier.alan` scope. This simplifies reusable contexts; also, it seems appropriate. Of course, in the Goto Symbol functionality, all quoted identifiers are indexed without the delimiting quotes, and with all internal escaped quotes (ie `''`) shown as a single quote. This simplifies fuzzy search of the identifier, and is also how the identifier is actually rendered in the game world.
 - [`syntax_test_ClassDeclarations`][test_ClassDeclarations] — updated with new tests to check that the delimiting quotes of __quoted identifiers__ always get scoped as part of the identifier.
 
-[Latin-1 Supplement]: http://jrgraphix.net/r/Unicode/00A0-00FF
-[ISO-8859-1]: https://en.wikipedia.org/wiki/ISO/IEC_8859-1
 
 ### 2018-04-28
 
@@ -73,7 +81,6 @@
 
 \[thanks to [__@djspiewak's__ guidelines]: "Stateful Chaining » Bail Outs"\]
 
-[__@djspiewak's__ guidelines]: https://github.com/sublimehq/Packages/issues/757#issuecomment-269031562 "View @djspiewak's notes on writing syntaxes"
 
 
 ### 2018-04-25:2
@@ -96,8 +103,6 @@
 - Added to [`/tests/`][tests]:
     + [`syntax_test_ClassDeclarations`][test_ClassDeclarations]
 
-[test_ClassDeclarations]: ./tests/syntax_test_ClassDeclarations.alan "Open file..."
-
 
 ### 2018-04-24
 
@@ -107,7 +112,6 @@
 - new [`Alan-GotoSymbol.tmPreferences`][GotoSymbol]:
     + indexes class names (at their `EVERY` definition)
 
-[GotoSymbol]: ./Alan-GotoSymbol.tmPreferences "view GotoSymbol settings file"
 
 ### 2018-04-23
 
@@ -172,14 +176,32 @@
 - `Alan.sublime-syntax` v0.0.4
 
 
+<!------------------------------------------------------------------------------
+                                REFERENCE LINKS                                 
+------------------------------------------------------------------------------->
+
+<!-- TEST FILES -->
 [tests]: ./tests/ "See 'tests' folder"
 [test_Strings]: ./tests/syntax_test_Strings.alan "Open file..."
 [test_QuotedIdentifiers]: ./tests/syntax_test_QuotedIdentifiers.alan "Open file..."
+[test_ClassDeclarations]: ./tests/syntax_test_ClassDeclarations.alan "Open file..."
 
 [Build System]: ./Alan.sublime-build "view build system source file"
 
-[Alan Compiler Output]: ./AlanLog.sublime-syntax "view syntax source file"
+[GotoSymbol]: ./Alan-GotoSymbol.tmPreferences "view GotoSymbol settings file"
+
 [AlanLog]: ./AlanLog.sublime-syntax "view syntax source file"
 [AlanLog Settings]: ./AlanLog.sublime-settings "view settings source file"
+[AlanLog tmTheme]: ./AlanLog.hidden-tmTheme "view color scheme file"
+[AlanLog tmTheme YAML]: ./AlanLog.YAML-propertyList "view color scheme file"
+[Alan Compiler Output]: ./AlanLog.sublime-syntax "view syntax source file"
 
 [Alan DarkFluo]: ./Alan%20DarkFluo.sublime-color-scheme "view color scheme source file"
+
+[PackageDev]: https://packagecontrol.io/packages/PackageDev "View PackageDev page at PackageControl.io"
+[Convert to ... - Property List]: https://github.com/SublimeText/PackageDev/wiki/Serialized-Conversion "Read online documentation"
+
+[Latin-1 Supplement]: http://jrgraphix.net/r/Unicode/00A0-00FF
+[ISO-8859-1]: https://en.wikipedia.org/wiki/ISO/IEC_8859-1
+
+[__@djspiewak's__ guidelines]: https://github.com/sublimehq/Packages/issues/757#issuecomment-269031562 "View @djspiewak's notes on writing syntaxes"

@@ -1,5 +1,5 @@
 // =============================================================================
-// Alan DarkFluo v0.2 (2018-04-28)
+// Alan DarkFluo v0.3 (2018-05-02)
 // =============================================================================
 // Copyright (c) Tristano Ajmone, 2018. MIT License.
 // -- https://github.com/tajmone/sublime-alan
@@ -182,108 +182,5 @@
             "scope": "message.error",
             "foreground": "color(var(red) alpha(0.5))",
         },
-        // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-        //                     Alan Compiler Output Syntax
-        // /////////////////////////////////////////////////////////////////////
-        // The following colors are used to syntax highlight Alan compiler's
-        // output during Build operatrions. The output is captured through the
-        // "Alan Compiler Output" syntax definition, which is hidden to the user
-        // and used only in build systems. Regardless of which color scheme the
-        // users assigns to Alan syntax, the settings for "Alan Compiler Output"
-        // will always refer to this color scheme in order to ensure that the
-        // compiler output is colored as expected. The scopes for this syntax
-        // are rather arbitrarily chosen, as there is no real use for them beside
-        // coloring the error messages.
-        {
-            // Base Text Color
-            "name": "Base Color",
-            "scope": "text.alancompiler",
-            "foreground": "var(grey)",
-            "background": "#000000", // transparent
-            "font_style": "",
-        },
-        {
-            // Strings
-            "name": "Strings",
-            "scope": "string.quoted.double.alancompiler",
-            "foreground": "var(tint3)",
-            "background": "#000000", // transparent
-        },
-        {
-            // String Delimiters
-            "name": "String Delimiters",
-            "scope": "punctuation.definition.string.begin.alancompiler, punctuation.definition.string.end.alancompiler",
-            "foreground": "var(red)",
-        },
-        // ------------------------------------------------------------------------------
-        // Error Line
-        // ------------------------------------------------------------------------------
-       {
-            // Error Line
-            "name": "Error Line",
-            "scope": "meta.errorline.alancompiler",
-            "foreground": "var(tint2)",
-            "font_style": "bold",
-       },
-        {
-            // Error Line: Line number
-            "name": "Line number",
-            "scope": "entity.linenum.alancompiler",
-            "foreground": "var(yellow)",
-            "font_style": "bold"
-        },
-        {
-            // Error Line: Column number
-            "name": "Column number",
-            "scope": "entity.column.alancompiler",
-            "foreground": "var(blue)",
-            "font_style": "bold"
-        },
-        // ------------------------------------------------------------------------------
-        // Error Type
-        // ------------------------------------------------------------------------------
-       {
-            // Error Type
-            "name": "Error Type",
-            "scope": "text.alancompiler entity.errortype",
-            "foreground": "var(red)",
-            "font_style": "bold italic"
-       },
-
-        // ---------------------------------------------------------------------
-        // Error Descriptions
-        // ---------------------------------------------------------------------
-       {
-            // Common Error Description Sytle
-            // ==============================
-            // Unless a more specific Error Type is caught, this is the base
-            // styling that will be used...
-            "name": "Error Description",
-            "scope": "text.alancompiler entity.errordesc",
-            "foreground": "var(white)",
-            "background": "var(red)",
-            "font_style": "bold"
-       },
-       {
-            // (W) Warning
-            "name": "(W) Warning Description",
-            "scope": "text.alancompiler entity.errordesc.warning",
-            "foreground": "var(red)",
-            "background": "var(yellow)",
-       },
-       {
-            // (E) Error Description
-            "name": "(E) Error Description",
-            "scope": "text.alancompiler entity.error.warning",
-            "foreground": "var(black)",
-            "background": "var(yellow)",
-       },
-       {
-            // (F) File Error
-            "name": "(F) File Error Description",
-            "scope": "text.alancompiler entity.errordesc.file_error",
-            "foreground": "var(shade1)",
-            "background": "var(orange)",
-       },
     ]
 }
