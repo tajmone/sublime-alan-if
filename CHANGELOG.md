@@ -1,5 +1,10 @@
 # CHANGELOG
 
+### 2018-05-02:3
+
+- `Alan.sublime-syntax` v0.0.17:
+    + __instances__: A first draft of the context to capture instances (`THE Id IsA ...`). In lack of better scope names, I've used `meta.instance` amd `entity.name.instance` to scope them, but these might not be the best choice.
+
 ### 2018-05-02:2
 
 - __[AlanLog]__ now uses a dedicated hidden color scheme, instead of relying on "__[Alan DarkFluo]__":

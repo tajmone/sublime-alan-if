@@ -14,6 +14,7 @@ Pending tasks and bugs list.
     - [Syntax Test Files](#syntax-test-files)
     - [Build Systems](#build-systems)
     - [Build System Compiler Sytnax](#build-system-compiler-sytnax)
+        - [AlanLog Color Scheme](#alanlog-color-scheme)
     - [Snippets](#snippets)
 - [Bugs](#bugs)
 - [Fixed Bugs](#fixed-bugs)
@@ -47,11 +48,11 @@ List of planned tasks and features:
 
 + [ ] __Quoted Identifiers__:
     * [ ] Add `empty` scope to empty identifiers?
-    * [ ] Decide semantic scope for identifiers:
-      - [x] Class: `entity.name.class`
-      - [x] Class name repeated after `END`: `entity.name.class.tail.alan`
-      - [x] Inherited Class: `entity.other.inherited-class`
     * [x] Cleanup __quoted identifiers__ code, along the lines of Strings, and make sure it can handle `'..''''..'`
+- [ ] Decide semantic scope for identifiers:
+    + [x] Class: `entity.name.class`
+    + [x] Class name repeated after `END`: `entity.name.class.tail.alan`
+    + [x] Inherited Class: `entity.other.inherited-class`
 + [ ] __Special $ Characters__:
     * [ ] The parameters $ Chars (`$1`, etc.) should be scoped as _placeholders_:
 
@@ -96,10 +97,17 @@ Add cross-platform [build systems][ST3Docs BuildSys] (alan compiler must be avai
 
 ## Build System Compiler Sytnax
 
+The Build system's __AlanLog__ syntax and color scheme.
+
+- [ ] Fix scope nameing with more appropriate names.
 - [ ] Cover also these error types:
     + [ ] `I` — Information (not an error; so, blue BG?)
     + [ ] `F` — (fix it) the "F" doesn't stand for "File" but for "Fatal" (finx scope name in syntax and color scheme)
     + [ ] `S` — system.
+
+### AlanLog Color Scheme
+
+- [ ] Fix colors
 
 ## Snippets
 

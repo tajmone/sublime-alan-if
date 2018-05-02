@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# "Alan.sublime-syntax" v0.0.16 (2018-04-29) | Alan v3 beta5
+# "Alan.sublime-syntax" v0.0.17 (2018-05-02) | Alan v3 beta5
 # ==============================================================================
 #                                  Alan Syntax                                  
 # ==============================================================================
@@ -37,7 +37,7 @@ contexts:
     - include: import   # IMPORT '<filename>'.
     # addition          # ADD TO EVERY              <= should come before class!
     - include: class_declaration    # EVERY <id> ... END EVERY
-    # instance
+    - include: instance_declaration # instance
     # syntax
     # verb
     # rule
@@ -175,6 +175,63 @@ contexts:
       captures:
         2: punctuation.terminator.alan
 
+  ###########
+  # INSTANCES
+  ###########--------------------------+
+  # instance = 'THE' id                |
+  #                 [inheritance]      |
+  #                 {property}         |
+  #             'END' 'THE' [id] ['.'] |
+  #------------------------------------+ 
+  instance_declaration:
+    - match: (?i)(?=\bTHE\b)
+      scope: storage.type.instance.alan
+      push: instance_decl_context
+
+  instance_decl_context:
+    - meta_scope: meta.instance.alan
+    - include: instance_decl_head
+    # TODO: Include instance Body here...
+    - include: instance_decl_tail
+    - include: else_POP # <= Bail out
+
+  instance_decl_head:                # `THE class_Id IsA class_inheritance_Id .`
+    - match: (?i)(\bTHE\b)(\s*) # <= consume extra WS!
+      captures:
+        1: storage.type.instance.alan
+      push:
+        - meta_include_prototype: false
+        - meta_content_scope: entity.name.instance.alan
+        - match: (?i)(?=\bIsA\b) # <= Failsafe to handle mmissing class ID
+          pop: true
+        - include: generic_identifier
+        - include: force_POP
+    - include: class_inheritance
+
+  instance_decl_tail:                                     # `END THE class_Id .`
+    # ===========================
+    # END THE => no ID & no `.`
+    # ===========================
+    # When END THE is not followed by neither ID or dot, we must capture it
+    # separately to avoid stray scopes after it...
+    # Check if END THE is followed by WS* and either EOL or a comment:
+    - match: (?i)\b(END\s*THE)\b(?=\s*(--|$))
+      captures:
+        1: keyword.control.alan
+      pop: true
+    # ==========================
+    # END THE => ID and/or `.`
+    # ==========================
+    - match: (?i)\b(END\s*THE)\b\s* # <= must consume all whitespace!
+      captures:
+        1: keyword.control.alan
+      set:
+        - meta_include_prototype: false
+        - meta_content_scope: meta.instance.alan
+        - include: instance_tail_identifier # <= TODO: Try to use `generic_identifier`
+        - include: terminator2
+        - include: force_POP
+
   ##########
   # SYNONYMS
   ##########-------------------------------------------+
@@ -264,6 +321,22 @@ contexts:
         2: entity.name.class.tail.alan
         3: punctuation.definition.identifier.alan
            entity.name.class.tail.alan
+  #######################
+  # instance tail identifier
+  #######################
+  # Captures an optional instance identifier in an END statement.
+  instance_tail_identifier:
+    # Unquoted ID
+    - match: '{{ID}}'
+      scope: entity.name.instance.tail.alan
+    # Quoted ID
+    - match: "(')((?:''|[^'])*)(')"
+      captures:
+        1: punctuation.definition.identifier.alan
+           entity.name.instance.tail.alan
+        2: entity.name.instance.tail.alan
+        3: punctuation.definition.identifier.alan
+           entity.name.instance.tail.alan
 
   #-----------------------------------------------------------------------------
 
