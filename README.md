@@ -28,6 +28,7 @@ Alan IF v3.0 Beta 5
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [License](#license)
+- [Acknowledgements](#acknowledgements)
 - [Links](#links)
 
 <!-- /MarkdownTOC -->
@@ -224,6 +225,22 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
+# Acknowledgements
+
+I would like to thank the following people who have helped me out with the difficulties of creating this syntax:
+
+- [Keith Hall][Keith Hall SF] (@kingkeith)
+- [Thomas Smith][Thom Smith SF] (@ThomSmith)
+- [@FichteFoll][FichteFoll SF]
+
+Without their precious help I wouldn't have overcome many of the problems related to implementing the syntax and choosing the right scopes.
+
+I'd also like to express my gratitude to the authors of invaluable guidelines and tutorials which fill the huge gaps of undocumented Sublime Text 3 features and guidelines:
+
+- [Daniel Spiewak] (@djspiewak) for his _[Stateful Chaining]_ guidelines.
+- [Thomas Smith][Thom Smith GH] for his _[Use the Stack]_ guidelines.
+
+
 # Links
 
 Alan IF links:
@@ -259,3 +276,20 @@ Alan IF links:
 [Screenshot Alan DarkFluo]:  ./screenshots/Alan_DarkFluo.png "Screenshot of 'Alan DarkFluo' color scheme"
 [Screenshot Snippet New Adv]:  ./screenshots/Snippet_New_Adventure.gif "Screenshot of 'New Adventure Boilerplate' snippet in action"
 [Screenshot Snippet New Adv Vars]:  ./screenshots/Snippet_New_Adventure_Custom_Vars.gif "Using custom variables with the 'New Adventure Boilerplate' snippet"
+
+<!-- USERS LINKS -->
+
+[Keith Hall SF]: https://forum.sublimetext.com/u/kingkeith "See Keith Hall's Sublime Forum user profile"
+[Keith Hall GH]: https://github.com/keith-hall "See Keith Hall's GitHub profile"
+[Thom Smith SF]: https://forum.sublimetext.com/u/ThomSmith "See Thomas Smith's Sublime Forum user profile"
+[Thom Smith GH]: https://github.com/Thom1729 "See Thomas Smith's GitHub profile"
+[FichteFoll SF]: https://forum.sublimetext.com/u/FichteFoll "See FichteFoll's Sublime Forum user profile"
+[FichteFoll GH]: https://github.com/FichteFoll "See FichteFoll's GitHub profile"
+[Daniel Spiewak]: https://github.com/djspiewak "See @djspiewak's GitHub profile"
+
+<!-- Tutorials and Guidelines -->
+
+[Stateful Chaining]: https://github.com/sublimehq/Packages/issues/757#issuecomment-269031562
+
+[Use the Stack]: https://github.com/sublimehq/Packages/issues/757#issuecomment-287193733
+
