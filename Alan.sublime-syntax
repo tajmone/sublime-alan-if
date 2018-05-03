@@ -36,8 +36,8 @@ contexts:
     #---------------------------------------------------------------------------
     - include: import   # IMPORT '<filename>'.
     # addition          # ADD TO EVERY              <= should come before class!
-    - include: class_declaration    # EVERY <id> ... END EVERY
-    - include: instance_declaration # instance
+    - include: class_declaration    # EVERY <id> ... END EVERY.
+    - include: instance_declaration # THE <id> ... END THE.
     # syntax
     # verb
     # rule
@@ -152,7 +152,11 @@ contexts:
       set:
         - meta_include_prototype: false
         - meta_content_scope: meta.class.alan
-        - include: class_tail_identifier # <= TODO: Try to use `generic_identifier`
+        - match: '(?=[^\s\.])'
+          push:
+            - meta_content_scope: entity.name.class.tail.alan
+            - include: generic_identifier
+            - include: force_POP
         - include: terminator2
         - include: force_POP
 
@@ -163,7 +167,11 @@ contexts:
       captures:
         1: storage.modifier.extends
       push:
-        - include: inherited_class_identifier
+        - match: '(?=[^\s\.])'
+          push:
+            - meta_content_scope: entity.other.inherited-class.alan
+            - include: generic_identifier
+            - include: force_POP
         - include: terminator2
         - match: '$' # <= Filsafe: POP at EOL
           pop: true
@@ -228,7 +236,11 @@ contexts:
       set:
         - meta_include_prototype: false
         - meta_content_scope: meta.instance.alan
-        - include: instance_tail_identifier # <= TODO: Try to use `generic_identifier`
+        - match: '(?=[^\s\.])'
+          push:
+            - meta_content_scope: entity.name.instance.tail.alan
+            - include: generic_identifier
+            - include: force_POP
         - include: terminator2
         - include: force_POP
 
@@ -289,54 +301,6 @@ contexts:
         3: punctuation.definition.identifier.alan
            entity.name.class.alan
       pop: true
-  ############################
-  # inherited class identifier
-  ############################
-  # Captures a class identifier, either quoted or unquoted.
-  inherited_class_identifier:
-    # Unquoted ID
-    - match: '{{ID}}'
-      scope: entity.other.inherited-class.alan
-    # Quoted ID
-    - match: "(')((?:''|[^'])*)(')"
-      captures:
-        1: punctuation.definition.identifier.alan
-           entity.other.inherited-class.alan
-        2: entity.other.inherited-class.alan
-        3: punctuation.definition.identifier.alan
-           entity.other.inherited-class.alan
-  #######################
-  # class tail identifier
-  #######################
-  # Captures an optional class identifier in an END statement.
-  class_tail_identifier:
-    # Unquoted ID
-    - match: '{{ID}}'
-      scope: entity.name.class.tail.alan
-    # Quoted ID
-    - match: "(')((?:''|[^'])*)(')"
-      captures:
-        1: punctuation.definition.identifier.alan
-           entity.name.class.tail.alan
-        2: entity.name.class.tail.alan
-        3: punctuation.definition.identifier.alan
-           entity.name.class.tail.alan
-  #######################
-  # instance tail identifier
-  #######################
-  # Captures an optional instance identifier in an END statement.
-  instance_tail_identifier:
-    # Unquoted ID
-    - match: '{{ID}}'
-      scope: entity.name.instance.tail.alan
-    # Quoted ID
-    - match: "(')((?:''|[^'])*)(')"
-      captures:
-        1: punctuation.definition.identifier.alan
-           entity.name.instance.tail.alan
-        2: entity.name.instance.tail.alan
-        3: punctuation.definition.identifier.alan
-           entity.name.instance.tail.alan
 
   #-----------------------------------------------------------------------------
 

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+### 2018-05-03
+
+- `Alan.sublime-syntax` v0.0.18:
+    + improved identifiers reusabilty by managing to use `generic_identifier` instead of:
+        * `inherited_class_identifier` (_DELETED_)
+        * `class_tail_identifier` (_DELETED_)
+        * `instance_tail_identifier` (_DELETED_)
+- Added to [`/tests/`][tests]:
+    + [`syntax_test_Instances`][test_Instances]
 ### 2018-05-02:3
 
 - `Alan.sublime-syntax` v0.0.17:
@@ -190,6 +199,7 @@
 [test_Strings]: ./tests/syntax_test_Strings.alan "Open file..."
 [test_QuotedIdentifiers]: ./tests/syntax_test_QuotedIdentifiers.alan "Open file..."
 [test_ClassDeclarations]: ./tests/syntax_test_ClassDeclarations.alan "Open file..."
+[test_Instances]: ./tests/syntax_test_Instances.alan "Open file..."
 
 [Build System]: ./Alan.sublime-build "view build system source file"
 
