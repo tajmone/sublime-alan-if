@@ -1,6 +1,11 @@
 # CHANGELOG
 
-### 2018-05-03
+### 2018-05-03:2
+
+- `Alan.sublime-syntax` v0.0.19:
+    + __additions__: A first draft of the context to capture `ADD TO EVERY` statements. In lack of better scope names, I've used `meta.addition` to scope it, but this might not be the best choice.
+
+### 2018-05-03:1
 
 - `Alan.sublime-syntax` v0.0.18:
     + improved identifiers reusabilty by managing to use `generic_identifier` instead of:

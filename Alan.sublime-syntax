@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# "Alan.sublime-syntax" v0.0.17 (2018-05-02) | Alan v3 beta5
+# "Alan.sublime-syntax" v0.0.19 (2018-05-03) | Alan v3 beta5
 # ==============================================================================
 #                                  Alan Syntax                                  
 # ==============================================================================
@@ -34,8 +34,8 @@ contexts:
     #=== TOP-LEVEL SYNTAX CONSTRUCTS ===========================================
     # options
     #---------------------------------------------------------------------------
-    - include: import   # IMPORT '<filename>'.
-    # addition          # ADD TO EVERY              <= should come before class!
+    - include: import               # IMPORT '<filename>'.
+    - include: addition_declaration # ADD TO EVERY <id> ...(must precede class!)
     - include: class_declaration    # EVERY <id> ... END EVERY.
     - include: instance_declaration # THE <id> ... END THE.
     # syntax
@@ -94,10 +94,61 @@ contexts:
   # ADDITIONS
   ###########------------------------------+
   # addition = 'ADD' 'TO' 'EVERY' id       |
-  #                 [inheritance]          |
+  #                 [inheritance]          | <= ??? 341 E : Cannot Add heritage to classes
   #                 {property}             |
   #            'END' 'ADD' ['TO'] [id] '.' |
   #----------------------------------------+ 
+  addition_declaration:
+    - match: (?i)(?=\bADD\b)
+      push: addition_decl_context
+  
+  addition_decl_context:
+    - meta_scope: meta.addition.alan                   # <= Temporary Scope Name
+    - include: addition_decl_head
+    # TODO: Include addition Body here...
+    - include: addition_decl_tail
+    - include: else_POP # <= Bail out
+
+  addition_decl_head:                                # `ADD TO EVERY class_Id .`
+    - match: (?i)(\bADD\s*TO\s*EVERY\b)(\s*) # <= consume extra WS!
+      captures:
+        1: storage.modifier.extends.alan
+      push:
+        - meta_include_prototype: false
+        - meta_content_scope: entity.name.class.alan # <= maybe: name.class.externd?
+        - include: generic_identifier
+        - include: force_POP
+
+  addition_decl_tail:                                  # `END ADD TO class_Id .`
+    # ==============================
+    # END ADD [TO] => no ID & no `.`
+    # ==============================
+    # When END ADD TO is not followed by neither ID or dot, we must capture it
+    # separately to avoid stray scopes after it...
+    # Check if END ADD is followed by WS* and either EOL or a comment:
+    - match: (?i)\b(END\s*ADD(\s*TO)?)\b(?=\s*(--|$))
+      captures:
+        1: keyword.control.alan
+      pop: true
+    # =============================
+    # END ADD [TO] => ID and/or `.`
+    # =============================
+    - match: (?i)\b(END\s*ADD(\s*TO)?)\b\s*    # <= must consume all whitespace!
+      captures:
+        1: keyword.control.alan
+      set:
+        # TODO: The following block is identical to that in class_decl, I could
+        #       reuse a common scope with `set: socpename`!!!
+        - meta_include_prototype: false
+        - meta_content_scope: meta.addition.alan
+        - match: '(?=[^\s\.])'
+          push:
+            - meta_content_scope: entity.name.class.tail.alan
+            - include: generic_identifier
+            - include: force_POP
+        - include: terminator2
+        - include: force_POP
+
 
   ####################
   # CLASS DECLARATIONS
@@ -109,7 +160,7 @@ contexts:
   #-----------------------------------+
   class_declaration:
     - match: (?i)(?=\bEVERY\b)
-      scope: storage.type.class.alan
+      # scope: storage.type.class.alan
       push: class_decl_context
   
   class_decl_context:
@@ -161,8 +212,7 @@ contexts:
         - include: force_POP
 
   # ---> ReUsable Class SubContexts <-------------------------------------------
-  class_inheritance:
-    # `IsA class_inheritance_Id [.]`
+  class_inheritance:                            # `IsA class_inheritance_Id [.]`
     - match: (?i)(\bIsA\b)(\s*)
       captures:
         1: storage.modifier.extends
@@ -187,17 +237,16 @@ contexts:
   # INSTANCES
   ###########--------------------------+
   # instance = 'THE' id                |
-  #                 [inheritance]      |
+  #                 [inheritance]      | <= (sic) How can instances inherit?
   #                 {property}         |
   #             'END' 'THE' [id] ['.'] |
   #------------------------------------+ 
   instance_declaration:
     - match: (?i)(?=\bTHE\b)
-      scope: storage.type.instance.alan
       push: instance_decl_context
 
   instance_decl_context:
-    - meta_scope: meta.instance.alan
+    - meta_scope: meta.instance.alan        # <= arbitrary scope name!!! (check)
     - include: instance_decl_head
     # TODO: Include instance Body here...
     - include: instance_decl_tail
@@ -206,10 +255,10 @@ contexts:
   instance_decl_head:                # `THE class_Id IsA class_inheritance_Id .`
     - match: (?i)(\bTHE\b)(\s*) # <= consume extra WS!
       captures:
-        1: storage.type.instance.alan
+        1: storage.type.instance.alan       # <= arbitrary scope name!!! (check)
       push:
         - meta_include_prototype: false
-        - meta_content_scope: entity.name.instance.alan
+        - meta_content_scope: entity.name.instance.alan  # <= arbitrary scope name!!! (check)
         - match: (?i)(?=\bIsA\b) # <= Failsafe to handle mmissing class ID
           pop: true
         - include: generic_identifier
@@ -235,10 +284,10 @@ contexts:
         1: keyword.control.alan
       set:
         - meta_include_prototype: false
-        - meta_content_scope: meta.instance.alan
+        - meta_content_scope: meta.instance.alan # <= arbitrary scope name!!! (check)
         - match: '(?=[^\s\.])'
           push:
-            - meta_content_scope: entity.name.instance.tail.alan
+            - meta_content_scope: entity.name.instance.tail.alan # <= arbitrary scope name!!! (check)
             - include: generic_identifier
             - include: force_POP
         - include: terminator2
@@ -251,6 +300,12 @@ contexts:
   #                                                    |
   # synonym_declaration = word {',' word} '=' word '.' |
   #----------------------------------------------------+ 
+
+  # ============================================================================
+  #                             NESTED DEFINITIONS                              
+  # ============================================================================
+  # Ie, definition which can occur only inside a top level definition.
+
 
   ##############################################################################
   #                                                                            #
