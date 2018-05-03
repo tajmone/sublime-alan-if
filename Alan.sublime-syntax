@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# "Alan.sublime-syntax" v0.0.19 (2018-05-03) | Alan v3 beta5
+# "Alan.sublime-syntax" v0.0.20 (2018-05-03) | Alan v3 beta5
 # ==============================================================================
 #                                  Alan Syntax                                  
 # ==============================================================================
@@ -103,7 +103,8 @@ contexts:
       push: addition_decl_context
   
   addition_decl_context:
-    - meta_scope: meta.addition.alan                   # <= Temporary Scope Name
+    - meta_scope: meta.extension.alan
+                  meta.class.alan
     - include: addition_decl_head
     # TODO: Include addition Body here...
     - include: addition_decl_tail
@@ -136,19 +137,7 @@ contexts:
     - match: (?i)\b(END\s*ADD(\s*TO)?)\b\s*    # <= must consume all whitespace!
       captures:
         1: keyword.control.alan
-      set:
-        # TODO: The following block is identical to that in class_decl, I could
-        #       reuse a common scope with `set: socpename`!!!
-        - meta_include_prototype: false
-        - meta_content_scope: meta.addition.alan
-        - match: '(?=[^\s\.])'
-          push:
-            - meta_content_scope: entity.name.class.tail.alan
-            - include: generic_identifier
-            - include: force_POP
-        - include: terminator2
-        - include: force_POP
-
+      set: tail_class_&_terminator
 
   ####################
   # CLASS DECLARATIONS
@@ -200,16 +189,7 @@ contexts:
     - match: (?i)\b(END\s*EVERY)\b\s* # <= must consume all whitespace!
       captures:
         1: keyword.control.alan
-      set:
-        - meta_include_prototype: false
-        - meta_content_scope: meta.class.alan
-        - match: '(?=[^\s\.])'
-          push:
-            - meta_content_scope: entity.name.class.tail.alan
-            - include: generic_identifier
-            - include: force_POP
-        - include: terminator2
-        - include: force_POP
+      set: tail_class_&_terminator
 
   # ---> ReUsable Class SubContexts <-------------------------------------------
   class_inheritance:                            # `IsA class_inheritance_Id [.]`
@@ -222,16 +202,21 @@ contexts:
             - meta_content_scope: entity.other.inherited-class.alan
             - include: generic_identifier
             - include: force_POP
-        - include: terminator2
+        - include: terminator
         - match: '$' # <= Filsafe: POP at EOL
           pop: true
 
-  terminator2:
-    # This variant of terminator consumes all leading whitespace
-    # (PS: No, it has nothing to do with the "Terminator 2" movie!)
-    - match: '(\s*)(\.)'
-      captures:
-        2: punctuation.terminator.alan
+  tail_class_&_terminator:
+    - meta_include_prototype: false
+    - meta_content_scope: meta.extension.alan
+                          meta.class.alan
+    - match: '(?=[^\s\.])'
+      push:
+        - meta_content_scope: entity.name.class.tail.alan
+        - include: generic_identifier
+        - include: force_POP
+    - include: terminator
+    - include: force_POP
 
   ###########
   # INSTANCES
@@ -246,7 +231,7 @@ contexts:
       push: instance_decl_context
 
   instance_decl_context:
-    - meta_scope: meta.instance.alan        # <= arbitrary scope name!!! (check)
+    - meta_scope: meta.instance.alan
     - include: instance_decl_head
     # TODO: Include instance Body here...
     - include: instance_decl_tail
@@ -255,7 +240,7 @@ contexts:
   instance_decl_head:                # `THE class_Id IsA class_inheritance_Id .`
     - match: (?i)(\bTHE\b)(\s*) # <= consume extra WS!
       captures:
-        1: storage.type.instance.alan       # <= arbitrary scope name!!! (check)
+        1: storage.type.instance.alan
       push:
         - meta_include_prototype: false
         - meta_content_scope: entity.name.instance.alan  # <= arbitrary scope name!!! (check)
@@ -290,7 +275,7 @@ contexts:
             - meta_content_scope: entity.name.instance.tail.alan # <= arbitrary scope name!!! (check)
             - include: generic_identifier
             - include: force_POP
-        - include: terminator2
+        - include: terminator
         - include: force_POP
 
   ##########
@@ -525,16 +510,16 @@ contexts:
   #                                                                            #
   ##############################################################################
 
-
   terminator:
-    - match: '\.'
-      scope: punctuation.terminator.alan
+    - match: '(\s*)(\.)'   # <= consume all leading whitespace
+      captures:
+        2: punctuation.terminator.alan
 
-  optional_terminator:
-    - match: '\.'
-      scope: punctuation.terminator.alan
-      pop: true
-    - include: else_POP
+  # optional_terminator: # <= CURRENTLY UNUSED!!
+  #   - match: '\.'
+  #     scope: punctuation.terminator.alan
+  #     pop: true
+  #   - include: else_POP
 
   else_POP:
     - match: (?=\S)

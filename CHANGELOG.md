@@ -1,5 +1,15 @@
 # CHANGELOG
 
+### 2018-05-03:3
+
+- `Alan.sublime-syntax` v0.0.20:
+    + some scope names fixed
+    + new `tail_class_&_terminator` reusable context now shared between:
+        * `class_declaration`
+        * `addition_declaration`
+- Added to [`/tests/`][tests]:
+    + [`syntax_test_Additions.alan`][test_Additions]
+
 ### 2018-05-03:2
 
 - `Alan.sublime-syntax` v0.0.19:
@@ -13,7 +23,7 @@
         * `class_tail_identifier` (_DELETED_)
         * `instance_tail_identifier` (_DELETED_)
 - Added to [`/tests/`][tests]:
-    + [`syntax_test_Instances`][test_Instances]
+    + [`syntax_test_Instances.alan`][test_Instances]
 ### 2018-05-02:3
 
 - `Alan.sublime-syntax` v0.0.17:
@@ -48,7 +58,7 @@
         The definition of `LETTER` now includes also unicode points in the ranges `U+00E0..U+00F6` and `U+00F8..U+00FE` ([Latin-1 Supplement]). Thoroughly tested against Alan compiler (using default enconding options, [ISO-8859-1]).
 
     + __quoted identifiers__: now the single-quote delimiters are always part of the identifier (same scope), they just get the additional `punctuation.definition.identifier.alan` scope. This simplifies reusable contexts; also, it seems appropriate. Of course, in the Goto Symbol functionality, all quoted identifiers are indexed without the delimiting quotes, and with all internal escaped quotes (ie `''`) shown as a single quote. This simplifies fuzzy search of the identifier, and is also how the identifier is actually rendered in the game world.
-- [`syntax_test_ClassDeclarations`][test_ClassDeclarations] — updated with new tests to check that the delimiting quotes of __quoted identifiers__ always get scoped as part of the identifier.
+- [`syntax_test_ClassDeclarations.alan`][test_ClassDeclarations] — updated with new tests to check that the delimiting quotes of __quoted identifiers__ always get scoped as part of the identifier.
 
 
 ### 2018-04-28
@@ -78,7 +88,7 @@
         + Failsafe bail-outs: partial/broken code doesn't trap the highlighter in a syntax context looping for ever.
         + Scopes spillings fixed: now scopes don't eat up whitespace of neighbouring elements.
 - Syntax [`/tests/`][tests]:
-    + [`syntax_test_ClassDeclarations`][test_ClassDeclarations] — updated with new tests against context spilling and partial/broken code fragments.
+    + [`syntax_test_ClassDeclarations.alan`][test_ClassDeclarations] — updated with new tests against context spilling and partial/broken code fragments.
 
 
 ### 2018-04-27:1
@@ -120,7 +130,7 @@
         * improved overall handling of this syntax
         * __NOTE__: some edge cases still not handled well!
 - Added to [`/tests/`][tests]:
-    + [`syntax_test_ClassDeclarations`][test_ClassDeclarations]
+    + [`syntax_test_ClassDeclarations.alan`][test_ClassDeclarations]
 
 
 ### 2018-04-24
@@ -205,6 +215,7 @@
 [test_QuotedIdentifiers]: ./tests/syntax_test_QuotedIdentifiers.alan "Open file..."
 [test_ClassDeclarations]: ./tests/syntax_test_ClassDeclarations.alan "Open file..."
 [test_Instances]: ./tests/syntax_test_Instances.alan "Open file..."
+[test_Additions]: ./tests/syntax_test_Additions.alan "Open file..."
 
 [Build System]: ./Alan.sublime-build "view build system source file"
 

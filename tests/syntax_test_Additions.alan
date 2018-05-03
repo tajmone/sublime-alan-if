@@ -1,0 +1,174 @@
+-- SYNTAX TEST "Packages/Alan/Alan.sublime-syntax"
+
+-- ======================
+-- Test Class Additions
+-- ======================
+
+-- full END syntax & optional ID & terminator at END:
+ADD TO EVERY cake -- comment
+--^^^^^^^^^^^^^^^^^^^^^^^^^^   meta.extension.alan       meta.class.alan 
+--^^^^^^^^^^                   storage.modifier.extends
+--           ^^^^              entity.name.class.alan    
+END ADD TO cake.
+--^^^^^^^^^^^^^^               meta.extension.alan       meta.class.alan 
+--         ^^^^                entity.name.class.tail.alan
+--             ^               punctuation.terminator.alan
+
+
+-- without ID & terminator:
+ADD TO EVERY car
+END ADD TO  
+--^^^^^^^^       meta.extension.alan   meta.class.alan   keyword.control.alan
+--        ^^^  - meta.extension.alan - meta.class.alan   
+
+
+-- without ID at END:
+ADD TO EVERY chip
+END ADD TO.
+--^^^^^^^^       meta.extension.alan   meta.class.alan   keyword.control.alan
+--        ^      meta.extension.alan   meta.class.alan   punctuation.terminator.alan
+
+-- with ID & NO terminator at END:
+ADD TO EVERY toy -- comment
+END ADD TO toy
+--         ^^^   meta.extension.alan   meta.class.alan   entity.name.class.tail.alan
+
+----------------------------------------
+-- Partial END Syntax
+----------------------------------------
+
+ADD TO EVERY cake -- comment
+END ADD cake.
+--^^^^^^^^^^^     meta.extension.alan            meta.class.alan 
+--      ^^^^      entity.name.class.tail.alan
+--          ^     punctuation.terminator.alan
+
+
+-- without ID:
+ADD TO EVERY car
+END ADD
+--^^^^^          meta.extension.alan   meta.class.alan   keyword.control.alan
+--      ^      - meta.extension.alan - meta.class.alan   
+
+-- without terminator:
+ADD TO EVERY car
+END ADD car
+--^^^^^^^^^      meta.extension.alan   meta.class.alan
+--         ^   - meta.extension.alan - meta.class.alan   
+
+-- without ID:
+ADD TO EVERY car
+END ADD.
+--^^^^^^         meta.extension.alan   meta.class.alan
+--      ^      - meta.extension.alan - meta.class.alan   
+
+
+----------------------------------------
+-- With Quoted Identifiers
+----------------------------------------
+-- Make sure that quoted identifiers are handled well.
+-- NOTE: The single-quote delimiters are part of the identifier!
+
+ADD TO EVERY 'Rock ''n'' Roll'
+--           ^^^^^^^^^^^^^^^^^   meta.extension.alan   entity.name.class.alan
+--           ^                   punctuation.definition.identifier.alan
+--                           ^   punctuation.definition.identifier.alan
+END ADD TO 'Rock ''n'' Roll'.
+--         ^^^^^^^^^^^^^^^^^     meta.extension.alan   entity.name.class.tail.alan
+--         ^                     punctuation.definition.identifier.alan
+--                         ^     punctuation.definition.identifier.alan
+--                          ^    punctuation.terminator.alan
+
+----------------------------------------
+-- Extra WhiteSpace Tests
+----------------------------------------
+-- Make sure extra spaces don't cause problems...
+
+ADD   TO   EVERY  cod_fish    
+--^^^^^^^^^^^^^^  meta.extension.alan   meta.class.alan   storage.modifier.extends.alan
+--                ^^^^^^^^              meta.class.alan   entity.name.class.alan
+--                                ^^^   meta.class.alan - punctuation.terminator.alan
+END   ADD  TO cod_fish     -- comment
+--^^^^^^^^^^^                           meta.extension.alan   keyword.control.alan
+--            ^^^^^^^^                  meta.extension.alan   entity.name.class.tail.alan
+--                    ^^^^^^^^^^^^^^^ - meta.extension.alan - entity.name.class.tail.alan
+----------------------------------------
+-- Check for Scope Spillings
+----------------------------------------
+-- Test that scopes are correctly ended; ie, that they don't spill over
+-- white space or comments, even when dealing with an incomplete sytnax
+-- construct
+
+
+ADD TO EVERY cow  -- comment
+--          ^^^^^^^^^^^^^^^^  meta.extension.alan - storage.modifier.extends.alan
+--              ^^^^^^^^^^^^  meta.extension.alan - entity.name.class.alan
+END ADD TO cow.   -- comment
+--        ^^^^^               meta.extension.alan - keyword.control.alan
+--            ^^^^^^^^^^^^^^                      - entity.name.class.tail.alan
+
+-----------------------------------------------------
+-- Ensure tha `meta.extension.alan  meta.class` ends:
+-----------------------------------------------------
+ADD TO EVERY cow
+END ADD TO cow. -- comment
+--             ^^^^^^^^^^^  - meta.extension.alan - meta.class.alan
+
+ADD TO EVERY cow
+END ADD TO -- comment
+--        ^^^^^^^^^^^       - meta.extension.alan - meta.class.alan
+
+ADD TO EVERY cow
+END ADD TO cow.
+--             ^            - meta.extension.alan - meta.class.alan
+
+ADD TO EVERY cow
+END ADD TO.
+--         ^                - meta.extension.alan - meta.class.alan
+
+ADD TO EVERY cow
+END ADD TO
+--        ^                 - meta.extension.alan - meta.class.alan
+
+ADD TO EVERY cow
+END ADD cow. -- comment
+--          ^^^^^^^^^^^     - meta.extension.alan - meta.class.alan
+
+ADD TO EVERY cow
+END ADD -- comment
+--     ^^^^^^^^^^^          - meta.extension.alan - meta.class.alan
+
+ADD TO EVERY cow
+END ADD cow.
+--          ^               - meta.extension.alan - meta.class.alan
+
+ADD TO EVERY cow
+END ADD.
+--      ^                   - meta.extension.alan - meta.class.alan
+
+ADD TO EVERY cow
+END ADD
+--     ^                    - meta.extension.alan - meta.class.alan
+
+-- ==================================================
+-- Test Against Partially Valid Syntax Fragments
+-- ==================================================
+-- Partial syntaxes shouldn't break the whole context: the syntax should be able
+-- to detect missing expected item and carry on to the next; most of all, in no
+-- case the parser should end up trapped in the context -- always bail out.
+
+-- WRONG: missing Class ID:
+ADD TO EVERY
+--<-^^^^^^^^    meta.extension.alan   meta.class.alan   storage.modifier.extends.alan
+--          ^                                         - storage.modifier.extends.alan
+END ADD TO.
+--<-^^^^^^      meta.extension.alan   meta.class.alan   keyword.control.alan
+--        ^     meta.extension.alan   meta.class.alan   punctuation.terminator.alan
+--         ^  - meta.extension.alan - meta.class.alan
+
+-- WRONG: missing everything
+ADD TO EVERY  
+--<-^^^^^^^^    meta.extension.alan   meta.class.alan   storage.modifier.extends.alan
+END ADD TO
+--<-^^^^^^      meta.extension.alan   meta.class.alan   keyword.control.alan
+--        ^   - meta.extension.alan - meta.class.alan
