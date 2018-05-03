@@ -5,15 +5,21 @@
 	<string>Alan Symbols List</string>
 	<key>scope</key>
 	<string>
-		source.alan entity.name.class.alan
+		source.alan entity.name.class - entity.name.class.tail,
+		source.alan entity.name.instance - entity.name.instance.tail
 	</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>
 		<integer>1</integer>
 		<key>showInIndexedSymbolList</key>
-		<integer>0</integer>
-		<key>symbolTransformation</key>
+		<integer>1</integer>
+		<key>symbolTransformation</key> 
+		<string>
+			s/^'(.+)'$/$1/;
+			s/(')\1/$1/g;
+		</string>
+		<key>symbolIndexTransformation</key>
 		<string>
 			s/^'(.+)'$/$1/;
 			s/(')\1/$1/g;

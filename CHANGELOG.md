@@ -1,5 +1,13 @@
 # CHANGELOG
 
+### 2018-05-04
+
+- Update __Goto Symbol__ indexing:
+    + Add __instances__
+    + Don't index class and instance tail identifiers.
+    + Enable Indexing in Project (global symbol list).
+    + Apply Symbol transformation rules also to global symbol list.
+
 ### 2018-05-03:3
 
 - `Alan.sublime-syntax` v0.0.20:
