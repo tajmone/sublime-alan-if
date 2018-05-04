@@ -1,0 +1,21 @@
+<!--
+  Alan Boilerplate v0.0.1 (2018/05/04) ) | Alan v3 beta5
+  A barebones template for Alan code -->
+<snippet>
+  <content><![CDATA[
+--==============================================================================
+-- "${1}" by ${2:$ALAN_AUTHOR}
+--==============================================================================
+
+THE ${3:start_loc} IsA LOCATION
+  $0
+END THE ${3}.
+
+
+Start at ${3}.
+
+]]></content>
+  <description>Alan Boilerplate</description>
+  <tabTrigger>abp</tabTrigger>
+  <scope>source.alan - meta</scope>
+</snippet>

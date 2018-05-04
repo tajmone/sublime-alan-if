@@ -1,0 +1,17 @@
+// =============================
+// Global Level Auto-Completions
+// =============================
+// v0.0.1 (2018/05/04) ) | Alan v3 beta5
+{
+	"scope": "source.alan - meta",
+	"completions":
+	[
+		{ "trigger": "class\tClass Declaration", 		"contents": "EVERY ${1:class_name} IsA ${2:class_inheritance}.\n\t${0}\nEND EVERY ${1}." },
+		{ "trigger": "addition\tClass Addition", 		"contents": "ADD TO EVERY ${1:class_name}\n\t${0}\nEND ADD TO ${1}." },
+		{ "trigger": "instance\tInstance Declaration",  "contents": "THE ${1:instance_name} IsA ${2:class_inheritance}.\n\t${0}\nEND THE ${1}." },
+	]
+}
+
+/*
+		{ "trigger": "xxx\t", "contents": "xxx" },
+*/

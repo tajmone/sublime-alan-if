@@ -1,6 +1,18 @@
 # CHANGELOG
 
-### 2018-05-04
+### 2018-05-04:2
+
+- __[Snippets]__:
+    + new "__Alan Boilerplate__" ("`abp`").
+    + tweaked "__New Adventure Boilerplate__" ("`newadv`").
+- __[Completions]__ — Started to create auto-completions:
+    + [`Global.sublime-completions`][Global]:
+        * `class`: Class Declaration
+        * `addition`: Class Addition
+        * `instance`: Instance Declaration
+
+
+### 2018-05-04:1
 
 - Update __Goto Symbol__ indexing:
     + Add __instances__
@@ -224,6 +236,14 @@
 [test_ClassDeclarations]: ./tests/syntax_test_ClassDeclarations.alan "Open file..."
 [test_Instances]: ./tests/syntax_test_Instances.alan "Open file..."
 [test_Additions]: ./tests/syntax_test_Additions.alan "Open file..."
+
+<!-- SNIPPETS -->
+[Snippets]: ./snippets/ "Go to 'snippets' subfolder"
+
+<!-- COMPLETIONS -->
+[Completions]:  ./completions/ "Go to 'completions' subfolder"
+[Global]: ./completions/Global.sublime-completions
+
 
 [Build System]: ./Alan.sublime-build "view build system source file"
 
