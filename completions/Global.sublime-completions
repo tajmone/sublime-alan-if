@@ -1,7 +1,8 @@
-// =============================
-// Global Level Auto-Completions
-// =============================
-// v0.0.1 (2018/05/04) ) | Alan v3 beta5
+/* v0.0.1 (2018/05/04) ) | Alan v3 beta5
+=============================
+Global Level Auto-Completions
+=============================
+*/
 {
 	"scope": "source.alan - meta",
 	"completions":
@@ -14,4 +15,5 @@
 
 /*
 		{ "trigger": "xxx\t", "contents": "xxx" },
+		{ "trigger": "xxx\t", "contents": "${1} ${2:xxx}.\n\tEND${0}." },
 */

@@ -1,5 +1,17 @@
 # CHANGELOG
 
+### 2018-05-06
+
+- __[Completions]__:
+    + New [`Anywhere.sublime-completions`][Anywhere]:
+        * Formatting Styles:
+            - `styalert`: STYLE ALERT
+            - `styem`: STYLE EMPHASIZED
+            - `stynorm`: STYLE NORMAL
+            - `stypre`: STYLE PREFORMATTED
+            - `styquote`: STYLE QUOTE
+
+
 ### 2018-05-04:2
 
 - __[Snippets]__:
@@ -243,6 +255,7 @@
 <!-- COMPLETIONS -->
 [Completions]:  ./completions/ "Go to 'completions' subfolder"
 [Global]: ./completions/Global.sublime-completions
+[Anywhere]: ./completions/Anywhere.sublime-completions
 
 
 [Build System]: ./Alan.sublime-build "view build system source file"
