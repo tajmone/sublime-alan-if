@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# "Alan.sublime-syntax" v0.0.20 (2018-05-03) | Alan v3 beta5
+# "Alan.sublime-syntax" v0.0.21 (2018-05-07) | Alan v3 beta5
 # ==============================================================================
 #                                  Alan Syntax                                  
 # ==============================================================================
@@ -26,7 +26,7 @@ contexts:
   
   prototype:
     - include: comments
-    - include: numbers
+    - include: integers
     - include: operators
     # - include: keywords
 
@@ -106,8 +106,10 @@ contexts:
     - meta_scope: meta.extension.alan
                   meta.class.alan
     - include: addition_decl_head
-    # TODO: Include addition Body here...
     - include: addition_decl_tail
+    # TODO: Include addition Body here...
+    - include: property_context
+
     - include: else_POP # <= Bail out
 
   addition_decl_head:                                # `ADD TO EVERY class_Id .`
@@ -155,8 +157,10 @@ contexts:
   class_decl_context:
     - meta_scope: meta.class.alan
     - include: class_decl_head
-    # TODO: Include Class Body here...
     - include: class_decl_tail
+    # TODO: Include Class Body here...
+    - include: property_context
+
     - include: else_POP # <= Bail out
 
   class_decl_head:                  # `EVERY class_Id IsA class_inheritance_Id .`
@@ -233,8 +237,10 @@ contexts:
   instance_decl_context:
     - meta_scope: meta.instance.alan
     - include: instance_decl_head
-    # TODO: Include instance Body here...
     - include: instance_decl_tail
+    # TODO: Include instance Body here...
+    - include: property_context
+
     - include: else_POP # <= Bail out
 
   instance_decl_head:                # `THE class_Id IsA class_inheritance_Id .`
@@ -291,6 +297,90 @@ contexts:
   # ============================================================================
   # Ie, definition which can occur only inside a top level definition.
 
+  ##########
+  # PROPERTY
+  ##########------------------------+
+  # property = initial_location     |
+  #          | name                 |
+  #          | pronouns             |
+  #          | attributes           |
+  #          | initialization       |
+  #          | description          |
+  #          | articles             |
+  #          | mentioned            |
+  #          | container_properties |
+  #          | verb                 |
+  #          | script               |
+  #          | entered              |
+  #          | exit                 |
+  #---------------------------------+
+  # Stack 1  [class_decl_context]
+  property_context:
+    - match: ''
+      push:
+      - include: attribute_declaration
+      - include: force_POP
+
+  ############
+  # ATTRIBUTES
+  ############
+
+  # Stack 2 [class_decl_context > property_context]
+  attribute_declaration:
+    - match: (?i)\b((?:IS|ARE|HAS|CAN)(?:\s+NOT)?)\b(\s*)
+      captures:
+        1: storage.type.attribute.alan # <~ Scope name needs checking!!!
+      push: attribute_decl_context
+    - include: keyword_POP
+
+  # Stack 3 [class_decl_context > property_context > attribute_declaration]
+  attribute_decl_context:
+    - meta_scope: meta.attributes.alan
+    - meta_include_prototype: false
+    - include: keyword_POP # <= Failsafe, bail-out on KWD
+    - include: terminator_POP
+    - match: ''
+      push: attributes
+    - include: else_POP
+
+    
+  # Stack 4 [class_decl_context > property_context > attribute_declaration
+  #          > attribute_decl_context]
+  attributes: # `IS [NOT] ID.`
+    - meta_include_prototype: false
+    - include: keyword_POP # <= Failsafe, bail-out on KWD
+    - include: terminator_POP
+    - include: comments
+    - include: integers
+    - include: strings
+    - match: (?=\S)
+      push:
+        - meta_include_prototype: false
+        - meta_content_scope: variable.other.member
+        - include: generic_identifier
+        # -------------------------------
+        # Check if followed by another ID
+        # -------------------------------
+        - match: ''
+          set:
+          - match: \s+
+          - match: (?=\S)
+            set:
+            - meta_content_scope: variable.other.identifier
+            - meta_include_prototype: false
+            - include: keyword_POP # <= Failsafe, bail-out on KWD
+            - include: generic_identifier
+            - include: force_POP
+        - include: else_POP
+    # - include: force_POP  # <- apparently superfluos
+
+  #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  # TODO: These KWDs are just the most obvious ones in the context, but the list
+  #       is not complete...
+  #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  keyword_POP: # Bail out if a kwyword is encounterd
+    - match: (?i)(?=\s*\b(IS|ARE|HAS|CAN|END|NAME)\b)  # <= Must eat leading WS!
+      pop: true
 
   ##############################################################################
   #                                                                            #
@@ -451,9 +541,11 @@ contexts:
   #########
   # NUMBERS
   #########
-  numbers:
-    - match: \b\d+\b
-      scope: constant.numeric.alan
+  integers:
+    - match: (-)?\b(\d+)\b
+      captures:
+        1: keyword.operator.arithmetic
+        2: constant.numeric.alan
 
   ###########
   # OPERATORS
@@ -515,11 +607,11 @@ contexts:
       captures:
         2: punctuation.terminator.alan
 
-  # optional_terminator: # <= CURRENTLY UNUSED!!
-  #   - match: '\.'
-  #     scope: punctuation.terminator.alan
-  #     pop: true
-  #   - include: else_POP
+  terminator_POP:
+    - match: '(\s*)(\.)'   # <= consume all leading whitespace
+      captures:
+        2: punctuation.terminator.alan
+      pop: true
 
   else_POP:
     - match: (?=\S)
@@ -527,4 +619,8 @@ contexts:
 
   force_POP:
     - match: ''
+      pop: true
+
+  eol_POP:  # <= CURRENTLY UNUSED!! But already usable to clean-up code
+    - match: '$'
       pop: true

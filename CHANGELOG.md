@@ -1,5 +1,17 @@
 # CHANGELOG
 
+### 2018-05-07
+
+- `Alan.sublime-syntax` v0.0.21:
+    + Added __properties__ context (incomplete):
+        * Now classes, instances and additions reckognize attributes statements (except for _Set Attributes_). Still a draft but tests have shown it handles well partial syntaxes.
+        * `(IS|ARE|HAS|CAN)[NOT]`:
+            - [x] `ID.` — boolean attr.
+            - [x] `ID INT.` — Numeric attr.
+            - [x] `ID STRING.` — string attr.
+            - [x] `ID ID.` — Event/Instance attr.
+            - [ ] `ID { MEMBERS }.` — Set attr.
+
 ### 2018-05-06
 
 - __[Completions]__:
