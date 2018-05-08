@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# "Alan.sublime-syntax" v0.0.21 (2018-05-07) | Alan v3 beta5
+# "Alan.sublime-syntax" v0.0.22 (2018-05-08) | Alan v3 beta5
 # ==============================================================================
 #                                  Alan Syntax                                  
 # ==============================================================================
@@ -349,6 +349,9 @@ contexts:
   attributes: # `IS [NOT] ID.`
     - meta_include_prototype: false
     - include: keyword_POP # <= Failsafe, bail-out on KWD
+    - match: (?i)\b(NOT)\b(\s*) # <= capture isolate NOT in attributes blocks.
+      captures:
+        1: storage.type.attribute.alan # <~ Scope name needs checking!!!    - match: ''
     - include: terminator_POP
     - include: comments
     - include: integers

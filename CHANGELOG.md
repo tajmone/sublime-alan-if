@@ -1,5 +1,11 @@
 # CHANGELOG
 
+### 2018-05-08
+
+- New attribures completions (some very experimental)
+- `Alan.sublime-syntax` v0.0.22:
+    + __properties__ context: small bug fix that prevented handling a `NOT` bool attr. when inside a block of attributes with one `IS`, etc.
+
 ### 2018-05-07
 
 - `Alan.sublime-syntax` v0.0.21:

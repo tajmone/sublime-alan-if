@@ -1,0 +1,60 @@
+/* v0.0.1 (2018/05/08) ) | Alan v3 beta5
+==================================
+Class & Instances Auto-Completions
+==================================
+*/
+{
+	"scope": "source.alan & (meta.class|meta.instance|meta.addition)",
+	"completions":
+	[
+		/***********************************************************************
+		*                              ATTRIBUTES                              *
+		***********************************************************************/
+		// ONE-LINE ATTRIBUTES
+		// ---------------------------------------------------------------------
+		// Boolean : (IS|ARE|HAS|CAN)[NOT] ID.
+		{ "trigger": "isbool\tIS boolean_attr.", "contents": "IS ${1:attr_ID}.\n${0}" },
+		{ "trigger": "isntbool\tIS NOT boolean_attr.", "contents": "IS NOT ${1:attr_ID}.\n${0}" },
+		{ "trigger": "canbool\tHAS boolean_attr.", "contents": "HAS ${1:attr_ID}.\n${0}" },
+		{ "trigger": "cantbool\tHAS NOT boolean_attr.", "contents": "HAS NOT ${1:attr_ID}.\n${0}" },
+
+		// Numeric : (IS|ARE|HAS|CAN) ID INT.
+		{ "trigger": "hasnum\tHAS Numeric Attr.", "contents": "HAS ${1:attr_ID} ${2:1}.\n${0}" },
+
+		// String  : (IS|ARE|HAS|CAN) ID STRING.
+		{ "trigger": "hasstr\tHAS String Attr.", "contents": "HAS ${1:attr_ID} \"${2:STRING}\".\n${0}" },
+
+		// Event :   (IS|ARE|HAS|CAN) ID ID.
+		{ "trigger": "hasevent\tHAS Event Attr.", "contents": "HAS ${1:attr_ID} ${2:event_ID}.\n${0}" },
+
+		// Instance: (IS|ARE|HAS|CAN) ID ID.
+		{ "trigger": "hasinstance\tHAS Instance Attr.", "contents": "HAS ${1:attr_ID} ${2:instance_ID}.\n${0}" },
+
+		// Set     : (IS|ARE|HAS|CAN) ID { MEMBERS }.
+		{ "trigger": "hasset\tHAS Set Attr. (1 element)", "contents": "HAS ${1:attr_ID} {${2:member}}.\n${0}" },
+		{ "trigger": "hasset2\tHAS Set Attr. (2 elements)", "contents": "HAS ${1:attr_ID} {${2:member1}, ${3:member2}}.\n${0}" },
+		{ "trigger": "hasset3\tHAS Set Attr. (3 elements)", "contents": "HAS ${1:attr_ID} {${2:member1}, ${3:member2}, ${4:member3}}.\n${0}" },
+		// ---------------------------------------------------------------------
+		// NESTED ATTRIBUTES
+		// ---------------------------------------------------------------------
+		// Boolean : [NOT] ID.
+		// { "trigger": "is\tBoolean Attribute", "contents": "${1:attr_ID}.\n${0}" },
+		{ "trigger": "not\tNOT boolean_attr", "contents": "NOT ${1:attr_ID}.\n${0}" },
+		// { "trigger": "canbool\tHAS boolean_attr.", "contents": "HAS ${1:attr_ID}.\n${0}" },
+		// { "trigger": "cantbool\tHAS NOT boolean_attr.", "contents": "HAS ${1:attr_ID}.\n${0}" },
+		// ---------------------------------------------------------------------
+		// EXPERIMENTAL...
+		// ---------------------------------------------------------------------
+		// { "trigger": "is\tIS + Newline + attr_ID.", "contents": "IS\n\t${1:attr_ID}.\n\t${0}" },
+		// { "trigger": "isnot\tIS + Newline + NOT attr_ID.", "contents": "IS\n\tNOT ${1:attr_ID}.\n\t${0}" },
+		{ "trigger": "isblock\tIS + Newline + attr_ID.", "contents": "IS\n\t${1:attr_ID}.\n\t${0}" },
+		{ "trigger": "isblocknot\tIS + Newline + NOT attr_ID.", "contents": "IS\n\tNOT ${1:attr_ID}.\n\t${0}" },
+
+	]
+}
+
+/*
+		{ "trigger": "xxx\t", "contents": "xxx" },
+		{ "trigger": "xxx\t", "contents": "${1} ${2:xxx}.\n\tEND${0}." },
+*/
+
