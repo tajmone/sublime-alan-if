@@ -1,0 +1,76 @@
+-- SYNTAX TEST "Packages/Alan/Alan.sublime-syntax"
+
+-- ======================
+-- Test Attributes
+-- ======================
+-- WARNING 1 :: The current scope names used for attributes might not be the best
+--               choice and might be changed in the future!!!
+-- WARNING 2 :: Until more contexts are implemented, testing possibilitie are
+--              quite limited.
+
+-- ======================
+-- Inside Instances
+-- ======================
+THE book IsA object.
+  HAS title "Alan Cookbook". -- string attribute
+--^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.instance.alan   meta.attributes.alan
+--^^^                                             storage.type.attribute.alan
+--    ^^^^^                                       variable.other.member
+--          ^^^^^^^^^^^^^^^                       string.quoted.double.alan
+--                         ^                      punctuation.terminator.alan
+END THE book.
+--<^^^^^^^^^                 meta.instance.alan - meta.attributes.alan
+
+THE mistry_box IsA object.
+  IS NOT takable.
+--^^^^^^ meta.instance.alan meta.attributes.alan storage.type.attribute.alan
+--       ^^^^^^^ meta.instance.alan meta.attributes.alan variable.other.member
+  IS
+--^^ meta.instance.alan meta.attributes.alan storage.type.attribute.alan
+    bulki.
+--  ^^^^^ meta.instance.alan meta.attributes.alan variable.other.member
+    secret.
+    NOT edible.
+--  ^^^^^^^^^^^              meta.instance.alan   meta.attributes.alan
+--  ^^^                                           storage.type.attribute.alan
+--      ^^^^^^                                    variable.other.member
+--            ^                                   punctuation.terminator.alan
+END THE mistry_box.
+
+-- ======================
+-- Inside Classes
+-- ======================
+EVERY xyz IsA something.
+  CAN fly.
+  CAN NOT swim.
+  ARE obsolete.
+  HAS attr_ID event_ID.
+  HAS stamina -20.
+--^^^^^^^^^^^^^^^^           meta.class.alan   meta.attributes.alan
+--    ^^^^^^^                                  variable.other.member
+--            ^                                keyword.operator.arithmetic
+--             ^^                              constant.numeric.alan
+END EVERY xyz.
+--<                          meta.class.alan - meta.attributes.alan
+
+-- ======================
+-- Inside Additions
+-- ======================
+
+ADD TO EVERY dragon
+  IS dangerous.
+--^^^^^^^^^^^^^   meta.extension.alan   meta.class.alan   meta.attributes.alan
+--^^                                                      storage.type.attribute.alan
+--   ^^^^^^^^^                                            variable.other.member
+  HAS
+--^^^                              meta.attributes.alan   storage.type.attribute.alan
+    age 300.
+--  ^^^                            meta.attributes.alan   variable.other.member
+--      ^^^                        meta.attributes.alan   constant.numeric.alan
+    home the_dark_cave.
+--  ^^^^                           meta.attributes.alan   variable.other.member
+--      ^                          meta.attributes.alan - variable.other.member
+--       ^^^^^^^^^^^^^             meta.attributes.alan   variable.other.identifier
+--
+END ADD TO dragon.
+--<               meta.extension.alan   meta.class.alan - meta.attributes.alan

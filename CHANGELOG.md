@@ -1,6 +1,11 @@
 # CHANGELOG
 
-### 2018-05-11
+### 2018-05-11:2
+
+- [`syntax_test_Attributes.alan`][test_Attributes] — new test file for attributes; still very limited testing capabilities due to lack of other surrounding contexts, but at least can serve to check if syntax breaks up.
+
+
+### 2018-05-11:1
 
 - `Alan.sublime-syntax` v0.0.23: minor fixes: include strings context in prototype, cleanup code and apply new  `eol_POP` context.
 - Cleanup [`README.md`][README] and [`TODO.md`][TODO].
@@ -272,11 +277,12 @@
 
 <!-- TEST FILES -->
 [tests]: ./tests/ "See 'tests' folder"
-[test_Strings]: ./tests/syntax_test_Strings.alan "Open file..."
-[test_QuotedIdentifiers]: ./tests/syntax_test_QuotedIdentifiers.alan "Open file..."
+[test_Additions]: ./tests/syntax_test_Additions.alan "Open file..."
+[test_Attributes]: ./tests/syntax_test_Attributes.alan "Open file..."
 [test_ClassDeclarations]: ./tests/syntax_test_ClassDeclarations.alan "Open file..."
 [test_Instances]: ./tests/syntax_test_Instances.alan "Open file..."
-[test_Additions]: ./tests/syntax_test_Additions.alan "Open file..."
+[test_QuotedIdentifiers]: ./tests/syntax_test_QuotedIdentifiers.alan "Open file..."
+[test_Strings]: ./tests/syntax_test_Strings.alan "Open file..."
 
 <!-- SNIPPETS -->
 [Snippets]: ./snippets/ "Go to 'snippets' subfolder"
