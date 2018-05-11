@@ -10,7 +10,7 @@ Pending tasks and bugs list.
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
 - [TODOs](#todos)
-    - [Alan Syntax:](#alan-syntax)
+    - [Alan Syntax Fixes](#alan-syntax-fixes)
     - [Syntax Test Files](#syntax-test-files)
     - [Build Systems](#build-systems)
     - [Build System Compiler Sytnax](#build-system-compiler-sytnax)
@@ -28,23 +28,26 @@ Pending tasks and bugs list.
 
 List of planned tasks and features:
 
-- [ ] Add some snippets
+- [ ] Add some snippets:
+    + [x] `abp` » Alan Boilerplate (barebones template for Alan code).
+    + [x] `newadv` » New Adventure Boilerplate (Alan StdLib)
+    + [ ] Commented Header Frame
 - [ ] Create dedicate Alan color schemes:
     + [x] A dark scheme: "__Alan DarkFluo__"
     + [ ] A light scheme.
     + [ ] Scheme for testing Alan syntax (color everything)
 - [x] Implement indexing for Goto funcionality:
     + [ ] Indexed elements:
-        * [x] Class names in class declarations
+        * [x] Class names (declarations)
+        * [x] Instance names (declarations)
         * [ ] Verbs
         * [ ] Syntaxes
-        * [ ] Instances
     + [x] __Quoted identifiers__ transformations:
         * [x] strip single quote delimiters
         * [x] replace double SQuote (escaped) qith single quote
 - [ ] Implement autocompletion
 
-## Alan Syntax:
+## Alan Syntax Fixes
 
 + [ ] __Quoted Identifiers__:
     * [ ] Add `empty` scope to empty identifiers?

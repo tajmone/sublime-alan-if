@@ -1,5 +1,10 @@
 # CHANGELOG
 
+### 2018-05-11
+
+- `Alan.sublime-syntax` v0.0.23: minor fixes: include strings context in prototype, cleanup code and apply new  `eol_POP` context.
+- Cleanup [`README.md`][README] and [`TODO.md`][TODO].
+
 ### 2018-05-08
 
 - New attribures completions (some very experimental)
@@ -258,6 +263,12 @@
 <!------------------------------------------------------------------------------
                                 REFERENCE LINKS                                 
 ------------------------------------------------------------------------------->
+
+[CHANGELOG]: ./CHANGELOG.md "View Sublime-Alan's CHANGELOG file"
+[README]: ./README.md "View README file"
+[TODO]: ./TODO.md "View the TODOs-list file"
+[WORK_NOTES]: ./WORK_NOTES.md "View my working notes file"
+
 
 <!-- TEST FILES -->
 [tests]: ./tests/ "See 'tests' folder"

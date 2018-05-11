@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# "Alan.sublime-syntax" v0.0.22 (2018-05-08) | Alan v3 beta5
+# "Alan.sublime-syntax" v0.0.23 (2018-05-11) | Alan v3 beta5
 # ==============================================================================
 #                                  Alan Syntax                                  
 # ==============================================================================
@@ -28,6 +28,7 @@ contexts:
     - include: comments
     - include: integers
     - include: operators
+    - include: strings
     # - include: keywords
 
   main:
@@ -48,7 +49,7 @@ contexts:
     #---------------------------------------------------------------------------
     # start_section
     #=== MISC GLOBALLY INCLUDED CONTEXTS =======================================
-    - include: strings
+    # - include: strings
     - include: keywords
     - include: quoted_identifiers
 
@@ -87,8 +88,7 @@ contexts:
         - match: '\.'
           scope: punctuation.terminator.alan
           pop: true
-        - match: '$' # <= If EOL is reached, bail-out!
-          pop: true
+        - include: eol_POP # <= If EOL is reached, bail-out!
 
   ###########
   # ADDITIONS
@@ -207,8 +207,7 @@ contexts:
             - include: generic_identifier
             - include: force_POP
         - include: terminator
-        - match: '$' # <= Filsafe: POP at EOL
-          pop: true
+        - include: eol_POP # <= If EOL is reached, bail-out!
 
   tail_class_&_terminator:
     - meta_include_prototype: false
@@ -351,7 +350,7 @@ contexts:
     - include: keyword_POP # <= Failsafe, bail-out on KWD
     - match: (?i)\b(NOT)\b(\s*) # <= capture isolate NOT in attributes blocks.
       captures:
-        1: storage.type.attribute.alan # <~ Scope name needs checking!!!    - match: ''
+        1: storage.type.attribute.alan # <~ Scope name needs checking!!!
     - include: terminator_POP
     - include: comments
     - include: integers
@@ -375,7 +374,6 @@ contexts:
             - include: generic_identifier
             - include: force_POP
         - include: else_POP
-    # - include: force_POP  # <- apparently superfluos
 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # TODO: These KWDs are just the most obvious ones in the context, but the list

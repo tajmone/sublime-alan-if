@@ -1,15 +1,17 @@
 # Sublime-Alan
 
-- https://github.com/tajmone/sublime-alan
-
 Alan IF 3 syntax for Sublime Text 3.
 
-> __ALPHA STAGE__ — This project is still a WIP Alpha version! Most features are still experimental and subject to continuos changes. Screenshots and descriptions might not always accurately represent the latest changes.
+- https://github.com/tajmone/sublime-alan
 
 ```
 Sublime Text >= 3149 (DEV BUILD)
 Alan IF v3.0 Beta 5
 ```
+
+> __ALPHA STAGE__ — This project is still a WIP Alpha version! Most features are still experimental and subject to continuos changes. Screenshots and descriptions might not always accurately represent the latest changes.
+
+The following document isn't always updated to cover all the added features, it's mainly intended to illustrate the project goals; for a full list of current features, see the [CHANGELOG].
 
 -----
 
@@ -73,6 +75,7 @@ Amongst the goals of this package is that of providing good indexing functionali
 Currently, the following syntax elements are captured and indexed:
 
 - Class declaration identifiers.
+- Instance declaration identifiers.
 
 Quoted identifiers are transformed before indexing: the delimiting quotes are removed, and any escaped single quotes inside the identifier are replaced with one single quote (eg: `'Tom''s Cat'` is indexed as `Tom's Cat`). This is intended to facilitate looking up identifiers in Goto Symbol functionality, by representing them sa they are seen in the Alan adventure world.
 
