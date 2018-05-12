@@ -1,0 +1,15 @@
+<!--
+  Commented Heading Frame 5 -->
+<snippet>
+  <content><![CDATA[
+
+-- ${1/./-/g}
+-- ${1}
+-- ${1/./-/g}
+
+${0}
+]]></content>
+  <description>Commented Heading Frame 5</description>
+  <tabTrigger>cmh5</tabTrigger>
+  <scope>source.alan</scope>
+</snippet>

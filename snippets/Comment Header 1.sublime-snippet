@@ -1,0 +1,21 @@
+<!--
+  Commented Heading Frame 1 -->
+<snippet>
+  <content><![CDATA[
+
+
+-- =============================================================================
+
+
+----- ${1}
+
+
+-- =============================================================================
+
+
+${0}
+]]></content>
+  <description>Commented Heading Frame 1</description>
+  <tabTrigger>cmh1</tabTrigger>
+  <scope>source.alan - meta</scope>
+</snippet>

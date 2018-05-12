@@ -1,5 +1,18 @@
 # CHANGELOG
 
+### 2018-05-12
+
+- __[Snippets]__:
+    + Clean-Up "__New Adventure Boilerplate__"
+    + New «commented headings» set of snippets for formatting comments as various heading levels:
+        * `cmh1`: Commented Heading Frame 1
+        * `cmh2`: Commented Heading Frame 2
+        * `cmh3`: Commented Heading Frame 3
+        * `cmh4`: Commented Heading Frame 4
+        * `cmh5`: Commented Heading Frame 5
+        * `cmh6`: Commented Heading 6 (underlined)
+        * `cmhr`: Commented Horizontal Rules
+
 ### 2018-05-11:2
 
 - [`syntax_test_Attributes.alan`][test_Attributes] — new test file for attributes; still very limited testing capabilities due to lack of other surrounding contexts, but at least can serve to check if syntax breaks up.

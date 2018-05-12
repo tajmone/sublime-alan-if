@@ -1,0 +1,14 @@
+<!--
+  Commented Heading 6 (underlined) -->
+<snippet>
+  <content><![CDATA[
+
+-- ${1}
+-- ${1/./-/g}
+
+${0}
+]]></content>
+  <description>Commented Heading 6 (underlined)</description>
+  <tabTrigger>cmh6</tabTrigger>
+  <scope>source.alan</scope>
+</snippet>

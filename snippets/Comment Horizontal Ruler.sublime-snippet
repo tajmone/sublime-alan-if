@@ -1,0 +1,11 @@
+<!--
+  Commented Horizontal Ruler -->
+<snippet>
+  <content><![CDATA[
+--------------------------------------------------------------------------------
+${0}
+]]></content>
+  <description>Commented Horizontal Ruler</description>
+  <tabTrigger>cmhr</tabTrigger>
+  <scope>source.alan - meta</scope>
+</snippet>
