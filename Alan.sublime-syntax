@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# "Alan.sublime-syntax" v0.0.23 (2018-05-11) | Alan v3 beta5
+# "Alan.sublime-syntax" v0.0.24 (2018-05-13) | Alan v3 beta5
 # ==============================================================================
 #                                  Alan Syntax                                  
 # ==============================================================================
@@ -207,7 +207,9 @@ contexts:
             - include: generic_identifier
             - include: force_POP
         - include: terminator
-        - include: eol_POP # <= If EOL is reached, bail-out!
+        # CHANGED: force POP to preserve any AT/IN properties on same line!
+        - include: force_POP
+        # - include: eol_POP # <= If EOL is reached, bail-out!
 
   tail_class_&_terminator:
     - meta_include_prototype: false
@@ -302,7 +304,7 @@ contexts:
   # property = initial_location     |
   #          | name                 |
   #          | pronouns             |
-  #          | attributes           |
+  #          | attributes           | + (missing: sets)
   #          | initialization       |
   #          | description          |
   #          | articles             |
@@ -317,8 +319,35 @@ contexts:
   property_context:
     - match: ''
       push:
+      - include: initial_location
       - include: attribute_declaration
       - include: force_POP
+
+  ##################
+  # INITIAL LOCATION
+  ##################------------------------------------------+
+  # initial_location = ( AT locationID | IN containerID ) [.] |
+  #-----------------------------------------------------------+-----------------
+  # This should only apply to instances (not classes), but we'll include it also
+  # in classes declarations and additions because (1) it's simpler to handle and
+  # (2) it wil also cover malformed code without breaking.
+  #-----------------------------------------------------------------------------
+  initial_location:
+    - match: (?i)\b(AT|IN)\b(\s*) # <- eat trailing WS
+      captures:
+        1: storage.type.attribute.alan # <~ Scope name needs checking!!!
+      push:
+        - meta_scope: meta.attributes.alan
+        - meta_include_prototype: false
+        - include: keyword_POP # <= Failsafe, bail-out on KWD
+        - include: terminator_POP
+        - match: ''
+          push:
+            - meta_include_prototype: false
+            - meta_content_scope: variable.other.member.alan
+            - include: generic_identifier
+            - include: else_POP
+        - include: else_POP
 
   ############
   # ATTRIBUTES
@@ -358,7 +387,7 @@ contexts:
     - match: (?=\S)
       push:
         - meta_include_prototype: false
-        - meta_content_scope: variable.other.member
+        - meta_content_scope: variable.other.member.alan
         - include: generic_identifier
         # -------------------------------
         # Check if followed by another ID
@@ -368,7 +397,7 @@ contexts:
           - match: \s+
           - match: (?=\S)
             set:
-            - meta_content_scope: variable.other.identifier
+            - meta_content_scope: variable.other.identifier.alan
             - meta_include_prototype: false
             - include: keyword_POP # <= Failsafe, bail-out on KWD
             - include: generic_identifier

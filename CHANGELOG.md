@@ -1,5 +1,11 @@
 # CHANGELOG
 
+### 2018-05-13
+
+- `Alan.sublime-syntax` v0.0.24:
+    + Added __initial location__ (`IN contID`/`AT locationID`) to `property_context`. Although this should only apply to instances, I've included it also in classes (declarations and additions) for easier maintainance and also to cover malformed code without breaking.
+- Updated [`syntax_test_Attributes.alan`][test_Attributes]
+
 ### 2018-05-12
 
 - __[Snippets]__:

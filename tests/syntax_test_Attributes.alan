@@ -15,27 +15,41 @@ THE book IsA object.
   HAS title "Alan Cookbook". -- string attribute
 --^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.instance.alan   meta.attributes.alan
 --^^^                                             storage.type.attribute.alan
---    ^^^^^                                       variable.other.member
+--    ^^^^^                                       variable.other.member.alan
 --          ^^^^^^^^^^^^^^^                       string.quoted.double.alan
 --                         ^                      punctuation.terminator.alan
 END THE book.
 --<^^^^^^^^^                 meta.instance.alan - meta.attributes.alan
 
 THE mistry_box IsA object.
+  IN box_container.
+--^^^^^^^^^^^^^^^^^          meta.instance.alan   meta.attributes.alan
+--                 ^         meta.instance.alan - meta.attributes.alan
+--^^                         storage.type.attribute.alan
+--   ^^^^^^^^^^^^^           variable.other.member.alan
+--                ^          punctuation.terminator.alan
   IS NOT takable.
 --^^^^^^ meta.instance.alan meta.attributes.alan storage.type.attribute.alan
---       ^^^^^^^ meta.instance.alan meta.attributes.alan variable.other.member
+--       ^^^^^^^ meta.instance.alan meta.attributes.alan variable.other.member.alan
   IS
 --^^ meta.instance.alan meta.attributes.alan storage.type.attribute.alan
     bulki.
---  ^^^^^ meta.instance.alan meta.attributes.alan variable.other.member
+--  ^^^^^ meta.instance.alan meta.attributes.alan variable.other.member.alan
     secret.
     NOT edible.
 --  ^^^^^^^^^^^              meta.instance.alan   meta.attributes.alan
 --  ^^^                                           storage.type.attribute.alan
---      ^^^^^^                                    variable.other.member
+--      ^^^^^^                                    variable.other.member.alan
 --            ^                                   punctuation.terminator.alan
 END THE mistry_box.
+
+THE box IsA object AT boxes_room.
+--                 ^^^^^^^^^^^^^^  meta.instance.alan   meta.attributes.alan
+--                               ^ meta.instance.alan - meta.attributes.alan
+--                 ^^              storage.type.attribute.alan
+--                    ^^^^^^^^^^   variable.other.member.alan
+--                              ^  meta.attributes.alan punctuation.terminator.alan
+END THE box.
 
 -- ======================
 -- Inside Classes
@@ -47,7 +61,7 @@ EVERY xyz IsA something.
   HAS attr_ID event_ID.
   HAS stamina -20.
 --^^^^^^^^^^^^^^^^           meta.class.alan   meta.attributes.alan
---    ^^^^^^^                                  variable.other.member
+--    ^^^^^^^                                  variable.other.member.alan
 --            ^                                keyword.operator.arithmetic
 --             ^^                              constant.numeric.alan
 END EVERY xyz.
@@ -61,15 +75,15 @@ ADD TO EVERY dragon
   IS dangerous.
 --^^^^^^^^^^^^^   meta.extension.alan   meta.class.alan   meta.attributes.alan
 --^^                                                      storage.type.attribute.alan
---   ^^^^^^^^^                                            variable.other.member
+--   ^^^^^^^^^                                            variable.other.member.alan
   HAS
 --^^^                              meta.attributes.alan   storage.type.attribute.alan
     age 300.
---  ^^^                            meta.attributes.alan   variable.other.member
+--  ^^^                            meta.attributes.alan   variable.other.member.alan
 --      ^^^                        meta.attributes.alan   constant.numeric.alan
     home the_dark_cave.
---  ^^^^                           meta.attributes.alan   variable.other.member
---      ^                          meta.attributes.alan - variable.other.member
+--  ^^^^                           meta.attributes.alan   variable.other.member.alan
+--      ^                          meta.attributes.alan - variable.other.member.alan
 --       ^^^^^^^^^^^^^             meta.attributes.alan   variable.other.identifier
 --
 END ADD TO dragon.
