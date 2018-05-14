@@ -1,0 +1,98 @@
+-- SYNTAX TEST "Packages/Alan/Alan.sublime-syntax"
+
+-- ===================================
+-- Test Properties -> Initial Location
+-- ===================================
+-- WARNING 1 :: The current scope names used for initial location  might not be 
+--              the best choice and might be changed in the future!!!
+-- WARNING 2 :: Until more contexts are implemented, testing possibilitie are
+--              quite limited.
+
+-- ======================
+-- Inside Classes
+-- ======================
+EVERY box IsA object AT boxes_room.
+--                   ^^^^^^^^^^^^^^  meta.class.alan   meta.attributes.alan
+--                                 ^ meta.class.alan - meta.attributes.alan
+--                   ^^              storage.type.attribute.alan
+--                      ^^^^^^^^^^   variable.other.member.alan
+--                                ^  meta.attributes.alan punctuation.terminator.alan
+END EVERY box.
+-- ======================
+-- Inside Instances
+-- ======================
+THE bird IsA animal IN cage.
+--                  ^^^^^^^^       meta.instance.alan   meta.attributes.alan
+--                          ^^^^   meta.instance.alan - meta.attributes.alan
+--                  ^^             storage.type.attribute.alan
+--                     ^^^^        variable.other.member.alan
+--                         ^       meta.attributes.alan punctuation.terminator.alan
+END THE bird.
+-- ======================
+-- Inside Additions
+-- ======================
+ADD TO EVERY box IsA object AT boxes_room.
+--                          ^^^^^^^^^^^^^^  meta.class.alan   meta.attributes.alan
+--                                        ^ meta.class.alan - meta.attributes.alan
+--                          ^^              storage.type.attribute.alan
+--                             ^^^^^^^^^^   variable.other.member.alan
+--                                       ^  meta.attributes.alan punctuation.terminator.alan
+END ADD TO box.
+
+----------------------------------------
+-- Check Missing Dot Terminator
+----------------------------------------
+-- The dot is optional in `initial_location'
+THE bird IsA animal IN cage
+  IS sad.
+--<                                       meta.class.alan - meta.attributes.alan
+END THE bird.
+
+
+----------------------------------------
+-- Check for Scope Spillings
+----------------------------------------
+-- Test that scopes are correctly ended; ie, that they don't spill over
+-- white space or comments, even when dealing with an incomplete sytnax
+-- construct
+
+THE bird IsA animal IN cage  .
+--                         ^^    meta.instance.alan - variable.other.member.alan
+  IS sad.
+--<                                       meta.class.alan - meta.attributes.alan
+END THE bird.
+
+-- ==================================================
+-- Test Against Partially Valid Syntax Fragments
+-- ==================================================
+-- Partial syntaxes shouldn't break the whole context: the syntax should be able
+-- to detect missing expected item and carry on to the next; most of all, in no
+-- case the parser should end up trapped in the context -- always bail out.
+THE bird IsA animal IN
+--                  ^^        meta.attributes.alan   storage.type.attribute.alan
+  IS sad.
+--<                                                       - meta.attributes.alan
+END THE bird.
+
+THE bird IsA animal IN cage tree
+--                          ^^^^                          - meta.attributes.alan
+END THE bird.
+
+----------------------------------------
+-- Check Comments Preservation
+----------------------------------------
+THE bird IsA animal IN cage. -- comment
+--                           ^^^^^^^^^^            comment.line.double-dash.alan
+END THE bird.
+
+THE bird IsA animal IN cage  -- comment
+--                           ^^^^^^^^^^            comment.line.double-dash.alan
+END THE bird.
+
+THE bird IsA animal IN .     -- comment
+--                           ^^^^^^^^^^            comment.line.double-dash.alan
+END THE bird.
+
+THE bird IsA animal IN       -- comment
+--                           ^^^^^^^^^^            comment.line.double-dash.alan
+END THE bird.

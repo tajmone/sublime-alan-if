@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# "Alan.sublime-syntax" v0.0.25 (2018-05-14) | Alan v3 beta5
+# "Alan.sublime-syntax" v0.0.26 (2018-05-14) | Alan v3 beta5
 # ==============================================================================
 #                                  Alan Syntax                                  
 # ==============================================================================
@@ -301,7 +301,7 @@ contexts:
   ##########
   # PROPERTY
   ##########------------------------+
-  # property = initial_location     | ~ needs fixing
+  # property = initial_location     | *
   #          | name                 |
   #          | pronouns             |
   #          | attributes           | + (missing: sets)
@@ -328,8 +328,9 @@ contexts:
   ##################------------------------------------------+
   # initial_location = ( AT locationID | IN containerID ) [.] |
   #-----------------------------------------------------------+-----------------
-  # FIXME: When `AT location` is not followed by (optional) terminator it spills
-  #        over the next elements!!!
+  # TODO: Could be improved to prevent small spills. The sequence is fixed:
+  #       [AT|IN] ID [.], so lookaheads could be used to bail out if not `.` is
+  #       ahead, and prevent WS being scoped (currently caused by consuming it)
   #-----------------------------------------------------------+-----------------
   initial_location:
     - match: (?i)\b(AT|IN)\b(\s*) # <- eat trailing WS
@@ -338,15 +339,23 @@ contexts:
       push:
         - meta_scope: meta.attributes.alan
         - meta_include_prototype: false
-        - include: keyword_POP # <= Failsafe, bail-out on KWD
-        - include: terminator_POP
+        # The following 2 failsafes handle code fragments:
+        - include: keyword_POP    # <= Failsafe, bail-out on KWD
+        - include: terminator_POP # <= Failsafe, bail-out on `.` terminator
         - match: ''
-          push:
+          set:
             - meta_include_prototype: false
-            - meta_content_scope: variable.other.member.alan
+            - meta_content_scope: meta.attributes.alan
+                                  variable.other.member.alan
             - include: generic_identifier
-            - include: else_POP
-        - include: else_POP
+            # Wether an ID was found or not, we'll terminate this context with
+            # the optional `.` terminator...
+            - match: ''
+              set:
+              - meta_scope: meta.attributes.alan 
+              - match: \s+  # <= must consume whitespace!
+              - include: terminator_POP
+              - include: force_POP
 
   ############
   # ATTRIBUTES

@@ -1,6 +1,13 @@
 # CHANGELOG
 
-### 2018-05-14
+### 2018-05-14:2
+
+- `Alan.sublime-syntax` v0.0.26:
+    + _BUG FIX_: __initial location__ context now expects only one identifier after `AT`/`IN`, and correctly bails out if anything other than the (optional) dot terminator follows it.
+- [`syntax_test_InitialLocation.alan`][test_InitialLocation] — new test file for __initial location__.
+- Updated [`syntax_test_Attributes.alan`][test_Attributes] — removed __initial location__ references from tests (in case I change scope name, I won't have to update multiple files).
+
+### 2018-05-14:1
 
 - `Alan.sublime-syntax` v0.0.25:
     + Annotated bug which needs to be fixed in __initial location__ context.
@@ -303,6 +310,7 @@
 [tests]: ./tests/ "See 'tests' folder"
 [test_Additions]: ./tests/syntax_test_Additions.alan "Open file..."
 [test_Attributes]: ./tests/syntax_test_Attributes.alan "Open file..."
+[test_InitialLocation]: ./tests/syntax_test_InitialLocation.alan "Open file..."
 [test_ClassDeclarations]: ./tests/syntax_test_ClassDeclarations.alan "Open file..."
 [test_Instances]: ./tests/syntax_test_Instances.alan "Open file..."
 [test_QuotedIdentifiers]: ./tests/syntax_test_QuotedIdentifiers.alan "Open file..."
