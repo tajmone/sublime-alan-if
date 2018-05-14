@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# "Alan.sublime-syntax" v0.0.24 (2018-05-13) | Alan v3 beta5
+# "Alan.sublime-syntax" v0.0.25 (2018-05-14) | Alan v3 beta5
 # ==============================================================================
 #                                  Alan Syntax                                  
 # ==============================================================================
@@ -301,7 +301,7 @@ contexts:
   ##########
   # PROPERTY
   ##########------------------------+
-  # property = initial_location     |
+  # property = initial_location     | ~ needs fixing
   #          | name                 |
   #          | pronouns             |
   #          | attributes           | + (missing: sets)
@@ -328,10 +328,9 @@ contexts:
   ##################------------------------------------------+
   # initial_location = ( AT locationID | IN containerID ) [.] |
   #-----------------------------------------------------------+-----------------
-  # This should only apply to instances (not classes), but we'll include it also
-  # in classes declarations and additions because (1) it's simpler to handle and
-  # (2) it wil also cover malformed code without breaking.
-  #-----------------------------------------------------------------------------
+  # FIXME: When `AT location` is not followed by (optional) terminator it spills
+  #        over the next elements!!!
+  #-----------------------------------------------------------+-----------------
   initial_location:
     - match: (?i)\b(AT|IN)\b(\s*) # <- eat trailing WS
       captures:
