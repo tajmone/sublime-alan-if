@@ -1,5 +1,14 @@
 # CHANGELOG
 
+### 2018-05-24
+
+- __[Snippets]__:
+    + Update "__New Adventure Boilerplate__" (v0.0.4).
+- __[Completions]__:
+    + Update [`Global.sublime-completions`][Global]:
+    + new `instanceat`: "__Instance AT Location Declaration__"
+    + new `instancein`: "__Instance IN Container Declaration__"
+
 ### 2018-05-14:2
 
 - `Alan.sublime-syntax` v0.0.26:
