@@ -1,0 +1,33 @@
+/* v0.0.1 (2018/06/03) ) | Alan v3 beta5
+======================================
+Declarations Anywhere Auto-Completions
+======================================
+These autocompletions are for declarations syntax constructs that can occur at
+root level or inside classes and instances.
+*/
+{
+	"scope": "source.alan",
+	"completions":
+	[
+		/***********************************************************************
+		*                          VERB DECLARATIONS                           *
+		***********************************************************************/
+		{ "trigger": "verb\tVERB",
+		  "contents": "VERB ${1:verb_ID}\n\t${0}\nEND VERB ${1}." },
+		
+		{ "trigger": "verbmulti\tVERB multi ID",
+		  "contents": "VERB ${1:verb_ID1}, ${2:verb_ID2}\n\t${0}\nEND VERB ${1}." },
+		
+		{ "trigger": "metaverb\tVERB META",
+		  "contents": "META VERB ${1:verb_ID}\n\t${0}\nEND VERB ${1}." },
+		
+		{ "trigger": "metaverbmulti\tMETA VERB multi ID",
+		  "contents": "META VERB ${1:verb_ID1}, ${2:verb_ID2}\n\t${0}\nEND VERB ${1}." },
+	]
+}
+
+/*
+		{ "trigger": "xxx\t", "contents": "xxx" },
+		{ "trigger": "xxx\t", "contents": "${1} ${2:xxx}.\n\tEND${0}." },
+*/
+

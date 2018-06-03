@@ -1,13 +1,22 @@
 # CHANGELOG
 
+### 2018-06-03
+
+- __[Completions]__:
+    + New [`Declarations Anywhere.sublime-completions`][Declarations Anywhere]:
+        * `verb`: VERB
+        * `verbmulti`: VERB multi ID
+        * `metaverb`: META VERB
+        * `metaverbmulti`: META VERB multi ID
+
 ### 2018-05-24
 
 - __[Snippets]__:
     + Update "__New Adventure Boilerplate__" (v0.0.4).
 - __[Completions]__:
     + Update [`Global.sublime-completions`][Global]:
-    + new `instanceat`: "__Instance AT Location Declaration__"
-    + new `instancein`: "__Instance IN Container Declaration__"
+        * new `instanceat`: "__Instance AT Location Declaration__"
+        * new `instancein`: "__Instance IN Container Declaration__"
 
 ### 2018-05-14:2
 
@@ -329,9 +338,10 @@
 [Snippets]: ./snippets/ "Go to 'snippets' subfolder"
 
 <!-- COMPLETIONS -->
-[Completions]:  ./completions/ "Go to 'completions' subfolder"
-[Global]: ./completions/Global.sublime-completions
 [Anywhere]: ./completions/Anywhere.sublime-completions
+[Completions]:  ./completions/ "Go to 'completions' subfolder"
+[Declarations Anywhere]: ./completions/Declarations%20Anywhere.sublime-completions
+[Global]: ./completions/Global.sublime-completions
 
 
 [Build System]: ./Alan.sublime-build "view build system source file"
