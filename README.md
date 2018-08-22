@@ -28,8 +28,8 @@ The following document isn't always updated to cover all the added features, it'
     - [Snippets](#snippets)
         - [New Adventure Boilerplate](#new-adventure-boilerplate)
     - [Transcipt and Solution Syntaxes](#transcipt-and-solution-syntaxes)
-    - [Alan Solution Files Syntax](#alan-solution-files-syntax)
-    - [Alan Transcript Files Syntax](#alan-transcript-files-syntax)
+        - [Alan Solution Files Syntax](#alan-solution-files-syntax)
+        - [Alan Transcript Files Syntax](#alan-transcript-files-syntax)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [License](#license)
@@ -199,14 +199,32 @@ The purpose of these syntaxes is to simplify handling of game transcipt and solu
 Hopefully, these two extra syntaxes will simplify creating and using command scripts to test adventures during the authoring stage, and to correctly visualize game transcipts (ie, provided the "`*.a3sol`" and "`*.a3log`" file extensions are used).
 
 
-## Alan Solution Files Syntax
+### Alan Solution Files Syntax
+
++ [`Alan Solution.sublime-syntax`][Alan Solution]
++ [`Alan Solution.sublime-settings`][Alan Solution Settings]
 
 This package also defines an __Alan Solution__ syntax associated to the "`*.a3sol`" file extension.
 
 Solution files (aka "commands scripts") are text files containing player commands used to run an adventure in automated mode, by passing the script to the interpreter. Since there is no official extension for Alan solution files, I've chosen to arbitrarily adopt the "`*.a3sol`" file extension, which is intuitively similar to  "`*.sol`" extension often used for solution files, but at the same time is uniquely associated to Alan (Alan adventures having the "`*.a3c`" extension).
 
+#### Alan Solution Color Scheme
 
-## Alan Transcript Files Syntax
++ [`Alan Solution.hidden-tmTheme`][Alan Solution Theme]
++ [`Alan Solution.YAML-propertyList-tmTheme`][Alan Solution tmTheme YAML] (scheme source)
+
+This package also sets a predefined hidden color scheme to preview Alan Solution files:
+
+![Screenshot of Alan Solution file color scheme][Screenshot Alan Solution Color Scheme]
+
+... which is intended to make editing command script file more pleasant to the eye.
+
+The color scheme is created by converting the YAML source file "[`Alan Solution.YAML-propertyList-tmTheme`][Alan Solution tmTheme YAML]" via [PackageDev]'s build system "[Convert to ... - Property List]"; since the YAML format is easier to maintain.
+
+### Alan Transcript Files Syntax
+
++ [`Alan Transcript.sublime-syntax`][Alan Transcript]
++ [`Alan Transcript.sublime-settings`][Alan Transcript Settings]
 
 This package also defines an __Alan Transcript__ syntax associated to the "`*.a3log`" file extension. While transcripts generated with the Alan interpreters usually have the "`.log`" file extensions, I've opted to associate this syntax to the  "`*.a3log`" extension because "`.log`" is used in so many different contexts that it didn't seem appropriate to enforce special settings on it. The  "`*.a3log`" extensions seemed a good compromise since it blends the "`.a3`" suffix (commonly used by Alan) with "`log`", so it should be an intuitive compromise. 
 
@@ -320,6 +338,7 @@ Alan IF links:
 [Screenshot Build Console]: ./screenshots/Build_Errors_Console.png "Screenshot of Sublime-Alan build system errors log in ST's console"
 [Screenshot Build Editor]:  ./screenshots/Build_Errors_Editor.png "Screenshot of Sublime-Alan build system errors navigation (using 'Monokai' color scheme)"
 [Screenshot Alan DarkFluo]:  ./screenshots/Alan_DarkFluo.png "Screenshot of 'Alan DarkFluo' color scheme"
+[Screenshot Alan Solution Color Scheme]:  ./screenshots/Alan_Solution_scheme.png "Screenshot of 'Alan Solution' color scheme"
 [Screenshot Snippet New Adv]:  ./screenshots/Snippet_New_Adventure.gif "Screenshot of 'New Adventure Boilerplate' snippet in action"
 [Screenshot Snippet New Adv Vars]:  ./screenshots/Snippet_New_Adventure_Custom_Vars.gif "Using custom variables with the 'New Adventure Boilerplate' snippet"
 
@@ -339,3 +358,35 @@ Alan IF links:
 
 [Use the Stack]: https://github.com/sublimehq/Packages/issues/757#issuecomment-287193733
 
+<!-- EXTERNAL REFERENCES ----------------------------------------------------->
+
+[PackageDev]: https://packagecontrol.io/packages/PackageDev "View PackageDev page at PackageControl.io"
+[Convert to ... - Property List]: https://github.com/SublimeText/PackageDev/wiki/Serialized-Conversion "Read online documentation"
+
+<!-- Alan Syntax ------------------------------------------------------------->
+
+[Alan]: ./Alan.sublime-syntax "view syntax source file"
+
+<!-- AlanLog Syntax ---------------------------------------------------------->
+
+[AlanLog]: ./AlanLog.sublime-syntax "view syntax source file"
+[AlanLog Settings]: ./AlanLog.sublime-settings "view settings source file"
+[AlanLog tmTheme]: ./AlanLog.hidden-tmTheme "view color scheme file"
+[AlanLog tmTheme YAML]: ./AlanLog.YAML-propertyList "view color scheme file"
+[Alan Compiler Output]: ./AlanLog.sublime-syntax "view syntax source file"
+
+[Alan DarkFluo]: ./Alan%20DarkFluo.sublime-color-scheme "view color scheme source file"
+
+<!-- Alan Solution Syntax ---------------------------------------------------->
+
+[Alan Solution]: ./Alan%20Solution.sublime-syntax "view syntax source file"
+[Alan Solution Settings]: ./Alan%20Solution.sublime-settings "view settings source file"
+[Alan Solution Theme]: ./Alan%20Solution.hidden-tmTheme "view theme source file"
+[Alan Solution tmTheme YAML]: ./Alan%20Solution.YAML-propertyList "view color scheme file"
+
+<!-- Alan Transcript Syntax -------------------------------------------------->
+
+[Alan Transcript]: ./Alan%20Transcript.sublime-syntax "view syntax source file"
+[Alan Transcript Settings]: ./Alan%20Transcript.sublime-settings "view settings source file"
+
+<!-- EOF -->

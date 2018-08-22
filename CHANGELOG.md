@@ -1,6 +1,13 @@
 # CHANGELOG
 
-### 2018-08-22 (1)
+### 2018-08-22 (3)
+
+- New __Alan Solution Theme__ (hidden) — this new hidden theme is now the default them set for Alan Solution files:
+    + [`Alan Solution.hidden-tmTheme`][Alan Solution Theme]
+    + [`Alan Solution.YAML-propertyList-tmTheme`][Alan Solution tmTheme YAML] — YAML source used for creating `Alan Solution.hidden-tmTheme` via [PackageDev]'s build system "[Convert to ... - Property List]".
+
+
+### 2018-08-22 (2)
 
 - New __Alan Transcript__ Syntax ("`*.a3log`") — new syntax definition and settings for adventure transcript files. Created to simplify handling of ISO-8859-1 encoding in transcripts when testing adventures. Also provides some very basic highlighting (comments and strings):
     + [`Alan Transcript.sublime-syntax`][Alan Transcript]
@@ -388,6 +395,8 @@
 
 [Alan Solution]: ./Alan%20Solution.sublime-syntax "view syntax source file"
 [Alan Solution Settings]: ./Alan%20Solution.sublime-settings "view settings source file"
+[Alan Solution Theme]: ./Alan%20Solution.hidden-tmTheme "view theme source file"
+[Alan Solution tmTheme YAML]: ./Alan%20Solution.YAML-propertyList "view color scheme file"
 
 <!-- Alan Transcript Syntax -------------------------------------------------->
 

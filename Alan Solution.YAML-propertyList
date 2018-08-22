@@ -1,0 +1,57 @@
+# [PackageDev] target_format: plist, ext: hidden-tmTheme
+# ------------------------------------------------------------------------------
+# Alan Solution Color Scheme v0.0.1 (2018-08-22)
+# ------------------------------------------------------------------------------
+# This file is the YAML source used for creating "Alan Solution.hidden-tmTheme"
+# via PackageDev's build system "Convert to ... - Property List".
+# -- https://packagecontrol.io/packages/PackageDev
+# -- https://github.com/SublimeText/PackageDev/wiki/Serialized-Conversion
+# ------------------------------------------------------------------------------
+# NOTE: After rebuilding the tmTheme file, ST must be restarted for the changes
+#       to become effective.
+# ------------------------------------------------------------------------------
+name: Alan Solution
+settings:
+- settings:
+    background: '#f8f8f8' # Alabaster (dirty white)
+    caret: '#ff6600'      # Blaze Orange
+    findHighlight: '#ffe792' # Golden Glow (yellow)
+    findHighlightForeground: '#292929' # Mine Shaft (black)
+    foreground: '#292929' # Mine Shaft (black)
+    inactiveSelection: '#e8f4f7' # Pastel Azure Lighter
+    invisibles: '#e0e0e0' # Mercury
+    lineHighlight: '#ffe792' # Golden Glow (yellow)
+    selection: '#d0edf5' # Pastel Azure
+    selectionBorder: '#b7dce8' # Regent St Blue
+    shadow: '#808080' # Gray
+    shadowWidth: '6'
+# ========
+# STRINGS
+# ========
+- name: Strings
+  scope: string.quoted
+  settings:
+    foreground: '#449bff' # Dodger Blue
+- name: String Delimiters
+  scope: punctuation.definition.string
+  settings:
+    foreground: '#ee9300' # Carrot Orange
+# ========
+# COMMENTS
+# ========
+- name: Comments
+  scope: comment
+  settings:
+    foreground: '#009933' # Forest Green
+    background: '#ebf3ee' # Saltpan
+# ========
+# INVALID
+# ========
+- name: Invalid
+  scope: invalid
+  settings:
+    foreground: '#F8F8F8' # Alabaster (dirty white)
+    background: '#CC0066' # Hibiscus
+
+
+
