@@ -1,0 +1,54 @@
+%YAML 1.2
+---
+# "Alan Solution.sublime-syntax" v0.0.1 (2018-08-22) | Alan v3 beta6
+# ==============================================================================
+# Alan Solution Syntax (for Alan IF games' commands scripts)                                 
+# ==============================================================================
+# Syntax definition for Alan IF Adventures solution files:
+# -- https://www.alanif.se
+# ------------------------------------------------------------------------------
+# Solution files (aka "commands scripts") are used for running an adventure via
+# automated player-commands scripts. There is no official file extension for 
+# solution files, although usually they have the ".sol" extension; so I've chosen
+# to arbitrarily adopt the ".a3sol" to create a unique extension for Alan.
+#   The need to create a dedicated syntax is mainly due to the fact that Alan
+# solution files need to be encoded in ISO-8859-1, therefore Sublime Text must
+# be made aware of the extension. But the syntax can also provide some basic
+# syntax highlighting, and associated to a theme, allowing users to customize
+# its aesthetics.
+# ------------------------------------------------------------------------------
+# Copyright (c) Tristano Ajmone, 2018. MIT License.
+# -- https://github.com/tajmone/sublime-alan
+# ------------------------------------------------------------------------------
+file_extensions:
+  - a3sol
+scope: source.a3sol
+
+contexts:
+
+  main:
+    - include: comments
+    - include: strings
+
+  strings:
+    - match: '"'
+      scope: punctuation.definition.string.begin.a3sol
+      push: inside_string
+
+  inside_string:
+    - meta_include_prototype: false
+    - meta_scope: string.quoted.double.a3sol
+    - match: '\.'
+      scope: constant.character.escape.a3sol
+    - match: '"'
+      scope: punctuation.definition.string.end.a3sol
+      pop: true
+
+  comments:
+    # Comments begin with a ';' and finish at the end of the line.
+    - match: ';'
+      scope: punctuation.definition.comment.a3sol
+      push:
+        - meta_scope: comment.line.semicolon.a3sol
+        - match: $\n?
+          pop: true

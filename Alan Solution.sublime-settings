@@ -1,0 +1,31 @@
+// "Alan Solution.sublime-settings" v0.0.3 (2018-08-22) | Alan v3 beta6                     
+// ------------------------------------------------------------------------------
+// Sublime-Alan: Alan Solution files settings.
+// ------------------------------------------------------------------------------
+// Solution files are player commands script to run an Interactive Fiction
+// adventure in automated mode. I've added to the Alan package a custom syntax
+// definition for "Alan Solution" (with ".a3sol" extension) to ensure that they
+// are automatically encoded in ISO-8859-1, otherwise Sublime Text will default
+// to UTF-8 encoding, and they won't work with Alan adventures if the script
+// contains special characters (like accented letters).
+{
+
+    // =========================================================================
+    // LOOK & FEEL OPTIONS
+    // =========================================================================
+    
+    // =========================================================================
+    // FILE ENCODING
+    // =========================================================================
+    // Alan solution files default encoding: ISO 8859-1
+    "default_encoding":  "Western (ISO 8859-1)",
+    "fallback_encoding": "UTF-8", // Which one ???
+    
+    // =========================================================================
+    // INDENTATION SETTINGS
+    // =========================================================================
+    // We need to impose some indentation settings for solution files...
+    // -------------------------------------------------------------------------
+    "tab_size": 2, // Tabs 2 is a reasonable setting
+    "translate_tabs_to_spaces": true,
+}

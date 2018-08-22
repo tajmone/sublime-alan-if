@@ -1,5 +1,16 @@
 # CHANGELOG
 
+### 2018-08-22
+
+- New __Alan Solution__ Syntax ("`*.a3sol`") — new syntax definition and settings for solution files (aka "commands scripts"). Created to simplify handling of ISO-8859-1 encoding in commands scripts for testing adventures. Also provides some very basic highlighting (comments and strings):
+    + [`Alan Solution.sublime-syntax`][Alan Solution]
+    + [`Alan Solution.sublime-settings`][Alan Solution Settings]
+
+- Alan SDK updated to Beta6, change version in source comments:
+    + [`Alan.sublime-syntax`][Alan] v0.0.27
+    + [`AlanLog.sublime-syntax`][AlanLog] v0.0.3
+    + ... and all other sources that mention Alan version
+
 ### 2018-06-03
 
 - __[Completions]__:
@@ -20,19 +31,19 @@
 
 ### 2018-05-14:2
 
-- `Alan.sublime-syntax` v0.0.26:
+- [`Alan.sublime-syntax`][Alan] v0.0.26:
     + _BUG FIX_: __initial location__ context now expects only one identifier after `AT`/`IN`, and correctly bails out if anything other than the (optional) dot terminator follows it.
 - [`syntax_test_InitialLocation.alan`][test_InitialLocation] — new test file for __initial location__.
 - Updated [`syntax_test_Attributes.alan`][test_Attributes] — removed __initial location__ references from tests (in case I change scope name, I won't have to update multiple files).
 
 ### 2018-05-14:1
 
-- `Alan.sublime-syntax` v0.0.25:
+- [`Alan.sublime-syntax`][Alan] v0.0.25:
     + Annotated bug which needs to be fixed in __initial location__ context.
 
 ### 2018-05-13
 
-- `Alan.sublime-syntax` v0.0.24:
+- [`Alan.sublime-syntax`][Alan] v0.0.24:
     + Added __initial location__ (`IN contID`/`AT locationID`) to `property_context`. ~~Although this should only apply to instances, I've included it also in classes (declarations and additions) for easier maintainance and also to cover malformed code without breaking~~ (__WRONG__: it can be found also in classes declarations).
 - Updated [`syntax_test_Attributes.alan`][test_Attributes]
 
@@ -56,18 +67,18 @@
 
 ### 2018-05-11:1
 
-- `Alan.sublime-syntax` v0.0.23: minor fixes: include strings context in prototype, cleanup code and apply new  `eol_POP` context.
+- [`Alan.sublime-syntax`][Alan] v0.0.23: minor fixes: include strings context in prototype, cleanup code and apply new  `eol_POP` context.
 - Cleanup [`README.md`][README] and [`TODO.md`][TODO].
 
 ### 2018-05-08
 
 - New attribures completions (some very experimental)
-- `Alan.sublime-syntax` v0.0.22:
+- [`Alan.sublime-syntax`][Alan] v0.0.22:
     + __properties__ context: small bug fix that prevented handling a `NOT` bool attr. when inside a block of attributes with one `IS`, etc.
 
 ### 2018-05-07
 
-- `Alan.sublime-syntax` v0.0.21:
+- [`Alan.sublime-syntax`][Alan] v0.0.21:
     + Added __properties__ context (incomplete):
         * Now classes, instances and additions reckognize attributes statements (except for _Set Attributes_). Still a draft but tests have shown it handles well partial syntaxes.
         * `(IS|ARE|HAS|CAN)[NOT]`:
@@ -111,7 +122,7 @@
 
 ### 2018-05-03:3
 
-- `Alan.sublime-syntax` v0.0.20:
+- [`Alan.sublime-syntax`][Alan] v0.0.20:
     + some scope names fixed
     + new `tail_class_&_terminator` reusable context now shared between:
         * `class_declaration`
@@ -121,12 +132,12 @@
 
 ### 2018-05-03:2
 
-- `Alan.sublime-syntax` v0.0.19:
+- [`Alan.sublime-syntax`][Alan] v0.0.19:
     + __additions__: A first draft of the context to capture `ADD TO EVERY` statements. In lack of better scope names, I've used `meta.addition` to scope it, but this might not be the best choice.
 
 ### 2018-05-03:1
 
-- `Alan.sublime-syntax` v0.0.18:
+- [`Alan.sublime-syntax`][Alan] v0.0.18:
     + improved identifiers reusabilty by managing to use `generic_identifier` instead of:
         * `inherited_class_identifier` (_DELETED_)
         * `class_tail_identifier` (_DELETED_)
@@ -135,7 +146,7 @@
     + [`syntax_test_Instances.alan`][test_Instances]
 ### 2018-05-02:3
 
-- `Alan.sublime-syntax` v0.0.17:
+- [`Alan.sublime-syntax`][Alan] v0.0.17:
     + __instances__: A first draft of the context to capture instances (`THE Id IsA ...`). In lack of better scope names, I've used `meta.instance` amd `entity.name.instance` to scope them, but these might not be the best choice.
 
 ### 2018-05-02:2
@@ -156,7 +167,7 @@
 
 ### 2018-04-29
 
-- `Alan.sublime-syntax` v0.0.16:
+- [`Alan.sublime-syntax`][Alan] v0.0.16:
     + __identifiers__: tweaked the `ID` variable so that all valid characters are covered by identifiers's RegExs:
 
         ```yaml
@@ -190,7 +201,7 @@
 
 ### 2018-04-27:2
 
-- `Alan.sublime-syntax` v0.0.15:
+- [`Alan.sublime-syntax`][Alan] v0.0.15:
     + Major cleanup of the syntax following [__@djspiewak's__ guidelines].
     + Now partially valid syntax fragments are handled better:
         + omitted expected tokens are skipped, so tha the next expected token is caught.
@@ -202,17 +213,17 @@
 
 ### 2018-04-27:1
 
-- `Alan.sublime-syntax` v0.0.14:
+- [`Alan.sublime-syntax`][Alan] v0.0.14:
     + __IMPORT context__ — added bail-out failsafe when EOL is reached, to prevent context entrapment when dealing with malformed code.
 
 ### 2018-04-26:2
 
-- `Alan.sublime-syntax` v0.0.13:
+- [`Alan.sublime-syntax`][Alan] v0.0.13:
     + added some comment-notes about upcoming contexts and work.
 
 ### 2018-04-26:1
 
-- `Alan.sublime-syntax` v0.0.12:
+- [`Alan.sublime-syntax`][Alan] v0.0.12:
 - __class definition__ context:
     + push `class` context instead of setting it to the stack.
     + added bail-out option to prevent partially valid syntax fragments (or even `ADD TO EVERY...`) to loop forever in the class context (effectively, breaking highlighting of all that follows).
@@ -223,7 +234,7 @@
 
 ### 2018-04-25:2
 
-- `Alan.sublime-syntax` v0.0.11:
+- [`Alan.sublime-syntax`][Alan] v0.0.11:
     + Fixed scope of loose `quoted_identifiers`
     + Fixed scope of out of context `identifier`
 - Updated [`/tests/`][tests] to pass with syntax v0.0.11:
@@ -232,7 +243,7 @@
 
 ### 2018-04-25:1
 
-- `Alan.sublime-syntax` v0.0.10:
+- [`Alan.sublime-syntax`][Alan] v0.0.10:
     + __class definition__ context (`EVERY ... END EVERY`):
         * now __inheritance__ is captured and scoped
         * now optional ID and terminator after `END EVERY` are scoped
@@ -244,7 +255,7 @@
 
 ### 2018-04-24
 
-- `Alan.sublime-syntax` v0.0.9:
+- [`Alan.sublime-syntax`][Alan] v0.0.9:
     + simplified the context for capturing __quoted identifiers__.
     + new __class definition__ context (`EVERY ... END EVERY`) — still drafty, and contains a couple of hugly workarounds.
 - new [`Alan-GotoSymbol.tmPreferences`][GotoSymbol]:
@@ -253,7 +264,7 @@
 
 ### 2018-04-23
 
-- `Alan.sublime-syntax` v0.0.8:
+- [`Alan.sublime-syntax`][Alan] v0.0.8:
     - added to comments scope delimiter character specification: `comment.line.double-dash`
     - fixed identifiers base regex (`[A-Z][A-Za-z0-9_]*` => `[A-Za-z][A-Za-z0-9_]*`)
 
@@ -277,13 +288,13 @@
     +  Available for "`*.alan`" files.
     +  Captures errors and warnings for results navigation (via `-cc` option).
     +  Requires alan compiler binary to be on system PATH.
-- `Alan.sublime-syntax` v0.0.7:
+- [`Alan.sublime-syntax`][Alan] v0.0.7:
     + Now `END` in `END IF` is scoped as `keyword.control.conditional` too.
 
 
 ### 2018-04-14:4
 
-- `Alan.sublime-syntax` v0.0.6:
+- [`Alan.sublime-syntax`][Alan] v0.0.6:
     + Cleaned Up __Quoted Identifiers__: smaller code; now can handle  2 consecuitve escaped SQ (`''''`) in the middle without prematurely ending.
 - Added to [`/tests/`][tests]:
     + [`syntax_test_QuotedIdentifiers.alan`][test_QuotedIdentifiers]
@@ -291,7 +302,7 @@
 
 ### 2018-04-14:3
 
-- `Alan.sublime-syntax` v0.0.5:
+- [`Alan.sublime-syntax`][Alan] v0.0.5:
     + Bug Fix: __String__ containing 2 escaped DQ inside (`"""""`) was ending string prematurely
     + [`syntax_test_Strings.alan`][test_Strings] (_**now succeeds**_)
 - Now __empty strings__ get additional `empty` scope:
@@ -311,12 +322,14 @@
 ### 2018-04-14:1
 
 - First commit on GitHub
-- `Alan.sublime-syntax` v0.0.4
+- [`Alan.sublime-syntax`][Alan] v0.0.4
 
 
-<!------------------------------------------------------------------------------
-                                REFERENCE LINKS                                 
-------------------------------------------------------------------------------->
+
+<!-----------------------------------------------------------------------------
+                               REFERENCE LINKS                                
+------------------------------------------------------------------------------>
+
 
 [CHANGELOG]: ./CHANGELOG.md "View Sublime-Alan's CHANGELOG file"
 [README]: ./README.md "View README file"
@@ -324,7 +337,8 @@
 [WORK_NOTES]: ./WORK_NOTES.md "View my working notes file"
 
 
-<!-- TEST FILES -->
+<!-- TEST FILES -------------------------------------------------------------->
+
 [tests]: ./tests/ "See 'tests' folder"
 [test_Additions]: ./tests/syntax_test_Additions.alan "Open file..."
 [test_Attributes]: ./tests/syntax_test_Attributes.alan "Open file..."
@@ -334,10 +348,12 @@
 [test_QuotedIdentifiers]: ./tests/syntax_test_QuotedIdentifiers.alan "Open file..."
 [test_Strings]: ./tests/syntax_test_Strings.alan "Open file..."
 
-<!-- SNIPPETS -->
+<!-- SNIPPETS ---------------------------------------------------------------->
+
 [Snippets]: ./snippets/ "Go to 'snippets' subfolder"
 
-<!-- COMPLETIONS -->
+<!-- COMPLETIONS ------------------------------------------------------------->
+
 [Anywhere]: ./completions/Anywhere.sublime-completions
 [Completions]:  ./completions/ "Go to 'completions' subfolder"
 [Declarations Anywhere]: ./completions/Declarations%20Anywhere.sublime-completions
@@ -348,6 +364,12 @@
 
 [GotoSymbol]: ./Alan-GotoSymbol.tmPreferences "view GotoSymbol settings file"
 
+<!-- Alan Syntax ------------------------------------------------------------->
+
+[Alan]: ./Alan.sublime-syntax "view syntax source file"
+
+<!-- AlanLog Syntax ---------------------------------------------------------->
+
 [AlanLog]: ./AlanLog.sublime-syntax "view syntax source file"
 [AlanLog Settings]: ./AlanLog.sublime-settings "view settings source file"
 [AlanLog tmTheme]: ./AlanLog.hidden-tmTheme "view color scheme file"
@@ -356,6 +378,13 @@
 
 [Alan DarkFluo]: ./Alan%20DarkFluo.sublime-color-scheme "view color scheme source file"
 
+<!-- Alan Solution Syntax ---------------------------------------------------->
+
+[Alan Solution]: ./Alan%20Solution.sublime-syntax "view syntax source file"
+[Alan Solution Settings]: ./Alan%20Solution.sublime-settings "view settings source file"
+
+<!-- External References ----------------------------------------------------->
+
 [PackageDev]: https://packagecontrol.io/packages/PackageDev "View PackageDev page at PackageControl.io"
 [Convert to ... - Property List]: https://github.com/SublimeText/PackageDev/wiki/Serialized-Conversion "Read online documentation"
 
@@ -363,3 +392,5 @@
 [ISO-8859-1]: https://en.wikipedia.org/wiki/ISO/IEC_8859-1
 
 [__@djspiewak's__ guidelines]: https://github.com/sublimehq/Packages/issues/757#issuecomment-269031562 "View @djspiewak's notes on writing syntaxes"
+
+<!-- EOF -->

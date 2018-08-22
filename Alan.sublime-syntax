@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# "Alan.sublime-syntax" v0.0.26 (2018-05-14) | Alan v3 beta5
+# "Alan.sublime-syntax" v0.0.27 (2018-08-22) | Alan v3 beta6
 # ==============================================================================
 #                                  Alan Syntax                                  
 # ==============================================================================
@@ -296,7 +296,7 @@ contexts:
   # ============================================================================
   #                             NESTED DEFINITIONS                              
   # ============================================================================
-  # Ie, definition which can occur only inside a top level definition.
+  # Ie, definition which can occur only/also inside a top level definition.
 
   ##########
   # PROPERTY
@@ -310,7 +310,7 @@ contexts:
   #          | articles             |
   #          | mentioned            |
   #          | container_properties |
-  #          | verb                 |
+  #          | verb                 | (also top-level)
   #          | script               |
   #          | entered              |
   #          | exit                 |

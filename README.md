@@ -27,6 +27,7 @@ The following document isn't always updated to cover all the added features, it'
     - [Build Systems](#build-systems)
     - [Snippets](#snippets)
         - [New Adventure Boilerplate](#new-adventure-boilerplate)
+    - [Alan Solution Files Syntax](#alan-solution-files-syntax)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [License](#license)
@@ -59,6 +60,7 @@ For more info on the roadmap and wishlist, see:
 - [`CHANGELOG.md`][CHANGELOG]
 - [`WORK_NOTES.md`][WORK_NOTES]
 
+The package also ships with an additional syntax definition for __[Alan Solution]__ files (aka "commands scripts").
 
 ## Color Schemes
 
@@ -179,6 +181,17 @@ DESCRIBE banner.
 ```
 
 
+## Alan Solution Files Syntax
+
+This package also defines an __Alan Solution__ syntax associated to the "`*.a3sol`" file extension.
+
+Solution files (aka "commands scripts") are text files containing player commands used to run an adventure in automated mode, by passing the script to the interpreter. Since there is no official extension for Alan solution files, I've chosen to arbitrarily adopt the "`*.a3sol`" file extension, which is intuitively similar to  "`*.sol`" extension often used for solution files, but at the same time is uniquely associated to Alan (Alan adventures having the "`*.a3c`" extension).
+
+The need to create this extra syntax, and associating a file extension to it, is because solution files (like Alan sources) need to be encoded in ISO-8859-1. By creating a dedicated syntax and settings file, Sublime Text can be made aware of the encoding needs, and set to use the correct file encoding for all "`*.a3sol`" files. Without a basic syntax definition, and its encoding settings, Sublime Text would default to UTF-8 encoding, which would case lots of problems and errors if the solution file contains special characters (like accented letters).
+
+This will simplify creating and using command scripts to test adventures during the authoring stage.
+
+Furthermore, the __Alan Solution__ syntax provides some basic syntax highlighting (comments and strings) which can improve readability of commands script; and it has the added benefit of allowing users to associate a custom color scheme with "`*.a3sol`" files.
 
 # Requirements
 
@@ -255,6 +268,16 @@ Alan IF links:
 - [Alan-IF mailing list and discussion group at Yahoo]
 
 
+<!-----------------------------------------------------------------------------
+                               REFERENCE LINKS                                
+------------------------------------------------------------------------------>
+
+<!-- CROSS REFERENCES -------------------------------------------------------->
+
+[alan solution]: #alan-solution-files-syntax "Read more about Alan Solution files..."
+
+<!-- ALAN LINKS -------------------------------------------------------------->
+
 [Alan website]: https://www.alanif.se/ "Visit Alan official website"
 
 [Alan sourcecode on Bitbucket]: https://bitbucket.org/alanif/alan
@@ -266,13 +289,13 @@ Alan IF links:
 
 [IFWiki]: http://www.ifwiki.org "Visit IFWiki.org, the Interactive Fiction Wiki"
 
-<!------- OTHER DOC FILES ------->
+<!------- OTHER DOC FILES ---------------------------------------------------->
 
 [TODO]: ./TODO.md "View the TODOs-list file"
 [CHANGELOG]: ./CHANGELOG.md "View Sublime-Alan's CHANGELOG file"
 [WORK_NOTES]: ./WORK_NOTES.md "View my working notes file"
 
-<!--------- SCREENSHOTS --------->
+<!--------- SCREENSHOTS ------------------------------------------------------>
 
 [Screenshot Build Console]: ./screenshots/Build_Errors_Console.png "Screenshot of Sublime-Alan build system errors log in ST's console"
 [Screenshot Build Editor]:  ./screenshots/Build_Errors_Editor.png "Screenshot of Sublime-Alan build system errors navigation (using 'Monokai' color scheme)"
@@ -280,7 +303,7 @@ Alan IF links:
 [Screenshot Snippet New Adv]:  ./screenshots/Snippet_New_Adventure.gif "Screenshot of 'New Adventure Boilerplate' snippet in action"
 [Screenshot Snippet New Adv Vars]:  ./screenshots/Snippet_New_Adventure_Custom_Vars.gif "Using custom variables with the 'New Adventure Boilerplate' snippet"
 
-<!-- USERS LINKS -->
+<!-- USERS LINKS ------------------------------------------------------------->
 
 [Keith Hall SF]: https://forum.sublimetext.com/u/kingkeith "See Keith Hall's Sublime Forum user profile"
 [Keith Hall GH]: https://github.com/keith-hall "See Keith Hall's GitHub profile"
@@ -290,7 +313,7 @@ Alan IF links:
 [FichteFoll GH]: https://github.com/FichteFoll "See FichteFoll's GitHub profile"
 [Daniel Spiewak]: https://github.com/djspiewak "See @djspiewak's GitHub profile"
 
-<!-- Tutorials and Guidelines -->
+<!-- TUTORIALS AND GUIDELINES ------------------------------------------------>
 
 [Stateful Chaining]: https://github.com/sublimehq/Packages/issues/757#issuecomment-269031562
 
