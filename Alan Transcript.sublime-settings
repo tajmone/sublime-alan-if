@@ -1,4 +1,4 @@
-// "Alan Transcript.sublime-settings" v0.0.1 (2018-08-22) | Alan v3 beta6                     
+// "Alan Transcript.sublime-settings" v0.0.2 (2018-08-23) | Alan v3 beta6                     
 // ------------------------------------------------------------------------------
 // Sublime-Alan: Alan Transcript files settings.
 // ------------------------------------------------------------------------------
@@ -19,7 +19,10 @@
     // =========================================================================
     // Alan solution files default encoding: ISO 8859-1
     "default_encoding":  "Western (ISO 8859-1)",
-    "fallback_encoding": "UTF-8", // Which one ???
+    "fallback_encoding": "Western (ISO 8859-1)",
+    // ... it looks like ISO 8859-1 has to be set as "fallback_encoding" too, in
+    // order to prevent lot's of problems with special characters, where ST will
+    // try to fallback on UTF-8 otherwise! 
     
     // =========================================================================
     // =========================================================================

@@ -1,5 +1,5 @@
 // ------------------------------------------------------------------------------
-// Sublime-Alan: Testing Settings v0.0.3 (2018-08-22) | Alan v3 beta6                     
+// Sublime-Alan: Testing Settings v0.0.4 (2018-08-23) | Alan v3 beta6                     
 // ------------------------------------------------------------------------------
 // Packages shouldn't fiddle with ST settings unless stricly required!
 // But because this is an Alpha project I'll be imposing some settings at the
@@ -17,7 +17,10 @@
     // =========================================================================
     // Alan source files default encoding: ISO 8859-1
     "default_encoding":  "Western (ISO 8859-1)",
-    "fallback_encoding": "UTF-8", // Which one ???
+    "fallback_encoding": "Western (ISO 8859-1)",
+    // ... it looks like ISO 8859-1 has to be set as "fallback_encoding" too, in
+    // order to prevent lot's of problems with special characters, where ST will
+    // try to fallback on UTF-8 otherwise! 
     
     // THIS ONLY WORKS AS A USER SETTING:
     "show_encoding": true,

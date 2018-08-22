@@ -1,5 +1,9 @@
 # CHANGELOG
 
+### 2018-08-23
+
+- Enforce ISO 8859-1 encoding as "fallback_encoding" too, to prevent ST from trying to use UTF-8 when special chars are encountered in the file. This setting seems to mitigate the problems relating to working with ISO 8859-1 file in Sublime Text — opening files seems to work better with this setting, but some problems still remain unsolved. 
+
 ### 2018-08-22 (3)
 
 - New __Alan Solution Theme__ (hidden) — this new hidden theme is now the default them set for Alan Solution files:
