@@ -27,7 +27,9 @@ The following document isn't always updated to cover all the added features, it'
     - [Build Systems](#build-systems)
     - [Snippets](#snippets)
         - [New Adventure Boilerplate](#new-adventure-boilerplate)
+    - [Transcipt and Solution Syntaxes](#transcipt-and-solution-syntaxes)
     - [Alan Solution Files Syntax](#alan-solution-files-syntax)
+    - [Alan Transcript Files Syntax](#alan-transcript-files-syntax)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [License](#license)
@@ -60,7 +62,11 @@ For more info on the roadmap and wishlist, see:
 - [`CHANGELOG.md`][CHANGELOG]
 - [`WORK_NOTES.md`][WORK_NOTES]
 
-The package also ships with an additional syntax definition for __[Alan Solution]__ files (aka "commands scripts").
+The package also ships with additional syntax definitions for:
+
+- Compiler log in the the [Build Systems]
+- __[Alan Solution]__ files (aka "commands scripts").
+- __[Alan Transcript]__ files.
 
 ## Color Schemes
 
@@ -181,17 +187,29 @@ DESCRIBE banner.
 ```
 
 
+## Transcipt and Solution Syntaxes
+
+This package also provides additional syntax definitions for Alan game transcipts and solution files:
+
+- __Alan Solution__ file ("`*.a3sol`").
+- __Alan Transcript__ file ("`*.a3log`").
+
+The purpose of these syntaxes is to simplify handling of game transcipt and solution files by settings Sublime Text to handle these files with ISO-8859-1 enconding, as well as providing some minimal syntax highlighting and allowing the user to associate custom color schemes to them.  Without a basic syntax definition, and its encoding settings, Sublime Text would default to UTF-8 encoding, which would cause lots of problems and errors if the solution file contains special characters (like accented letters), and would not display correctly transcripts containing special chars.
+
+Hopefully, these two extra syntaxes will simplify creating and using command scripts to test adventures during the authoring stage, and to correctly visualize game transcipts (ie, provided the "`*.a3sol`" and "`*.a3log`" file extensions are used).
+
+
 ## Alan Solution Files Syntax
 
 This package also defines an __Alan Solution__ syntax associated to the "`*.a3sol`" file extension.
 
 Solution files (aka "commands scripts") are text files containing player commands used to run an adventure in automated mode, by passing the script to the interpreter. Since there is no official extension for Alan solution files, I've chosen to arbitrarily adopt the "`*.a3sol`" file extension, which is intuitively similar to  "`*.sol`" extension often used for solution files, but at the same time is uniquely associated to Alan (Alan adventures having the "`*.a3c`" extension).
 
-The need to create this extra syntax, and associating a file extension to it, is because solution files (like Alan sources) need to be encoded in ISO-8859-1. By creating a dedicated syntax and settings file, Sublime Text can be made aware of the encoding needs, and set to use the correct file encoding for all "`*.a3sol`" files. Without a basic syntax definition, and its encoding settings, Sublime Text would default to UTF-8 encoding, which would case lots of problems and errors if the solution file contains special characters (like accented letters).
 
-This will simplify creating and using command scripts to test adventures during the authoring stage.
+## Alan Transcript Files Syntax
 
-Furthermore, the __Alan Solution__ syntax provides some basic syntax highlighting (comments and strings) which can improve readability of commands script; and it has the added benefit of allowing users to associate a custom color scheme with "`*.a3sol`" files.
+This package also defines an __Alan Transcript__ syntax associated to the "`*.a3log`" file extension. While transcripts generated with the Alan interpreters usually have the "`.log`" file extensions, I've opted to associate this syntax to the  "`*.a3log`" extension because "`.log`" is used in so many different contexts that it didn't seem appropriate to enforce special settings on it. The  "`*.a3log`" extensions seemed a good compromise since it blends the "`.a3`" suffix (commonly used by Alan) with "`log`", so it should be an intuitive compromise. 
+
 
 # Requirements
 
@@ -274,8 +292,10 @@ Alan IF links:
 
 <!-- CROSS REFERENCES -------------------------------------------------------->
 
-[alan solution]: #alan-solution-files-syntax "Read more about Alan Solution files..."
+[Alan Solution]: #alan-solution-files-syntax "Read more about Alan Solution files..."
+[Alan Transcript]: #alan-transcript-files-syntax "Read more about Alan Transcript files..."
 
+[Build Systems]: #build-systems "Read more about Sublime-Alan's Build Systems..."
 <!-- ALAN LINKS -------------------------------------------------------------->
 
 [Alan website]: https://www.alanif.se/ "Visit Alan official website"

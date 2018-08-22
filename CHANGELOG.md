@@ -1,6 +1,12 @@
 # CHANGELOG
 
-### 2018-08-22
+### 2018-08-22 (1)
+
+- New __Alan Transcript__ Syntax ("`*.a3log`") — new syntax definition and settings for adventure transcript files. Created to simplify handling of ISO-8859-1 encoding in transcripts when testing adventures. Also provides some very basic highlighting (comments and strings):
+    + [`Alan Transcript.sublime-syntax`][Alan Transcript]
+    + [`Alan Transcript.sublime-settings`][Alan Transcript Settings]
+
+### 2018-08-22 (1)
 
 - New __Alan Solution__ Syntax ("`*.a3sol`") — new syntax definition and settings for solution files (aka "commands scripts"). Created to simplify handling of ISO-8859-1 encoding in commands scripts for testing adventures. Also provides some very basic highlighting (comments and strings):
     + [`Alan Solution.sublime-syntax`][Alan Solution]
@@ -382,6 +388,11 @@
 
 [Alan Solution]: ./Alan%20Solution.sublime-syntax "view syntax source file"
 [Alan Solution Settings]: ./Alan%20Solution.sublime-settings "view settings source file"
+
+<!-- Alan Transcript Syntax -------------------------------------------------->
+
+[Alan Transcript]: ./Alan%20Transcript.sublime-syntax "view syntax source file"
+[Alan Transcript Settings]: ./Alan%20Transcript.sublime-settings "view settings source file"
 
 <!-- External References ----------------------------------------------------->
 
