@@ -1,0 +1,75 @@
+# [PackageDev] target_format: plist, ext: hidden-tmTheme
+# ------------------------------------------------------------------------------
+# Alan Transcript Color Scheme v0.0.1 (2018-08-24)
+# ------------------------------------------------------------------------------
+# This file is the YAML source used for creating "Alan Transcript.hidden-tmTheme"
+# via PackageDev's build system "Convert to ... - Property List".
+# -- https://packagecontrol.io/packages/PackageDev
+# -- https://github.com/SublimeText/PackageDev/wiki/Serialized-Conversion
+# ------------------------------------------------------------------------------
+# NOTE: After rebuilding the tmTheme file, ST must be restarted for the changes
+#       to become effective.
+# ------------------------------------------------------------------------------
+name: Alan Transcript
+settings:
+- settings:
+    background: '#f7fdff' # Pastel blue (very light)
+    caret: '#fd5200' # International Orange
+    highlight: '#ff00bf'     # Fluorescent Fuchsia
+    findHighlight: '#bfff00' # Fluorescent Green
+    findHighlightForeground: '#002430' # Black
+    foreground: '#1f7a99' # Jelly Bean (Blue)
+    gutter: '#f0fbff' # Catskill White
+    gutter_foreground: '#cadae0' # Botticelli (grayish-blue)
+    inactiveSelection: '#e8f4f7'
+    invisibles: '#e0e0e0'
+    lineHighlight: '#d8eff7' # Pattens Blue
+    selection: '#d0edf5'
+    selectionBorder: '#b7dce8'
+    shadow: '#808080'
+    shadowWidth: '6'
+# ========
+# STRINGS
+# ========
+- name: Strings
+  scope: string.quoted
+  settings:
+    foreground: '#007cba' # Lochmara (dark blue)
+- name: String Delimiters
+  scope: punctuation.definition.string
+  settings:
+    foreground: '#fd8800' # Tangerine
+# ========
+# COMMENTS
+# ========
+- name: Comments
+  scope: comment
+  settings:
+    foreground: '#b8c4c8' # Loblolly (light grey)
+    # background: '#ebf3ee'
+# ============
+# PLAYER INPUT
+# ============
+- name: Player Input
+  scope: player-input
+  settings:
+    foreground: '#bf008f' # Red Violet
+# ======
+# PROMPT
+# ======
+- name: Prompt
+  scope: punctuation.definition.prompt.a3log
+  settings:
+    foreground: '#00a7df' # Cerulean
+    fontStyle: 'bold'
+# ========
+# INVALID
+# ========
+- name: Invalid
+  scope: invalid
+  settings:
+    foreground: '#f8f8f8' # Alabaster
+    background: '#cc0066' # Hibiscus
+
+
+

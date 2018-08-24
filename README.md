@@ -62,11 +62,11 @@ For more info on the roadmap and wishlist, see:
 - [`CHANGELOG.md`][CHANGELOG]
 - [`WORK_NOTES.md`][WORK_NOTES]
 
-The package also ships with additional syntax definitions for:
+The package also ships with additional syntax definitions and color schemes for:
 
 - Compiler log in the the [Build Systems]
-- __[Alan Solution]__ files (aka "commands scripts").
-- __[Alan Transcript]__ files.
+- [__Alan Solution__ files] (aka "commands scripts").
+- [__Alan Transcript__ files].
 
 ## Color Schemes
 
@@ -191,8 +191,8 @@ DESCRIBE banner.
 
 This package also provides additional syntax definitions for Alan game transcipts and solution files:
 
-- __Alan Solution__ file ("`*.a3sol`").
-- __Alan Transcript__ file ("`*.a3log`").
+- [__Alan Solution__ files] ("`*.a3sol`").
+- [__Alan Transcript__ files] ("`*.a3log`").
 
 The purpose of these syntaxes is to simplify handling of game transcipt and solution files by settings Sublime Text to handle these files with ISO-8859-1 enconding, as well as providing some minimal syntax highlighting and allowing the user to associate custom color schemes to them.  Without a basic syntax definition, and its encoding settings, Sublime Text would default to UTF-8 encoding, which would cause lots of problems and errors if the solution file contains special characters (like accented letters), and would not display correctly transcripts containing special chars.
 
@@ -228,6 +228,22 @@ The color scheme is created by converting the YAML source file "[`Alan Solution.
 
 This package also defines an __Alan Transcript__ syntax associated to the "`*.a3log`" file extension. While transcripts generated with the Alan interpreters usually have the "`.log`" file extensions, I've opted to associate this syntax to the  "`*.a3log`" extension because "`.log`" is used in so many different contexts that it didn't seem appropriate to enforce special settings on it. The  "`*.a3log`" extensions seemed a good compromise since it blends the "`.a3`" suffix (commonly used by Alan) with "`log`", so it should be an intuitive compromise. 
 
+The syntax also syntax highlights the player input lines, capturing the prompt (assuming it's always "`>`"), strings and comments. The output text from the adventure is not highlighted, as the scope of this syntax is to provide easy color separation between player commands and game output text.
+
+In trasncripts of adventures which change the prompt (from the default "`>`" symbol) the player input line won't be captured and syntax highlighted.
+
+#### Alan Transcript Color Scheme
+
++ [`Alan Transcript.hidden-tmTheme`][Alan Transcript Theme]
++ [`Alan Transcript.YAML-propertyList-tmTheme`][Alan Transcript tmTheme YAML] (scheme source)
+
+This package also sets a predefined hidden color scheme to preview Alan Transcript files:
+
+![Screenshot of Alan Transcript file color scheme][Screenshot Alan Transcript Color Scheme]
+
+... which is intended to make previewing of game transcript files more pleasant to the eye.
+
+The color scheme is created by converting the YAML source file "[`Alan Transcript.YAML-propertyList-tmTheme`][Alan Transcript tmTheme YAML]" via [PackageDev]'s build system "[Convert to ... - Property List]"; since the YAML format is easier to maintain.
 
 # Requirements
 
@@ -310,8 +326,8 @@ Alan IF links:
 
 <!-- CROSS REFERENCES -------------------------------------------------------->
 
-[Alan Solution]: #alan-solution-files-syntax "Read more about Alan Solution files..."
-[Alan Transcript]: #alan-transcript-files-syntax "Read more about Alan Transcript files..."
+[__Alan Solution__ files]: #alan-solution-files-syntax "Read more about Alan Solution files..."
+[__Alan Transcript__ files]: #alan-transcript-files-syntax "Read more about Alan Transcript files..."
 
 [Build Systems]: #build-systems "Read more about Sublime-Alan's Build Systems..."
 <!-- ALAN LINKS -------------------------------------------------------------->
@@ -339,6 +355,7 @@ Alan IF links:
 [Screenshot Build Editor]:  ./screenshots/Build_Errors_Editor.png "Screenshot of Sublime-Alan build system errors navigation (using 'Monokai' color scheme)"
 [Screenshot Alan DarkFluo]:  ./screenshots/Alan_DarkFluo.png "Screenshot of 'Alan DarkFluo' color scheme"
 [Screenshot Alan Solution Color Scheme]:  ./screenshots/Alan_Solution_scheme.png "Screenshot of 'Alan Solution' color scheme"
+[Screenshot Alan Transcript Color Scheme]:  ./screenshots/Alan_Transcript_scheme.png "Screenshot of 'Alan Transcript' color scheme"
 [Screenshot Snippet New Adv]:  ./screenshots/Snippet_New_Adventure.gif "Screenshot of 'New Adventure Boilerplate' snippet in action"
 [Screenshot Snippet New Adv Vars]:  ./screenshots/Snippet_New_Adventure_Custom_Vars.gif "Using custom variables with the 'New Adventure Boilerplate' snippet"
 
@@ -388,5 +405,7 @@ Alan IF links:
 
 [Alan Transcript]: ./Alan%20Transcript.sublime-syntax "view syntax source file"
 [Alan Transcript Settings]: ./Alan%20Transcript.sublime-settings "view settings source file"
+[Alan Transcript Theme]: ./Alan%20Transcript.hidden-tmTheme "view theme source file"
+[Alan Transcript tmTheme YAML]: ./Alan%20Transcript.YAML-propertyList "view color scheme file"
 
 <!-- EOF -->

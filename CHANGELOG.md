@@ -1,12 +1,19 @@
 # CHANGELOG
 
+### 2018-08-24
+
+- New __Alan Transcript Scheme__ (hidden) — this new hidden theme is now the default color scheme set for Alan Transcript files:
+    + [`Alan Transcript.hidden-tmTheme`][Alan Transcript Theme]
+    + [`Alan Transcript.YAML-propertyList-tmTheme`][Alan Transcript tmTheme YAML] — YAML source used for creating `Alan Transcript.hidden-tmTheme` via [PackageDev]'s build system "[Convert to ... - Property List]".
+- [__Alan Transcript__ Syntax][Alan Transcript] — syntax highlight user input lines (assuming prompt is "`>`"): comments, strings. Game output is not highlighted.
+
 ### 2018-08-23
 
 - Enforce ISO 8859-1 encoding as "fallback_encoding" too, to prevent ST from trying to use UTF-8 when special chars are encountered in the file. This setting seems to mitigate the problems relating to working with ISO 8859-1 file in Sublime Text — opening files seems to work better with this setting, but some problems still remain unsolved. 
 
 ### 2018-08-22 (3)
 
-- New __Alan Solution Theme__ (hidden) — this new hidden theme is now the default them set for Alan Solution files:
+- New __Alan Solution Scheme__ (hidden) — this new hidden theme is now the default color scheme set for Alan Solution files:
     + [`Alan Solution.hidden-tmTheme`][Alan Solution Theme]
     + [`Alan Solution.YAML-propertyList-tmTheme`][Alan Solution tmTheme YAML] — YAML source used for creating `Alan Solution.hidden-tmTheme` via [PackageDev]'s build system "[Convert to ... - Property List]".
 
@@ -406,6 +413,8 @@
 
 [Alan Transcript]: ./Alan%20Transcript.sublime-syntax "view syntax source file"
 [Alan Transcript Settings]: ./Alan%20Transcript.sublime-settings "view settings source file"
+[Alan Transcript Theme]: ./Alan%20Transcript.hidden-tmTheme "view theme source file"
+[Alan Transcript tmTheme YAML]: ./Alan%20Transcript.YAML-propertyList "view color scheme file"
 
 <!-- External References ----------------------------------------------------->
 

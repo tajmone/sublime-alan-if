@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# "Alan Transcript.sublime-syntax" v0.0.1 (2018-08-22) | Alan v3 beta6
+# "Alan Transcript.sublime-syntax" v0.1.0 (2018-08-24) | Alan v3 beta6
 # ==============================================================================
 # Alan Transcript Syntax (for Alan IF games' commands scripts)                                 
 # ==============================================================================
@@ -30,9 +30,27 @@ scope: source.a3log
 contexts:
 
   main:
-    - include: comments
-    - include: strings
+    # --------------------------------------------------------------------------
+    # We're only going to syntax highlight the player input lines (ie, prompt,
+    # strings and comments) and leave the adventure output as is.
+    # --------------------------------------------------------------------------
+    - include: player_input
 
+  player_input:
+    - match: "^>"
+      scope: punctuation.definition.prompt.a3log
+      push:
+        - meta_scope: player-input.a3log
+        - include: comments
+        - include: strings
+        - match: $\n?
+          pop: true
+
+  ##############################################################################
+  #                                                                            #
+  #                         GENERIC REUSABLE CONTEXTS                          #
+  #                                                                            #
+  ##############################################################################
   strings:
     - match: '"'
       scope: punctuation.definition.string.begin.a3log
@@ -55,3 +73,5 @@ contexts:
         - meta_scope: comment.line.semicolon.a3log
         - match: $\n?
           pop: true
+
+
