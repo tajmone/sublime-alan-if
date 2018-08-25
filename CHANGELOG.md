@@ -1,5 +1,14 @@
 # CHANGELOG
 
+### 2018-08-25
+
+- __Alan Solution__ Comments — add settings to enable line comments (`;`) via keyboard shortcuts in solution files:
+    + [`Alan Solution Comments.tmPreferences`][Alan Solution Comments]
+- __Alan Transcript__ Comments — add settings to enable line comments (`> ;`) via keyboard shortcuts in transcript files:
+    + [`Alan Transcript Comments.tmPreferences`][Alan Transcript Comments]
+
+    Commented lines in transcript will use "`> ;`" instead of just "`;`", as usually this is the desired effect (ie, add a comment as user input).
+
 ### 2018-08-24
 
 - New __Alan Transcript Scheme__ (hidden) — this new hidden theme is now the default color scheme set for Alan Transcript files:
@@ -405,6 +414,7 @@
 <!-- Alan Solution Syntax ---------------------------------------------------->
 
 [Alan Solution]: ./Alan%20Solution.sublime-syntax "view syntax source file"
+[Alan Solution Comments]: ./Alan%20Solution%20Comments.tmPreferences "view comments settings source file"
 [Alan Solution Settings]: ./Alan%20Solution.sublime-settings "view settings source file"
 [Alan Solution Theme]: ./Alan%20Solution.hidden-tmTheme "view theme source file"
 [Alan Solution tmTheme YAML]: ./Alan%20Solution.YAML-propertyList "view color scheme file"
@@ -412,6 +422,7 @@
 <!-- Alan Transcript Syntax -------------------------------------------------->
 
 [Alan Transcript]: ./Alan%20Transcript.sublime-syntax "view syntax source file"
+[Alan Transcript Comments]: ./Alan%20Transcript%20Comments.tmPreferences "view comments settings source file"
 [Alan Transcript Settings]: ./Alan%20Transcript.sublime-settings "view settings source file"
 [Alan Transcript Theme]: ./Alan%20Transcript.hidden-tmTheme "view theme source file"
 [Alan Transcript tmTheme YAML]: ./Alan%20Transcript.YAML-propertyList "view color scheme file"

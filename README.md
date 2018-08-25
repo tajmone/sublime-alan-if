@@ -208,6 +208,8 @@ This package also defines an __Alan Solution__ syntax associated to the "`*.a3so
 
 Solution files (aka "commands scripts") are text files containing player commands used to run an adventure in automated mode, by passing the script to the interpreter. Since there is no official extension for Alan solution files, I've chosen to arbitrarily adopt the "`*.a3sol`" file extension, which is intuitively similar to  "`*.sol`" extension often used for solution files, but at the same time is uniquely associated to Alan (Alan adventures having the "`*.a3c`" extension).
 
+In __Alan Solution__ files, single-line comments are enabled via the usual comment keyboard shortcuts, producing the "`; `" comment delimiter.
+
 #### Alan Solution Color Scheme
 
 + [`Alan Solution.hidden-tmTheme`][Alan Solution Theme]
@@ -231,6 +233,9 @@ This package also defines an __Alan Transcript__ syntax associated to the "`*.a3
 The syntax also syntax highlights the player input lines, capturing the prompt (assuming it's always "`>`"), strings and comments. The output text from the adventure is not highlighted, as the scope of this syntax is to provide easy color separation between player commands and game output text.
 
 In trasncripts of adventures which change the prompt (from the default "`>`" symbol) the player input line won't be captured and syntax highlighted.
+
+In __Alan Transcript__ files, single-line comments are enabled via the usual comment keyboard shortcuts, producing a "`> ; `" comment delimiter. The reason why commented lines are preceded by a prompt (unlike Solution files, which use just a semicolon) is that this is the expected behavior in this context. Transcipts are automatically produced by the interpreter, and the purpose of the __Alan Transcript__ syntax is to allow a nicer preview of these files; but in some cases the user might wish to add some comments to the transcipts before sharing them with other (eg, to pinpoint a typo or a bug), and these added comments should be represented as a comment line added by the player during the game session (hence the addition of the prompt before the comment delimiter).
+
 
 #### Alan Transcript Color Scheme
 
