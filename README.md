@@ -22,6 +22,7 @@ The following document isn't always updated to cover all the added features, it'
 - [About](#about)
 - [Features](#features)
     - [Syntax Highlighting](#syntax-highlighting)
+        - [Ligatures Support](#ligatures-support)
     - [Color Schemes](#color-schemes)
     - [Goto Symbols](#goto-symbols)
     - [Build Systems](#build-systems)
@@ -67,6 +68,55 @@ The package also ships with additional syntax definitions and color schemes for:
 - Compiler log in the the [Build Systems]
 - [__Alan Solution__ files] (aka "commands scripts").
 - [__Alan Transcript__ files].
+
+### Ligatures Support
+
+Alan syntax has been optimized to enable support of code ligatures. The following Alan operators and keywords are converted to ligatures (if enabled and if font supports them):
+
+| token | ligature |              syntax element              |
+|-------|----------|------------------------------------------|
+| `>=`  | `⩾`      | Greater or equal operator                |
+| `<=`  | `⩽`      | Less or equal operator                   |
+| `==`  | `⩵`      | String identity operator                 |
+| `=>`  | `⇒`      | Alternative syntax for `THEN` (in Rules) |
+
+Furthermore, the syntax also treats `-->` as a comment delimiter, in order to support _long rightward arrow_ ligature (`⟶`) substitution of the delimiter (_experimental feature_):
+
+![Screenshot of ligatures][Screenshot Ligatures]
+
+Not all code fonts implement in the same way ligatures for `=>`, `<=`, `>=` and `=<`, depending on which of those are treated as comparison operators and which as arrows (some fonts, like [Fixedsys Excelsior], are available in dual choice). This is a crucial point for rendering correctly Alan's operators in ligatures.
+
+The following code-ligatures fonts have been tested with __Sublime Alan__:
+
+|          |      font name       |                comments               |
+|----------|----------------------|---------------------------------------|
+| &#x2713; | [Fira Code]          | Highly recommended.                   |
+| &#x2713; | [Iosevka]            | Works fine.                           |
+| &#x2713; | [DejaVu Sans Code]   | Works fine.                           |
+| &#x2713; | [Fixedsys Excelsior] | Must use the "Default" version!       |
+| &#x2717; | [Monoid]             | No. Doesn't support "`==`"            |
+| &#x2717; | [Hasklig]            | No. Doesn't support "`<=`" and "`>=`" |
+
+
+[Fira Code]: https://github.com/tonsky/FiraCode
+[Hasklig]: https://github.com/i-tu/Hasklig
+[Monoid]: https://github.com/larsenwork/monoid
+[Fixedsys Excelsior]: https://github.com/kika/fixedsys
+[Iosevka]: https://github.com/be5invis/Iosevka
+[DejaVu Sans Code]: https://github.com/SSNikolaevich/DejaVuSansCode
+
+To disable ligatures for the Alan syntax, open/create your User settings file for Alan syntax and add `"no_calt"` to the `"font_options"` option:
+
+```json
+{
+    "font_options":
+    [
+        "no_calt",
+    ],
+}
+```
+
+
 
 ## Color Schemes
 
@@ -363,6 +413,7 @@ Alan IF links:
 [Screenshot Alan Transcript Color Scheme]:  ./screenshots/Alan_Transcript_scheme.png "Screenshot of 'Alan Transcript' color scheme"
 [Screenshot Snippet New Adv]:  ./screenshots/Snippet_New_Adventure.gif "Screenshot of 'New Adventure Boilerplate' snippet in action"
 [Screenshot Snippet New Adv Vars]:  ./screenshots/Snippet_New_Adventure_Custom_Vars.gif "Using custom variables with the 'New Adventure Boilerplate' snippet"
+[Screenshot Ligatures]:  ./screenshots/Ligatures_Preview.gif "Screenshots animation showing Alan code with ligatures enabled vs disabled"
 
 <!-- USERS LINKS ------------------------------------------------------------->
 

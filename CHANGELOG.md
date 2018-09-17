@@ -1,5 +1,17 @@
 # CHANGELOG
 
+### 2018-09-17
+
+- [`Alan.sublime-syntax`][Alan] v0.0.27 — __Ligatures__:
+    + Improved tokenization to correctly support ligatures for:
+        * `>=` → `⩾` (Greater or equal)
+        * `<=` → `⩽` (Less or equal)
+        * `==` → `⩵` (String identity operator)
+        * `=>` → `⇒` (Alt symbol for THEN) 
+
+        (_experimental_): tweaked comment definition to also treat `-->` as a comment delimiter, in order to support _long rightward arrow_ ligature (`⟶`) substitution of the delimiter.
+
+
 ### 2018-08-25
 
 - __Alan Solution__ Comments — add settings to enable line comments (`;`) via keyboard shortcuts in solution files:

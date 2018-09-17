@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# "Alan.sublime-syntax" v0.0.27 (2018-08-22) | Alan v3 beta6
+# "Alan.sublime-syntax" v0.0.28 (2018-09-17) | Alan v3 beta6
 # ==============================================================================
 #                                  Alan Syntax                                  
 # ==============================================================================
@@ -517,9 +517,15 @@ contexts:
   ##########
   # COMMENTS
   ##########
+  # This alternative comment definition allows the '-->' ligature:
+  # - match: '(-->?)(.*)$\n?'
+  # It's nicer to look at, but it would scope the '>' as part of 'punctuation'
+  # and could interfere with some plugins. Although visually it would almost
+  # certainly what the unser intended.
   comments:
     - meta_include_prototype: false
-    - match: '(--)(.*)$\n?'
+    - match: '(-->?)(.*)$\n?'
+    # - match: '(--)(.*)$\n?'
       scope: comment.line.double-dash.alan
       captures:
         1: punctuation.definition.comment.line.double-dash.alan
@@ -568,7 +574,7 @@ contexts:
       scope: keyword.other.alan # Temporary
 
   kwd_conditional:
-    - match: (?i)\b(if|else|elsif|then|end if)\b
+    - match: (?i)\b(end +if|else|elsif|then|if)\b|=> # '=>' stands for THEN
       scope: keyword.control.conditional.alan
 
   kwd_inheritable_classes: # <= NOT USED YET! 
@@ -589,10 +595,18 @@ contexts:
   # OPERATORS
   ###########
   operators:
+    # =================================
+    # Relational and Equality Operators
+    # =================================
+    # Must not capture '=>' (THEN symbol) as if it was "equal or greater than",
+    # hence the lookarounds in the following RegEx...
+    - match: (<=|>=|(?<!=)>|<|==?(?!>))
+      scope: keyword.operator.comparison.alan
+    # ================
+    # Binary Operators
+    # ================
     - match: \+|\-|\*|/
       scope: keyword.operator.arithmetic.alan
-    - match: <\=?|>\=?|\=\=?
-      scope: keyword.operator.comparison.alan
 
   #########
   # STRINGS
