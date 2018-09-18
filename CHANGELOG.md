@@ -1,8 +1,25 @@
 # CHANGELOG
 
+### 2018-09-18
+
+- [`Alan.sublime-syntax`][Alan] v0.0.29 — List of __Alan Keywords__ and __predefined classes__ amended as discussed in [Alan-Docs' Issue #15]:
+    + Added missing keywords:
+        *  `indirectly`
+        *  `meta`
+        *  `transitively`
+    + Removed from keywords:
+        *  `actor`
+        *  `location`
+    + Added missing predefined classes:
+        *  `integer`
+        *  `literal`
+        *  `string`
+
+[Alan-Docs' Issue #15]: https://github.com/alan-if/alan-docs/issues/15#issuecomment-420010103
+
 ### 2018-09-17
 
-- [`Alan.sublime-syntax`][Alan] v0.0.27 — __Ligatures__:
+- [`Alan.sublime-syntax`][Alan] v0.0.28 — __Ligatures__:
     + Improved tokenization to correctly support ligatures for:
         * `>=` → `⩾` (Greater or equal)
         * `<=` → `⩽` (Less or equal)

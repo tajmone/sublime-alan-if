@@ -302,11 +302,14 @@ The color scheme is created by converting the YAML source file "[`Alan Transcrip
 
 # Requirements
 
-Requires __Sublime Text 3__ DEV BUILD `>=3149`.
+- Minum requirement: __Sublime Text 3__ BUILD `>=3170` (uses new `.sublime-color-scheme` format).
+- Recomended: bleeding-edge __Sublime Text 3__ [Dev BUILD][ST3 Dev Builds].
 
-This package uses some new ST3 features which have not yet been included into the latest stable build (`3143`); so, until the next stable release is out you'll need to use [ST Dev Builds] in order to use this package.
+This package is being developed using the latests [ST3 Dev Builds], and it might use features not included in the latest stable build; I can't grant that it will work with [ST3 Stable Builds].
 
-[ST Dev Builds]: https://www.sublimetext.com/3dev "Visit Sublime Text 3 Dev Builds page"
+
+[ST3 Dev Builds]: https://www.sublimetext.com/3dev "Visit Sublime Text 3 Dev Builds page"
+[ST3 Stable Builds]: https://www.sublimetext.com/3 "Visit Sublime Text 3 Stable Builds page"
 
 # Installation
 

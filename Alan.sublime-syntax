@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# "Alan.sublime-syntax" v0.0.28 (2018-09-17) | Alan v3 beta6
+# "Alan.sublime-syntax" v0.0.29 (2018-09-18) | Alan v3 beta6
 # ==============================================================================
 #                                  Alan Syntax                                  
 # ==============================================================================
@@ -570,7 +570,10 @@ contexts:
   # REMOVED: import|every|isa
   keywords:
     - include: kwd_conditional
-    - match: (?i)\b(actor|add|after|an|and|are|article|at|attributes|before|between|by|can|cancel|character|characters|check|container|contains|count|current|decrease|definite|depend|depending|describe|description|directly|do|does|each|empty|end|entered|event|exclude|exit|extract|first|for|form|from|has|header|here|in|include|increase|indefinite|initialize|into|is|it|last|limits|list|locate|location|look|make|max|mentioned|message|min|name|near|nearby|negative|no|not|of|off|on|only|opaque|option|options|or|play|prompt|pronoun|quit|random|restart|restore|save|say|schedule|score|script|set|show|start|step|stop|strip|style|sum|synonyms|syntax|system|taking|the|this|to|transcript|until|use|verb|visits|wait|when|where|with|word|words)\b
+    # This captures all keywords that are not (yet) assigned to specific scopes.
+    # Keywords list fixed according to Issue #15 of alan-if/alan-docs:
+    #   https://github.com/alan-if/alan-docs/issues/15#issuecomment-420010103
+    - match: (?i)\b(add|after|an|and|are|article|at|attributes|before|between|by|can|cancel|character|characters|check|container|contains|count|current|decrease|definite|depend|depending|describe|description|directly|do|does|each|empty|end|entered|event|every|exclude|exit|extract|first|for|form|from|has|header|here|import|in|include|increase|indefinite|indirectly|initialize|into|is|isa|it|last|limits|list|locate|look|make|max|mentioned|message|meta|min|name|near|nearby|negative|no|not|of|off|on|only|opaque|option|options|or|play|prompt|pronoun|quit|random|restart|restore|save|say|schedule|score|script|set|show|start|step|stop|strip|style|sum|synonyms|syntax|system|taking|the|this|to|transcript|transitively|until|use|verb|visits|wait|when|where|with|word|words)\b
       scope: keyword.other.alan # Temporary
 
   kwd_conditional:
@@ -579,7 +582,11 @@ contexts:
 
   kwd_inheritable_classes: # <= NOT USED YET! 
     - match: (?i)\b(entity|thing|object|actor|location)\b
-      scope: keyword.control.conditional.alan
+      scope: keyword.other.alan
+
+  kwd_predefined_classes: # <= NOT USED YET! 
+    - match: (?i)\b(actor|entity|integer|literal|location|object|string|thing)\b
+      scope: keyword.other.alan
 
 
   #########
