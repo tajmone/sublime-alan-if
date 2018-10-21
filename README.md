@@ -6,7 +6,7 @@ Alan IF 3 syntax for Sublime Text 3.
 
 ```
 Sublime Text >= 3149 (DEV BUILD)
-Alan IF v3.0 Beta 5
+Alan IF v3.0 Beta 6
 ```
 
 > __ALPHA STAGE__ — This project is still a WIP Alpha version! Most features are still experimental and subject to continuos changes. Screenshots and descriptions might not always accurately represent the latest changes.
@@ -26,6 +26,7 @@ The following document isn't always updated to cover all the added features, it'
     - [Color Schemes](#color-schemes)
     - [Goto Symbols](#goto-symbols)
     - [Build Systems](#build-systems)
+    - [Autocompletions](#autocompletions)
     - [Snippets](#snippets)
         - [New Adventure Boilerplate](#new-adventure-boilerplate)
     - [Transcipt and Solution Syntaxes](#transcipt-and-solution-syntaxes)
@@ -151,9 +152,26 @@ Currently there is only one build system, which compiles the current editor's al
 
 > __NOTE__ — Build functionality requires Alan binary compiler to be available on the system PATH.
 
+## Autocompletions
+
+I'm working on autocompletions to provide a fast coding experience thanks to contextual suggestions. 
+
+> __NOTE__ — I haven't yet found the time to list main completions in this document. For a detailed and always up-to-date overview of the available completions, see the contents of `completions/` folder.
+
+
 ## Snippets
 
 Sublime-Alan ships with some useful snippets to simplify writing your adventures.
+
+|        trigger        |           description            |
+|-----------------------|----------------------------------|
+| "`h1`"+<kbd>Tab</kbd> | Commented Heading 1 Frame        |
+| "`h2`"+<kbd>Tab</kbd> | Commented Heading 2 Frame        |
+| "`h3`"+<kbd>Tab</kbd> | Commented Heading 3 Frame        |
+| "`h4`"+<kbd>Tab</kbd> | Commented Heading 4 Frame        |
+| "`h5`"+<kbd>Tab</kbd> | Commented Heading 5 Frame        |
+| "`h6`"+<kbd>Tab</kbd> | Commented Heading 6 (underlined) |
+
 
 ### New Adventure Boilerplate
 
@@ -272,6 +290,38 @@ This package also sets a predefined hidden color scheme to preview Alan Solution
 ... which is intended to make editing command script file more pleasant to the eye.
 
 The color scheme is created by converting the YAML source file "[`Alan Solution.YAML-propertyList-tmTheme`][Alan Solution tmTheme YAML]" via [PackageDev]'s build system "[Convert to ... - Property List]"; since the YAML format is easier to maintain.
+
+#### Alan Solution Snippets
+
+A few snippets are also available to allow commenting solution files:
+
+|        trigger        |        description        |
+|-----------------------|---------------------------|
+| "`h1`"+<kbd>Tab</kbd> | Commented Heading 1 Frame |
+| "`h2`"+<kbd>Tab</kbd> | Commented Heading 2 Frame |
+| "`h3`"+<kbd>Tab</kbd> | Commented Heading 3 Frame |
+| "`h4`"+<kbd>Tab</kbd> | Commented Heading 4 Frame |
+
+
+```
+
+; ==============================================================================
+; Heading 1 Frame
+; ==============================================================================
+
+; ------------------------------------------------------------------------------
+; Heading 2 Frame
+; ------------------------------------------------------------------------------
+
+; ===============
+; Heading 3 Frame
+; ===============
+
+; ---------------
+; Heading 4 Frame
+; ---------------
+
+```
 
 ### Alan Transcript Files Syntax
 

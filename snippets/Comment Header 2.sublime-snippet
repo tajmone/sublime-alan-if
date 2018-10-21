@@ -1,9 +1,11 @@
 <!--
-  Commented Heading Frame 2 -->
+  "Comment Header 2.sublime-snippet" | 2018/10/21
+  Commented Heading Frame 2
+-->
 <snippet>
   <content><![CDATA[
 --==============================================================================
--- ${1}
+-- ${1:$TM_SELECTED_TEXT}
 --==============================================================================
 
 ${0}

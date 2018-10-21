@@ -1,5 +1,15 @@
 # CHANGELOG
 
+### 2018-10-21
+
+- __Alan Solution__ Snippets (new):
+    + Add comment heading snippets.
+- __Alan__ Snippets (update):
+    + Add support for text selection in heading snippets.
+- __Alan__ Completion (update):
+    + New completions.
+    + Improved scope restrictions.
+
 ### 2018-09-18
 
 - [`Alan.sublime-syntax`][Alan] v0.0.29 — List of __Alan Keywords__ and __predefined classes__ amended as discussed in [Alan-Docs' Issue #15]:

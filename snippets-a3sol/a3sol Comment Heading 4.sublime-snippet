@@ -1,0 +1,15 @@
+<!--
+  "a3sol Comment Heading 4.sublime-snippet" | 2018/10/21
+  Alan Solution: Heading 4 Commented Frame
+-->
+<snippet>
+  <content><![CDATA[
+; ${1/./-/g}
+; ${1:$TM_SELECTED_TEXT}
+; ${1/./-/g}
+${0}
+]]></content>
+  <description>Heading 4 Commented Frame</description>
+  <tabTrigger>h4</tabTrigger>
+  <scope>source.a3sol - comment</scope>
+</snippet>
