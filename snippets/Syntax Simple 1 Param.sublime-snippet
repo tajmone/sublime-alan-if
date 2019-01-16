@@ -1,0 +1,15 @@
+<!--
+  "Syntax Simple 1 Param.sublime-snippet" | 2019/10/16
+  Simple Syntax (symmetrical) with single parameter -->
+<snippet>
+  <content><![CDATA[
+SYNTAX ${1:verb} = $1 (${2:obj})
+  WHERE $2 IsA ${3:object}
+    ELSE ${4}
+
+$0
+]]></content>
+  <description>Syntax simple 1 param</description>
+  <tabTrigger>synts1</tabTrigger>
+  <scope>source.alan - meta</scope>
+</snippet>

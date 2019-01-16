@@ -1,12 +1,20 @@
 # CHANGELOG
 
+### 2019-01-16
+
+- __Alan__ Completions (fix):
+    + Fix MENTIONED completion.
+- __Alan__ Snippets (new + update):
+    + Add SYNTAX snippets: 1 and 2 parameters.
+    + Improve Commented Heading 1 snippet.
+
 ### 2018-10-21
 
 - __Alan Solution__ Snippets (new):
     + Add comment heading snippets.
 - __Alan__ Snippets (update):
     + Add support for text selection in heading snippets.
-- __Alan__ Completion (update):
+- __Alan__ Completions (update):
     + New completions.
     + Improved scope restrictions.
 

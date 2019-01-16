@@ -1,5 +1,5 @@
 /*
-2018/10/21 | Alan v3 beta6
+Alan v3 beta6 |         2018/12/17 
 ==================================
 Class & Instances Auto-Completions
 ==================================
@@ -57,7 +57,7 @@ Class & Instances Auto-Completions
     { "trigger": "opq\tOPAQUE CONTAINER", "contents": "OPAQUE CONTAINER\n" },
     { "trigger": "cont\tCONTAINER", "contents": "CONTAINER\n" },
     { "trigger": "nam\tNAME", "contents": "NAME ${1}.\n" },
-    { "trigger": "men\tMENTIONED", "contents": "MENTIONED \"${1}\".\n" },
+    { "trigger": "men\tMENTIONED", "contents": "MENTIONED \"${1}\"\n" },
     { "trigger": "xit\tEXIT", "contents": "EXIT ${1} TO ${2}.\n" },
     // ---------------------------------------------------------------------
     // StdLib 2.1 Attributes
@@ -66,12 +66,12 @@ Class & Instances Auto-Completions
     // ---------------------------------------------------------------------
     // ARITCLES AND FORM
     // ---------------------------------------------------------------------
-    { "trigger": "defart\tDEFINITE ARTICLE",   "contents": "DEFINITE ARTICLE \"${1}\".\n" },
-    { "trigger": "indart\tINDEFINITE ARTICLE", "contents": "INDEFINITE ARTICLE \"${1}\".\n" },
-    { "trigger": "negart\tNEGATIVE ARTICLE",   "contents": "NEGATIVE ARTICLE \"${1}\".\n" },
-    { "trigger": "deffor\tDEFINITE FORM",      "contents": "DEFINITE FORM \"${1}\".\n" },
-    { "trigger": "indfor\tINDEFINITE FORM",    "contents": "INDEFINITE FORM \"${1}\".\n" },
-    { "trigger": "negfor\tNEGATIVE FORM",      "contents": "NEGATIVE FORM \"${1}\".\n" },
+    { "trigger": "defart\tDEFINITE ARTICLE",   "contents": "DEFINITE ARTICLE \"${1}\"\n" },
+    { "trigger": "indart\tINDEFINITE ARTICLE", "contents": "INDEFINITE ARTICLE \"${1}\"\n" },
+    { "trigger": "negart\tNEGATIVE ARTICLE",   "contents": "NEGATIVE ARTICLE \"${1}\"\n" },
+    { "trigger": "deffor\tDEFINITE FORM",      "contents": "DEFINITE FORM \"${1}\"\n" },
+    { "trigger": "indfor\tINDEFINITE FORM",    "contents": "INDEFINITE FORM \"${1}\"\n" },
+    { "trigger": "negfor\tNEGATIVE FORM",      "contents": "NEGATIVE FORM \"${1}\"\n" },
 
   ]
 }
