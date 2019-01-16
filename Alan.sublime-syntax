@@ -1,8 +1,8 @@
 %YAML 1.2
 ---
-# "Alan.sublime-syntax" v0.0.29 (2018-09-18) | Alan v3 beta6
+# "Alan.sublime-syntax" v0.0.30 (2019-01-16) | Alan v3 beta6
 # ==============================================================================
-#                                  Alan Syntax                                  
+#                                  Alan Syntax
 # ==============================================================================
 # Syntax definition for Alan IF Adventure Language:
 # -- https://www.alanif.se
@@ -23,7 +23,7 @@ variables:
   ID: '(\b[{{LETTER}}][0-9_{{LETTER}}]*\b)'
 
 contexts:
-  
+
   prototype:
     - include: comments
     - include: integers
@@ -60,7 +60,7 @@ contexts:
   ##############################################################################
 
   # ============================================================================
-  #                            TOP-LEVEL DEFINITIONS                            
+  #                            TOP-LEVEL DEFINITIONS
   # ============================================================================
 
   ######################
@@ -97,11 +97,11 @@ contexts:
   #                 [inheritance]          | <= ??? 341 E : Cannot Add heritage to classes
   #                 {property}             |
   #            'END' 'ADD' ['TO'] [id] '.' |
-  #----------------------------------------+ 
+  #----------------------------------------+
   addition_declaration:
     - match: (?i)(?=\bADD\b)
       push: addition_decl_context
-  
+
   addition_decl_context:
     - meta_scope: meta.extension.alan
                   meta.class.alan
@@ -153,7 +153,7 @@ contexts:
     - match: (?i)(?=\bEVERY\b)
       # scope: storage.type.class.alan
       push: class_decl_context
-  
+
   class_decl_context:
     - meta_scope: meta.class.alan
     - include: class_decl_head
@@ -230,7 +230,7 @@ contexts:
   #                 [inheritance]      | <= (sic) How can instances inherit?
   #                 {property}         |
   #             'END' 'THE' [id] ['.'] |
-  #------------------------------------+ 
+  #------------------------------------+
   instance_declaration:
     - match: (?i)(?=\bTHE\b)
       push: instance_decl_context
@@ -291,10 +291,10 @@ contexts:
   # synonyms = 'SYNONYMS' {synonym_declaration}        |
   #                                                    |
   # synonym_declaration = word {',' word} '=' word '.' |
-  #----------------------------------------------------+ 
+  #----------------------------------------------------+
 
   # ============================================================================
-  #                             NESTED DEFINITIONS                              
+  #                             NESTED DEFINITIONS
   # ============================================================================
   # Ie, definition which can occur only/also inside a top level definition.
 
@@ -352,7 +352,7 @@ contexts:
             # the optional `.` terminator...
             - match: ''
               set:
-              - meta_scope: meta.attributes.alan 
+              - meta_scope: meta.attributes.alan
               - match: \s+  # <= must consume whitespace!
               - include: terminator_POP
               - include: force_POP
@@ -379,7 +379,7 @@ contexts:
       push: attributes
     - include: else_POP
 
-    
+
   # Stack 4 [class_decl_context > property_context > attribute_declaration
   #          > attribute_decl_context]
   attributes: # `IS [NOT] ID.`
@@ -427,7 +427,7 @@ contexts:
   ##############################################################################
 
   #=============================================================================
-  #                                 IDENTIFIERS                                 
+  #                                 IDENTIFIERS
   #=============================================================================
   # Identifiers can always be either unquoted or quoted.
   # Sometimes we need to create identifiers context variants in order to scope
@@ -517,18 +517,21 @@ contexts:
   ##########
   # COMMENTS
   ##########
-  # This alternative comment definition allows the '-->' ligature:
-  # - match: '(-->?)(.*)$\n?'
-  # It's nicer to look at, but it would scope the '>' as part of 'punctuation'
-  # and could interfere with some plugins. Although visually it would almost
-  # certainly what the unser intended.
   comments:
     - meta_include_prototype: false
-    - match: '(-->?)(.*)$\n?'
-    # - match: '(--)(.*)$\n?'
+    - match: '(--)(.*)$\n?'
       scope: comment.line.double-dash.alan
       captures:
         1: punctuation.definition.comment.line.double-dash.alan
+
+  # ----------------------------------------
+  # EXPERIMENTAL COMMENT DELIMITER (REMOVED)
+  # ----------------------------------------
+  # This alternative comment definition allows the '-->' ligature:
+  #   - match: '(-->?)(.*)$\n?'
+  # It's nicer to look at, but it would scope the '>' as part of 'punctuation'
+  # and could interfere with some plugins. Although visually it would be almost
+  # certainly what the unser intended.
 
   ######################
   # SPECIAL STRING CHARS
@@ -580,11 +583,11 @@ contexts:
     - match: (?i)\b(end +if|else|elsif|then|if)\b|=> # '=>' stands for THEN
       scope: keyword.control.conditional.alan
 
-  kwd_inheritable_classes: # <= NOT USED YET! 
+  kwd_inheritable_classes: # <= NOT USED YET!
     - match: (?i)\b(entity|thing|object|actor|location)\b
       scope: keyword.other.alan
 
-  kwd_predefined_classes: # <= NOT USED YET! 
+  kwd_predefined_classes: # <= NOT USED YET!
     - match: (?i)\b(actor|entity|integer|literal|location|object|string|thing)\b
       scope: keyword.other.alan
 

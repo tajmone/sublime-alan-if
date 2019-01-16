@@ -2,6 +2,8 @@
 
 ### 2019-01-16
 
+- [`Alan.sublime-syntax`][Alan] v0.0.30 — __Ligatures__:
+    + Drop experimental comment definition that treated `-->` as a comment delimiter, in order to support _long rightward arrow_ ligature (`⟶`) substitution of the delimiter.
 - __Alan__ Completions (fix):
     + Fix MENTIONED completion.
 - __Alan__ Snippets (new + update):
