@@ -1,13 +1,15 @@
 # Sublime-Alan
 
+![Package Status][Package badge]&nbsp;
+[![Alan Version][Alan badge]][Alan SDK]&nbsp;
+[![Sublime Text Version][ST3 badge]][ST3 link]&nbsp;
+[![MIT License][License badge]][LICENSE]&nbsp;
+[![Build Status][Travis badge]][Travis link]
+
+
 Alan IF 3 syntax for Sublime Text 3.
 
 - https://github.com/tajmone/sublime-alan
-
-```
-Sublime Text >= 3210 (DEV BUILD)
-Alan IF v3.0 Beta 6
-```
 
 > __ALPHA STAGE__ — This project is still a WIP Alpha version! Most features are still experimental and subject to continuos changes. Screenshots and descriptions might not always accurately represent the latest changes.
 
@@ -382,7 +384,7 @@ Don't forget the "`.`" after the repository URL! it's needed in order to clone t
 
 # License
 
-- [`LICENSE`](./LICENSE)
+- [`LICENSE`][LICENSE]
 
 ```
 MIT License
@@ -445,9 +447,12 @@ Alan IF links:
 [__Alan Transcript__ files]: #alan-transcript-files-syntax "Read more about Alan Transcript files..."
 
 [Build Systems]: #build-systems "Read more about Sublime-Alan's Build Systems..."
+
 <!-- ALAN LINKS -------------------------------------------------------------->
 
 [Alan website]: https://www.alanif.se/ "Visit Alan official website"
+
+[Alan SDK]: https://www.alanif.se/download-alan-v3/development-kits "Download the latest Alan SDK"
 
 [Alan sourcecode on Bitbucket]: https://bitbucket.org/alanif/alan
 [Alan Standard Library on Bitbucket]: https://bitbucket.org/alanif/alanlib
@@ -457,7 +462,6 @@ Alan IF links:
 [IFWiki » Alan page]: http://www.ifwiki.org/index.php/Alan "View Alan entry at IFWiki"
 
 [IFWiki]: http://www.ifwiki.org "Visit IFWiki.org, the Interactive Fiction Wiki"
-
 <!------- OTHER DOC FILES ---------------------------------------------------->
 
 [TODO]: ./TODO.md "View the TODOs-list file"
@@ -496,6 +500,10 @@ Alan IF links:
 [PackageDev]: https://packagecontrol.io/packages/PackageDev "View PackageDev page at PackageControl.io"
 [Convert to ... - Property List]: https://github.com/SublimeText/PackageDev/wiki/Serialized-Conversion "Read online documentation"
 
+<!-- Project files and folders ----------------------------------------------->
+
+[LICENSE]: ./LICENSE "View MIT License"
+
 <!-- Alan Syntax ------------------------------------------------------------->
 
 [Alan]: ./Alan.sublime-syntax "view syntax source file"
@@ -523,6 +531,16 @@ Alan IF links:
 [Alan Transcript Settings]: ./Alan%20Transcript.sublime-settings "view settings source file"
 [Alan Transcript Theme]: ./Alan%20Transcript.hidden-tmTheme "view theme source file"
 [Alan Transcript tmTheme YAML]: ./Alan%20Transcript.YAML-propertyList "view color scheme file"
+
+<!-- badges -->
+
+[License badge]: https://img.shields.io/badge/License-MIT-blue
+[Package badge]: https://img.shields.io/badge/status-WIP-orange "Sublime Alan is currently in Alpha stage"
+[Alan badge]: https://img.shields.io/badge/Alan-3.0Beta6-yellow "Supported Alan version (click for Alan download page)"
+[ST3 badge]: https://img.shields.io/badge/ST3-3210-yellow "Supported Sublime Text 3 version (click for Sublime Text 3 download page)"
+[ST3 link]: https://www.sublimetext.com/3
+[Travis badge]: https://travis-ci.com/tajmone/sublime-alanL.svg?branch=master
+[Travis link]: https://travis-ci.com/tajmone/sublime-alan "Travis CI: EditorConfig validation status"
 
 <!-- Issues ------------------------------------------------------------------>
 
