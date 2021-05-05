@@ -69,7 +69,7 @@ For more info on the roadmap and wishlist, see:
 The package also ships with additional syntax definitions and color schemes for:
 
 - Compiler log in the the [Build Systems]
-- [__Alan Solution__ files] (aka "commands scripts").
+- [__Alan Solution__ files]  (aka "commands scripts").
 - [__Alan Transcript__ files].
 
 ### Ligatures Support
@@ -432,43 +432,58 @@ I'd also like to express my gratitude to the authors of invaluable guidelines an
 Alan IF links:
 
 - [Alan website]
+- [Alan-IF mailing list]
+- [Alan Wiki]
 - [IFWiki » Alan page]
-- [Alan sourcecode on Bitbucket]
-- [Alan Standard Library on Bitbucket]
-- [Alan-IF mailing list and discussion group at Yahoo]
+- [Alan sourcecode on GitHub]
+- [Alan Standard Library v2 on GitHub]
 
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
 ------------------------------------------------------------------------------>
 
-<!-- CROSS REFERENCES -------------------------------------------------------->
+<!-- cross references -------------------------------------------------------->
 
 [__Alan Solution__ files]: #alan-solution-files-syntax "Read more about Alan Solution files..."
 [__Alan Transcript__ files]: #alan-transcript-files-syntax "Read more about Alan Transcript files..."
 
 [Build Systems]: #build-systems "Read more about Sublime-Alan's Build Systems..."
 
-<!-- ALAN LINKS -------------------------------------------------------------->
+<!-- Alan links -------------------------------------------------------------->
 
 [Alan website]: https://www.alanif.se/ "Visit Alan official website"
+[Alan Wiki]: https://github.com/alan-if/alan/wiki "Official ALAN Wiki on GitHub"
 
 [Alan SDK]: https://www.alanif.se/download-alan-v3/development-kits "Download the latest Alan SDK"
 
-[Alan sourcecode on Bitbucket]: https://bitbucket.org/alanif/alan
-[Alan Standard Library on Bitbucket]: https://bitbucket.org/alanif/alanlib
+[Alan sourcecode on GitHub]: https://github.com/alan-if/alan
+[Alan Standard Library v2 on GitHub]: https://github.com/AnssiR66/AlanStdLib
 
-[Alan-IF mailing list and discussion group at Yahoo]: https://groups.yahoo.com/neo/groups/alan-if/info "Visit Alan-IF discussion group main page at Yahoo Groups"
+[Alan-IF mailing list]: https://groups.google.com/g/alan-if/ "Visit Alan-IF discussion group at Google Groups"
 
 [IFWiki » Alan page]: http://www.ifwiki.org/index.php/Alan "View Alan entry at IFWiki"
 
 [IFWiki]: http://www.ifwiki.org "Visit IFWiki.org, the Interactive Fiction Wiki"
-<!------- OTHER DOC FILES ---------------------------------------------------->
+<!-- tutorials and guidelines ------------------------------------------------>
+
+[Stateful Chaining]: https://github.com/sublimehq/Packages/issues/757#issuecomment-269031562
+
+[Use the Stack]: https://github.com/sublimehq/Packages/issues/757#issuecomment-287193733
+
+<!-- external references ----------------------------------------------------->
+
+[PackageDev]: https://packagecontrol.io/packages/PackageDev "View PackageDev page at PackageControl.io"
+[Convert to ... - Property List]: https://github.com/SublimeText/PackageDev/wiki/Serialized-Conversion "Read online documentation"
+
+<!-- Project files and folders ----------------------------------------------->
+
+[LICENSE]: ./LICENSE "View MIT License"
 
 [TODO]: ./TODO.md "View the TODOs-list file"
 [CHANGELOG]: ./CHANGELOG.md "View Sublime-Alan's CHANGELOG file"
 [WORK_NOTES]: ./WORK_NOTES.md "View my working notes file"
 
-<!--------- SCREENSHOTS ------------------------------------------------------>
+<!-- screenshots -->
 
 [Screenshot Build Console]: ./screenshots/Build_Errors_Console.png "Screenshot of Sublime-Alan build system errors log in ST's console"
 [Screenshot Build Editor]:  ./screenshots/Build_Errors_Editor.png "Screenshot of Sublime-Alan build system errors navigation (using 'Monokai' color scheme)"
@@ -479,36 +494,11 @@ Alan IF links:
 [Screenshot Snippet New Adv Vars]:  ./screenshots/Snippet_New_Adventure_Custom_Vars.gif "Using custom variables with the 'New Adventure Boilerplate' snippet"
 [Screenshot Ligatures]:  ./screenshots/Ligatures_Preview.gif "Screenshots animation showing Alan code with ligatures enabled vs disabled"
 
-<!-- USERS LINKS ------------------------------------------------------------->
+<!-- Alan Syntax -->
 
-[Keith Hall SF]: https://forum.sublimetext.com/u/kingkeith "See Keith Hall's Sublime Forum user profile"
-[Keith Hall GH]: https://github.com/keith-hall "See Keith Hall's GitHub profile"
-[Thom Smith SF]: https://forum.sublimetext.com/u/ThomSmith "See Thomas Smith's Sublime Forum user profile"
-[Thom Smith GH]: https://github.com/Thom1729 "See Thomas Smith's GitHub profile"
-[FichteFoll SF]: https://forum.sublimetext.com/u/FichteFoll "See FichteFoll's Sublime Forum user profile"
-[FichteFoll GH]: https://github.com/FichteFoll "See FichteFoll's GitHub profile"
-[Daniel Spiewak]: https://github.com/djspiewak "See @djspiewak's GitHub profile"
+[Alan syntax]: ./Alan.sublime-syntax "view syntax source file"
 
-<!-- TUTORIALS AND GUIDELINES ------------------------------------------------>
-
-[Stateful Chaining]: https://github.com/sublimehq/Packages/issues/757#issuecomment-269031562
-
-[Use the Stack]: https://github.com/sublimehq/Packages/issues/757#issuecomment-287193733
-
-<!-- EXTERNAL REFERENCES ----------------------------------------------------->
-
-[PackageDev]: https://packagecontrol.io/packages/PackageDev "View PackageDev page at PackageControl.io"
-[Convert to ... - Property List]: https://github.com/SublimeText/PackageDev/wiki/Serialized-Conversion "Read online documentation"
-
-<!-- Project files and folders ----------------------------------------------->
-
-[LICENSE]: ./LICENSE "View MIT License"
-
-<!-- Alan Syntax ------------------------------------------------------------->
-
-[Alan]: ./Alan.sublime-syntax "view syntax source file"
-
-<!-- AlanLog Syntax ---------------------------------------------------------->
+<!-- AlanLog Syntax -->
 
 [AlanLog]: ./AlanLog.sublime-syntax "view syntax source file"
 [AlanLog Settings]: ./AlanLog.sublime-settings "view settings source file"
@@ -518,25 +508,25 @@ Alan IF links:
 
 [Alan DarkFluo]: ./Alan%20DarkFluo.sublime-color-scheme "view color scheme source file"
 
-<!-- Alan Solution Syntax ---------------------------------------------------->
+<!-- Alan Solution Syntax -->
 
 [Alan Solution]: ./Alan%20Solution.sublime-syntax "view syntax source file"
 [Alan Solution Settings]: ./Alan%20Solution.sublime-settings "view settings source file"
 [Alan Solution Theme]: ./Alan%20Solution.hidden-tmTheme "view theme source file"
 [Alan Solution tmTheme YAML]: ./Alan%20Solution.YAML-propertyList "view color scheme file"
 
-<!-- Alan Transcript Syntax -------------------------------------------------->
+<!-- Alan Transcript Syntax -->
 
 [Alan Transcript]: ./Alan%20Transcript.sublime-syntax "view syntax source file"
 [Alan Transcript Settings]: ./Alan%20Transcript.sublime-settings "view settings source file"
 [Alan Transcript Theme]: ./Alan%20Transcript.hidden-tmTheme "view theme source file"
 [Alan Transcript tmTheme YAML]: ./Alan%20Transcript.YAML-propertyList "view color scheme file"
 
-<!-- badges -->
+<!-- badges ------------------------------------------------------------------>
 
+[Alan badge]: https://img.shields.io/badge/Alan-3.0Beta6-yellow "Supported Alan version (click for Alan download page)"
 [License badge]: https://img.shields.io/badge/License-MIT-blue
 [Package badge]: https://img.shields.io/badge/status-WIP-orange "Sublime Alan is currently in Alpha stage"
-[Alan badge]: https://img.shields.io/badge/Alan-3.0Beta6-yellow "Supported Alan version (click for Alan download page)"
 [ST3 badge]: https://img.shields.io/badge/ST3-3210-yellow "Supported Sublime Text 3 version (click for Sublime Text 3 download page)"
 [ST3 link]: https://www.sublimetext.com/3
 [Travis badge]: https://travis-ci.com/tajmone/sublime-alan.svg?branch=master
@@ -545,5 +535,15 @@ Alan IF links:
 <!-- Issues ------------------------------------------------------------------>
 
 [alan-if/alan#2]: https://github.com/alan-if/alan/issues/2
+
+<!-- people ------------------------------------------------------------------>
+
+[Daniel Spiewak]: https://github.com/djspiewak "View @djspiewak's GitHub profile"
+[FichteFoll GH]: https://github.com/FichteFoll "View FichteFoll's GitHub profile"
+[FichteFoll SF]: https://forum.sublimetext.com/u/FichteFoll "View FichteFoll's Sublime Forum user profile"
+[Keith Hall GH]: https://github.com/keith-hall "View Keith Hall's GitHub profile"
+[Keith Hall SF]: https://forum.sublimetext.com/u/kingkeith "View Keith Hall's Sublime Forum user profile"
+[Thom Smith GH]: https://github.com/Thom1729 "View Thomas Smith's GitHub profile"
+[Thom Smith SF]: https://forum.sublimetext.com/u/ThomSmith "View Thomas Smith's Sublime Forum user profile"
 
 <!-- EOF -->
