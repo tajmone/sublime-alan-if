@@ -1,16 +1,16 @@
 <!--
-  "Comment Header 6.sublime-snippet" | 2018/10/21
-  Commented Heading 6 (underlined)
+	"Comment Header 6.sublime-snippet" | 2018/10/21
+	Commented Heading 6 (underlined)
 -->
 <snippet>
-  <content><![CDATA[
+	<content><![CDATA[
 
 -- ${1:$TM_SELECTED_TEXT}
 -- ${1/./-/g}
 
 ${0}
 ]]></content>
-  <description>Commented Heading 6 (underlined)</description>
-  <tabTrigger>cmh6</tabTrigger>
-  <scope>source.alan</scope>
+	<description>Commented Heading 6 (underlined)</description>
+	<tabTrigger>cmh6</tabTrigger>
+	<scope>source.alan</scope>
 </snippet>

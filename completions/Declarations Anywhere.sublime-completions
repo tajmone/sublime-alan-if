@@ -15,13 +15,13 @@ root level or inside classes and instances.
     ***********************************************************************/
     { "trigger": "verb\tVERB",
       "contents": "VERB ${1:verb_ID}\n\t${0}\nEND VERB ${1}." },
-    
+
     { "trigger": "verbmulti\tVERB multi ID",
       "contents": "VERB ${1:verb_ID1}, ${2:verb_ID2}\n\t${0}\nEND VERB ${1}." },
-    
+
     { "trigger": "metaverb\tVERB META",
       "contents": "META VERB ${1:verb_ID}\n\t${0}\nEND VERB ${1}." },
-    
+
     { "trigger": "metaverbmulti\tMETA VERB multi ID",
       "contents": "META VERB ${1:verb_ID1}, ${2:verb_ID2}\n\t${0}\nEND VERB ${1}." },
   ]
@@ -31,4 +31,3 @@ root level or inside classes and instances.
     { "trigger": "xxx\t", "contents": "xxx" },
     { "trigger": "xxx\t", "contents": "${1} ${2:xxx}.\n\tEND${0}." },
 */
-

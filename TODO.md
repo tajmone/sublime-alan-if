@@ -114,7 +114,7 @@ The Build system's __AlanLog__ syntax and color scheme.
 
 ## Snippets
 
-Create some useful snippets. 
+Create some useful snippets.
 
 - [x] New Adventure Boilerplate (StdLib).
 
@@ -132,7 +132,7 @@ Known bugs which need fixing:
       __*Fixed*__ (`2018-04-29`)
 
       Now delimiting quotes will always be scoped as part of the identifier; they just get the additional `punctuation.definition.identifier.alan` scope. This simplifies reusable contexts; also, it seems appropriate. Of course, in the Goto Symbol functionality, all quoted identifiers are indexed without the delimiting quotes, and with all internal escaped quotes (ie `''`) shown as a single quote. This simplifies fuzzy search of the identifier, and is also how the identifier is actually rendered in the game world.
- 
+
 
 - [x] __Strings__: two consecutive escaped DQs in the middle of a string prematurely end the string:
 

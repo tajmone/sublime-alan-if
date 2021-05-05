@@ -1,9 +1,9 @@
 <!--
-  "Comment Header 5.sublime-snippet" | 2018/10/21
-  Commented Heading Frame 5
+	"Comment Header 5.sublime-snippet" | 2018/10/21
+	Commented Heading Frame 5
 -->
 <snippet>
-  <content><![CDATA[
+	<content><![CDATA[
 
 -- ${1/./-/g}
 -- ${1:$TM_SELECTED_TEXT}
@@ -11,7 +11,7 @@
 
 ${0}
 ]]></content>
-  <description>Commented Heading Frame 5</description>
-  <tabTrigger>cmh5</tabTrigger>
-  <scope>source.alan</scope>
+	<description>Commented Heading Frame 5</description>
+	<tabTrigger>cmh5</tabTrigger>
+	<scope>source.alan</scope>
 </snippet>

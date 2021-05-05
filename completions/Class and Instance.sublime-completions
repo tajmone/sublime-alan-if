@@ -1,5 +1,5 @@
 /*
-Alan v3 beta6 |         2018/12/17 
+Alan v3 beta6 |         2018/12/17
 ==================================
 Class & Instances Auto-Completions
 ==================================
@@ -81,4 +81,3 @@ Class & Instances Auto-Completions
     { "trigger": "xxx\t", "contents": "XXX \"${1}\".\n" },
     { "trigger": "xxx\t", "contents": "${1} ${2:xxx}.\n\tEND${0}." },
 */
-

@@ -80,11 +80,11 @@ contexts:
         # Quoted ID (scoped as string here)
         - match: "(')((?:''|[^'])*)(')"
           captures:
-            1: punctuation.definition.string.begin.alan
-               string.quoted.single.alan
-            2: string.quoted.single.alan
-            3: punctuation.definition.string.end.alan
-               string.quoted.single.alan
+            1:  punctuation.definition.string.begin.alan
+                string.quoted.single.alan
+            2:  string.quoted.single.alan
+            3:  punctuation.definition.string.end.alan
+                string.quoted.single.alan
         - match: '\.'
           scope: punctuation.terminator.alan
           pop: true
@@ -463,11 +463,11 @@ contexts:
     # Quoted ID
     - match: "(')((?:''|[^'])*)(')"
       captures:
-        1: punctuation.definition.identifier.alan
-           entity.name.class.alan
-        2: entity.name.class.alan
-        3: punctuation.definition.identifier.alan
-           entity.name.class.alan
+        1:  punctuation.definition.identifier.alan
+            entity.name.class.alan
+        2:  entity.name.class.alan
+        3:  punctuation.definition.identifier.alan
+            entity.name.class.alan
       pop: true
 
   #-----------------------------------------------------------------------------
@@ -486,11 +486,11 @@ contexts:
     # Quoted ID
     - match: "(')((?:''|[^'])*)(')"
       captures:
-        1: punctuation.definition.identifier.alan
-           entity.name.other.alan
-        2: entity.name.other.alan                        # <= temporary solution
-        3: punctuation.definition.identifier.alan
-           entity.name.other.alan
+        1:  punctuation.definition.identifier.alan
+            entity.name.other.alan
+        2:  entity.name.other.alan                        # <= temporary solution
+        3:  punctuation.definition.identifier.alan
+            entity.name.other.alan
       pop: true
 
   #########################
@@ -501,11 +501,11 @@ contexts:
   quoted_identifiers:
     - match: "(')((?:''|[^'])*)(')"
       captures:
-        1: punctuation.definition.identifier.alan
-           entity.name.other.alan
-        2: entity.name.other.alan                        # <= temporary solution
-        3: punctuation.definition.identifier.alan
-           entity.name.other.alan
+        1:  punctuation.definition.identifier.alan
+            entity.name.other.alan
+        2:  entity.name.other.alan                        # <= temporary solution
+        3:  punctuation.definition.identifier.alan
+            entity.name.other.alan
 
   ##############################################################################
   #                                                                            #
@@ -563,8 +563,8 @@ contexts:
     - match: '\$([pnit$alv]|[+\-!0]?[1-9])'
       scope: constant.character.escape.alan # What else?
     - match: '\$o'
-      scope: constant.character.escape.alan
-             invalid.deprecated
+      scope:  constant.character.escape.alan
+              invalid.deprecated
 
   ######################
   # KEWYWORDS

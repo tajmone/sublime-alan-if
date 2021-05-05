@@ -1,25 +1,25 @@
 <!--
-  New Adventure Boilerplate v0.0.5 (2019/04/07) ) | Alan v3 beta6
-  Based on Anssi Räisänen's "newgame.alan" (Artistic License 2.0) -->
+	New Adventure Boilerplate v0.0.5 (2019/04/07) ) | Alan v3 beta6
+	Based on Anssi Räisänen's "newgame.alan" (Artistic License 2.0) -->
 <snippet>
-  <content><![CDATA[
+	<content><![CDATA[
 --==============================================================================
 -- "${1}" by ${3}, ${4}.
 --==============================================================================
 Import 'library.i'. -- ALAN Standard Library v2.1
 
 The my_game IsA DEFINITION_BLOCK
-  Has
-    title    "${1:Game Title}".
-    subtitle "${2}".
-    author   "${3:$ALAN_AUTHOR}".
-    year     ${4:2019}.
-    version  "${5:1}".
+	Has
+		title    "${1:Game Title}".
+		subtitle "${2}".
+		author   "${3:$ALAN_AUTHOR}".
+		year     ${4:2019}.
+		version  "${5:1}".
 End the.
 
 
 The ${6:start_loc} IsA ${7:room}.
-  $0
+	$0
 End the ${6}.
 
 
@@ -28,7 +28,7 @@ Start at ${6}.
 Describe banner.
 
 ]]></content>
-  <description>New Adventure Boilerplate</description>
-  <tabTrigger>newadv</tabTrigger>
-  <scope>source.alan - meta</scope>
+	<description>New Adventure Boilerplate</description>
+	<tabTrigger>newadv</tabTrigger>
+	<scope>source.alan - meta</scope>
 </snippet>

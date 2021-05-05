@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plist version="1.0">
 <dict>
-	<key>scope</key>
-	<string>source.alan & (meta.class|meta.instance|meta.addition)</string>
-	<key>settings</key>
-	<dict>
-		<key>cancelCompletion</key>
-		<string>(?i)^.*\b(.|is|if|then|else|end)$</string>
-	</dict>
+  <key>scope</key>
+  <string>source.alan & (meta.class|meta.instance|meta.addition)</string>
+  <key>settings</key>
+  <dict>
+    <key>cancelCompletion</key>
+    <string>(?i)^.*\b(.|is|if|then|else|end)$</string>
+  </dict>
 </dict>
 </plist>

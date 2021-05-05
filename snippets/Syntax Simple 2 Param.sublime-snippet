@@ -1,17 +1,17 @@
 <!--
-  "Syntax Simple 2 Param.sublime-snippet" | 2019/10/16
-  Simple Syntax (symmetrical) with two parameters -->
+	"Syntax Simple 2 Param.sublime-snippet" | 2019/10/16
+	Simple Syntax (symmetrical) with two parameters -->
 <snippet>
-  <content><![CDATA[
+	<content><![CDATA[
 SYNTAX ${1:verb} = $1 (${2:obj1}) ${3:with} (${4:obj2})
-  WHERE $2 IsA ${5:object}
-    ELSE ${6}
-  AND $4 IsA ${7:object}
-    ELSE ${8}
+	WHERE $2 IsA ${5:object}
+		ELSE ${6}
+	AND $4 IsA ${7:object}
+		ELSE ${8}
 
 $0
 ]]></content>
-  <description>Syntax simple 2 params</description>
-  <tabTrigger>synts2</tabTrigger>
-  <scope>source.alan - meta</scope>
+	<description>Syntax simple 2 params</description>
+	<tabTrigger>synts2</tabTrigger>
+	<scope>source.alan - meta</scope>
 </snippet>

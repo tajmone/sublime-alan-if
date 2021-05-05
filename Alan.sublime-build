@@ -1,6 +1,6 @@
 // "Alan.sublime-build" v0.0.2 (2018-08-22) | Alan v3 beta6
 // =============================================================================
-//                               Alan Build Systems                             
+//                               Alan Build Systems
 // =============================================================================
 {
   "shell_cmd": "alan -cc \"$file\"",
@@ -16,7 +16,7 @@
   //    "sourcefile.alan", line 8(13): 200 W : Warning message.
   // ---------------------------------------------------------------------------
   "file_regex":  "^\"([^\"]+)\", line (\\d+)\\((\\d+)\\): (.*)$",
-  // 
+  //
   // The captured RegEx groups should be:
   //   1. filename
   //   2. line number
@@ -25,11 +25,11 @@
   // ---------------------------------------------------------------------------
   // NOTES: tested only on Windows (should check if the reports differ on Linux)
   // ===========================================================================
-  
+
   // Syntax Highlight the Compiler Log (WIP experimental feature):
   "syntax": "Packages/Alan/AlanLog.sublime-syntax",
   // ===========================================================================
-  //                           Build System Variants                            
+  //                           Build System Variants
   // ===========================================================================
   // Not done yet ...
 

@@ -1,15 +1,15 @@
 <!--
-  "a3s Comment Heading 3.sublime-snippet" | 2018/10/21
-  Alan Solution: Heading 3 Commented Frame
+	"a3s Comment Heading 3.sublime-snippet" | 2018/10/21
+	Alan Solution: Heading 3 Commented Frame
 -->
 <snippet>
-  <content><![CDATA[
+	<content><![CDATA[
 ; ${1/./=/g}
 ; ${1:$TM_SELECTED_TEXT}
 ; ${1/./=/g}
 ${0}
 ]]></content>
-  <description>Heading 3 Commented Frame</description>
-  <tabTrigger>h3</tabTrigger>
-  <scope>source.a3s - comment</scope>
+	<description>Heading 3 Commented Frame</description>
+	<tabTrigger>h3</tabTrigger>
+	<scope>source.a3s - comment</scope>
 </snippet>

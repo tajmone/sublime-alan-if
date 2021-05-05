@@ -1,5 +1,5 @@
 // ------------------------------------------------------------------------------
-// Sublime-Alan: Testing Settings v0.0.4 (2018-08-23) | Alan v3 beta6                     
+// Sublime-Alan: Testing Settings v0.0.4 (2018-08-23) | Alan v3 beta6
 // ------------------------------------------------------------------------------
 // Packages shouldn't fiddle with ST settings unless stricly required!
 // But because this is an Alpha project I'll be imposing some settings at the
@@ -8,40 +8,40 @@
 // amd paste into "Packages/User/Alan.sublime-settings".
 {
 
-    // =========================================================================
-    // LOOK & FEEL OPTIONS
-    // =========================================================================
-    
-    // =========================================================================
-    // FILE ENCODING
-    // =========================================================================
-    // Alan source files default encoding: ISO 8859-1
-    "default_encoding":  "Western (ISO 8859-1)",
-    "fallback_encoding": "Western (ISO 8859-1)",
-    // ... it looks like ISO 8859-1 has to be set as "fallback_encoding" too, in
-    // order to prevent lot's of problems with special characters, where ST will
-    // try to fallback on UTF-8 otherwise! 
-    
-    // THIS ONLY WORKS AS A USER SETTING:
-    "show_encoding": true,
-    // ... it has no effect in here, but I'll keep it as a reminder to include 
-    //     it in the Documentation!
-    // Users working with Alan project should add this as a global ST3 setting
-    // so they can check and change files encoding from ST3 task bar.
+  // =========================================================================
+  // LOOK & FEEL OPTIONS
+  // =========================================================================
 
-    // =========================================================================
-    // INDENTATION SETTINGS
-    // =========================================================================
-    // I still need to experiment with the various indentation settings...
-    // -------------------------------------------------------------------------
-    "tab_size": 2, // Tabs 2 is a reasonable setting
-    "translate_tabs_to_spaces": true,
-    // "detect_indentation": false,
-    // "use_tab_stops": true,
-    // "auto_indent": true,
-    // "smart_indent": true,
-    // "trim_automatic_white_space": true,
-    // "indent_to_bracket": true,
+  // =========================================================================
+  // FILE ENCODING
+  // =========================================================================
+  // Alan source files default encoding: ISO 8859-1
+  "default_encoding":  "Western (ISO 8859-1)",
+  "fallback_encoding": "Western (ISO 8859-1)",
+  // ... it looks like ISO 8859-1 has to be set as "fallback_encoding" too, in
+  // order to prevent lot's of problems with special characters, where ST will
+  // try to fallback on UTF-8 otherwise!
 
-    // "auto_complete_commit_on_tab": true
+  // THIS ONLY WORKS AS A USER SETTING:
+  "show_encoding": true,
+  // ... it has no effect in here, but I'll keep it as a reminder to include
+  //     it in the Documentation!
+  // Users working with Alan project should add this as a global ST3 setting
+  // so they can check and change files encoding from ST3 task bar.
+
+  // =========================================================================
+  // INDENTATION SETTINGS
+  // =========================================================================
+  // I still need to experiment with the various indentation settings...
+  // -------------------------------------------------------------------------
+  "tab_size": 2, // Tabs 2 is a reasonable setting
+  "translate_tabs_to_spaces": true,
+  // "detect_indentation": false,
+  // "use_tab_stops": true,
+  // "auto_indent": true,
+  // "smart_indent": true,
+  // "trim_automatic_white_space": true,
+  // "indent_to_bracket": true,
+
+  // "auto_complete_commit_on_tab": true
 }

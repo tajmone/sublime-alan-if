@@ -1,11 +1,11 @@
 // -----------------------------------------------------------------------------
-// AlanLog Settings v0.0.1 (2018-05-02) | Alan v3 beta6                      
+// AlanLog Settings v0.0.1 (2018-05-02) | Alan v3 beta6
 // -----------------------------------------------------------------------------
 // These settings are for the (hidden) "AlanLog" syntax, used to highlight Alan
 // compiler's output during Build operations.
 {
 
-    // "color_scheme": "Alan DarkFluo.sublime-color-scheme",
-    "color_scheme": "Packages/Alan/AlanLog.hidden-tmTheme",
+  // "color_scheme": "Alan DarkFluo.sublime-color-scheme",
+  "color_scheme": "Packages/Alan/AlanLog.hidden-tmTheme",
 
 }

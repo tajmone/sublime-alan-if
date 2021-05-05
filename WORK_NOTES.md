@@ -111,7 +111,7 @@ Class scopes:
 ### Class Attributes
 
 > Fields, properties, members and attributes of a class or other data structure should use:
-> 
+>
 >     variable.other.member
 
 
@@ -132,7 +132,7 @@ There are eight pre-defined (hard-coded) Alan classes:
 
 <!-- separator -->
 
-> __NOTE 2__ — `hero` doesn't appear in the [Alan Keywords] list either, although it's a hard-coded instance. 
+> __NOTE 2__ — `hero` doesn't appear in the [Alan Keywords] list either, although it's a hard-coded instance.
 
 ## Special Keywords
 

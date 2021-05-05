@@ -29,4 +29,3 @@ context.
     { "trigger": "xxx\t", "contents": "xxx" },
     { "trigger": "xxx\t", "contents": "${1} ${2:xxx}.\n\tEND${0}." },
 */
-
