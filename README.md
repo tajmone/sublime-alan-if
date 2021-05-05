@@ -539,7 +539,7 @@ Alan IF links:
 [Alan badge]: https://img.shields.io/badge/Alan-3.0Beta6-yellow "Supported Alan version (click for Alan download page)"
 [ST3 badge]: https://img.shields.io/badge/ST3-3210-yellow "Supported Sublime Text 3 version (click for Sublime Text 3 download page)"
 [ST3 link]: https://www.sublimetext.com/3
-[Travis badge]: https://travis-ci.com/tajmone/sublime-alanL.svg?branch=master
+[Travis badge]: https://travis-ci.com/tajmone/sublime-alan.svg?branch=master
 [Travis link]: https://travis-ci.com/tajmone/sublime-alan "Travis CI: EditorConfig validation status"
 
 <!-- Issues ------------------------------------------------------------------>
