@@ -58,7 +58,7 @@ settings:
 # PROMPT
 # ======
 - name: Prompt
-  scope: punctuation.definition.prompt.a3log
+  scope: punctuation.definition.prompt
   settings:
     foreground: '#00a7df' # Cerulean
     fontStyle: 'bold'
@@ -70,6 +70,3 @@ settings:
   settings:
     foreground: '#f8f8f8' # Alabaster
     background: '#cc0066' # Hibiscus
-
-
-

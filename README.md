@@ -5,7 +5,7 @@ Alan IF 3 syntax for Sublime Text 3.
 - https://github.com/tajmone/sublime-alan
 
 ```
-Sublime Text >= 3149 (DEV BUILD)
+Sublime Text >= 3210 (DEV BUILD)
 Alan IF v3.0 Beta 6
 ```
 
@@ -44,9 +44,9 @@ The following document isn't always updated to cover all the added features, it'
 
 # About
 
-I've created this Alan 3 syntax package just to add some support for Alan source files in Sublime Text, for my own personal use. I haven't really planned to make this a finished product to share on Package Control. Nevertheless, I've decided to share it publicly — just in case it might be useful to others too, or in the remote chance that someone else will join in the project and give me a hand to flesh it out. 
+I've created this Alan 3 syntax package just to add some support for Alan source files in Sublime Text, for my own personal use. I haven't really planned to make this a finished product to share on Package Control. Nevertheless, I've decided to share it publicly — just in case it might be useful to others too, or in the remote chance that someone else will join in the project and give me a hand to flesh it out.
 
-I'll be polishing the sytnax and adding features as needs arise, and try to document changes. As a guideline, I'll be pushing to `master` only tested features, so you should be safe keeping the package synced to `master` branch. 
+I'll be polishing the sytnax and adding features as needs arise, and try to document changes. As a guideline, I'll be pushing to `master` only tested features, so you should be safe keeping the package synced to `master` branch.
 
 # Features
 
@@ -154,7 +154,7 @@ Currently there is only one build system, which compiles the current editor's al
 
 ## Autocompletions
 
-I'm working on autocompletions to provide a fast coding experience thanks to contextual suggestions. 
+I'm working on autocompletions to provide a fast coding experience thanks to contextual suggestions.
 
 > __NOTE__ — I haven't yet found the time to list main completions in this document. For a detailed and always up-to-date overview of the available completions, see the contents of `completions/` folder.
 
@@ -235,17 +235,17 @@ IMPORT 'library.i'. -- ALAN Standard Library v2.1
 
 THE my_game ISA DEFINITION_BLOCK
 
-  HAS title    "Game Title".   
-  HAS subtitle "".            
-  HAS author   "Tristano Ajmone".    
-  HAS year     2018.       
-  HAS version  "1".          
+  HAS title    "Game Title".
+  HAS subtitle "".
+  HAS author   "Tristano Ajmone".
+  HAS year     2018.
+  HAS version  "1".
 
 END THE.
 
 
 THE start_loc ISA LOCATION
-  
+
 END THE start_loc.
 
 
@@ -257,14 +257,18 @@ DESCRIBE banner.
 
 ## Transcipt and Solution Syntaxes
 
-This package also provides additional syntax definitions for Alan game transcipts and solution files:
+This package also provides additional syntax definitions for Alan game transcripts and solution files:
 
-- [__Alan Solution__ files] ("`*.a3sol`").
-- [__Alan Transcript__ files] ("`*.a3log`").
+- [__Alan Solution__ files]: `*.a3s` and `*.a3sol`.
+- [__Alan Transcript__ files]: `*.a3t` and `*.a3log`.
 
-The purpose of these syntaxes is to simplify handling of game transcipt and solution files by settings Sublime Text to handle these files with ISO-8859-1 enconding, as well as providing some minimal syntax highlighting and allowing the user to associate custom color schemes to them.  Without a basic syntax definition, and its encoding settings, Sublime Text would default to UTF-8 encoding, which would cause lots of problems and errors if the solution file contains special characters (like accented letters), and would not display correctly transcripts containing special chars.
+The alternative `.a3sol` and `.a3log` extensions were arbitrarily invented and introduced by this package, long before Alan adopted their new official counterparts `.a3s` and `.a3t`, respectively (See [alan-if/alan#2]).
+The package currently supports both new (official) and old (arbitrary) extensions because there are various projects still using the older extensions, so we want to provide a grace period to allow them to migrate to the new official extensions, before deprecating them.
 
-Hopefully, these two extra syntaxes will simplify creating and using command scripts to test adventures during the authoring stage, and to correctly visualize game transcipts (ie, provided the "`*.a3sol`" and "`*.a3log`" file extensions are used).
+The purpose of these syntaxes is to simplify handling of game transcript and solution files by settings Sublime Text to handle these files with ISO-8859-1 encoding, as well as providing some minimal syntax highlighting and allowing the user to associate custom color schemes to them.
+Without a basic syntax definition, and its encoding settings, Sublime Text would default to UTF-8 encoding, which would cause lots of problems and errors if the solution file contains special characters (like accented letters), and would not display correctly transcripts containing special chars.
+
+Hopefully, these two extra syntaxes will simplify creating and using command scripts to test adventures during the authoring stage, and to correctly visualize game transcripts (i.e. provided the "`*.a3s`" and "`*.a3t`" file extensions are used).
 
 
 ### Alan Solution Files Syntax
@@ -272,9 +276,10 @@ Hopefully, these two extra syntaxes will simplify creating and using command scr
 + [`Alan Solution.sublime-syntax`][Alan Solution]
 + [`Alan Solution.sublime-settings`][Alan Solution Settings]
 
-This package also defines an __Alan Solution__ syntax associated to the "`*.a3sol`" file extension.
+This package also defines an __Alan Solution__ syntax associated to the `*.a3s`/`*.a3sol` file extensions.
 
-Solution files (aka "commands scripts") are text files containing player commands used to run an adventure in automated mode, by passing the script to the interpreter. Since there is no official extension for Alan solution files, I've chosen to arbitrarily adopt the "`*.a3sol`" file extension, which is intuitively similar to  "`*.sol`" extension often used for solution files, but at the same time is uniquely associated to Alan (Alan adventures having the "`*.a3c`" extension).
+Solution files (aka "commands scripts") are text files containing player commands used to run an adventure in automated mode, by passing the script to the interpreter.
+The `*.a3s`/`*.a3sol` file extensions are intuitively similar to the "`*.sol`" extension often used for solution files, but at the same time can be uniquely uniquely associated to Alan (Alan adventures having the `*.a3c` extension), allowing to enforce custom setting without the risk that they might affect other commonly used extensions.
 
 In __Alan Solution__ files, single-line comments are enabled via the usual comment keyboard shortcuts, producing the "`; `" comment delimiter.
 
@@ -328,7 +333,8 @@ A few snippets are also available to allow commenting solution files:
 + [`Alan Transcript.sublime-syntax`][Alan Transcript]
 + [`Alan Transcript.sublime-settings`][Alan Transcript Settings]
 
-This package also defines an __Alan Transcript__ syntax associated to the "`*.a3log`" file extension. While transcripts generated with the Alan interpreters usually have the "`.log`" file extensions, I've opted to associate this syntax to the  "`*.a3log`" extension because "`.log`" is used in so many different contexts that it didn't seem appropriate to enforce special settings on it. The  "`*.a3log`" extensions seemed a good compromise since it blends the "`.a3`" suffix (commonly used by Alan) with "`log`", so it should be an intuitive compromise. 
+This package also defines an __Alan Transcript__ syntax associated to the `*.a3t`/`*.a3log` file extensions.
+While transcripts generated with the Alan interpreters used to have the `.log` file extension, now Alan as officially adopted the `.a3t` extension because `.log` is already being used in so many different contexts that it doesn't allow to enforce special editor settings on it.
 
 The syntax also syntax highlights the player input lines, capturing the prompt (assuming it's always "`>`"), strings and comments. The output text from the adventure is not highlighted, as the scope of this syntax is to provide easy color separation between player commands and game output text.
 
@@ -356,6 +362,8 @@ The color scheme is created by converting the YAML source file "[`Alan Transcrip
 - Recomended: bleeding-edge __Sublime Text 3__ [Dev BUILD][ST3 Dev Builds].
 
 This package is being developed using the latests [ST3 Dev Builds], and it might use features not included in the latest stable build; I can't grant that it will work with [ST3 Stable Builds].
+
+This package is being developed using the latests [ST3 Dev Builds], but now that Sublime Text 3 has reached its end of life, and its next major incarnation is about to be released at any moment, there shouldn't be any longer any differences between [ST3 Dev Builds] and [ST3 Stable Builds], since no further updates are expected, except for bug fixes.
 
 
 [ST3 Dev Builds]: https://www.sublimetext.com/3dev "Visit Sublime Text 3 Dev Builds page"
@@ -427,9 +435,8 @@ Alan IF links:
 - [Alan Standard Library on Bitbucket]
 - [Alan-IF mailing list and discussion group at Yahoo]
 
-
 <!-----------------------------------------------------------------------------
-                               REFERENCE LINKS                                
+                               REFERENCE LINKS
 ------------------------------------------------------------------------------>
 
 <!-- CROSS REFERENCES -------------------------------------------------------->
@@ -516,5 +523,9 @@ Alan IF links:
 [Alan Transcript Settings]: ./Alan%20Transcript.sublime-settings "view settings source file"
 [Alan Transcript Theme]: ./Alan%20Transcript.hidden-tmTheme "view theme source file"
 [Alan Transcript tmTheme YAML]: ./Alan%20Transcript.YAML-propertyList "view color scheme file"
+
+<!-- Issues ------------------------------------------------------------------>
+
+[alan-if/alan#2]: https://github.com/alan-if/alan/issues/2
 
 <!-- EOF -->

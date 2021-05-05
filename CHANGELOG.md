@@ -1,5 +1,17 @@
 # CHANGELOG
 
+### 2021-05-05
+
+Adopt new official Alan extensions: `.a3s` for solutions, and `.a3t` for transcripts (See [alan-if/alan#2]), but preserve the old custom extensions `.a3sol` and `.a3log` for a grace period, to allow projects that are using them to migrate to the new extensions.
+
+- [`Alan Solution.sublime-syntax`][Alan Solution] v0.1.0:
+    + Add `.a3s` as the main file extension.
+    + Rename scope from `source.a3sol` to `source.a3s`.
+- [`Alan Transcript.sublime-syntax`][AlanLog]
+    + Add `.a3t` as the main file extension.
+    + Rename scope from `source.a3log` to `source.a3t`.
+- Update references to the their new scopes in all package files-
+
 ### 2019-01-16
 
 - [`Alan.sublime-syntax`][Alan] v0.0.30 — __Ligatures__:
@@ -44,7 +56,7 @@
         * `>=` → `⩾` (Greater or equal)
         * `<=` → `⩽` (Less or equal)
         * `==` → `⩵` (String identity operator)
-        * `=>` → `⇒` (Alt symbol for THEN) 
+        * `=>` → `⇒` (Alt symbol for THEN)
 
         (_experimental_): tweaked comment definition to also treat `-->` as a comment delimiter, in order to support _long rightward arrow_ ligature (`⟶`) substitution of the delimiter.
 
@@ -67,7 +79,7 @@
 
 ### 2018-08-23
 
-- Enforce ISO 8859-1 encoding as "fallback_encoding" too, to prevent ST from trying to use UTF-8 when special chars are encountered in the file. This setting seems to mitigate the problems relating to working with ISO 8859-1 file in Sublime Text — opening files seems to work better with this setting, but some problems still remain unsolved. 
+- Enforce ISO 8859-1 encoding as "fallback_encoding" too, to prevent ST from trying to use UTF-8 when special chars are encountered in the file. This setting seems to mitigate the problems relating to working with ISO 8859-1 file in Sublime Text — opening files seems to work better with this setting, but some problems still remain unsolved.
 
 ### 2018-08-22 (3)
 
@@ -409,7 +421,7 @@
 
 
 <!-----------------------------------------------------------------------------
-                               REFERENCE LINKS                                
+                               REFERENCE LINKS
 ------------------------------------------------------------------------------>
 
 
@@ -485,5 +497,9 @@
 [ISO-8859-1]: https://en.wikipedia.org/wiki/ISO/IEC_8859-1
 
 [__@djspiewak's__ guidelines]: https://github.com/sublimehq/Packages/issues/757#issuecomment-269031562 "View @djspiewak's notes on writing syntaxes"
+
+<!-- Issues ------------------------------------------------------------------>
+
+[alan-if/alan#2]: https://github.com/alan-if/alan/issues/2
 
 <!-- EOF -->

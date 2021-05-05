@@ -1,5 +1,5 @@
 <!--
-  "a3sol Comment Heading 4.sublime-snippet" | 2018/10/21
+  "a3s Comment Heading 4.sublime-snippet" | 2018/10/21
   Alan Solution: Heading 4 Commented Frame
 -->
 <snippet>
@@ -11,5 +11,5 @@ ${0}
 ]]></content>
   <description>Heading 4 Commented Frame</description>
   <tabTrigger>h4</tabTrigger>
-  <scope>source.a3sol - comment</scope>
+  <scope>source.a3s - comment</scope>
 </snippet>

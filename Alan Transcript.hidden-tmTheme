@@ -89,7 +89,7 @@
 			<key>name</key>
 			<string>Prompt</string>
 			<key>scope</key>
-			<string>punctuation.definition.prompt.a3log</string>
+			<string>punctuation.definition.prompt</string>
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
