@@ -1,75 +1,79 @@
-################################################################################
-# Alan IF 3 Syntax for Sublime Text 3                                          #
-# https://github.com/tajmone/sublime-alan                                      #
-################################################################################
+#############################################
+#  Alan IF 3 Syntax for Sublime Text 3      #
+#  https://github.com/tajmone/sublime-alan  #
+#############################################
 
 # Set Git's default behaviour to text-files autodetection, in case users don't
 # have `core.autocrlf` set:
 * text=auto
 
-## ==========
+
+## Repository Configuration
+###########################
+.editorconfig    text eol=lf
+.gitlab-ci.yml   text eol=lf
+.travis.yml      text eol=lf
+.gitattributes   text eol=lf
+.gitconfig       text eol=lf
+.gitignore       text eol=lf
+.gitmodules      text eol=lf
+
+
+## Sublime Text
+###############
+*.hidden-tmTheme         text eol=lf   linguist-language=XML
+*.sublime-build          text
+*.sublime-color-scheme   text          linguist-language=JSONC
+*.sublime-commands       text
+*.sublime-completions    text
+*.sublime-keymap         text
+*.sublime-macro          text
+*.sublime-menu           text
+*.sublime-mousemap       text
+*.sublime-project        text
+*.sublime-settings       text
+*.sublime-snippet        text
+*.sublime-syntax         text
+*.sublime-theme          text
+*.sublime-workspace      text
+*.sublime_metrics        text
+*.sublime_session        text
+*.tmPreferences          text
+*.YAML-propertyList      text          linguist-language=YAML
+
+
+## Documentation
+################
+*.md      text
+*.txt     text
+COPYING   text
+LICENSE   text
+
+
+## Scripts
+##########
+*.sh   text eol=lf
+*.py   text
+
+
 ## Alan Files
-## ==========
-*.a3c      binary
-*.alan     text
-*.i        text
-*.ifid     text
+#############
+*.a3c    binary
+*.alan   text     linguist-language=Alan    linguist-detectable=false
+*.i      text     linguist-language=Alan    linguist-detectable=false
+*.ifid   text     linguist-generated=true
 
-## =============
-## AlanIDE Files
-## =============
-.project   text
+# Solutions (commands scripts):
+*.a3s      text   linguist-language=prose   linguist-detectable=false
+*.a3sol    text   linguist-language=prose   linguist-detectable=false
 
-# ==============================================================================
-#                    Text Files (EOL Normalization Settings)                    
-# ==============================================================================
-# Explicitly declare all files that are text and tell Git how to handle EOLs:
+# Transcripts:
+*.a3t      text   linguist-language=prose   linguist-detectable=false
+*.a3log    text   linguist-language=prose   linguist-detectable=false
 
-## ===================
-## DOCUMENTATION FILES
-## ===================
-LICENSE        text
-*.md           text
 
-## ============
-## GIT SETTINGS
-## ============
-.gitattributes text
-.gitconfig     text
-.gitignore     text
-.gitmodules    text
-
-## ==================
-## SUBLIME TEXT FILES
-## ==================
-*.hidden-tmTheme        text eol=lf
-*.sublime-build         text
-*.sublime-color-scheme  text
-*.sublime-commands      text
-*.sublime-completions   text
-*.sublime-keymap        text
-*.sublime-macro         text
-*.sublime-menu          text
-*.sublime-mousemap      text
-*.sublime-project       text
-*.sublime-settings      text
-*.sublime-snippet       text
-*.sublime-syntax        text
-*.sublime-theme         text
-*.sublime-workspace     text
-*.sublime_metrics       text
-*.sublime_session       text
-*.tmPreferences         text
-*.YAML-propertyList     text
-
-# ==============================================================================
-#                                  Binary Files                                 
-# ==============================================================================
-# Explicitly declare all files that are binary and shouldn't be modified by Git:
-
-## ========
-## GRAPHICS
-## ========
+## Graphics
+###########
 *.gif   binary
 *.ico   binary
 *.jpg   binary
@@ -79,51 +83,3 @@ LICENSE        text
 *.svgz  binary
 *.wbmp  binary
 *.webp  binary
-
-# ==============================================================================
-#                                GitHub Linguist                                
-# ==============================================================================
-#  -- https://github.com/github/linguist
-# Manually define/override some extension so that GitHub's Linguist library can
-# 1) correctly gather statistics on source files, and
-# 2) use proper syntax highlighting on GitHub's WebUI.
-
-## ==============
-## Sublime Text 3
-## ==============
-# New Sublime Text file formats not reckognized by Linguist:
-*.sublime-color-scheme      linguist-language=JSON
-*.hidden-tmTheme            linguist-language=XML
-*.YAML-propertyList         linguist-language=YAML
-## =========
-## Alan IF 3
-## =========
-# Alan syntax is not supported by Linguist:
-# https://github.com/github/linguist/blob/master/lib/linguist/languages.yml
-
-## =================
-## Alan Source Files
-## =================
-# Even if Alan syntax is not supported, hopefully these settings might help the
-# repo statics to show up correctly (long-shot guess):
-*.alan    linguist-language=Alan
-*.i       linguist-language=Alan
-*.alan    linguist-detectable=true
-*.i       linguist-detectable=true
-
-*.ifid    linguist-generated=true
-
-## =============
-## AlanIDE Files
-## =============
-.project   linguist-language=XML
-.project   linguist-generated=true
-
-## Sample Patterns
-## ---------------------------
-# *.ext    linguist-detectable=true
-# *.ext    linguist-documentation=true
-# *.ext    linguist-generated=true
-# *.ext    linguist-language=LANG
-# *.ext    linguist-vendored=true
-
