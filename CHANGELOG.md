@@ -1,5 +1,13 @@
 # CHANGELOG
 
+### 2021-06-07 (4)
+
+- Renamed all syntax files by replacing underscores with spaces:
+    + `Alan_IF.*` files to `Alan IF.*`.
+    + `Alan_IF_Transcript.*` files to `Alan IF Transcript.*`.
+    + `Alan_IF_Solution.*` files to `Alan IF Solution.*`.
+- Tweaked test files that were no longer passing tests (possibly due to ST4 bug).
+
 ### 2021-06-07 (3)
 
 - Renamed all `Alan Transcript.*` files to `Alan_IF_Transcript.*`.
@@ -22,7 +30,7 @@ Adopt new official Alan extensions: `.a3s` for solutions, and `.a3t` for transcr
 - [`Alan Solution.sublime-syntax`][Alan IF Solution] v0.1.0:
     + Add `.a3s` as the main file extension.
     + Rename scope from `source.a3sol` to `source.a3s`.
-- [`Alan Transcript.sublime-syntax`][AlanLog]
+- [`Alan Transcript.sublime-syntax`][Alan IF Transcript]
     + Add `.a3t` as the main file extension.
     + Rename scope from `source.a3log` to `source.a3t`.
 - Update references to the their new scopes in all package files-
@@ -81,16 +89,16 @@ Adopt new official Alan extensions: `.a3s` for solutions, and `.a3t` for transcr
 - __Alan Solution__ Comments — add settings to enable line comments (`;`) via keyboard shortcuts in solution files:
     + [`Alan Solution Comments.tmPreferences`][Alan IF Solution Comments]
 - __Alan Transcript__ Comments — add settings to enable line comments (`> ;`) via keyboard shortcuts in transcript files:
-    + [`Alan Transcript Comments.tmPreferences`][Alan Transcript Comments]
+    + [`Alan Transcript Comments.tmPreferences`][Alan IF Transcript Comments]
 
     Commented lines in transcript will use "`> ;`" instead of just "`;`", as usually this is the desired effect (ie, add a comment as user input).
 
 ### 2018-08-24
 
 - New __Alan Transcript Scheme__ (hidden) — this new hidden theme is now the default color scheme set for Alan Transcript files:
-    + [`Alan Transcript.hidden-tmTheme`][Alan Transcript Theme]
-    + [`Alan Transcript.YAML-propertyList-tmTheme`][Alan Transcript tmTheme YAML] — YAML source used for creating `Alan Transcript.hidden-tmTheme` via [PackageDev]'s build system "[Convert to ... - Property List]".
-- [__Alan Transcript__ Syntax][Alan Transcript] — syntax highlight user input lines (assuming prompt is "`>`"): comments, strings. Game output is not highlighted.
+    + [`Alan Transcript.hidden-tmTheme`][Alan IF Transcript Theme]
+    + [`Alan Transcript.YAML-propertyList-tmTheme`][Alan IF Transcript tmTheme YAML] — YAML source used for creating `Alan Transcript.hidden-tmTheme` via [PackageDev]'s build system "[Convert to ... - Property List]".
+- [__Alan Transcript__ Syntax][Alan IF Transcript] — syntax highlight user input lines (assuming prompt is "`>`"): comments, strings. Game output is not highlighted.
 
 ### 2018-08-23
 
@@ -106,8 +114,8 @@ Adopt new official Alan extensions: `.a3s` for solutions, and `.a3t` for transcr
 ### 2018-08-22 (2)
 
 - New __Alan Transcript__ Syntax ("`*.a3log`") — new syntax definition and settings for adventure transcript files. Created to simplify handling of ISO-8859-1 encoding in transcripts when testing adventures. Also provides some very basic highlighting (comments and strings):
-    + [`Alan Transcript.sublime-syntax`][Alan Transcript]
-    + [`Alan Transcript.sublime-settings`][Alan Transcript Settings]
+    + [`Alan Transcript.sublime-syntax`][Alan IF Transcript]
+    + [`Alan Transcript.sublime-settings`][Alan IF Transcript Settings]
 
 ### 2018-08-22 (1)
 
@@ -481,7 +489,7 @@ Adopt new official Alan extensions: `.a3s` for solutions, and `.a3t` for transcr
 
 <!-- Alan Syntax ------------------------------------------------------------->
 
-[Alan]: ./Alan_IF.sublime-syntax "view syntax source file"
+[Alan]: ./Alan%20IF.sublime-syntax "view syntax source file"
 
 <!-- AlanLog Syntax ---------------------------------------------------------->
 
@@ -495,19 +503,19 @@ Adopt new official Alan extensions: `.a3s` for solutions, and `.a3t` for transcr
 
 <!-- Alan Solution Syntax ---------------------------------------------------->
 
-[Alan IF Solution]: ./Alan_IF_Solution.sublime-syntax "view syntax source file"
-[Alan IF Solution Comments]: ./Alan_IF_Solution%20Comments.tmPreferences "view comments settings source file"
-[Alan IF Solution Settings]: ./Alan_IF_Solution.sublime-settings "view settings source file"
-[Alan IF Solution Theme]: ./Alan_IF_Solution.hidden-tmTheme "view theme source file"
-[Alan IF Solution tmTheme YAML]: ./Alan_IF_Solution.YAML-propertyList "view color scheme file"
+[Alan IF Solution]: ./Alan%20IF%20Solution.sublime-syntax "view syntax source file"
+[Alan IF Solution Comments]: ./Alan%20IF%20Solution%20Comments.tmPreferences "view comments settings source file"
+[Alan IF Solution Settings]: ./Alan%20IF%20Solution.sublime-settings "view settings source file"
+[Alan IF Solution Theme]: ./Alan%20IF%20Solution.hidden-tmTheme "view theme source file"
+[Alan IF Solution tmTheme YAML]: ./Alan%20IF%20Solution.YAML-propertyList "view color scheme file"
 
 <!-- Alan Transcript Syntax -------------------------------------------------->
 
-[Alan Transcript]: ./Alan_IF_Transcript.sublime-syntax "view syntax source file"
-[Alan Transcript Comments]: ./Alan_IF_Transcript%20Comments.tmPreferences "view comments settings source file"
-[Alan Transcript Settings]: ./Alan_IF_Transcript.sublime-settings "view settings source file"
-[Alan Transcript Theme]: ./Alan_IF_Transcript.hidden-tmTheme "view theme source file"
-[Alan Transcript tmTheme YAML]: ./Alan_IF_Transcript.YAML-propertyList "view color scheme file"
+[Alan IF Transcript]: ./Alan%20IF%20Transcript.sublime-syntax "view syntax source file"
+[Alan IF Transcript Comments]: ./Alan%20IF%20Transcript%20Comments.tmPreferences "view comments settings source file"
+[Alan IF Transcript Settings]: ./Alan%20IF%20Transcript.sublime-settings "view settings source file"
+[Alan IF Transcript Theme]: ./Alan%20IF%20Transcript.hidden-tmTheme "view theme source file"
+[Alan IF Transcript tmTheme YAML]: ./Alan%20IF%20Transcript.YAML-propertyList "view color scheme file"
 
 <!-- External References ----------------------------------------------------->
 

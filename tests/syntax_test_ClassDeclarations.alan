@@ -1,4 +1,4 @@
--- SYNTAX TEST "Packages/Alan_IF/Alan_IF.sublime-syntax"
+-- SYNTAX TEST "Packages/Alan_IF/Alan IF.sublime-syntax"
 
 -- ======================
 -- Test Class Definitions
@@ -125,13 +125,13 @@ EVERY IsA object
 --   ^                           meta.class.alan - storage.type.class.alan
 --       ^                       meta.class.alan - entity.other.inherited-class.alan
 END EVERY.
---<-^^^^^                        meta.class.alan   keyword.control.alan
+--^^^^^^^                        meta.class.alan   keyword.control.alan
 --       ^                       meta.class.alan   punctuation.terminator.alan
 --        ^        source.alan - meta.class.alan
 
 -- WRONG: missing Inheritance Class ID:
 EVERY grue IsA.
---<-^                            meta.class.alan   storage.type.class.alan
+--^^^                            meta.class.alan   storage.type.class.alan
 --    ^^^^                       meta.class.alan   entity.name.class.alan
 --         ^^^                   meta.class.alan   storage.modifier.extends
 --            ^                  meta.class.alan   punctuation.terminator.alan

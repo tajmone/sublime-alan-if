@@ -1,4 +1,4 @@
--- SYNTAX TEST "Packages/Alan_IF/Alan_IF.sublime-syntax"
+-- SYNTAX TEST "Packages/Alan_IF/Alan IF.sublime-syntax"
 
 -- ======================
 -- Test Instances
@@ -125,7 +125,7 @@ THE IsA object
 -- ^                             meta.instance.alan - storage.type.instance.alan
 --     ^                         meta.instance.alan - entity.other.inherited-class.alan
 END THE.
---<-^^^                          meta.instance.alan   keyword.control.alan
+--^^^^^                          meta.instance.alan   keyword.control.alan
 --     ^                         meta.instance.alan   punctuation.terminator.alan
 --      ^          source.alan - meta.instance.alan
 

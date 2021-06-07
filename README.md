@@ -281,8 +281,8 @@ Hopefully, these two extra syntaxes will simplify creating and using command scr
 
 ### Alan Solution Files Syntax
 
-+ [`Alan_IF_Solution.sublime-syntax`][Alan IF Solution]
-+ [`Alan_IF_Solution.sublime-settings`][Alan IF Solution Settings]
++ [`Alan IF Solution.sublime-syntax`][Alan IF Solution]
++ [`Alan IF Solution.sublime-settings`][Alan IF Solution Settings]
 
 This package also defines an __Alan IF Solution__ syntax associated to the `*.a3s`/`*.a3sol` file extensions.
 
@@ -293,8 +293,8 @@ In __Alan IF Solution__ files, single-line comments are enabled via the usual co
 
 #### Alan Solution Color Scheme
 
-+ [`Alan_IF_Solution.hidden-tmTheme`][Alan IF Solution Theme]
-+ [`Alan_IF_Solution.YAML-propertyList-tmTheme`][Alan IF Solution tmTheme YAML] (scheme source)
++ [`Alan IF Solution.hidden-tmTheme`][Alan IF Solution Theme]
++ [`Alan IF Solution.YAML-propertyList-tmTheme`][Alan IF Solution tmTheme YAML] (scheme source)
 
 This package also sets a predefined hidden color scheme to preview Alan Solution files:
 
@@ -302,7 +302,7 @@ This package also sets a predefined hidden color scheme to preview Alan Solution
 
 ... which is intended to make editing command script file more pleasant to the eye.
 
-The color scheme is created by converting the YAML source file "[`Alan_IF_Solution.YAML-propertyList-tmTheme`][Alan IF Solution tmTheme YAML]" via [PackageDev]'s build system "[Convert to ... - Property List]"; since the YAML format is easier to maintain.
+The color scheme is created by converting the YAML source file "[`Alan IF Solution.YAML-propertyList-tmTheme`][Alan IF Solution tmTheme YAML]" via [PackageDev]'s build system "[Convert to ... - Property List]"; since the YAML format is easier to maintain.
 
 #### Alan Solution Snippets
 
@@ -338,8 +338,8 @@ A few snippets are also available to allow commenting solution files:
 
 ### Alan Transcript Files Syntax
 
-+ [`Alan_IF_Transcript.sublime-syntax`][Alan Transcript]
-+ [`Alan_IF_Transcript.sublime-settings`][Alan Transcript Settings]
++ [`Alan IF Transcript.sublime-syntax`][Alan Transcript]
++ [`Alan IF Transcript.sublime-settings`][Alan Transcript Settings]
 
 This package also defines an __Alan IF Transcript__ syntax associated to the `*.a3t`/`*.a3log` file extensions.
 While transcripts generated with the Alan interpreters used to have the `.log` file extension, now Alan as officially adopted the `.a3t` extension because `.log` is already being used in so many different contexts that it doesn't allow to enforce special editor settings on it.
@@ -353,8 +353,8 @@ In __Alan IF Transcript__ files, single-line comments are enabled via the usual 
 
 #### Alan Transcript Color Scheme
 
-+ [`Alan_IF_Transcript.hidden-tmTheme`][Alan Transcript Theme]
-+ [`Alan_IF_Transcript.YAML-propertyList-tmTheme`][Alan Transcript tmTheme YAML] (scheme source)
++ [`Alan IF Transcript.hidden-tmTheme`][Alan Transcript Theme]
++ [`Alan IF Transcript.YAML-propertyList-tmTheme`][Alan Transcript tmTheme YAML] (scheme source)
 
 This package also sets a predefined hidden color scheme to preview Alan Transcript files:
 
@@ -362,7 +362,7 @@ This package also sets a predefined hidden color scheme to preview Alan Transcri
 
 ... which is intended to make previewing of game transcript files more pleasant to the eye.
 
-The color scheme is created by converting the YAML source file "[`Alan_IF_Transcript.YAML-propertyList-tmTheme`][Alan Transcript tmTheme YAML]" via [PackageDev]'s build system "[Convert to ... - Property List]"; since the YAML format is easier to maintain.
+The color scheme is created by converting the YAML source file "[`Alan IF Transcript.YAML-propertyList-tmTheme`][Alan Transcript tmTheme YAML]" via [PackageDev]'s build system "[Convert to ... - Property List]"; since the YAML format is easier to maintain.
 
 # Requirements
 
@@ -540,17 +540,17 @@ Alan IF links:
 
 <!-- Alan Solution Syntax -->
 
-[Alan IF Solution]: ./Alan_IF_Solution.sublime-syntax "view syntax source file"
-[Alan IF Solution Settings]: ./Alan_IF_Solution.sublime-settings "view settings source file"
-[Alan IF Solution Theme]: ./Alan_IF_Solution.hidden-tmTheme "view theme source file"
-[Alan IF Solution tmTheme YAML]: ./Alan_IF_Solution.YAML-propertyList "view color scheme file"
+[Alan IF Solution]: ./Alan%20IF%20Solution.sublime-syntax "view syntax source file"
+[Alan IF Solution Settings]: ./Alan%20IF%20Solution.sublime-settings "view settings source file"
+[Alan IF Solution Theme]: ./Alan%20IF%20Solution.hidden-tmTheme "view theme source file"
+[Alan IF Solution tmTheme YAML]: ./Alan%20IF%20Solution.YAML-propertyList "view color scheme file"
 
 <!-- Alan Transcript Syntax -->
 
-[Alan Transcript]: ./Alan_IF_Transcript.sublime-syntax "view syntax source file"
-[Alan Transcript Settings]: ./Alan_IF_Transcript.sublime-settings "view settings source file"
-[Alan Transcript Theme]: ./Alan_IF_Transcript.hidden-tmTheme "view theme source file"
-[Alan Transcript tmTheme YAML]: ./Alan_IF_Transcript.YAML-propertyList "view color scheme file"
+[Alan Transcript]: ./Alan%20IF%20Transcript.sublime-syntax "view syntax source file"
+[Alan Transcript Settings]: ./Alan%20IF%20Transcript.sublime-settings "view settings source file"
+[Alan Transcript Theme]: ./Alan%20IF%20Transcript.hidden-tmTheme "view theme source file"
+[Alan Transcript tmTheme YAML]: ./Alan%20IF%20Transcript.YAML-propertyList "view color scheme file"
 
 <!-- badges ------------------------------------------------------------------>
 
