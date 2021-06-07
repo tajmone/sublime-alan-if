@@ -1,8 +1,8 @@
 # [PackageDev] target_format: plist, ext: hidden-tmTheme
 # ------------------------------------------------------------------------------
-# Alan Transcript Color Scheme v0.0.1 (2018-08-24)
+# Alan Transcript Color Scheme v0.1.0 (2021-06-07)
 # ------------------------------------------------------------------------------
-# This file is the YAML source used for creating "Alan Transcript.hidden-tmTheme"
+# This is the YAML source used for creating "Alan_IF_Transcript.hidden-tmTheme"
 # via PackageDev's build system "Convert to ... - Property List".
 # -- https://packagecontrol.io/packages/PackageDev
 # -- https://github.com/SublimeText/PackageDev/wiki/Serialized-Conversion
@@ -10,7 +10,7 @@
 # NOTE: After rebuilding the tmTheme file, ST must be restarted for the changes
 #       to become effective.
 # ------------------------------------------------------------------------------
-name: Alan Transcript
+name: Alan IF Transcript
 settings:
 - settings:
     background: '#f7fdff' # Pastel blue (very light)

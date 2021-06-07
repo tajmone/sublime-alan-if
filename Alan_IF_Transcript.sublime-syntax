@@ -1,8 +1,8 @@
 %YAML 1.2
 ---
-# "Alan Transcript.sublime-syntax" v0.1.0 (2021-05-05)           | Alan v3 beta6
+# "Alan_IF_Transcript.sublime-syntax" v0.2.0 (2021-06-07) | Alan v3 beta6
 # ==============================================================================
-# Alan Transcript Syntax (for Alan IF games' commands scripts)
+# Alan IF Transcript Syntax (for Alan IF games' commands scripts)
 # ==============================================================================
 # Syntax definition for Alan IF Adventures transcript files:
 # -- https://www.alanif.se
@@ -27,7 +27,7 @@
 # Copyright (c) Tristano Ajmone, 2018. MIT License.
 # -- https://github.com/tajmone/sublime-alan-if
 # ------------------------------------------------------------------------------
-name:    Alan Transcript
+name:    Alan IF Transcript
 comment: Alan IF Adventure Transcript File
 file_extensions:
   - a3t

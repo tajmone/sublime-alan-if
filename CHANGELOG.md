@@ -1,5 +1,9 @@
 # CHANGELOG
 
+### 2021-06-07 (3)
+
+- Renamed all `Alan Transcript.*` files to `Alan_IF_Transcript.*`.
+
 ### 2021-06-07 (2)
 
 - Renamed all `Alan Solution.*` files to `Alan_IF_Solution.*`.
@@ -499,11 +503,11 @@ Adopt new official Alan extensions: `.a3s` for solutions, and `.a3t` for transcr
 
 <!-- Alan Transcript Syntax -------------------------------------------------->
 
-[Alan Transcript]: ./Alan%20Transcript.sublime-syntax "view syntax source file"
-[Alan Transcript Comments]: ./Alan%20Transcript%20Comments.tmPreferences "view comments settings source file"
-[Alan Transcript Settings]: ./Alan%20Transcript.sublime-settings "view settings source file"
-[Alan Transcript Theme]: ./Alan%20Transcript.hidden-tmTheme "view theme source file"
-[Alan Transcript tmTheme YAML]: ./Alan%20Transcript.YAML-propertyList "view color scheme file"
+[Alan Transcript]: ./Alan_IF_Transcript.sublime-syntax "view syntax source file"
+[Alan Transcript Comments]: ./Alan_IF_Transcript%20Comments.tmPreferences "view comments settings source file"
+[Alan Transcript Settings]: ./Alan_IF_Transcript.sublime-settings "view settings source file"
+[Alan Transcript Theme]: ./Alan_IF_Transcript.hidden-tmTheme "view theme source file"
+[Alan Transcript tmTheme YAML]: ./Alan_IF_Transcript.YAML-propertyList "view color scheme file"
 
 <!-- External References ----------------------------------------------------->
 

@@ -75,8 +75,8 @@ For more info on the roadmap and wishlist, see:
 The package also ships with additional syntax definitions and color schemes for:
 
 - Compiler log in the the [Build Systems]
-- [__Alan Solution__ files]  (aka "commands scripts").
-- [__Alan Transcript__ files].
+- [__Alan IF Solution__ files]  (aka "commands scripts").
+- [__Alan IF Transcript__ files].
 
 ### Ligatures Support
 
@@ -267,8 +267,8 @@ DESCRIBE banner.
 
 This package also provides additional syntax definitions for Alan game transcripts and solution files:
 
-- [__Alan Solution__ files]: `*.a3s` and `*.a3sol`.
-- [__Alan Transcript__ files]: `*.a3t` and `*.a3log`.
+- [__Alan IF Solution__ files]: `*.a3s` and `*.a3sol`.
+- [__Alan IF Transcript__ files]: `*.a3t` and `*.a3log`.
 
 The alternative `.a3sol` and `.a3log` extensions were arbitrarily invented and introduced by this package, long before Alan adopted their new official counterparts `.a3s` and `.a3t`, respectively (See [alan-if/alan#2]).
 The package currently supports both new (official) and old (arbitrary) extensions because there are various projects still using the older extensions, so we want to provide a grace period to allow them to migrate to the new official extensions, before deprecating them.
@@ -284,12 +284,12 @@ Hopefully, these two extra syntaxes will simplify creating and using command scr
 + [`Alan_IF_Solution.sublime-syntax`][Alan IF Solution]
 + [`Alan_IF_Solution.sublime-settings`][Alan IF Solution Settings]
 
-This package also defines an __Alan Solution__ syntax associated to the `*.a3s`/`*.a3sol` file extensions.
+This package also defines an __Alan IF Solution__ syntax associated to the `*.a3s`/`*.a3sol` file extensions.
 
 Solution files (aka "commands scripts") are text files containing player commands used to run an adventure in automated mode, by passing the script to the interpreter.
 The `*.a3s`/`*.a3sol` file extensions are intuitively similar to the "`*.sol`" extension often used for solution files, but at the same time can be uniquely uniquely associated to Alan (Alan adventures having the `*.a3c` extension), allowing to enforce custom setting without the risk that they might affect other commonly used extensions.
 
-In __Alan Solution__ files, single-line comments are enabled via the usual comment keyboard shortcuts, producing the "`; `" comment delimiter.
+In __Alan IF Solution__ files, single-line comments are enabled via the usual comment keyboard shortcuts, producing the "`; `" comment delimiter.
 
 #### Alan Solution Color Scheme
 
@@ -338,23 +338,23 @@ A few snippets are also available to allow commenting solution files:
 
 ### Alan Transcript Files Syntax
 
-+ [`Alan Transcript.sublime-syntax`][Alan Transcript]
-+ [`Alan Transcript.sublime-settings`][Alan Transcript Settings]
++ [`Alan_IF_Transcript.sublime-syntax`][Alan Transcript]
++ [`Alan_IF_Transcript.sublime-settings`][Alan Transcript Settings]
 
-This package also defines an __Alan Transcript__ syntax associated to the `*.a3t`/`*.a3log` file extensions.
+This package also defines an __Alan IF Transcript__ syntax associated to the `*.a3t`/`*.a3log` file extensions.
 While transcripts generated with the Alan interpreters used to have the `.log` file extension, now Alan as officially adopted the `.a3t` extension because `.log` is already being used in so many different contexts that it doesn't allow to enforce special editor settings on it.
 
 The syntax also syntax highlights the player input lines, capturing the prompt (assuming it's always "`>`"), strings and comments. The output text from the adventure is not highlighted, as the scope of this syntax is to provide easy color separation between player commands and game output text.
 
 In trasncripts of adventures which change the prompt (from the default "`>`" symbol) the player input line won't be captured and syntax highlighted.
 
-In __Alan Transcript__ files, single-line comments are enabled via the usual comment keyboard shortcuts, producing a "`> ; `" comment delimiter. The reason why commented lines are preceded by a prompt (unlike Solution files, which use just a semicolon) is that this is the expected behavior in this context. Transcipts are automatically produced by the interpreter, and the purpose of the __Alan Transcript__ syntax is to allow a nicer preview of these files; but in some cases the user might wish to add some comments to the transcipts before sharing them with other (eg, to pinpoint a typo or a bug), and these added comments should be represented as a comment line added by the player during the game session (hence the addition of the prompt before the comment delimiter).
+In __Alan IF Transcript__ files, single-line comments are enabled via the usual comment keyboard shortcuts, producing a "`> ; `" comment delimiter. The reason why commented lines are preceded by a prompt (unlike Solution files, which use just a semicolon) is that this is the expected behavior in this context. Transcipts are automatically produced by the interpreter, and the purpose of the __Alan IF Transcript__ syntax is to allow a nicer preview of these files; but in some cases the user might wish to add some comments to the transcipts before sharing them with other (eg, to pinpoint a typo or a bug), and these added comments should be represented as a comment line added by the player during the game session (hence the addition of the prompt before the comment delimiter).
 
 
 #### Alan Transcript Color Scheme
 
-+ [`Alan Transcript.hidden-tmTheme`][Alan Transcript Theme]
-+ [`Alan Transcript.YAML-propertyList-tmTheme`][Alan Transcript tmTheme YAML] (scheme source)
++ [`Alan_IF_Transcript.hidden-tmTheme`][Alan Transcript Theme]
++ [`Alan_IF_Transcript.YAML-propertyList-tmTheme`][Alan Transcript tmTheme YAML] (scheme source)
 
 This package also sets a predefined hidden color scheme to preview Alan Transcript files:
 
@@ -362,7 +362,7 @@ This package also sets a predefined hidden color scheme to preview Alan Transcri
 
 ... which is intended to make previewing of game transcript files more pleasant to the eye.
 
-The color scheme is created by converting the YAML source file "[`Alan Transcript.YAML-propertyList-tmTheme`][Alan Transcript tmTheme YAML]" via [PackageDev]'s build system "[Convert to ... - Property List]"; since the YAML format is easier to maintain.
+The color scheme is created by converting the YAML source file "[`Alan_IF_Transcript.YAML-propertyList-tmTheme`][Alan Transcript tmTheme YAML]" via [PackageDev]'s build system "[Convert to ... - Property List]"; since the YAML format is easier to maintain.
 
 # Requirements
 
@@ -469,8 +469,8 @@ Alan IF links:
 
 <!-- cross references -------------------------------------------------------->
 
-[__Alan Solution__ files]: #alan-solution-files-syntax "Read more about Alan Solution files..."
-[__Alan Transcript__ files]: #alan-transcript-files-syntax "Read more about Alan Transcript files..."
+[__Alan IF Solution__ files]: #alan-solution-files-syntax "Read more about Alan Solution files..."
+[__Alan IF Transcript__ files]: #alan-transcript-files-syntax "Read more about Alan Transcript files..."
 
 [Build Systems]: #build-systems "Read more about Sublime-Alan's Build Systems..."
 
@@ -547,10 +547,10 @@ Alan IF links:
 
 <!-- Alan Transcript Syntax -->
 
-[Alan Transcript]: ./Alan%20Transcript.sublime-syntax "view syntax source file"
-[Alan Transcript Settings]: ./Alan%20Transcript.sublime-settings "view settings source file"
-[Alan Transcript Theme]: ./Alan%20Transcript.hidden-tmTheme "view theme source file"
-[Alan Transcript tmTheme YAML]: ./Alan%20Transcript.YAML-propertyList "view color scheme file"
+[Alan Transcript]: ./Alan_IF_Transcript.sublime-syntax "view syntax source file"
+[Alan Transcript Settings]: ./Alan_IF_Transcript.sublime-settings "view settings source file"
+[Alan Transcript Theme]: ./Alan_IF_Transcript.hidden-tmTheme "view theme source file"
+[Alan Transcript tmTheme YAML]: ./Alan_IF_Transcript.YAML-propertyList "view color scheme file"
 
 <!-- badges ------------------------------------------------------------------>
 
