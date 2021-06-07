@@ -17,11 +17,18 @@ trim_trailing_whitespace = true
 
 ## Sublime Text
 ###############
-[*.{sublime-*,tmPreferences,hidden-tmTheme,YAML-propertyList}]
+[*.{sublime-*,tmPreferences,YAML-propertyList}]
 charset = utf-8
 end_of_line = unset
 indent_size = 2
 indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.hidden-tmTheme]
+charset = utf-8
+end_of_line = unset
+indent_style = tab
 insert_final_newline = true
 trim_trailing_whitespace = true
 

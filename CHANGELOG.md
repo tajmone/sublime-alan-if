@@ -1,6 +1,10 @@
 # CHANGELOG
 
-### 2021-06-07
+### 2021-06-07 (2)
+
+- Renamed all `Alan Solution.*` files to `Alan_IF_Solution.*`.
+
+### 2021-06-07 (1)
 
 To prevent clashes with the [Alan Programming Language] by [Alan Technologies, Inc] (see [Issue #5]):
 
@@ -11,7 +15,7 @@ To prevent clashes with the [Alan Programming Language] by [Alan Technologies, I
 
 Adopt new official Alan extensions: `.a3s` for solutions, and `.a3t` for transcripts (See [alan-if/alan#2]), but preserve the old custom extensions `.a3sol` and `.a3log` for a grace period, to allow projects that are using them to migrate to the new extensions.
 
-- [`Alan Solution.sublime-syntax`][Alan Solution] v0.1.0:
+- [`Alan Solution.sublime-syntax`][Alan IF Solution] v0.1.0:
     + Add `.a3s` as the main file extension.
     + Rename scope from `source.a3sol` to `source.a3s`.
 - [`Alan Transcript.sublime-syntax`][AlanLog]
@@ -71,7 +75,7 @@ Adopt new official Alan extensions: `.a3s` for solutions, and `.a3t` for transcr
 ### 2018-08-25
 
 - __Alan Solution__ Comments — add settings to enable line comments (`;`) via keyboard shortcuts in solution files:
-    + [`Alan Solution Comments.tmPreferences`][Alan Solution Comments]
+    + [`Alan Solution Comments.tmPreferences`][Alan IF Solution Comments]
 - __Alan Transcript__ Comments — add settings to enable line comments (`> ;`) via keyboard shortcuts in transcript files:
     + [`Alan Transcript Comments.tmPreferences`][Alan Transcript Comments]
 
@@ -91,8 +95,8 @@ Adopt new official Alan extensions: `.a3s` for solutions, and `.a3t` for transcr
 ### 2018-08-22 (3)
 
 - New __Alan Solution Scheme__ (hidden) — this new hidden theme is now the default color scheme set for Alan Solution files:
-    + [`Alan Solution.hidden-tmTheme`][Alan Solution Theme]
-    + [`Alan Solution.YAML-propertyList-tmTheme`][Alan Solution tmTheme YAML] — YAML source used for creating `Alan Solution.hidden-tmTheme` via [PackageDev]'s build system "[Convert to ... - Property List]".
+    + [`Alan Solution.hidden-tmTheme`][Alan IF Solution Theme]
+    + [`Alan Solution.YAML-propertyList-tmTheme`][Alan IF Solution tmTheme YAML] — YAML source used for creating `Alan Solution.hidden-tmTheme` via [PackageDev]'s build system "[Convert to ... - Property List]".
 
 
 ### 2018-08-22 (2)
@@ -104,8 +108,8 @@ Adopt new official Alan extensions: `.a3s` for solutions, and `.a3t` for transcr
 ### 2018-08-22 (1)
 
 - New __Alan Solution__ Syntax ("`*.a3sol`") — new syntax definition and settings for solution files (aka "commands scripts"). Created to simplify handling of ISO-8859-1 encoding in commands scripts for testing adventures. Also provides some very basic highlighting (comments and strings):
-    + [`Alan Solution.sublime-syntax`][Alan Solution]
-    + [`Alan Solution.sublime-settings`][Alan Solution Settings]
+    + [`Alan Solution.sublime-syntax`][Alan IF Solution]
+    + [`Alan Solution.sublime-settings`][Alan IF Solution Settings]
 
 - Alan SDK updated to Beta6, change version in source comments:
     + [`Alan.sublime-syntax`][Alan] v0.0.27
@@ -473,7 +477,7 @@ Adopt new official Alan extensions: `.a3s` for solutions, and `.a3t` for transcr
 
 <!-- Alan Syntax ------------------------------------------------------------->
 
-[Alan]: ./Alan.sublime-syntax "view syntax source file"
+[Alan]: ./Alan_IF.sublime-syntax "view syntax source file"
 
 <!-- AlanLog Syntax ---------------------------------------------------------->
 
@@ -487,11 +491,11 @@ Adopt new official Alan extensions: `.a3s` for solutions, and `.a3t` for transcr
 
 <!-- Alan Solution Syntax ---------------------------------------------------->
 
-[Alan Solution]: ./Alan%20Solution.sublime-syntax "view syntax source file"
-[Alan Solution Comments]: ./Alan%20Solution%20Comments.tmPreferences "view comments settings source file"
-[Alan Solution Settings]: ./Alan%20Solution.sublime-settings "view settings source file"
-[Alan Solution Theme]: ./Alan%20Solution.hidden-tmTheme "view theme source file"
-[Alan Solution tmTheme YAML]: ./Alan%20Solution.YAML-propertyList "view color scheme file"
+[Alan IF Solution]: ./Alan_IF_Solution.sublime-syntax "view syntax source file"
+[Alan IF Solution Comments]: ./Alan_IF_Solution%20Comments.tmPreferences "view comments settings source file"
+[Alan IF Solution Settings]: ./Alan_IF_Solution.sublime-settings "view settings source file"
+[Alan IF Solution Theme]: ./Alan_IF_Solution.hidden-tmTheme "view theme source file"
+[Alan IF Solution tmTheme YAML]: ./Alan_IF_Solution.YAML-propertyList "view color scheme file"
 
 <!-- Alan Transcript Syntax -------------------------------------------------->
 

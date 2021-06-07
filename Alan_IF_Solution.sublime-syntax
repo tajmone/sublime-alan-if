@@ -1,8 +1,8 @@
 %YAML 1.2
 ---
-# "Alan Solution.sublime-syntax" v0.1.0 (2021-05-05)             | Alan v3 beta6
+# "Alan IF Solution.sublime-syntax" v0.1.0 (2021-06-07) | Alan v3 beta6
 # ==============================================================================
-# Alan Solution Syntax (for Alan IF games' commands scripts)
+# Alan IF Solution Syntax (for Alan IF games' commands scripts)
 # ==============================================================================
 # Syntax definition for Alan IF Adventures solution files:
 # -- https://www.alanif.se
@@ -24,7 +24,7 @@
 # Copyright (c) Tristano Ajmone, 2018. MIT License.
 # -- https://github.com/tajmone/sublime-alan-if
 # ------------------------------------------------------------------------------
-name:    Alan Solution
+name:    Alan IF Solution
 comment: Alan IF Adventure Solution File
 file_extensions:
   - a3s

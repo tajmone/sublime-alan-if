@@ -281,8 +281,8 @@ Hopefully, these two extra syntaxes will simplify creating and using command scr
 
 ### Alan Solution Files Syntax
 
-+ [`Alan Solution.sublime-syntax`][Alan Solution]
-+ [`Alan Solution.sublime-settings`][Alan Solution Settings]
++ [`Alan_IF_Solution.sublime-syntax`][Alan IF Solution]
++ [`Alan_IF_Solution.sublime-settings`][Alan IF Solution Settings]
 
 This package also defines an __Alan Solution__ syntax associated to the `*.a3s`/`*.a3sol` file extensions.
 
@@ -293,16 +293,16 @@ In __Alan Solution__ files, single-line comments are enabled via the usual comme
 
 #### Alan Solution Color Scheme
 
-+ [`Alan Solution.hidden-tmTheme`][Alan Solution Theme]
-+ [`Alan Solution.YAML-propertyList-tmTheme`][Alan Solution tmTheme YAML] (scheme source)
++ [`Alan_IF_Solution.hidden-tmTheme`][Alan IF Solution Theme]
++ [`Alan_IF_Solution.YAML-propertyList-tmTheme`][Alan IF Solution tmTheme YAML] (scheme source)
 
 This package also sets a predefined hidden color scheme to preview Alan Solution files:
 
-![Screenshot of Alan Solution file color scheme][Screenshot Alan Solution Color Scheme]
+![Screenshot of Alan IF Solution file color scheme][Screenshot Alan IF Solution Color Scheme]
 
 ... which is intended to make editing command script file more pleasant to the eye.
 
-The color scheme is created by converting the YAML source file "[`Alan Solution.YAML-propertyList-tmTheme`][Alan Solution tmTheme YAML]" via [PackageDev]'s build system "[Convert to ... - Property List]"; since the YAML format is easier to maintain.
+The color scheme is created by converting the YAML source file "[`Alan_IF_Solution.YAML-propertyList-tmTheme`][Alan IF Solution tmTheme YAML]" via [PackageDev]'s build system "[Convert to ... - Property List]"; since the YAML format is easier to maintain.
 
 #### Alan Solution Snippets
 
@@ -520,15 +520,13 @@ Alan IF links:
 [Screenshot Build Console]: ./screenshots/Build_Errors_Console.png "Screenshot of Sublime-Alan build system errors log in ST's console"
 [Screenshot Build Editor]:  ./screenshots/Build_Errors_Editor.png "Screenshot of Sublime-Alan build system errors navigation (using 'Monokai' color scheme)"
 [Screenshot Alan DarkFluo]:  ./screenshots/Alan_DarkFluo.png "Screenshot of 'Alan DarkFluo' color scheme"
-[Screenshot Alan Solution Color Scheme]:  ./screenshots/Alan_Solution_scheme.png "Screenshot of 'Alan Solution' color scheme"
+[Screenshot Alan IF Solution Color Scheme]:  ./screenshots/Alan_Solution_scheme.png "Screenshot of 'Alan Solution' color scheme"
 [Screenshot Alan Transcript Color Scheme]:  ./screenshots/Alan_Transcript_scheme.png "Screenshot of 'Alan Transcript' color scheme"
 [Screenshot Snippet New Adv]:  ./screenshots/Snippet_New_Adventure.gif "Screenshot of 'New Adventure Boilerplate' snippet in action"
 [Screenshot Snippet New Adv Vars]:  ./screenshots/Snippet_New_Adventure_Custom_Vars.gif "Using custom variables with the 'New Adventure Boilerplate' snippet"
 [Screenshot Ligatures]:  ./screenshots/Ligatures_Preview.gif "Screenshots animation showing Alan code with ligatures enabled vs disabled"
 
 <!-- Alan Syntax -->
-
-[Alan syntax]: ./Alan.sublime-syntax "view syntax source file"
 
 <!-- AlanLog Syntax -->
 
@@ -542,10 +540,10 @@ Alan IF links:
 
 <!-- Alan Solution Syntax -->
 
-[Alan Solution]: ./Alan%20Solution.sublime-syntax "view syntax source file"
-[Alan Solution Settings]: ./Alan%20Solution.sublime-settings "view settings source file"
-[Alan Solution Theme]: ./Alan%20Solution.hidden-tmTheme "view theme source file"
-[Alan Solution tmTheme YAML]: ./Alan%20Solution.YAML-propertyList "view color scheme file"
+[Alan IF Solution]: ./Alan_IF_Solution.sublime-syntax "view syntax source file"
+[Alan IF Solution Settings]: ./Alan_IF_Solution.sublime-settings "view settings source file"
+[Alan IF Solution Theme]: ./Alan_IF_Solution.hidden-tmTheme "view theme source file"
+[Alan IF Solution tmTheme YAML]: ./Alan_IF_Solution.YAML-propertyList "view color scheme file"
 
 <!-- Alan Transcript Syntax -->
 
