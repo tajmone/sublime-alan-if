@@ -1,5 +1,12 @@
 # CHANGELOG
 
+### 2021-06-07
+
+To prevent clashes with the [Alan Programming Language] by [Alan Technologies, Inc] (see [Issue #5]):
+
+- The repository was renamed from `sublime-alan` to `sublime-alan-if`.
+- The package was renamed from "Alan" to "Alan IF".
+
 ### 2021-05-05
 
 Adopt new official Alan extensions: `.a3s` for solutions, and `.a3t` for transcripts (See [alan-if/alan#2]), but preserve the old custom extensions `.a3sol` and `.a3log` for a grace period, to allow projects that are using them to migrate to the new extensions.
@@ -430,6 +437,12 @@ Adopt new official Alan extensions: `.a3s` for solutions, and `.a3t` for transcr
 [TODO]: ./TODO.md "View the TODOs-list file"
 [WORK_NOTES]: ./WORK_NOTES.md "View my working notes file"
 
+<!-- Alan Technologies, Inc -->
+
+[Alan Technologies, Inc]: https://github.com/alantech "View Alan Technologies' GitHub profile"
+[Alan Programming Language]: https://alan-lang.org "Visit Alan Programming Language's website"
+[alantech/alan/#548]: https://github.com/alantech/alan/issues/548 "View #548 at alantech/alan — Name Clashes with ALAN IF Language"
+[alantech/alan/#257]: https://github.com/alantech/alan/issues/257 "View #257 at alantech/alan — Implement Syntax Highlighting on browser and most used text editors"
 
 <!-- TEST FILES -------------------------------------------------------------->
 
@@ -501,5 +514,7 @@ Adopt new official Alan extensions: `.a3s` for solutions, and `.a3t` for transcr
 <!-- Issues ------------------------------------------------------------------>
 
 [alan-if/alan#2]: https://github.com/alan-if/alan/issues/2
+
+[Issue #5]: https://github.com/tajmone/sublime-alan/issues/5 "#5 — Rename Repository to Prevent Clashes with Alan Tech's 'Alan' Lang"
 
 <!-- EOF -->

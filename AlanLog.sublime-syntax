@@ -8,7 +8,7 @@
 # -- https://www.alanif.se
 # ------------------------------------------------------------------------------
 # Copyright (c) Tristano Ajmone, 2018. MIT License.
-# -- https://github.com/tajmone/sublime-alan
+# -- https://github.com/tajmone/sublime-alan-if
 # ------------------------------------------------------------------------------
 name:      AlanLog
 comment:   Colors Alan build sytems error report

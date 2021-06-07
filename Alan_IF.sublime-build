@@ -27,7 +27,7 @@
   // ===========================================================================
 
   // Syntax Highlight the Compiler Log (WIP experimental feature):
-  "syntax": "Packages/Alan/AlanLog.sublime-syntax",
+  "syntax": "Packages/Alan_IF/AlanLog.sublime-syntax",
   // ===========================================================================
   //                           Build System Variants
   // ===========================================================================

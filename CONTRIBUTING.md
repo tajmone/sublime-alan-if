@@ -82,7 +82,7 @@ The hook installer and uninstaller scripts are designed to coexist with other pr
                                REFERENCE LINKS
 ------------------------------------------------------------------------------>
 
-[Sublime Alan]: https://github.com/tajmone/sublime-alan "Visit the Sublime Alan repository"
+[Sublime Alan]: https://github.com/tajmone/sublime-alan-if "Visit the Sublime Alan repository"
 
 [Git hook]: https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks "Learn more about Git hooks"
 
@@ -104,7 +104,7 @@ The hook installer and uninstaller scripts are designed to coexist with other pr
 
 <!-- repo links -->
 
-[Issues]: https://github.com/tajmone/sublime-alan/issues "View the current repository Issues or submit a new Issue"
-[Discussions]: https://github.com/tajmone/sublime-alan/discussions "Visit the Discussions area of Sublime Alan"
+[Issues]: https://github.com/tajmone/sublime-alan-if/issues "View the current repository Issues or submit a new Issue"
+[Discussions]: https://github.com/tajmone/sublime-alan-if/discussions "Visit the Discussions area of Sublime Alan"
 
 <!-- EOF -->

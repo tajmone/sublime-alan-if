@@ -9,7 +9,11 @@
 
 Alan IF 3 syntax for Sublime Text 3.
 
-- https://github.com/tajmone/sublime-alan
+- https://github.com/tajmone/sublime-alan-if
+
+> **IMPORTANT CHANGES!!!** — Both the repository and package were renamed, [click here to read about the required actions you should take](#important-changes).
+
+<!-- separator -->
 
 > __ALPHA STAGE__ — This project is still a WIP Alpha version! Most features are still experimental and subject to continuos changes. Screenshots and descriptions might not always accurately represent the latest changes.
 
@@ -38,6 +42,8 @@ The following document isn't always updated to cover all the added features, it'
 - [Installation](#installation)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
+- [IMPORTANT CHANGES!!!](#important-changes)
+    - [Package and Repository Renamed](#package-and-repository-renamed)
 - [Links](#links)
 
 <!-- /MarkdownTOC -->
@@ -373,13 +379,13 @@ This package is being developed using the latests [ST3 Dev Builds], but now that
 
 # Installation
 
-Create an "`Alan`" folder inside "`<data_path>/Packages/`", open a shell inside "`<data_path>/Packages/Alan/`" and type:
+Create an "`Alan_IF`" folder inside "`<data_path>/Packages/`", open a shell inside "`<data_path>/Packages/Alan_IF/`" and type:
 
 ```
-git clone https://github.com/tajmone/sublime-alan .
+git clone https://github.com/tajmone/sublime-alan-if .
 ```
 
-Don't forget the "`.`" after the repository URL! it's needed in order to clone the repository contents directly into the current folder, without creating a "`sublime-alan`" container folder.
+Don't forget the "`.`" after the repository URL! it's needed in order to clone the repository contents directly into the current folder, without creating a "`sublime-alan-if`" container folder.
 
 
 # License
@@ -390,7 +396,7 @@ Don't forget the "`.`" after the repository URL! it's needed in order to clone t
 MIT License
 
 Copyright (c) 2018 Tristano Ajmone
-https://github.com/tajmone/sublime-alan
+https://github.com/tajmone/sublime-alan-if
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -426,6 +432,25 @@ I'd also like to express my gratitude to the authors of invaluable guidelines an
 - [Daniel Spiewak] (@djspiewak) for his _[Stateful Chaining]_ guidelines.
 - [Thomas Smith][Thom Smith GH] for his _[Use the Stack]_ guidelines.
 
+-------------------------------------------------------------------------------
+
+# IMPORTANT CHANGES!!!
+
+## Package and Repository Renamed
+
+**June 7, 2021** — The repository was renamed from `sublime-alan` to `sublime-alan-if` to prevent clashes with the [Alan Programming Language] by [Alan Technologies, Inc] (see [alantech/alan/#548]).
+
+Furthermore, the package was renamed from "Alan" to "Alan IF" to prevent conflicts in case a user would install both Alan IF and the Alan language by Alan Technologies, since they are planning to create a Sublime Text package in the future (see [alantech/alan/#257]).
+
+Due to these changes, you should take the following action:
+
+1. Update the Git remote of your local repository to point to the new repository URL:
+
+    https://github.com/tajmone/sublime-alan-if
+
+2. Rename the `<data_path>/Packages/Alan/` folder to `<data_path>/Packages/Alan_IF/`.
+
+-------------------------------------------------------------------------------
 
 # Links
 
@@ -469,6 +494,13 @@ Alan IF links:
 [Stateful Chaining]: https://github.com/sublimehq/Packages/issues/757#issuecomment-269031562
 
 [Use the Stack]: https://github.com/sublimehq/Packages/issues/757#issuecomment-287193733
+
+<!-- Alan Technologies, Inc -->
+
+[Alan Technologies, Inc]: https://github.com/alantech "View Alan Technologies' GitHub profile"
+[Alan Programming Language]: https://alan-lang.org "Visit Alan Programming Language's website"
+[alantech/alan/#548]: https://github.com/alantech/alan/issues/548 "View #548 at alantech/alan — Name Clashes with ALAN IF Language"
+[alantech/alan/#257]: https://github.com/alantech/alan/issues/257 "View #257 at alantech/alan — Implement Syntax Highlighting on browser and most used text editors"
 
 <!-- external references ----------------------------------------------------->
 
@@ -529,8 +561,8 @@ Alan IF links:
 [Package badge]: https://img.shields.io/badge/status-WIP-orange "Sublime Alan is currently in Alpha stage"
 [ST3 badge]: https://img.shields.io/badge/ST3-3210-yellow "Supported Sublime Text 3 version (click for Sublime Text 3 download page)"
 [ST3 link]: https://www.sublimetext.com/3
-[Travis badge]: https://travis-ci.com/tajmone/sublime-alan.svg?branch=master
-[Travis link]: https://travis-ci.com/tajmone/sublime-alan "Travis CI: EditorConfig validation status"
+[Travis badge]: https://travis-ci.com/tajmone/sublime-alan-if.svg?branch=master
+[Travis link]: https://travis-ci.com/tajmone/sublime-alan-if "Travis CI: EditorConfig validation status"
 
 <!-- Issues ------------------------------------------------------------------>
 

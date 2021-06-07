@@ -1,7 +1,7 @@
-#############################################
-#  Alan IF 3 Syntax for Sublime Text 3      #
-#  https://github.com/tajmone/sublime-alan  #
-#############################################
+################################################
+#  Alan IF 3 Syntax for Sublime Text 3         #
+#  https://github.com/tajmone/sublime-alan-if  #
+################################################
 
 dist: trusty
 
