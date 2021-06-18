@@ -1,5 +1,14 @@
 # CHANGELOG
 
+### 2021-06-19
+
+Add upcoming Alan v3 beta8 features:
+
+- Alan IF Syntax:
+    + Implemented block comments.
+    + Rename `Comments.tmPreferences` to `Alan IF Comments.tmPreferences`.
+    + Assign to <kbd>Ctrl</kbd><kbd>Shiftl</kbd><kbd>/</kbd> block comments.
+
 ### 2021-06-07 (4)
 
 - Renamed all syntax files by replacing underscores with spaces:

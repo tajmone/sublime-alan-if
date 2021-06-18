@@ -89,7 +89,6 @@ Alan syntax has been optimized to enable support of code ligatures. The followin
 | `==`  | `⩵`      | String identity operator                 |
 | `=>`  | `⇒`      | Alternative syntax for `THEN` (in Rules) |
 
-Furthermore, the syntax also treats `-->` as a comment delimiter, in order to support _long rightward arrow_ ligature (`⟶`) substitution of the delimiter (_experimental feature_):
 
 ![Screenshot of ligatures][Screenshot Ligatures]
 
@@ -554,7 +553,7 @@ Alan IF links:
 
 <!-- badges ------------------------------------------------------------------>
 
-[Alan badge]: https://img.shields.io/badge/Alan-3.0Beta6-yellow "Supported Alan version (click for Alan download page)"
+[Alan badge]: https://img.shields.io/badge/Alan-3.0Beta8-yellow "Supported Alan version (click for Alan download page)"
 [License badge]: https://img.shields.io/badge/License-MIT-blue
 [Package badge]: https://img.shields.io/badge/status-WIP-orange "Sublime Alan is currently in Alpha stage"
 [ST3 badge]: https://img.shields.io/badge/ST3-3210-yellow "Supported Sublime Text 3 version (click for Sublime Text 3 download page)"

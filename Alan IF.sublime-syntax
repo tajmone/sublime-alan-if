@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# "Alan IF.sublime-syntax" v0.0.30 (2019-01-16) | Alan v3 beta6
+# "Alan IF.sublime-syntax" v0.0.31 (2021-06-19) | Alan v3 beta8
 # ==============================================================================
 #                                  Alan Syntax
 # ==============================================================================
@@ -518,20 +518,32 @@ contexts:
   # COMMENTS
   ##########
   comments:
+    - include: line-comment
+    - include: block-comment
+
+  line-comment:
     - meta_include_prototype: false
     - match: '(--)(.*)$\n?'
       scope: comment.line.double-dash.alan
       captures:
         1: punctuation.definition.comment.line.double-dash.alan
+        2: meta.line.comment.content.alan
 
-  # ----------------------------------------
-  # EXPERIMENTAL COMMENT DELIMITER (REMOVED)
-  # ----------------------------------------
-  # This alternative comment definition allows the '-->' ligature:
-  #   - match: '(-->?)(.*)$\n?'
-  # It's nicer to look at, but it would scope the '>' as part of 'punctuation'
-  # and could interfere with some plugins. Although visually it would be almost
-  # certainly what the unser intended.
+  block-comment:
+    - meta_include_prototype: false
+    - match: '^(/{4})(.*)$\n?'
+      scope: meta.block.comment.alan
+      captures:
+        1: punctuation.definition.comment.block.begin.alan
+        2: comment.block.content.alan
+      set:
+        - meta_content_scope: meta.block.comment.alan
+                              comment.block.content.alan
+        - match: '^(/{4,})$\n?'
+          captures:
+            1:  meta.block.comment.alan
+                punctuation.definition.comment.block.end.alan
+          pop: true
 
   ######################
   # SPECIAL STRING CHARS

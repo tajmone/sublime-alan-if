@@ -1,0 +1,45 @@
+! SYNTAX TEST "Packages/Alan_IF/Alan IF.sublime-syntax"
+
+-- Single-line comment
+!<-                      punctuation.definition.comment.line.double-dash
+!^                       punctuation.definition.comment.line.double-dash
+! ^                     -punctuation.definition.comment.line.double-dash
+!^^^^^^^^^^^^^^^^^^^^^   comment.line.double-dash
+! ^^^^^^^^^^^^^^^^^^^^   meta.line.comment.content
+!^                      -meta.line.comment.content
+
+
+////
+!<-  meta.block.comment
+!^^^ meta.block.comment
+!<-  punctuation.definition.comment.block.begin
+!^^^ punctuation.definition.comment.block.begin
+
+block comment
+!^^^^^^^^^^^^ comment.block.content
+!^^^^^^^^^^^^ meta.block.comment
+
+////
+!<-  punctuation.definition.comment.block.end
+!^^^ punctuation.definition.comment.block.end
+!<-  meta.block.comment
+!^^^ meta.block.comment
+
+
+//// Some text ////
+!<-                   punctuation.definition.comment.block.begin
+!^^^                  punctuation.definition.comment.block.begin
+!^^^                 -comment.block.content
+!<-                   meta.block.comment
+!^^^^^^^^^^^^^^^^^^   meta.block.comment
+!   ^^^^^^^^^^^^^^^   comment.block.content
+
+//// not end!
+!^^^^^^^^^^^^  comment.block.content
+!^^^^^^^^^^^^  meta.block.comment
+!^^^          -punctuation.definition.comment.block.end
+
+///////////////////
+!^^^^^^^^^^^^^^^^^^  meta.block.comment
+!^^^^^^^^^^^^^^^^^^  punctuation.definition.comment.block.end
+!^^^^^^^^^^^^^^^^^^ -comment.block.content
