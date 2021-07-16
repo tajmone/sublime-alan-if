@@ -1,5 +1,5 @@
 <!--
-	Alan Boilerplate v0.0.1 (2018/05/04) ) | Alan v3 beta6
+	Alan Boilerplate v0.0.2 (2021/07/16) | Alan v3 beta7
 	A barebones template for Alan code -->
 <snippet>
 	<content><![CDATA[
@@ -7,9 +7,9 @@
 -- "${1}" by ${2:$ALAN_AUTHOR}
 --==============================================================================
 
-THE ${3:start_loc} IsA LOCATION
+The ${3:start_loc} IsA location
 	$0
-END THE ${3}.
+End the ${3}.
 
 
 Start at ${3}.

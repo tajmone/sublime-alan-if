@@ -1,5 +1,5 @@
 /*
-2018/10/21 | Alan v3 beta6
+2021/07/16 | Alan v3 beta7
 =========================
 Anywhere Auto-Completions
 =========================
@@ -17,11 +17,11 @@ context.
     /***********************************************************************
     *                        TEXT FORMATTING STYLES                        *
     ***********************************************************************/
-    { "trigger": "styalert\tSTYLE ALERT",      "contents": "STYLE ALERT." },
-    { "trigger": "styem\tSTYLE EMPHASIZED",    "contents": "STYLE EMPHASIZED." },
-    { "trigger": "stynorm\tSTYLE NORMAL",      "contents": "STYLE NORMAL." },
-    { "trigger": "stypre\tSTYLE PREFORMATTED", "contents": "STYLE PREFORMATTED." },
-    { "trigger": "styquote\tSTYLE QUOTE",      "contents": "STYLE QUOTE." },
+    { "trigger": "styalert\tSTYLE ALERT",      "contents": "Style alert." },
+    { "trigger": "styem\tSTYLE EMPHASIZED",    "contents": "Style emphasized." },
+    { "trigger": "stynorm\tSTYLE NORMAL",      "contents": "Style normal." },
+    { "trigger": "stypre\tSTYLE PREFORMATTED", "contents": "Style preformatted." },
+    { "trigger": "styquote\tSTYLE QUOTE",      "contents": "Style quote." },
   ]
 }
 

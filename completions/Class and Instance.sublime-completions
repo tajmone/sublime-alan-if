@@ -1,5 +1,5 @@
 /*
-Alan v3 beta6 |         2018/12/17
+2021/07/16 | Alan v3 beta7
 ==================================
 Class & Instances Auto-Completions
 ==================================
@@ -14,64 +14,64 @@ Class & Instances Auto-Completions
     // ONE-LINE ATTRIBUTES
     // ---------------------------------------------------------------------
     // Boolean : (IS|ARE|HAS|CAN)[NOT] ID.
-    { "trigger": "isbool\tIS boolean_attr.", "contents": "IS ${1:attr_ID}.\n" },
-    { "trigger": "isntbool\tIS NOT boolean_attr.", "contents": "IS NOT ${1:attr_ID}.\n" },
-    { "trigger": "canbool\tHAS boolean_attr.", "contents": "HAS ${1:attr_ID}.\n" },
-    { "trigger": "cantbool\tHAS NOT boolean_attr.", "contents": "HAS NOT ${1:attr_ID}.\n" },
+    { "trigger": "isbool\tIS boolean_attr.", "contents": "Is ${1:attr_ID}.\n" },
+    { "trigger": "isntbool\tIS NOT boolean_attr.", "contents": "Is not ${1:attr_ID}.\n" },
+    { "trigger": "canbool\tHAS boolean_attr.", "contents": "Has ${1:attr_ID}.\n" },
+    { "trigger": "cantbool\tHAS NOT boolean_attr.", "contents": "Has not ${1:attr_ID}.\n" },
 
     // Numeric : (IS|ARE|HAS|CAN) ID INT.
-    { "trigger": "hasnum\tHAS Numeric Attr.", "contents": "HAS ${1:attr_ID} ${2:1}.\n" },
+    { "trigger": "hasnum\tHAS Numeric Attr.", "contents": "Has ${1:attr_ID} ${2:1}.\n" },
 
     // String  : (IS|ARE|HAS|CAN) ID STRING.
-    { "trigger": "hasstr\tHAS String Attr.", "contents": "HAS ${1:attr_ID} \"${2:STRING}\".\n" },
+    { "trigger": "hasstr\tHAS String Attr.", "contents": "Has ${1:attr_ID} \"${2:STRING}\".\n" },
 
     // Event :   (IS|ARE|HAS|CAN) ID ID.
-    { "trigger": "hasevent\tHAS Event Attr.", "contents": "HAS ${1:attr_ID} ${2:event_ID}.\n" },
+    { "trigger": "hasevent\tHAS Event Attr.", "contents": "Has ${1:attr_ID} ${2:event_ID}.\n" },
 
     // Instance: (IS|ARE|HAS|CAN) ID ID.
-    { "trigger": "hasinstance\tHAS Instance Attr.", "contents": "HAS ${1:attr_ID} ${2:instance_ID}.\n" },
+    { "trigger": "hasinstance\tHAS Instance Attr.", "contents": "Has ${1:attr_ID} ${2:instance_ID}.\n" },
 
     // Set     : (IS|ARE|HAS|CAN) ID { MEMBERS }.
-    { "trigger": "hasset\tHAS Set Attr. (1 element)", "contents": "HAS ${1:attr_ID} {${2:member}}.\n" },
-    { "trigger": "hasset2\tHAS Set Attr. (2 elements)", "contents": "HAS ${1:attr_ID} {${2:member1}, ${3:member2}}.\n" },
-    { "trigger": "hasset3\tHAS Set Attr. (3 elements)", "contents": "HAS ${1:attr_ID} {${2:member1}, ${3:member2}, ${4:member3}}.\n" },
+    { "trigger": "hasset\tHAS Set Attr. (1 element)", "contents": "Has ${1:attr_ID} {${2:member}}.\n" },
+    { "trigger": "hasset2\tHAS Set Attr. (2 elements)", "contents": "Has ${1:attr_ID} {${2:member1}, ${3:member2}}.\n" },
+    { "trigger": "hasset3\tHAS Set Attr. (3 elements)", "contents": "Has ${1:attr_ID} {${2:member1}, ${3:member2}, ${4:member3}}.\n" },
     // ---------------------------------------------------------------------
     // NESTED ATTRIBUTES
     // ---------------------------------------------------------------------
     // Boolean : [NOT] ID.
     // { "trigger": "is\tBoolean Attribute", "contents": "${1:attr_ID}.\n" },
-    { "trigger": "not\tNOT boolean_attr", "contents": "NOT ${1:attr_ID}.\n" },
-    // { "trigger": "canbool\tHAS boolean_attr.", "contents": "HAS ${1:attr_ID}.\n" },
-    // { "trigger": "cantbool\tHAS NOT boolean_attr.", "contents": "HAS ${1:attr_ID}.\n" },
+    { "trigger": "not\tNOT boolean_attr", "contents": "Not ${1:attr_ID}.\n" },
+    // { "trigger": "canbool\tHAS boolean_attr.", "contents": "Has ${1:attr_ID}.\n" },
+    // { "trigger": "cantbool\tHAS NOT boolean_attr.", "contents": "Has ${1:attr_ID}.\n" },
     // ---------------------------------------------------------------------
     // EXPERIMENTAL...
     // ---------------------------------------------------------------------
-    // { "trigger": "is\tIS + Newline + attr_ID.", "contents": "IS\n\t${1:attr_ID}.\n\t" },
-    // { "trigger": "isnot\tIS + Newline + NOT attr_ID.", "contents": "IS\n\tNOT ${1:attr_ID}.\n\t" },
-    { "trigger": "isblock\tIS + Newline + attr_ID.", "contents": "IS\n\t${1:attr_ID}.\n\t" },
-    { "trigger": "isblocknot\tIS + Newline + NOT attr_ID.", "contents": "IS\n\tNOT ${1:attr_ID}.\n\t" },
+    // { "trigger": "is\tIS + Newline + attr_ID.", "contents": "Is\n\t${1:attr_ID}.\n\t" },
+    // { "trigger": "isnot\tIS + Newline + NOT attr_ID.", "contents": "Is\n\tNot ${1:attr_ID}.\n\t" },
+    { "trigger": "isblock\tIS + Newline + attr_ID.", "contents": "Is\n\t${1:attr_ID}.\n\t" },
+    { "trigger": "isblocknot\tIS + Newline + NOT attr_ID.", "contents": "Is\n\tNot ${1:attr_ID}.\n\t" },
     /***********************************************************************
     *                               VARIOUS                                *
     ***********************************************************************/
-    { "trigger": "desc\tDESCRIPTION", "contents": "DESCRIPTION \"${1}\"\n" },
-    { "trigger": "opq\tOPAQUE CONTAINER", "contents": "OPAQUE CONTAINER\n" },
-    { "trigger": "cont\tCONTAINER", "contents": "CONTAINER\n" },
-    { "trigger": "nam\tNAME", "contents": "NAME ${1}.\n" },
-    { "trigger": "men\tMENTIONED", "contents": "MENTIONED \"${1}\"\n" },
-    { "trigger": "xit\tEXIT", "contents": "EXIT ${1} TO ${2}.\n" },
+    { "trigger": "desc\tDESCRIPTION", "contents": "Description \"${1}\"\n" },
+    { "trigger": "opq\tOPAQUE CONTAINER", "contents": "Opaque container\n" },
+    { "trigger": "cont\tCONTAINER", "contents": "Container\n" },
+    { "trigger": "nam\tNAME", "contents": "Name ${1}.\n" },
+    { "trigger": "men\tMENTIONED", "contents": "Mentioned \"${1}\"\n" },
+    { "trigger": "xit\tEXIT", "contents": "Exit ${1} to ${2}.\n" },
     // ---------------------------------------------------------------------
     // StdLib 2.1 Attributes
     // ---------------------------------------------------------------------
-    { "trigger": "hex\tHAS ex", "contents": "HAS ex \"${1}\".\n" },
+    { "trigger": "hex\tHAS ex", "contents": "Has ex \"${1}\".\n" },
     // ---------------------------------------------------------------------
     // ARITCLES AND FORM
     // ---------------------------------------------------------------------
-    { "trigger": "defart\tDEFINITE ARTICLE",   "contents": "DEFINITE ARTICLE \"${1}\"\n" },
-    { "trigger": "indart\tINDEFINITE ARTICLE", "contents": "INDEFINITE ARTICLE \"${1}\"\n" },
-    { "trigger": "negart\tNEGATIVE ARTICLE",   "contents": "NEGATIVE ARTICLE \"${1}\"\n" },
-    { "trigger": "deffor\tDEFINITE FORM",      "contents": "DEFINITE FORM \"${1}\"\n" },
-    { "trigger": "indfor\tINDEFINITE FORM",    "contents": "INDEFINITE FORM \"${1}\"\n" },
-    { "trigger": "negfor\tNEGATIVE FORM",      "contents": "NEGATIVE FORM \"${1}\"\n" },
+    { "trigger": "defart\tDEFINITE ARTICLE",   "contents": "Definite article \"${1}\"\n" },
+    { "trigger": "indart\tINDEFINITE ARTICLE", "contents": "Indefinite article \"${1}\"\n" },
+    { "trigger": "negart\tNEGATIVE ARTICLE",   "contents": "Negative article \"${1}\"\n" },
+    { "trigger": "deffor\tDEFINITE FORM",      "contents": "Definite form \"${1}\"\n" },
+    { "trigger": "indfor\tINDEFINITE FORM",    "contents": "Indefinite form \"${1}\"\n" },
+    { "trigger": "negfor\tNEGATIVE FORM",      "contents": "Negative form \"${1}\"\n" },
 
   ]
 }
@@ -79,5 +79,5 @@ Class & Instances Auto-Completions
 /*
     { "trigger": "xxx\t", "contents": "xxx" },
     { "trigger": "xxx\t", "contents": "XXX \"${1}\".\n" },
-    { "trigger": "xxx\t", "contents": "${1} ${2:xxx}.\n\tEND${0}." },
+    { "trigger": "xxx\t", "contents": "${1} ${2:xxx}.\n\tEnd${0}." },
 */

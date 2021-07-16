@@ -1,5 +1,5 @@
 /*
-2018/10/21 | Alan v3 beta6
+2021/07/16 | Alan v3 beta7
 ======================================
 Declarations Anywhere Auto-Completions
 ======================================
@@ -14,16 +14,16 @@ root level or inside classes and instances.
     *                          VERB DECLARATIONS                           *
     ***********************************************************************/
     { "trigger": "verb\tVERB",
-      "contents": "VERB ${1:verb_ID}\n\t${0}\nEND VERB ${1}." },
+      "contents": "Verb ${1:verb_ID}\n\t${0}\nEnd verb ${1}." },
 
     { "trigger": "verbmulti\tVERB multi ID",
-      "contents": "VERB ${1:verb_ID1}, ${2:verb_ID2}\n\t${0}\nEND VERB ${1}." },
+      "contents": "Verb ${1:verb_ID1}, ${2:verb_ID2}\n\t${0}\nEnd verb ${1}." },
 
     { "trigger": "metaverb\tVERB META",
-      "contents": "META VERB ${1:verb_ID}\n\t${0}\nEND VERB ${1}." },
+      "contents": "Meta verb ${1:verb_ID}\n\t${0}\nEnd verb ${1}." },
 
     { "trigger": "metaverbmulti\tMETA VERB multi ID",
-      "contents": "META VERB ${1:verb_ID1}, ${2:verb_ID2}\n\t${0}\nEND VERB ${1}." },
+      "contents": "Meta verb ${1:verb_ID1}, ${2:verb_ID2}\n\t${0}\nEnd verb ${1}." },
   ]
 }
 

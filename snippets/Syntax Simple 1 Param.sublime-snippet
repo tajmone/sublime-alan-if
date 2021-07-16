@@ -1,11 +1,11 @@
 <!--
-	"Syntax Simple 1 Param.sublime-snippet" | 2019/10/16
+	"Syntax Simple 1 Param.sublime-snippet" | 2021/07/16
 	Simple Syntax (symmetrical) with single parameter -->
 <snippet>
 	<content><![CDATA[
-SYNTAX ${1:verb} = $1 (${2:obj})
-	WHERE $2 IsA ${3:object}
-		ELSE ${4}
+Syntax ${1:verb} = $1 (${2:obj})
+	Where $2 IsA ${3:object}
+		Else ${4}
 
 $0
 ]]></content>
