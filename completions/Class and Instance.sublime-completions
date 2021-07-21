@@ -47,9 +47,9 @@ Class & Instances Auto-Completions
     // EXPERIMENTAL...
     // ---------------------------------------------------------------------
     // { "trigger": "is\tIS + Newline + attr_ID.", "contents": "Is\n\t${1:attr_ID}.\n\t" },
-    // { "trigger": "isnot\tIS + Newline + NOT attr_ID.", "contents": "Is\n\tNot ${1:attr_ID}.\n\t" },
+    // { "trigger": "isnot\tIS + Newline + NOT attr_ID.", "contents": "Is\n\tnot ${1:attr_ID}.\n\t" },
     { "trigger": "isblock\tIS + Newline + attr_ID.", "contents": "Is\n\t${1:attr_ID}.\n\t" },
-    { "trigger": "isblocknot\tIS + Newline + NOT attr_ID.", "contents": "Is\n\tNot ${1:attr_ID}.\n\t" },
+    { "trigger": "isblocknot\tIS + Newline + NOT attr_ID.", "contents": "Is\n\tnot ${1:attr_ID}.\n\t" },
     /***********************************************************************
     *                               VARIOUS                                *
     ***********************************************************************/

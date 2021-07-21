@@ -8,11 +8,11 @@ Global Level Auto-Completions
   "scope": "source.alan - meta",
   "completions":
   [
-    { "trigger": "class\tClass Declaration",    "contents": "EVERY ${1:class_name} IsA ${2:class_inheritance}.\n\t${0}\nEND EVERY ${1}." },
-    { "trigger": "addition\tClass Addition",    "contents": "ADD TO EVERY ${1:class_name}\n\t${0}\nEND ADD TO ${1}." },
-    { "trigger": "instance\tInstance Declaration",  "contents": "THE ${1:instance_name} IsA ${2:class_inheritance}.\n\t${0}\nEND THE ${1}." },
-    { "trigger": "instanceat\tInstance AT Location Declaration",  "contents": "THE ${1:instance_name} IsA ${2:class_inheritance} AT ${3:location_name}.\n\t${0}\nEND THE ${1}." },
-    { "trigger": "instancein\tInstance IN Container Declaration",  "contents": "THE ${1:instance_name} IsA ${2:class_inheritance} IN ${3:container_name}.\n\t${0}\nEND THE ${1}." },
+    { "trigger": "class\tClass Declaration",    "contents": "Every ${1:class_name} IsA ${2:class_inheritance}.\n\t${0}\nEnd every ${1}." },
+    { "trigger": "addition\tClass Addition",    "contents": "Add to every ${1:class_name}\n\t${0}\nEnd add to ${1}." },
+    { "trigger": "instance\tInstance Declaration",  "contents": "The ${1:instance_name} IsA ${2:class_inheritance}.\n\t${0}\nEnd the ${1}." },
+    { "trigger": "instanceat\tInstance AT Location Declaration",  "contents": "The ${1:instance_name} IsA ${2:class_inheritance} at ${3:location_name}.\n\t${0}\nEnd the ${1}." },
+    { "trigger": "instancein\tInstance IN Container Declaration",  "contents": "The ${1:instance_name} IsA ${2:class_inheritance} in ${3:container_name}.\n\t${0}\nEnd the ${1}." },
   ]
 }
 
