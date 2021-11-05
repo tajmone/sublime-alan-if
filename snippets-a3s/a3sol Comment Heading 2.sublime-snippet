@@ -1,12 +1,13 @@
 <!--
-	"a3s Comment Heading 2.sublime-snippet" | 2018/10/21
+	"a3s Comment Heading 2.sublime-snippet" | 2021/11/05
 	Alan Solution: Heading 2 Commented Frame
+	Width 78 columns, because transcripts add '> '.
 -->
 <snippet>
 	<content><![CDATA[
-; ------------------------------------------------------------------------------
+; ----------------------------------------------------------------------------
 ; ${1:$TM_SELECTED_TEXT}
-; ------------------------------------------------------------------------------
+; ----------------------------------------------------------------------------
 ${0}
 ]]></content>
 	<description>Heading 2 Commented Frame</description>
